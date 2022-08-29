@@ -1,88 +1,103 @@
 function onLoad()
     -- Create buttons for different mission setups
     self.createButton(
-        {click_function='setupMission1', function_owner=Global, label='MISSION 1:\n NEW DARKNESS, NEW FORTUNES',
-        position={-4.0 ,0.2 ,-6.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        {click_function='setupMission1', function_owner=Global, label='MISSION 1:\nNEW DARKNESS, NEW FORTUNES',
+        position={-0.1 ,0.01 ,-4.3}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 1:\nNEW DARKNESS, NEW FORTUNES'}
     )
 
     self.createButton(
-        {click_function='setupMission2', function_owner=Global, label='MISSION 2:\n UNEXPLORED OPPORTUNITIES',
-        position={4.0 ,0.2 ,-6.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        {click_function='setupMission2', function_owner=Global, label='MISSION 2:\nUNEXPLORED OPPORTUNITIES',
+        position={-5.1 , 0.01 , 0.0}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 2:\nUNEXPLORED OPPORTUNITIES'}
     )
 
     self.createButton(
-        {click_function='setupMission3', function_owner=Global, label='MISSION 3:\n THE GREAT UNKNOW',
-        position={-4.0 ,0.2 ,-3.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        {click_function='setupMission3', function_owner=Global, label='MISSION 3:\nTHE GREAT UNKNOW',
+        position={5.0 , 0.01 , 0.0}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 3:\nTHE GREAT UNKNOW'}
     )
 
     self.createButton(
-        {click_function='setupMission4', function_owner=Global, label='MISSION 4:\n SEARCH "N" RETRIEVE',
-        position={4.0 ,0.2 ,-3.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        {click_function='setupMission4', function_owner=Global, label='MISSION 4:\nSEARCH "N" RETRIEVE',
+        position={-5.1, 0.01 , 4.3}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0, 0.0},
+        tooltip='MISSION 4:\nSEARCH "N" RETRIEVE'}
     )
 
     self.createButton(
-        {click_function='setupMission5', function_owner=Global, label='MISSION 5:\n CIRCLE OF CARNAGE',
-        position={-4.0 ,0.2 , 0.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        {click_function='setupMission5', function_owner=Global, label='MISSION 5:\nCIRCLE OF CARNAGE',
+        position={5.0 ,0.01 , 4.3}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0, 0.0},
+        tooltip='MISSION 5:\nCIRCLE OF CARNAGE'}
     )
 
     self.createButton(
-        {click_function='setupMission6', function_owner=Global, label='MISSION 6:\n CAVE OF THE PRAETORIAN',
-        position={4.0 ,0.2 , 0.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        {click_function='setupMission6', function_owner=Global, label='MISSION 6:\nCAVE OF THE PRAETORIAN',
+        position={-5.1 , 0.01 , 8.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 6:\nCAVE OF THE PRAETORIAN'}
     )
 
     self.createButton(
-        {click_function='setupMission7', function_owner=Global, label='MISSION 7:\n HELLISH CORRIDOR',
-        position={-4.0 ,0.2 , 3.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        {click_function='setupMission7', function_owner=Global, label='MISSION 7:\nHELLISH CORRIDOR',
+        position={5.0 , 0.01 , 8.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 7:\nHELLISH CORRIDOR'}
     )
 
     self.createButton(
-        {click_function='setupMission8', function_owner=Global, label='MISSION 8:\n MORKITE MADNESS',
-        position={4.0 ,0.2 , 3.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        {click_function='setupMission8', function_owner=Global, label='MISSION 8:\nMORKITE MADNESS',
+        position={-5.1 , 0.01 , 9.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 8:\nMORKITE MADNESS'}
     )
 
     self.createButton(
-        {click_function='setupMission9', function_owner=Global, label='MISSION 9:\n POINT EXTRACTION',
-        position={-4.0 ,0.2 , 6.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        {click_function='setupMission9', function_owner=Global, label='MISSION 9:\nPOINT EXTRACTION',
+        position={5.0 , 0.01 , 9.7}, rotation={0,0,0},width=4850, height=500, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 9:\nPOINT EXTRACTION'}
     )
 
     self.createButton(
-        {click_function='setupMission10', function_owner=Global, label='MISSION 10:\n EGGS, EGGS, EGGS',
-        position={4.0 ,0.2 , 6.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        {click_function='setupMission10', function_owner=Global, label='MISSION 10:\nEGGS, EGGS, EGGS',
+        position={-5.1 , 0.01 , 10.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 10:\nEGGS, EGGS, EGGS'}
     )
 
     self.createButton(
-        {click_function='setupMission11', function_owner=Global, label='MISSION 11:\n PITS OF RICHES',
-        position={-4.0 ,0.2 , 9.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        {click_function='setupMission11', function_owner=Global, label='MISSION 11:\nPITS OF RICHES',
+        position={5.0 , 0.01 , 10.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 11:\nPITS OF RICHES'}
     )
 
     self.createButton(
-        {click_function='setupMission12', function_owner=Global, label='MISSION 12:\n THE DARK CAVES',
-        position={4.0 ,0.2 , 9.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        {click_function='setupMission12', function_owner=Global, label='MISSION 12:\nTHE DARK CAVES',
+        position={-5.1 , 0.01 , 11.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 12:\nTHE DARK CAVES'}
     )
 
     self.createButton(
-        {click_function='setupMission13', function_owner=Global, label='MISSION 13:\n BUG SANCTUARY',
-        position={-4.0 ,0.2 , 12.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        {click_function='setupMission13', function_owner=Global, label='MISSION 13:\nBUG SANCTUARY',
+        position={5.0 , 0.01 , 11.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 13:\nBUG SANCTUARY'}
     )
 
     self.createButton(
-        {click_function='setupMission14', function_owner=Global, label='MISSION 14:\n DEVIL`S FORK',
-        position={4.0 ,0.2 , 12.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        {click_function='setupMission14', function_owner=Global, label='MISSION 14:\nDEVIL`S FORK',
+        position={-0.1 , 0.01 , 12.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 14:\nDEVIL`S FORK'}
     )
+
 end
 
 -- Hides the board

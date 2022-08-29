@@ -4,7 +4,7 @@ function onLoad()
     --buttonBoard_GUID = '01209b'
     buttonBoard_GUID = '85eacf'
     buttonBoard = getObjectFromGUID(buttonBoard_GUID)
-    missionBoard_GUID = 'd8201c'
+    missionBoard_GUID = '6b3694' -- State 2 (Button State)
     missionBoard = getObjectFromGUID(missionBoard_GUID)
     engineerBoard_GUID = 'da9ffc'
     engineerBoard = getObjectFromGUID(engineerBoard_GUID)
@@ -192,6 +192,7 @@ function onLoad()
     --scoutBoard.rotate({0.0,0.0,0.0})
     scoutBoard.setLock(true)
 
+
 end
 
 function afterSpawnLock(spawnedObject)
@@ -204,78 +205,112 @@ end
 
 -- Calls to mission Setups
 function setupMission1()
+    -- Mission board variable assignment is set again here due to
+    -- cleanup script interfeering
+    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission1.call('setupMission1')
     buttonBoard.call('hideBoard')
+    missionBoard.setState(1)
 end
 
 function setupMission2()
+    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission2.call('setupMission2')
     buttonBoard.call('hideBoard')
+    missionBoard.setState(1)
 end
 
 function setupMission3()
+    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission3.call('setupMission3')
     buttonBoard.call('hideBoard')
+    missionBoard.setState(1)
 end
 
 function setupMission4()
+    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission4.call('setupMission4')
     buttonBoard.call('hideBoard')
+    missionBoard.setState(1)
 end
 
 function setupMission5()
+    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission5.call('setupMission5')
     buttonBoard.call('hideBoard')
+    missionBoard.setState(1)
 end
 
 function setupMission6()
+    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission6.call('setupMission6')
     buttonBoard.call('hideBoard')
+    missionBoard.setState(1)
 end
 
 function setupMission7()
+    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission7.call('setupMission7')
     buttonBoard.call('hideBoard')
+    missionBoard.setState(1)
 end
 
 function setupMission8()
+    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission8.call('setupMission8')
     buttonBoard.call('hideBoard')
+    missionBoard.setState(1)
 end
 
 function setupMission9()
+    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission9.call('setupMission9')
     buttonBoard.call('hideBoard')
+    missionBoard.setState(1)
 end
 
 function setupMission10()
+    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission10.call('setupMission10')
     buttonBoard.call('hideBoard')
+    missionBoard.setState(1)
 end
 
 function setupMission11()
+    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission11.call('setupMission11')
     buttonBoard.call('hideBoard')
+    missionBoard.setState(1)
 end
 
 function setupMission12()
+    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission12.call('setupMission12')
     buttonBoard.call('hideBoard')
+    missionBoard.setState(1)
 end
 
 function setupMission13()
+    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission13.call('setupMission13')
     buttonBoard.call('hideBoard')
+    missionBoard.setState(1)
 end
 
 function setupMission14()
+    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission14.call('setupMission14')
     buttonBoard.call('hideBoard')
+    missionBoard.setState(1)
 end
 
 -- Object getters
 function getButtonBoard()
     return buttonBoard
+end
+
+function getMissionBoard()
+    return missionBoard
 end
 
 function getCleanupZone()

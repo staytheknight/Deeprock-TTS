@@ -29,9 +29,11 @@ function confirmationButton()
 end
 
 function Cleanup()
+    -- TODO: Might need to move all the init variables to onLoad()
     self.clearButtons()
 
     local buttonBoard = Global.call('getButtonBoard')
+    local missionBoard = getObjectFromGUID('d8201c') -- Button board state 1 (no buttons)
 
     local miscBag = Global.call('getMiscTilesBag')
 
@@ -162,5 +164,6 @@ function Cleanup()
     cleanupButton()
     -- Resets the button board scale to be visible and useable
     buttonBoard.setScale({0.675,0.675,0.675})
+    missionBoard.setState(2)
 
 end
