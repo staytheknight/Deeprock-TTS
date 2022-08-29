@@ -1,0 +1,166 @@
+function onLoad()
+    cleanupButton()
+end
+
+function cleanupButton()
+    self.clearButtons()
+
+    self.createButton(
+        {click_function='confirmationButton', function_owner=self, label='Cleanup ?',
+        position={0.0 , 0.0 , 0.0}, rotation={0,0,0}, width=1000, height=700, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+end
+
+function confirmationButton()
+    self.clearButtons()
+
+    self.createButton(
+        {click_function='Cleanup', function_owner=self, label='Yes',
+        position={0.0 , 0.0 , -0.8}, rotation={0,0,0}, width=1000, height=700, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+
+    self.createButton(
+        {click_function='cleanupButton', function_owner=self, label='No',
+        position={0.0 , 0.0 , 0.8}, rotation={0,0,0}, width=1000, height=700, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+end
+
+function Cleanup()
+    self.clearButtons()
+
+    local buttonBoard = Global.call('getButtonBoard')
+
+    local miscBag = Global.call('getMiscTilesBag')
+
+    local caveBag = Global.call('getCaveBag')
+    local hiddenCaveBag = Global.call('getHiddenCaveBag')
+
+    local apocaBloomBag = Global.call('getApocaBloomBag')
+    local starchNutBag = Global.call('getStarchNutBag')
+    local fossilBag = Global.call('getFossilBag')
+    local redSugarBag = Global.call('getRedSugarBag')
+    local lootBugBag = Global.call('getLootBugBag')
+    local eggBag = Global.call('getEggBag')
+
+    local nitraBag = Global.call('getNitraBag')
+    local goldBag = Global.call('getGoldBag')
+    local morkiteBag = Global.call('getMorkiteBag')
+    local aquardBag = Global.call('getAquardBag')
+
+    local spitballerBag = Global.call('getSpitballerBag')
+    local broodNexusBag = Global.call('getbroodNexusBag')
+    local webspitterBag = Global.call('getWebSpitterBag')
+    local gruntBag = Global.call('getGruntBag')
+    local slasherBag = Global.call('getSlasherBag')
+    local exploderBag = Global.call('getExploderBag')
+    local macteraBag = Global.call('getMacteraBag')
+
+    -- local allObjects = getAllObjects()
+    local zone = Global.call('getCleanupZone')
+    local objectsInZone = zone.getObjects()
+
+    for _, object in ipairs(objectsInZone) do
+
+        -- TODO: Turn this into a k,v database
+        -- name / gm note of object ,,, where it goes back to
+
+        -- Cleanup Cave Segments
+        if object.getGMNotes() == "caveSeg" then
+            caveBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "HiddenCave" then
+            hiddenCaveBag.putObject(object)
+        end
+
+        -- Cleanup Exploration Tiles
+        if object.getGMNotes() == "ApocaBloom" then
+            apocaBloomBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "StarchNut" then
+            starchNutBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "Fossil" then
+            fossilBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "RedSugar" then
+            redSugarBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "LootBugs" then
+            lootBugBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "Eggs" then
+            eggBag.putObject(object)
+        end
+
+        -- Cleanup Minerals
+        if object.getName() == "Morkite" then
+            morkiteBag.putObject(object)
+        end
+
+        if object.getName() == "Nitra" then
+            nitraBag.putObject(object)
+        end
+
+        if object.getName() == "Gold" then
+            goldBag.putObject(object)
+        end
+
+        if object.getName() == "Aquarq" then
+            aquardBag.putObject(object)
+        end
+
+        -- Cleanup Glyphids
+        if object.getName() == "Grunt" then
+            gruntBag.putObject(object)
+        end
+
+        if object.getName() == "Brood Nexus" then
+            broodNexusBag.putObject(object)
+        end
+
+        if object.getName() == "Spitball Infector" then
+            spitballerBag.putObject(object)
+        end
+
+        if object.getName() == "Webspitter" then
+            webspitterBag.putObject(object)
+        end
+
+        if object.getName() == "Exploder" then
+            exploderBag.putObject(object)
+        end
+
+        if object.getName() == "Slasher" then
+            slasherBag.putObject(object)
+        end
+
+        if object.getName() == "Mactera Spawn" then
+            macteraBag.putObject(object)
+        end
+
+        -- Cleanup Stalagmite (destroy, since infinite bag, don't need to put back)
+        if object.getName() == "Stalagmite" then
+            object.destruct()
+        end
+
+        if object.getName() == "Drone" then
+            miscBag.putObject(object)
+        end
+
+    end
+
+    -- Puts the cleanup button back
+    cleanupButton()
+    -- Resets the button board scale to be visible and useable
+    buttonBoard.setScale({0.675,0.675,0.675})
+
+end

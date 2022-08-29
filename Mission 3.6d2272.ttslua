@@ -1,0 +1,166 @@
+-- Locations
+mission3Positions = {
+    stalagmites = {{4.40, 1.22, -1.71}},
+    broodNexus = {{4.95, 1.5, -2.66}},
+    spitBallers = {{0.55, 1.5, 1.15}},
+    explorationTiles = {{0.00, 2.0, 2.10},{4.41, 2.0, 0.20},{-2.75, 2.0, -1.39},
+    {-3.85, 2.0, -5.20}, {0.00, 2.0, -4.25}},
+    minerals = {{-4.95, 1.20, -0.75},{-4.40, 1.20, 0.20},{0.00, 1.20, 4.01},
+    {6.05, 1.20, -0.75},{5.50, 1.20, -3.61},{3.85, 1.20, -4.56},{0.55, 1.20, -6.47}},
+    hiddenCaveLoc1 = {{-2.20, 1.08, -1.71},{-3.30, 1.08, -1.71},{-2.75, 1.08, -0.75}},
+    hiddenCaveRot1 = {{0.00, 300.01, 0.00},{0.00, 60.00, 0.00},{0.00, 180.01, 0.00}},
+    hiddenCaveLoc2 = {{-3.30, 1.08, -5.51},{-4.40, 1.08, -5.52},{-3.85, 1.08, -4.56}},
+    hiddenCaveRot2 = {{0.00, 300.01, 0.00},{0.00, 59.99, 0.00},{0.00, 180.02, 0.00}},
+    hiddenCaveLoc3 = {{0.55, 1.08, -4.56},{-0.55, 1.08, -4.56},{0.00, 1.08, -3.61}},
+    hiddenCaveRot3 = {{0.00, 299.99, 0.00},{0.00, 59.98, 0.00},{0.00, 180.06, 0.00}}
+}
+
+function setupMission3()
+    local caveBag = Global.call('getCaveBag') -- need to call global function to get proper object ID
+
+    caveBag.takeObject({
+        position = {3.85, 1.23, 4.96},
+        rotation = {0.00, 179.99, 180.00},
+        guid = Global.call('getDropPodGUID'),
+        -- Lock tiles afer spawn
+        callback="afterSpawnLock", callback_owner=Global
+    })
+
+    caveBag.takeObject({
+        position = {1.10, 1.08, 2.11},
+        rotation = {0.00, 240.03, 0.00},
+        guid = Global.call('getCaveSeg2GUID'), -- Top (Increment Segment)
+        -- Lock tiles afer spawn
+        callback="afterSpawnLock", callback_owner=Global
+    })
+
+    caveBag.takeObject({
+        position = {4.40, 1.10, -1.71},
+        rotation = {0.00, 59.98, 0.00},
+        guid = Global.call('getCaveSeg1GUID'), -- Top Right (L Segment)
+        -- Lock tiles afer spawn
+        callback="afterSpawnLock", callback_owner=Global
+    })
+
+    caveBag.takeObject({
+        position = {1.10, 1.39, 2.10},
+        rotation = {0.00, 119.98, 180.00},
+        guid = Global.call('getHexPit5GUID'), -- 5 Hex Pit
+        -- Lock tiles afer spawn
+        callback="afterSpawnLock", callback_owner=Global
+    })
+
+    caveBag.takeObject({
+        position = {-1.10, 1.28, 2.11},
+        rotation = {0.0,180.0,0.0},
+        guid = Global.call('getCaveEntrance1GUID'),
+        -- Lock tiles afer spawn
+        callback="afterSpawnLock", callback_owner=Global
+    })
+
+    caveBag.takeObject({
+        position = {3.30, 1.27, 0.20},
+        rotation = {0.0,180.0,0.0},
+        guid = Global.call('getCaveEntrance2GUID'),
+        -- Lock tiles afer spawn
+        callback="afterSpawnLock", callback_owner=Global
+    })
+
+    -- Hidden cave segments
+    local hiddenCaveBag = Global.call('getHiddenCaveBag') -- need to call global function to get proper object ID
+    hiddenCaveBag.shuffle()
+
+    math.randomseed(os.time())
+    randomIndex = math.random(1,3)
+
+    hiddenCaveBag.takeObject({
+        position = mission3Positions.hiddenCaveLoc1[randomIndex],
+        rotation = mission3Positions.hiddenCaveRot1[randomIndex]
+    })
+
+    math.randomseed(os.time())
+    randomIndex = math.random(1,3)
+
+    hiddenCaveBag.takeObject({
+        position = mission3Positions.hiddenCaveLoc2[randomIndex],
+        rotation = mission3Positions.hiddenCaveRot2[randomIndex]
+    })
+
+    math.randomseed(os.time())
+    randomIndex = math.random(1,3)
+
+    hiddenCaveBag.takeObject({
+        position = mission3Positions.hiddenCaveLoc3[randomIndex],
+        rotation = mission3Positions.hiddenCaveRot3[randomIndex]
+    })
+
+
+    -- need to call global function to get proper object ID
+    local stalagmiteModelBag = Global.call('getStalagmiteModelBag')
+
+    -- Stalagmites
+    stalagmiteModelBag.takeObject({
+        position = mission3Positions.stalagmites[1],
+        -- rotation = -- ADD RANDOM
+    })
+
+    local broodNexusBag = Global.call('getbroodNexusBag')
+    local spitballerBag = Global.call('getSpitballerBag')
+
+    broodNexusBag.takeObject({
+        position = mission3Positions.broodNexus[1],
+        rotation = {0.0, 210.0, 0.0}
+    })
+
+    spitballerBag.takeObject({
+        position = mission3Positions.spitBallers[1],
+        rotation = {0.0, 150.0, 0.0}
+    })
+
+    -- Exploration Tokens
+    local explorationBag = Global.call('getExplorationBag') -- need to call global function to get proper object ID
+    local lootBugBag = Global.call('getLootBugBag')
+    local eggBag = Global.call('getEggBag')
+
+    explorationBag.putObject(lootBugBag.takeObject())
+
+    for i=1, 4 do
+        explorationBag.putObject(eggBag.takeObject())
+    end
+
+    -- Shuffling Exploration Tiles
+    explorationBag.shuffle()
+
+    -- Placing Exploration Tiles
+    for i=1, 5 do
+        explorationBag.takeObject({
+            position = mission3Positions.explorationTiles[i],
+            rotation = {0.0, 210, 180.0}
+        })
+    end
+
+    -- Mineral Placement
+    local mineralBag = Global.call('getMineralBag')
+    local nitraBag = Global.call('getNitraBag')
+    local goldBag = Global.call('getGoldBag')
+
+    -- Generating Mineral Bag
+    for i=1, 3 do
+        mineralBag.putObject(nitraBag.takeObject())
+    end
+
+    for i=1, 4 do
+        mineralBag.putObject(goldBag.takeObject())
+    end
+
+    -- Shuffling Minerals
+    mineralBag.shuffle()
+
+    -- Placing Minerals
+    for i=1, 7 do
+        mineralBag.takeObject({
+            position = mission3Positions.minerals[i]
+        })
+    end
+
+end

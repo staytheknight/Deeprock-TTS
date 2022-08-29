@@ -1,0 +1,93 @@
+function onLoad()
+    -- Create buttons for different mission setups
+    self.createButton(
+        {click_function='setupMission1', function_owner=Global, label='MISSION 1:\n NEW DARKNESS, NEW FORTUNES',
+        position={-4.0 ,0.2 ,-6.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+
+    self.createButton(
+        {click_function='setupMission2', function_owner=Global, label='MISSION 2:\n UNEXPLORED OPPORTUNITIES',
+        position={4.0 ,0.2 ,-6.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+
+    self.createButton(
+        {click_function='setupMission3', function_owner=Global, label='MISSION 3:\n THE GREAT UNKNOW',
+        position={-4.0 ,0.2 ,-3.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+
+    self.createButton(
+        {click_function='setupMission4', function_owner=Global, label='MISSION 4:\n SEARCH "N" RETRIEVE',
+        position={4.0 ,0.2 ,-3.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+
+    self.createButton(
+        {click_function='setupMission5', function_owner=Global, label='MISSION 5:\n CIRCLE OF CARNAGE',
+        position={-4.0 ,0.2 , 0.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+
+    self.createButton(
+        {click_function='setupMission6', function_owner=Global, label='MISSION 6:\n CAVE OF THE PRAETORIAN',
+        position={4.0 ,0.2 , 0.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+
+    self.createButton(
+        {click_function='setupMission7', function_owner=Global, label='MISSION 7:\n HELLISH CORRIDOR',
+        position={-4.0 ,0.2 , 3.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+
+    self.createButton(
+        {click_function='setupMission8', function_owner=Global, label='MISSION 8:\n MORKITE MADNESS',
+        position={4.0 ,0.2 , 3.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+
+    self.createButton(
+        {click_function='setupMission9', function_owner=Global, label='MISSION 9:\n POINT EXTRACTION',
+        position={-4.0 ,0.2 , 6.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+
+    self.createButton(
+        {click_function='setupMission10', function_owner=Global, label='MISSION 10:\n EGGS, EGGS, EGGS',
+        position={4.0 ,0.2 , 6.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+
+    self.createButton(
+        {click_function='setupMission11', function_owner=Global, label='MISSION 11:\n PITS OF RICHES',
+        position={-4.0 ,0.2 , 9.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+
+    self.createButton(
+        {click_function='setupMission12', function_owner=Global, label='MISSION 12:\n THE DARK CAVES',
+        position={4.0 ,0.2 , 9.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+
+    self.createButton(
+        {click_function='setupMission13', function_owner=Global, label='MISSION 13:\n BUG SANCTUARY',
+        position={-4.0 ,0.2 , 12.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+
+    self.createButton(
+        {click_function='setupMission14', function_owner=Global, label='MISSION 14:\n DEVIL`S FORK',
+        position={4.0 ,0.2 , 12.0}, rotation={0,0,0}, width=3000, height=1000, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+    )
+end
+
+-- Hides the board
+function hideBoard()
+    -- There is no toggle for interactable, so the hack is to set the
+    -- scale to 0, this effectively makes the board disappear
+    self.setScale{0.00, 0.00, 0.0}
+end
