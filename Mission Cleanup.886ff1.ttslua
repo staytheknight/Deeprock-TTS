@@ -235,6 +235,9 @@ function Cleanup()
 
     end
 
+    local swarmBlock = getObjectFromGUID('60a4ea')
+    swarmBlock.setPosition({-8.24, 1.4, -8.91})
+
     -- Brings the mission book back to the first page
     missionBook.Book.setPage(1)
 
