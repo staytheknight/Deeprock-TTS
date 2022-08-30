@@ -16,6 +16,8 @@ end
 function confirmationButton()
     self.clearButtons()
 
+    print("Place all objects on the playmat you wish to be returned to original positions before pressing confirm")
+
     self.createButton(
         {click_function='Cleanup', function_owner=self, label='Confirm',
         position={0.0 , 0.01 , -0.8}, rotation={0,0,0}, width=1000, height=700, font_size=200,
@@ -63,6 +65,9 @@ function Cleanup()
     local slasherBag = Global.call('getSlasherBag')
     local exploderBag = Global.call('getExploderBag')
     local macteraBag = Global.call('getMacteraBag')
+    local wardenBag = Global.call('getWardenBag')
+    local praetorianBag = Global.call('getPraetorianBag')
+    local opressorBag = Global.call('getOpressorBag')
 
     -- local allObjects = getAllObjects()
     local zone = Global.call('getCleanupZone')
@@ -153,13 +158,77 @@ function Cleanup()
             macteraBag.putObject(object)
         end
 
+        if object.getName() == "Warden" then
+            wardenBag.putObject(object)
+        end
+
+        if object.getName() == "Praetorian" then
+            praetorianBag.putObject(object)
+        end
+
+        if object.getName() == "Opressor" then
+            opressorBag.putObject(object)
+        end
+
         -- Cleanup Stalagmite (destroy, since infinite bag, don't need to put back)
         if object.getName() == "Stalagmite" then
             object.destruct()
         end
 
-        if object.getName() == "Drone" then
+
+        -- Misc Tiles
+        if object.getGMNotes() == "MiscToken" then
             miscBag.putObject(object)
+        end
+
+
+        -- Character stuff
+        if object.getName() == "Bosco" then
+            object.setPositonSmooth({{12.65, 0.96, -10.28}},true,false)
+        end
+
+        if object.getName() == "Resupply Pod" then
+            object.setPositon{8.25, 0.96, 10.68}
+        end
+
+        if object.getName() == "Engineer" then
+            object.setPosition({-0.55, 1.05, -14.09})
+        end
+
+        if object.getName() == "Sentry Gun" then
+            object.setPositionSmooth({-1.10, 1.10, -18.85},true,false)
+        end
+
+        if object.getName() == "Platform" then
+            object.setPositionSmooth({0.00, 1.06, -18.85},true,false)
+        end
+
+        if object.getName() == "Driller" then
+            object.setPosition{13.75, 1.05, -0.75}
+        end
+
+        if object.getName() == "Flame" then
+            object.setPositonSmooth({19.25, 1.06, -0.75},true,false)
+        end
+
+        if object.getName() == "Gunner" then
+            object.setPosition{0.55, 1.05, 14.49}
+        end
+
+        if object.getName() == "Shield" then
+            object.setPositon{1.10, 1.06, 19.25}
+        end
+
+        if object.getName() == "Zipline" then
+            object.setPositonSmooth({0.00, 1.03, 19.25},true,false)
+        end
+
+        if object.getName() == "Scout" then
+            object.setPositon{-14.30, 1.05, 0.20}
+        end
+
+        if object.getName() == "Flare" then
+            object.setPositonSmooth({-18.70, 1.06, 0.20},true,false)
         end
 
     end

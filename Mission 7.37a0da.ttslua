@@ -1,6 +1,6 @@
 -- Locations
 mission7Positions = {
-    stalagmites = {{-2.75, 2.0, 4.96},{-1.65, 2.0, 4.96},{4.40, 2.0, -1.70},{3.85, 2.0, -2.66}},
+    stalagmites = {{-2.75, 1.25, 4.96},{-1.65, 1.25, 4.96},{4.40, 1.25, -1.70},{3.85, 1.25, -2.66}},
     exploders = {{3.85, 1.6, -6.47}},
     broodNexus = {{5.50, 1.6, -1.71}},
     spitballer = {{-3.85, 1.6, 4.96}},
@@ -13,6 +13,8 @@ mission7Positions = {
 }
 
 function setupMission7()
+    print("Launching Mission 7: Hellish Corridor\nGood Luck Miners!")
+
     local caveBag = Global.call('getCaveBag') -- need to call global function to get proper object ID
 
     caveBag.takeObject({

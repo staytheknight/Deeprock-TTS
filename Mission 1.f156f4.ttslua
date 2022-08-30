@@ -1,7 +1,7 @@
 -- Locations
 mission1Positions = {
-    stalagmites = {{-1.65, 2.0, 1.15}, {-2.2, 2.0, 0.2}, {-3.85, 2.0, -4.56},
-    {-2.75, 2.0, -4.56}, {-2.2, 2.0, -5.52}},
+    stalagmites = {{-1.65, 1.25, 1.15}, {-2.2, 1.25, 0.2}, {-3.85, 1.25, -4.56},
+    {-2.75, 1.25, -4.56}, {-2.2, 1.25, -5.52}},
 
     grunts = {{0.0, 1.5, 0.20}, {-0.55, 1.5, -0.75}, {-1.1, 1.5, -1.71}},
 
@@ -15,6 +15,8 @@ mission1Positions = {
 
 -- Setup mission 1
 function setupMission1()
+    print("Launching Mission 1: New Darkness, New Fortunes\nGood Luck Miners!")
+
     local caveBag = Global.call('getCaveBag') -- need to call global function to get proper object ID
     caveBag.takeObject({
         position = {-4.95, 1.2, 1.15},
