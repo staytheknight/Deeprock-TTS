@@ -123,46 +123,46 @@ function onLoad()
     drone2_GUID = '204549'
 
     -- Missions
-    mission1_GUID = '590d36'
+    mission1_GUID = 'f156f4'
     mission1 = getObjectFromGUID(mission1_GUID)
 
-    mission2_GUID = 'a252cc'
+    mission2_GUID = '5a4b06'
     mission2 = getObjectFromGUID(mission2_GUID)
 
-    mission3_GUID = '6d2272'
+    mission3_GUID = 'c20188'
     mission3 = getObjectFromGUID(mission3_GUID)
 
-    mission4_GUID = '4955d5'
+    mission4_GUID = 'b16ee6'
     mission4 = getObjectFromGUID(mission4_GUID)
 
-    mission5_GUID = 'd73c76'
+    mission5_GUID = '227375'
     mission5 = getObjectFromGUID(mission5_GUID)
 
-    mission6_GUID = '0124c0'
+    mission6_GUID = 'ac2352'
     mission6 = getObjectFromGUID(mission6_GUID)
 
-    mission7_GUID = '381281'
+    mission7_GUID = '37a0da'
     mission7 = getObjectFromGUID(mission7_GUID)
 
-    mission8_GUID = 'e53caa'
+    mission8_GUID = 'e4cac0'
     mission8 = getObjectFromGUID(mission8_GUID)
 
-    mission9_GUID = 'd92371'
+    mission9_GUID = '53a03c'
     mission9 = getObjectFromGUID(mission9_GUID)
 
-    mission10_GUID = '7a4426'
+    mission10_GUID = '61fc53'
     mission10 = getObjectFromGUID(mission10_GUID)
 
-    mission11_GUID = 'e3cf53'
+    mission11_GUID = '0afc68'
     mission11 = getObjectFromGUID(mission11_GUID)
 
-    mission12_GUID = '3a38ba'
+    mission12_GUID = '1f2cad'
     mission12 = getObjectFromGUID(mission12_GUID)
 
-    mission13_GUID = 'eeb498'
+    mission13_GUID = '6e50fd'
     mission13 = getObjectFromGUID(mission13_GUID)
 
-    mission14_GUID = 'e8ca5a'
+    mission14_GUID = '03217b'
     mission14 = getObjectFromGUID(mission14_GUID)
 
     missionCleanup_GUID = '886ff1'
@@ -192,7 +192,7 @@ function onLoad()
     --scoutBoard.rotate({0.0,0.0,0.0})
     scoutBoard.setLock(true)
 
-    hideMissionTokens()
+    --hideMissionTokens()
 
 end
 
@@ -207,8 +207,7 @@ function hideMissionTokens()
     mission6, mission7, mission8, mission9, mission10, mission11,
     mission12, mission13, mission14}
     for i=1, 14 do
-        missionName[i].setScale({0.0,0.0,0.0})
-        missionName[i].setPosition{0.0,3000.0,0.0}
+        missionName[i].setScale{0.0,0.0,0.0}
     end
 
 end
