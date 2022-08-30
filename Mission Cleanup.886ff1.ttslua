@@ -16,7 +16,7 @@ end
 function confirmationButton()
     self.clearButtons()
 
-    print("Place all objects on the playmat you wish to be returned to original positions before pressing confirm")
+    print("Place all objects on the playmat you wish to be returned to original positions before pressing confirm\n")
 
     self.createButton(
         {click_function='Cleanup', function_owner=self, label='Confirm',
@@ -34,6 +34,8 @@ function confirmationButton()
 end
 
 function Cleanup()
+    print("Performing Cleanup\n")
+
     -- TODO: Might need to move all the init variables to onLoad()
     self.clearButtons()
 

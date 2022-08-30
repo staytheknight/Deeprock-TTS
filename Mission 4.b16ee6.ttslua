@@ -15,7 +15,7 @@ mission4Positions = {
 }
 
 function setupMission4()
-    print("Launching Mission 4: Search 'n' Retrieve\nGood Luck Miners!")
+    print("Launching Mission 4: Search 'n' Retrieve\nGood Luck Miners!\n")
 
     local caveBag = Global.call('getCaveBag') -- need to call global function to get proper object ID
 
