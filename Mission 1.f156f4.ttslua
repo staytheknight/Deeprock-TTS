@@ -1,7 +1,7 @@
 -- Locations
 mission1Positions = {
-    stalagmites = {{-1.65, 1.5, 1.15}, {-2.2, 1.5, 0.2}, {-3.85, 1.5, -4.56},
-    {-2.75, 1.5, -4.56}, {-2.2, 1.5, -5.52}},
+    stalagmites = {{-1.65, 2.0, 1.15}, {-2.2, 2.0, 0.2}, {-3.85, 2.0, -4.56},
+    {-2.75, 2.0, -4.56}, {-2.2, 2.0, -5.52}},
 
     grunts = {{0.0, 1.5, 0.20}, {-0.55, 1.5, -0.75}, {-1.1, 1.5, -1.71}},
 
@@ -152,4 +152,8 @@ function setupMission1()
             position = mission1Positions.minerals[i]
         })
     end
+
+    local missionBook = Global.call('getMissionBook')
+    missionBook.Book.setPage(3)
+
 end

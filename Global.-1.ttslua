@@ -15,19 +15,18 @@ function onLoad()
     scoutBoard_GUID = 'bf536f'
     scoutBoard = getObjectFromGUID(scoutBoard_GUID)
 
+    missionBook_GUID = '7b94b7'
+    missionBook = getObjectFromGUID(missionBook_GUID)
+
     -- Card Decks
     eventDeck_GUID = '7a2e4c'
     eventDeck = getObjectFromGUID(eventDeck_GUID)
-    eventDeck.shuffle()
     swarmDeck_GUID = 'bf5456'
     swarmDeck = getObjectFromGUID(swarmDeck_GUID)
-    swarmDeck.shuffle()
     rockAndStoneDeck_GUID = 'c8a1c9'
     rockAndStoneDeck = getObjectFromGUID(rockAndStoneDeck_GUID)
-    rockAndStoneDeck.shuffle()
     resupplyDeck_GUID = '87da4a'
     resupplyDeck = getObjectFromGUID(resupplyDeck_GUID)
-    resupplyDeck.shuffle()
 
     -- Cave Segments
     dropPod_GUID = 'b78594'
@@ -61,32 +60,32 @@ function onLoad()
     hiddenCaveBag_GUID = '3eb852'
     hiddenCaveBag = getObjectFromGUID(hiddenCaveBag_GUID)
 
-    salagmiteModelBag_GUID = 'bf4afd'
+    salagmiteModelBag_GUID = 'f8796d'
     stalagmiteModelBag = getObjectFromGUID(salagmiteModelBag_GUID)
 
     miscTilesBag_GUID = 'e7bcb4'
     miscTilesBag = getObjectFromGUID(miscTilesBag_GUID)
 
         -- Glyphid bags
-        gruntBag_GUID = 'b6ec07'
+        gruntBag_GUID = 'a9ba4b'
         gruntBag = getObjectFromGUID(gruntBag_GUID)
-        exploderBag_GUID = '67fd80'
+        exploderBag_GUID = '5b6095'
         exploderBag = getObjectFromGUID(exploderBag_GUID)
-        webspitterBag_GUID = 'deddce'
+        webspitterBag_GUID = '818d0c'
         webspitterBag = getObjectFromGUID(webspitterBag_GUID)
-        broodNexusBag_GUID = '8acd79'
+        broodNexusBag_GUID = 'e3c1d5'
         broodNexusBag = getObjectFromGUID(broodNexusBag_GUID)
-        slasherBag_GUID = 'fa8a57'
+        slasherBag_GUID = '69343e'
         slasherBag = getObjectFromGUID(slasherBag_GUID)
-        spitballerBag_GUID = 'd538a7'
+        spitballerBag_GUID = 'a2d8e9'
         spitballerBag = getObjectFromGUID(spitballerBag_GUID)
-        wardenBag_GUID = '9dcf4d'
+        wardenBag_GUID = '26f0f1'
         wardenBag = getObjectFromGUID(wardenBag_GUID)
-        macteraBag_GUID = '38bc66'
+        macteraBag_GUID = '163634'
         macteraBag = getObjectFromGUID(macteraBag_GUID)
-        praetorianBag_GUID = 'ac840c'
+        praetorianBag_GUID = '582c76'
         praetorianBag = getObjectFromGUID(praetorianBag_GUID)
-        opressorBag_GUID = 'a4a443'
+        opressorBag_GUID = 'd0a1fc'
         opressorBag = getObjectFromGUID(opressorBag_GUID)
 
 
@@ -172,6 +171,13 @@ function onLoad()
     cleanupZone = getObjectFromGUID(cleanupZone_GUID)
 
 
+function Setup()
+    missionBoard = getObjectFromGUID(missionBoard_GUID)
+    eventDeck.shuffle()
+    swarmDeck.shuffle()
+    rockAndStoneDeck.shuffle()
+    resupplyDeck.shuffle()
+
     -- Mission board setup in the middle of table
     missionBoard.setPosition({0.0,1.0,0.0})
     missionBoard.setLock(true)
@@ -192,7 +198,13 @@ function onLoad()
     --scoutBoard.rotate({0.0,0.0,0.0})
     scoutBoard.setLock(true)
 
+    -- Removes the button board
+    buttonBoard.call('hideBoard')
+    -- Switches the mission board to the side without buttons
+    missionBoard.setState(1)
+
     --hideMissionTokens()
+end
 
 end
 
@@ -219,101 +231,73 @@ end
 function setupMission1()
     -- Mission board variable assignment is set again here due to
     -- cleanup script interfeering
-    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission1.call('setupMission1')
-    buttonBoard.call('hideBoard')
-    missionBoard.setState(1)
+    Setup()
 end
 
 function setupMission2()
-    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission2.call('setupMission2')
-    buttonBoard.call('hideBoard')
-    missionBoard.setState(1)
+    Setup()
 end
 
 function setupMission3()
-    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission3.call('setupMission3')
-    buttonBoard.call('hideBoard')
-    missionBoard.setState(1)
+    Setup()
 end
 
 function setupMission4()
-    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission4.call('setupMission4')
-    buttonBoard.call('hideBoard')
-    missionBoard.setState(1)
+    Setup()
 end
 
 function setupMission5()
-    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission5.call('setupMission5')
-    buttonBoard.call('hideBoard')
-    missionBoard.setState(1)
+    Setup()
 end
 
 function setupMission6()
-    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission6.call('setupMission6')
-    buttonBoard.call('hideBoard')
-    missionBoard.setState(1)
+    Setup()
 end
 
 function setupMission7()
-    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission7.call('setupMission7')
-    buttonBoard.call('hideBoard')
-    missionBoard.setState(1)
+    Setup()
 end
 
 function setupMission8()
-    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission8.call('setupMission8')
-    buttonBoard.call('hideBoard')
-    missionBoard.setState(1)
+    Setup()
 end
 
 function setupMission9()
-    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission9.call('setupMission9')
-    buttonBoard.call('hideBoard')
-    missionBoard.setState(1)
+    Setup()
 end
 
 function setupMission10()
-    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission10.call('setupMission10')
-    buttonBoard.call('hideBoard')
-    missionBoard.setState(1)
+    Setup()
 end
 
 function setupMission11()
-    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission11.call('setupMission11')
-    buttonBoard.call('hideBoard')
-    missionBoard.setState(1)
+    Setup()
 end
 
 function setupMission12()
-    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission12.call('setupMission12')
-    buttonBoard.call('hideBoard')
-    missionBoard.setState(1)
+    Setup()
 end
 
 function setupMission13()
-    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission13.call('setupMission13')
-    buttonBoard.call('hideBoard')
-    missionBoard.setState(1)
+    Setup()
 end
 
 function setupMission14()
-    missionBoard = getObjectFromGUID(missionBoard_GUID)
     mission14.call('setupMission14')
-    buttonBoard.call('hideBoard')
-    missionBoard.setState(1)
+    Setup()
 end
 
 -- Object getters
@@ -323,6 +307,10 @@ end
 
 function getMissionBoard()
     return missionBoard
+end
+
+function getMissionBook()
+    return missionBook
 end
 
 function getCleanupZone()

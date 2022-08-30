@@ -37,6 +37,7 @@ function Cleanup()
 
     local buttonBoard = Global.call('getButtonBoard')
     local missionBoard = getObjectFromGUID('d8201c') -- Button board state 1 (no buttons)
+    local missionBook = Global.call('getMissionBook')
 
     local miscBag = Global.call('getMiscTilesBag')
 
@@ -162,6 +163,9 @@ function Cleanup()
         end
 
     end
+
+    -- Brings the mission book back to the first page
+    missionBook.Book.setPage(1)
 
     -- Puts the cleanup button back
     cleanupButton()

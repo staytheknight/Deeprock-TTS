@@ -1,5 +1,5 @@
 mission8Positions = {
-    stalagmites = {{-4.95, 1.23, -2.66}},
+    stalagmites = {{-4.95, 2.0, -2.66}},
     slashers = {{-6.06, 1.6, -2.64}},
     mactera = {{-1.10, 1.6, 2.10},{-0.55, 1.6, -2.66}},
     explorationTiles = {{-3.30, 2.0, 2.11},{1.10, 2.0, 2.11},{4.95, 2.0, 1.79},
@@ -211,5 +211,8 @@ function setupMission8()
             position = mission8Positions.minerals[i]
         })
     end
+
+    local missionBook = Global.call('getMissionBook')
+    missionBook.Book.setPage(10)
 
 end
