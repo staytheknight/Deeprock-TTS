@@ -48,6 +48,9 @@ function Cleanup()
     local caveBag = Global.call('getCaveBag')
     local hiddenCaveBag = Global.call('getHiddenCaveBag')
 
+    local pAmmoBag = getObjectFromGUID('16ca6a')
+    local sAmmoBag = getObjectFromGUID('941a5f')
+
     local apocaBloomBag = Global.call('getApocaBloomBag')
     local starchNutBag = Global.call('getStarchNutBag')
     local fossilBag = Global.call('getFossilBag')
@@ -186,11 +189,11 @@ function Cleanup()
 
         -- Character stuff
         if object.getName() == "Bosco" then
-            object.setPositonSmooth({{12.65, 0.96, -10.28}},true,false)
+            object.setPositionSmooth({12.65, 0.96, -10.28},true,false)
         end
 
         if object.getName() == "Resupply Pod" then
-            object.setPositon{8.25, 0.96, 10.68}
+            object.setPosition{8.25, 0.96, 10.68}
         end
 
         if object.getName() == "Engineer" then
@@ -210,7 +213,7 @@ function Cleanup()
         end
 
         if object.getName() == "Flame" then
-            object.setPositonSmooth({19.25, 1.06, -0.75},true,false)
+            object.setPositionSmooth({19.25, 1.06, -0.75},true,false)
         end
 
         if object.getName() == "Gunner" then
@@ -218,19 +221,27 @@ function Cleanup()
         end
 
         if object.getName() == "Shield" then
-            object.setPositon{1.10, 1.06, 19.25}
+            object.setPosition{1.10, 1.06, 19.25}
         end
 
         if object.getName() == "Zipline" then
-            object.setPositonSmooth({0.00, 1.03, 19.25},true,false)
+            object.setPositionSmooth({0.00, 1.03, 19.25},true,false)
         end
 
         if object.getName() == "Scout" then
-            object.setPositon{-14.30, 1.05, 0.20}
+            object.setPosition{-14.30, 1.05, 0.20}
         end
 
         if object.getName() == "Flare" then
-            object.setPositonSmooth({-18.70, 1.06, 0.20},true,false)
+            object.setPositionSmooth({-18.70, 1.06, 0.20},true,false)
+        end
+
+        if object.getGMNotes() == "PAmmo" then
+            pAmmoBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "SAmmo" then
+            sAmmoBag.putObject(object)
         end
 
     end
