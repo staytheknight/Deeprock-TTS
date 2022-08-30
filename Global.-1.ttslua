@@ -192,12 +192,25 @@ function onLoad()
     --scoutBoard.rotate({0.0,0.0,0.0})
     scoutBoard.setLock(true)
 
+    hideMissionTokens()
 
 end
 
 function afterSpawnLock(spawnedObject)
     -- Locks tiles after they spawn
     spawnedObject.lock()
+end
+
+-- Shrinks mission tokens so they are not accessible
+function hideMissionTokens()
+    missionName = {mission1, mission2, mission3, mission4, mission5,
+    mission6, mission7, mission8, mission9, mission10, mission11,
+    mission12, mission13, mission14}
+    for i=1, 14 do
+        missionName[i].setScale({0.0,0.0,0.0})
+        missionName[i].setPosition{0.0,3000.0,0.0}
+    end
+
 end
 
 -- TODO: Clean up these function calls into one dynamic one

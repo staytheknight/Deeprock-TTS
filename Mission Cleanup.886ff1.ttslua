@@ -7,8 +7,9 @@ function cleanupButton()
 
     self.createButton(
         {click_function='confirmationButton', function_owner=self, label='Cleanup ?',
-        position={0.0 , 0.0 , 0.0}, rotation={0,0,0}, width=1000, height=700, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        position={0.0 , 0.01 , 0.0}, rotation={0,0,0}, width=1000, height=700, font_size=200,
+        scale={0.9,0.9,0.9}, color={0.0, 0.0, 0.0, 255.0}, font_color={252.8,245.0,0.0,255.0},
+        tooltip='Cleanup current mission ?'}
     )
 end
 
@@ -16,15 +17,17 @@ function confirmationButton()
     self.clearButtons()
 
     self.createButton(
-        {click_function='Cleanup', function_owner=self, label='Yes',
-        position={0.0 , 0.0 , -0.8}, rotation={0,0,0}, width=1000, height=700, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        {click_function='Cleanup', function_owner=self, label='Confirm',
+        position={0.0 , 0.01 , -0.8}, rotation={0,0,0}, width=1000, height=700, font_size=200,
+        scale={0.9,0.9,0.9}, color={0.0, 0.0, 0.0, 255.0}, font_color={252.8,245.0,0.0,255.0},
+        tooltip='Confirm cleanup'}
     )
 
     self.createButton(
-        {click_function='cleanupButton', function_owner=self, label='No',
-        position={0.0 , 0.0 , 0.8}, rotation={0,0,0}, width=1000, height=700, font_size=200,
-        scale={1.0,1.0,1.0}, color={0.0, 10.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,255.0}}
+        {click_function='cleanupButton', function_owner=self, label='Cancel',
+        position={0.0 , 0.01 , 0.8}, rotation={0,0,0}, width=1000, height=700, font_size=200,
+        scale={0.9,0.9,0.9}, color={0.0, 0.0, 0.0, 255.0}, font_color={252.8,245.0,0.0,255.0},
+        tooltip='Cancel cleanup'}
     )
 end
 

@@ -2,100 +2,107 @@ function onLoad()
     -- Create buttons for different mission setups
     self.createButton(
         {click_function='setupMission1', function_owner=Global, label='MISSION 1:\nNEW DARKNESS, NEW FORTUNES',
-        position={-0.1 ,0.01 ,-4.3}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        position={-0.1 ,0.01 ,-5.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
         scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
         tooltip='MISSION 1:\nNEW DARKNESS, NEW FORTUNES'}
     )
 
     self.createButton(
         {click_function='setupMission2', function_owner=Global, label='MISSION 2:\nUNEXPLORED OPPORTUNITIES',
-        position={-5.1 , 0.01 , 0.0}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        position={-5.1 , 0.01 , -1.4}, rotation={0,0,0}, width=4850, height=500, font_size=200,
         scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
         tooltip='MISSION 2:\nUNEXPLORED OPPORTUNITIES'}
     )
 
     self.createButton(
         {click_function='setupMission3', function_owner=Global, label='MISSION 3:\nTHE GREAT UNKNOW',
-        position={5.0 , 0.01 , 0.0}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        position={5.0 , 0.01 , -1.4}, rotation={0,0,0}, width=4850, height=500, font_size=200,
         scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
         tooltip='MISSION 3:\nTHE GREAT UNKNOW'}
     )
 
     self.createButton(
         {click_function='setupMission4', function_owner=Global, label='MISSION 4:\nSEARCH "N" RETRIEVE',
-        position={-5.1, 0.01 , 4.3}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        position={-5.1, 0.01 , 2.9}, rotation={0,0,0}, width=4850, height=500, font_size=200,
         scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0, 0.0},
         tooltip='MISSION 4:\nSEARCH "N" RETRIEVE'}
     )
 
     self.createButton(
         {click_function='setupMission5', function_owner=Global, label='MISSION 5:\nCIRCLE OF CARNAGE',
-        position={5.0 ,0.01 , 4.3}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        position={5.0 ,0.01 , 2.9}, rotation={0,0,0}, width=4850, height=500, font_size=200,
         scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0, 0.0},
         tooltip='MISSION 5:\nCIRCLE OF CARNAGE'}
     )
 
     self.createButton(
         {click_function='setupMission6', function_owner=Global, label='MISSION 6:\nCAVE OF THE PRAETORIAN',
-        position={-5.1 , 0.01 , 8.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        position={-5.1 , 0.01 , 7.3}, rotation={0,0,0}, width=4850, height=500, font_size=200,
         scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
         tooltip='MISSION 6:\nCAVE OF THE PRAETORIAN'}
     )
 
     self.createButton(
         {click_function='setupMission7', function_owner=Global, label='MISSION 7:\nHELLISH CORRIDOR',
-        position={5.0 , 0.01 , 8.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        position={5.0 , 0.01 , 7.3}, rotation={0,0,0}, width=4850, height=500, font_size=200,
         scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
         tooltip='MISSION 7:\nHELLISH CORRIDOR'}
     )
 
     self.createButton(
         {click_function='setupMission8', function_owner=Global, label='MISSION 8:\nMORKITE MADNESS',
-        position={-5.1 , 0.01 , 9.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        position={-5.1 , 0.01 , 8.3}, rotation={0,0,0}, width=4850, height=500, font_size=200,
         scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
         tooltip='MISSION 8:\nMORKITE MADNESS'}
     )
 
     self.createButton(
         {click_function='setupMission9', function_owner=Global, label='MISSION 9:\nPOINT EXTRACTION',
-        position={5.0 , 0.01 , 9.7}, rotation={0,0,0},width=4850, height=500, font_size=200,
+        position={5.0 , 0.01 , 8.3}, rotation={0,0,0},width=4850, height=500, font_size=200,
         scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
         tooltip='MISSION 9:\nPOINT EXTRACTION'}
     )
 
     self.createButton(
         {click_function='setupMission10', function_owner=Global, label='MISSION 10:\nEGGS, EGGS, EGGS',
-        position={-5.1 , 0.01 , 10.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        position={-5.1 , 0.01 , 9.3}, rotation={0,0,0}, width=4850, height=500, font_size=200,
         scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
         tooltip='MISSION 10:\nEGGS, EGGS, EGGS'}
     )
 
     self.createButton(
         {click_function='setupMission11', function_owner=Global, label='MISSION 11:\nPITS OF RICHES',
-        position={5.0 , 0.01 , 10.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        position={5.0 , 0.01 , 9.3}, rotation={0,0,0}, width=4850, height=500, font_size=200,
         scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
         tooltip='MISSION 11:\nPITS OF RICHES'}
     )
 
     self.createButton(
         {click_function='setupMission12', function_owner=Global, label='MISSION 12:\nTHE DARK CAVES',
-        position={-5.1 , 0.01 , 11.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        position={-5.1 , 0.01 , 10.3}, rotation={0,0,0}, width=4850, height=500, font_size=200,
         scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
         tooltip='MISSION 12:\nTHE DARK CAVES'}
     )
 
     self.createButton(
         {click_function='setupMission13', function_owner=Global, label='MISSION 13:\nBUG SANCTUARY',
-        position={5.0 , 0.01 , 11.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        position={5.0 , 0.01 , 10.3}, rotation={0,0,0}, width=4850, height=500, font_size=200,
         scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
         tooltip='MISSION 13:\nBUG SANCTUARY'}
     )
 
     self.createButton(
         {click_function='setupMission14', function_owner=Global, label='MISSION 14:\nDEVIL`S FORK',
-        position={-0.1 , 0.01 , 12.7}, rotation={0,0,0}, width=4850, height=500, font_size=200,
+        position={-0.1 , 0.01 , 11.3}, rotation={0,0,0}, width=4850, height=500, font_size=200,
         scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
         tooltip='MISSION 14:\nDEVIL`S FORK'}
+    )
+
+    self.createButton(
+        {click_function='manualSetup', function_owner=self, label='MANUAL SETUP',
+        position={-8.7, 0.01, -7.0}, rotation={0,0,0}, width=1050, height=750, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MANUAL SETUP'}
     )
 
 end
@@ -105,4 +112,11 @@ function hideBoard()
     -- There is no toggle for interactable, so the hack is to set the
     -- scale to 0, this effectively makes the board disappear
     self.setScale{0.00, 0.00, 0.0}
+end
+
+function manualSetup()
+    hideBoard()
+    -- Bring out bags
+    missionBoard = getObjectFromGUID('6b3694')
+    missionBoard.setState(1) -- Switch the board to the no button side
 end
