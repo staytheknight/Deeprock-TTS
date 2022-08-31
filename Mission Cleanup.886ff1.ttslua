@@ -1,5 +1,29 @@
 function onLoad()
     cleanupButton()
+    swarmBlock_GUID = '60a4ea'
+    swarmBlock = getObjectFromGUID(swarmBlock_GUID)
+    swarmEndScriptBox_GUID = '54c7e7'
+    swarmEndScriptBox = getObjectFromGUID(swarmEndScriptBox_GUID )
+end
+
+function swarmBlockCheck()
+    objectsInSwarmZone = swarmEndScriptBox.getObjects()
+    blockFound = false
+
+    -- Checks to see if the swarm threat token is in the final spot
+    for _, object in ipairs(objectsInSwarmZone) do
+        if object == swarmBlock then
+            blockFound = true
+        end
+    end
+
+    -- This boolean was set up since it can't be put inside the
+    -- object pair check for some reason (maybe because it's inside a for loop)
+    if blockFound == true then
+        return true
+    else
+        return false
+    end
 end
 
 function cleanupButton()
@@ -14,23 +38,32 @@ function cleanupButton()
 end
 
 function confirmationButton()
-    self.clearButtons()
 
-    print("Place all objects on the playmat you wish to be returned to original positions before pressing confirm\n")
+    -- Checks to see if the swarm threat token is in the last spot
+    -- If it is, bring up the cleanup buttons
+    if swarmBlockCheck() then
 
-    self.createButton(
-        {click_function='Cleanup', function_owner=self, label='Confirm',
-        position={0.0 , 0.01 , -0.8}, rotation={0,0,0}, width=1000, height=700, font_size=200,
-        scale={0.9,0.9,0.9}, color={0.0, 0.0, 0.0, 255.0}, font_color={252.8,245.0,0.0,255.0},
-        tooltip='Confirm cleanup'}
-    )
+        self.clearButtons()
 
-    self.createButton(
-        {click_function='cleanupButton', function_owner=self, label='Cancel',
-        position={0.0 , 0.01 , 0.8}, rotation={0,0,0}, width=1000, height=700, font_size=200,
-        scale={0.9,0.9,0.9}, color={0.0, 0.0, 0.0, 255.0}, font_color={252.8,245.0,0.0,255.0},
-        tooltip='Cancel cleanup'}
-    )
+        print("Place all objects on the playmat you wish to be returned to original positions before pressing confirm\n")
+
+        self.createButton(
+            {click_function='Cleanup', function_owner=self, label='Confirm',
+            position={0.0 , 0.01 , -0.8}, rotation={0,0,0}, width=1000, height=700, font_size=200,
+            scale={0.9,0.9,0.9}, color={0.0, 0.0, 0.0, 255.0}, font_color={252.8,245.0,0.0,255.0},
+            tooltip='Confirm cleanup'}
+        )
+
+        self.createButton(
+            {click_function='cleanupButton', function_owner=self, label='Cancel',
+            position={0.0 , 0.01 , 0.8}, rotation={0,0,0}, width=1000, height=700, font_size=200,
+            scale={0.9,0.9,0.9}, color={0.0, 0.0, 0.0, 255.0}, font_color={252.8,245.0,0.0,255.0},
+            tooltip='Cancel cleanup'}
+            )
+    else
+        print("Please place the swarm threat track token on the final spot of the swarm threat track in order to perform a cleanup function")
+        print("It's the black cube\n")
+    end
 end
 
 function Cleanup()
@@ -246,7 +279,6 @@ function Cleanup()
 
     end
 
-    local swarmBlock = getObjectFromGUID('60a4ea')
     swarmBlock.setPosition({-8.24, 1.37, -8.91})
 
     -- Brings the mission book back to the first page
