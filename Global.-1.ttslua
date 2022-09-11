@@ -214,6 +214,7 @@ function afterSpawnLock(spawnedObject)
 end
 
 -- Shrinks mission tokens so they are not accessible
+-- These objects store the scripts for the mission setups and should not be deleted
 function hideMissionTokens()
     missionName = {mission1, mission2, mission3, mission4, mission5,
     mission6, mission7, mission8, mission9, mission10, mission11,
