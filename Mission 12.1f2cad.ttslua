@@ -144,7 +144,7 @@ function setupMission12()
     explorationBag.shuffle()
 
     -- Placing Exploration Tiles
-    for i=1, 6 do
+    for i=1, 8 do
         explorationBag.takeObject({
             position = mission12Positions.explorationTiles[i],
             rotation = {0.0, 210, 180.0}
@@ -183,6 +183,6 @@ function setupMission12()
     end
 
     local missionBook = Global.call('getMissionBook')
-    missionBook.Book.setPage(14)
+    missionBook.Book.setPage(13)
 
 end

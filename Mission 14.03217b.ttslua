@@ -137,7 +137,7 @@ function setupMission14()
         explorationBag.putObject(starchNutBag.takeObject())
     end
 
-    for i=1, 4 do
+    for i=1, 5 do
         explorationBag.putObject(fossilBag.takeObject())
     end
 
@@ -145,7 +145,7 @@ function setupMission14()
     explorationBag.shuffle()
 
     -- Placing Exploration Tiles
-    for i=1, 6 do
+    for i=1, 7 do
         explorationBag.takeObject({
             position = mission14Positions.explorationTiles[i],
             rotation = {0.0, 210, 180.0}
@@ -183,6 +183,6 @@ function setupMission14()
     end
 
     local missionBook = Global.call('getMissionBook')
-    missionBook.Book.setPage(16)
+    missionBook.Book.setPage(15)
 
 end

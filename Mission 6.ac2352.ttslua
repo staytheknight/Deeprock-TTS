@@ -166,6 +166,6 @@ function setupMission6()
     end
 
     local missionBook = Global.call('getMissionBook')
-    missionBook.Book.setPage(8)
+    missionBook.Book.setPage(7)
 
 end
