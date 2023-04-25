@@ -1,7 +1,7 @@
 -- Locations
 mission1Positions = {
-    stalagmites = {{-1.65, 1.25, 1.15}, {-2.2, 1.25, 0.2}, {-3.85, 1.25, -4.56},
-    {-2.75, 1.25, -4.56}, {-2.2, 1.25, -5.52}},
+    stalagmites = {{-1.65, 2.25, 1.15}, {-2.2, 2.25, 0.2}, {-3.85, 2.25, -4.56},
+    {-2.75, 2.25, -4.56}, {-2.2, 2.25, -5.52}},
 
     grunts = {{0.0, 1.5, 0.20}, {-0.55, 1.5, -0.75}, {-1.1, 1.5, -1.71}},
 
@@ -51,7 +51,7 @@ function setupMission1()
     })
 
     caveBag.takeObject({
-        position = {-1.65, 1.2, -2.66},
+        position = {-2.75, 1.26, -2.65},
         rotation = {0.0,0.0,0.0},
         guid = Global.call('getHexPit2GUID'), -- 2 Hex Pit
         -- Lock tiles afer spawn

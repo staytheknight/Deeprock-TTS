@@ -19,7 +19,7 @@ function onLoad()
     missionBook = getObjectFromGUID(missionBook_GUID)
 
     -- Card Decks
-    eventDeck_GUID = '7a2e4c'
+    eventDeck_GUID = 'b28715'
     eventDeck = getObjectFromGUID(eventDeck_GUID)
     swarmDeck_GUID = 'bf5456'
     swarmDeck = getObjectFromGUID(swarmDeck_GUID)
@@ -60,7 +60,7 @@ function onLoad()
     hiddenCaveBag_GUID = '3eb852'
     hiddenCaveBag = getObjectFromGUID(hiddenCaveBag_GUID)
 
-    salagmiteModelBag_GUID = 'f8796d'
+    salagmiteModelBag_GUID = 'c275d1'
     stalagmiteModelBag = getObjectFromGUID(salagmiteModelBag_GUID)
 
     miscTilesBag_GUID = 'e7bcb4'
