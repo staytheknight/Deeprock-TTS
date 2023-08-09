@@ -4,8 +4,9 @@ mission7Positions = {
     exploders = {{3.85, 1.6, -6.47}},
     broodNexus = {{5.50, 1.6, -1.71}},
     spitballer = {{-3.85, 1.6, 4.96}},
-    explorationTiles = {{-4.40, 2.0, 4.01},{0.00, 2.0, 2.11},{3.85, 2.0, 2.42},
+    explorationTiles = {{-4.40, 2.0, 4.01},{0.00, 2.0, 2.11},
     {0.59, 2.0, -2.66},{2.20, 2.0, -5.51},{5.50, 2.0, -5.51}},
+    -- ,{3.85, 2.0, 2.42} -- some kept in bag for hidden cave code to work
     minerals = {{-5.50, 1.20, 5.92},{-3.30, 1.20, 2.11},{2.20, 1.20, 4.01},
     {2.75, 1.20, 4.96},{0.00, 1.20, -5.52},{0.55, 1.20, -6.47},{6.60, 1.20, -5.52}},
     hiddenCaveLoc1 = {{4.40, 1.08, 2.10},{3.30, 1.08, 2.10},{3.85, 1.08, 3.06}},
@@ -155,7 +156,8 @@ function setupMission7()
     explorationBag.shuffle()
 
     -- Placing Exploration Tiles
-    for i=1, 6 do
+    -- originally 6, some kept in bag for hidden cave code to work
+    for i=1, 5 do
         explorationBag.takeObject({
             position = mission7Positions.explorationTiles[i],
             rotation = {0.0, 210, 180.0}
