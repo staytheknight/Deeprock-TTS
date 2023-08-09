@@ -1,6 +1,6 @@
 -- Locations
 mission6Positions = {
-    stalagmites = {{-2.75, 1.25, -6.47}},
+    stalagmites = {{-2.75, 2.25, -6.47}},
     webspitters = {{-4.40, 1.6, -1.71}},
     grunts = {{-1.10, 1.6, -5.51},{4.40, 1.6, 2.11},{6.05, 1.6, 1.15}},
     preatorian = {{4.95, 1.6, 4.96}},
@@ -166,6 +166,6 @@ function setupMission6()
     end
 
     local missionBook = Global.call('getMissionBook')
-    missionBook.Book.setPage(8)
+    missionBook.Book.setPage(7)
 
 end

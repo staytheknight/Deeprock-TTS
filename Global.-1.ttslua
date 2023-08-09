@@ -19,7 +19,7 @@ function onLoad()
     missionBook = getObjectFromGUID(missionBook_GUID)
 
     -- Card Decks
-    eventDeck_GUID = '7a2e4c'
+    eventDeck_GUID = 'b28715'
     eventDeck = getObjectFromGUID(eventDeck_GUID)
     swarmDeck_GUID = 'bf5456'
     swarmDeck = getObjectFromGUID(swarmDeck_GUID)
@@ -60,8 +60,11 @@ function onLoad()
     hiddenCaveBag_GUID = '3eb852'
     hiddenCaveBag = getObjectFromGUID(hiddenCaveBag_GUID)
 
-    salagmiteModelBag_GUID = 'f8796d'
+    salagmiteModelBag_GUID = 'c275d1'
     stalagmiteModelBag = getObjectFromGUID(salagmiteModelBag_GUID)
+
+    weaponUpgradeBag_GUID = 'b48a6d'
+    weaponUpgradeBag = getObjectFromGUID(weaponUpgradeBag_GUID)
 
     miscTilesBag_GUID = 'e7bcb4'
     miscTilesBag = getObjectFromGUID(miscTilesBag_GUID)
@@ -170,6 +173,8 @@ function onLoad()
     cleanupZone_GUID = '41b22f'
     cleanupZone = getObjectFromGUID(cleanupZone_GUID)
 
+    swarmDeck.setPosition({-3.66, 1.20, 7.92})
+    resupplyDeck.setPosition({7.20, 1.20, 7.99})
 
 function Setup()
     missionBoard = getObjectFromGUID(missionBoard_GUID)
@@ -208,12 +213,27 @@ end
 
 end
 
+function isBagEmpty(bag)
+    counter = 0
+    for _, containedObjects in ipairs(bag.getObjects()) do
+        counter = counter + 1
+    end
+
+    -- if the bag is empty
+    if counter==0 then
+        return true
+    else
+        return false
+    end
+end
+
 function afterSpawnLock(spawnedObject)
     -- Locks tiles after they spawn
     spawnedObject.lock()
 end
 
 -- Shrinks mission tokens so they are not accessible
+-- These objects store the scripts for the mission setups and should not be deleted
 function hideMissionTokens()
     missionName = {mission1, mission2, mission3, mission4, mission5,
     mission6, mission7, mission8, mission9, mission10, mission11,
@@ -327,6 +347,10 @@ end
 
 function getStalagmiteModelBag()
     return stalagmiteModelBag
+end
+
+function getWeaponUpgradeBag()
+    return weaponUpgradeBag
 end
 
 -- Glyphid Bags

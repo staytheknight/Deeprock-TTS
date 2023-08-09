@@ -282,7 +282,7 @@ function Cleanup()
     swarmBlock.setPosition({-8.24, 1.37, -8.91})
 
     -- Brings the mission book back to the first page
-    missionBook.Book.setPage(1)
+    missionBook.Book.setPage(0)
 
     -- Puts the cleanup button back
     cleanupButton()
