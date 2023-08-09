@@ -4,6 +4,7 @@
 -- 1 Weapon Upgrade Tile
 
 spawnLocations={
+    -- These locations are relative to the spawn point
     gruntLocs={Vector{0.0,1.0,0.0},Vector{1.1,1.0,0.0},Vector{-0.55,1.0,0.95}},
     stalagLocs={Vector{-1.1,1.0,0.0},Vector{0.0,1.0,1.9}},
     explorationTileLoc=Vector{0.55,1.0,0.95},
@@ -21,4 +22,14 @@ end
 
 function Reveal()
 
+end
+
+function rotatePos(pos)
+    local posX,posY,posZ = pos:get()
+    local rot = self.getRotation()
+    local rotX,rotY,rotZ = rot:get()
+    rotatedPos = Vector{math.cos(math.rad(rotY))*posX + math.sin(math.rad(rotY))*posY,
+                  1.1,
+                  -math.sin(math.rad(rotY))*posX + math.cos(math.rad(rotY))*posY}
+    return rotatedPos
 end
