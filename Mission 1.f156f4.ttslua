@@ -18,13 +18,26 @@ function setupMission1()
     print("Launching Mission 1: New Darkness, New Fortunes\nGood Luck Miners!\n")
 
     local caveBag = Global.call('getCaveBag') -- need to call global function to get proper object ID
-    caveBag.takeObject({
-        position = {-4.95, 1.2, 1.15},
-        rotation = {180.0,0.0,0.0},
-        guid = Global.call('getDropPodGUID'),
-        -- Lock tiles afer spawn
-        --callback="afterSpawnLock", callback_owner=Global
-    })
+
+    -- These parameters need to be packaged so in order to be Sent
+    -- to the isInBag Global function
+    params={
+        bag = caveBag,
+        ID = Global.call('getDropPodGUID'),
+    }
+
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = {-4.95, 1.2, 1.15},
+            rotation = {180.0,0.0,0.0},
+            guid = Global.call('getDropPodGUID'),
+            -- Lock tiles afer spawn
+            --callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print('Unable to setup Drop Pod, object is not in cave bag')
+    end
+
 
     caveBag.takeObject({
         position = {-2.74, 1.09, -4.56},

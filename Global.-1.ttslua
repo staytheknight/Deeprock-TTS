@@ -213,6 +213,7 @@ end
 
 end
 
+-- checks if a bag / container is empty
 function isBagEmpty(bag)
     counter = 0
     for _, containedObjects in ipairs(bag.getObjects()) do
@@ -225,6 +226,16 @@ function isBagEmpty(bag)
     else
         return false
     end
+end
+
+-- checks if an object is in the bag
+function isInBag(params)
+    for _, containedObject in ipairs(params.bag.getObjects()) do
+        if containedObject.guid == params.ID then
+            return true
+        end
+    end
+    return false
 end
 
 function afterSpawnLock(spawnedObject)
