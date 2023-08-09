@@ -21,6 +21,27 @@ mission8Positions = {
 function setupMission8()
     print("Launching Mission 8: Morkite Madness\nGood Luck Miners!\n")
 
+    -- This card must be removed from the event Decks
+    caveLeechCard_GUID = 'b67c3d'
+    caveLeechCard = getObjectFromGUID(caveLeechCard_GUID)
+    local eventDeck = Global.call('getEventDeck')
+
+    params={
+        bag = eventDeck,
+        ID = caveLeechCard_GUID
+    }
+    if Global.call('isInBag',params) then
+        eventDeck.takeObject({
+            position = {-7.31, 0.97, 11.63},
+            rotation = {0.0,90.0,0.0},
+            guid = caveLeechCard_GUID,
+        })
+
+        print("Removing cave leech attack card from event deck")
+    else
+        print("Warning: Unable to remove ave leech attack card from event deck")
+    end
+
     local caveBag = Global.call('getCaveBag') -- need to call global function to get proper object ID
 
     caveBag.takeObject({

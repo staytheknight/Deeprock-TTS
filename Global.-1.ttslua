@@ -354,6 +354,10 @@ function getSwarmDeck()
     return swarmDeck
 end
 
+function getEventDeck()
+    return eventDeck
+end
+
 function getCaveBag()
     return caveBag
 end
