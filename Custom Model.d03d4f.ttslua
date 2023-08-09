@@ -3,6 +3,13 @@
 -- 1 Exploration Tile
 -- 1 Weapon Upgrade Tile
 
+spawnLocations={
+    gruntLocs={Vector{0.0,1.0,0.0},Vector{1.1,1.0,0.0},Vector{-0.55,1.0,0.95}},
+    stalagLocs={Vector{-1.1,1.0,0.0},Vector{0.0,1.0,1.9}},
+    explorationTileLoc=Vector{0.55,1.0,0.95},
+    weaponUpgradeLoc=Vector{-0.55,1.0,-0.95}
+}
+
 function onLoad()
     self.createButton(
         {click_function='Reveal', function_owner=self, label='Reveal',
