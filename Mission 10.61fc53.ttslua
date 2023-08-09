@@ -26,7 +26,7 @@ function setupMission10()
         rotation = {0.00, 239.90, 180.00},
         guid = Global.call('getDropPodGUID'),
         -- Lock tiles afer spawn
-        callback="afterSpawnLock", callback_owner=Global
+        --callback="afterSpawnLock", callback_owner=Global
     })
 
     caveBag.takeObject({
