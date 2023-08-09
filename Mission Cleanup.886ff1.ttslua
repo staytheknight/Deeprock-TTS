@@ -83,6 +83,7 @@ function Cleanup()
 
     local pAmmoBag = getObjectFromGUID('16ca6a')
     local sAmmoBag = getObjectFromGUID('941a5f')
+    local wAmmoBag = Global.call('getWeaponUpgradeBag')
 
     local apocaBloomBag = Global.call('getApocaBloomBag')
     local starchNutBag = Global.call('getStarchNutBag')
@@ -275,6 +276,10 @@ function Cleanup()
 
         if object.getGMNotes() == "SAmmo" then
             sAmmoBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "wUpgrade" then
+            wAmmoBag.putObject(object)
         end
 
     end
