@@ -1,14 +1,14 @@
--- 1 Preatorian
--- 2 Stalagmites
+-- 1 Webspitter
+-- 1 Stalagmite
 -- 1 Exploration Tile
 -- 1 Weapon Upgrade Tile
 
 spawnLocations={
     -- These locations are relative to the spawn point
-    preatorianLoc=Vector{-1.1,1.0,0},
-    stalagLocs={Vector{1.1,1.0,1.9},Vector{1.65,1.0,0.95}},
-    explorationTileLoc=Vector{0.55,1.0,-0.95},
-    weaponUpgradeLoc=Vector{0.55,1.0,0.95}
+    webspitterLoc=Vector{1.1,1.0,1.9},
+    stalagLoc=Vector{0.55,1.0,0.95},
+    explorationTileLoc=Vector{0.0,0.0,0.0},
+    weaponUpgradeLoc=Vector{-0.55,1.0,0.95}
 }
 
 function onLoad()
@@ -22,7 +22,7 @@ end
 
 function Reveal()
     self.flip()
-    local preatorianBag = Global.call('getPraetorianBag')
+    local webspitterBag = Global.call('getWebSpitterBag')
     local gruntBag = Global.call('getGruntBag')
     local stalagBag = Global.call('getStalagmiteModelBag')
     local explorationBag = Global.call('getExplorationBag')
@@ -30,29 +30,24 @@ function Reveal()
 
     local bagEmpty
 
-    bagEmpty = Global.call('isBagEmpty',preatorianBag)
+    bagEmpty = Global.call('isBagEmpty',webspitterBag)
     -- if the bag is not empty then
     if bagEmpty == false then
-        preatorianBag.takeObject({
-            position = self.getPosition() + rotatePos(spawnLocations.preatorianLoc),
-            rotation = self.getRotation() + Vector{0.0,270.0,0.0}
+        webspitterBag.takeObject({
+            position = self.getPosition() + rotatePos(spawnLocations.webspitterLoc),
         })
     else
-        print('Warning: Unable to spawn Preatorian, bag is empty, replacing with Grunt')
+        print('Warning: Unable to spawn Webspitter, bag is empty, replacing with Grunt')
         bagEmpty = Global.call('isBagEmpty',gruntBag)
         -- if the bag is not empty then
         if bagEmpty == false then
-            gruntBag.takeObject({position = self.getPosition() + rotatePos(spawnLocations.preatorianLoc)})
+            gruntBag.takeObject({position = self.getPosition() + rotatePos(spawnLocations.webspitterLoc)})
         else
             print('Warning: Unable to spawn Grunt, bag empty')
         end
     end
 
-    for i=1, 2 do
-        position = spawnLocations.stalagLocs[i]
-        position = rotatePos(position)
-        stalagBag.takeObject({position = self.getPosition() + position})
-    end
+    stalagBag.takeObject({position = self.getPosition() + rotatePos(spawnLocations.stalagLoc)})
 
     -- Exploration Token
     bagEmpty = Global.call('isBagEmpty',explorationBag)
@@ -79,7 +74,6 @@ function Reveal()
     else
         print('Warning: No more weapon upgrade tokens available to be placed in cave segment')
     end
-
 end
 
 
