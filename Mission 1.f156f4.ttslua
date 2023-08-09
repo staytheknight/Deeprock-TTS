@@ -17,6 +17,25 @@ mission1Positions = {
 function setupMission1()
     print("Launching Mission 1: New Darkness, New Fortunes\nGood Luck Miners!\n")
 
+    -- These cards must be removed from the start of the mission
+    preatorianCard = getObjectFromGUID('e5495f')
+    opressorCard = getObjectFromGUID('9610a0')
+
+    params={
+        bag = getObjectFromGUID('bf5456'),
+        ID = preatorianCard.guid
+    }
+    if Global.call('isInBag',params) then
+        bag.takeObject({
+            position = {-7.31, 0.97, 11.63},
+            rotation = {0.0,90.0,0.0},
+            guid = preatorianCard
+        })
+
+        print("Removing preatorian card from swarm deck")
+    end
+
+
     local caveBag = Global.call('getCaveBag') -- need to call global function to get proper object ID
 
     -- These parameters need to be packaged so in order to be Sent
@@ -193,6 +212,7 @@ function setupMission1()
             explorationBag.putObject(lootBugBag.takeObject())
         else
             print("Warning: Unable to set up exploration tokens, the loot bug bag is empty")
+            break
         end
     end
 
@@ -201,6 +221,7 @@ function setupMission1()
             explorationBag.putObject(apocaBloomBag.takeObject())
         else
             print("Warning: Unable to set up exploration tokens, the apoca bloom bag is empty")
+            break
         end
     end
 
@@ -216,6 +237,7 @@ function setupMission1()
             })
         else
             print("Warning: unable to setup exploration tokens, the bag is empty")
+            break
         end
     end
 
@@ -225,6 +247,7 @@ function setupMission1()
             mineralBag.putObject(nitraBag.takeObject())
         else
             print("Warning: Unable to set up minerals, the nitra bag is empty")
+            break
         end
     end
 
@@ -233,6 +256,7 @@ function setupMission1()
             mineralBag.putObject(goldBag.takeObject())
         else
             print("Warning: Unable to set up minerals, the gold bag is empty")
+            break
         end
 
     end
@@ -242,6 +266,7 @@ function setupMission1()
             mineralBag.putObject(morkiteBag.takeObject())
         else
             print("Warning: Unable to set up minerals, the morkite bag is empty")
+            break
         end
     end
 
@@ -256,6 +281,7 @@ function setupMission1()
         })
         else
             print("Warning: Unable to set up minerals, the bag is empty")
+            break
         end
     end
 
