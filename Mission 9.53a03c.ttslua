@@ -1,5 +1,5 @@
 mission9Positions = {
-    stalagmites = {{3.85, 1.25, -0.75}},
+    stalagmites = {{3.85, 2.25, -0.75}},
     grunts = {{6.05, 1.6, -0.75},{6.60, 1.6, -1.71},{0.56, 1.6, -4.55},{0.55, 1.6, -6.47}},
     broodNexus = {{-1.10, 1.6, 2.11}},
     explorationTiles = {{-4.95, 2.0, -5.20},{-4.40, 2.0, 3.38},{4.95, 2.0, 4.33},
@@ -219,6 +219,6 @@ function setupMission9()
     end
 
     local missionBook = Global.call('getMissionBook')
-    missionBook.Book.setPage(11)
+    missionBook.Book.setPage(10)
 
 end

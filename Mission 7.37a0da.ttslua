@@ -1,6 +1,6 @@
 -- Locations
 mission7Positions = {
-    stalagmites = {{-2.75, 1.25, 4.96},{-1.65, 1.25, 4.96},{4.40, 1.25, -1.70},{3.85, 1.25, -2.66}},
+    stalagmites = {{-2.75, 2.25, 4.96},{-1.65, 2.25, 4.96},{4.40, 2.25, -1.70},{3.85, 2.25, -2.66}},
     exploders = {{3.85, 1.6, -6.47}},
     broodNexus = {{5.50, 1.6, -1.71}},
     spitballer = {{-3.85, 1.6, 4.96}},
@@ -188,6 +188,6 @@ function setupMission7()
     end
 
     local missionBook = Global.call('getMissionBook')
-    missionBook.Book.setPage(9)
+    missionBook.Book.setPage(8)
 
 end
