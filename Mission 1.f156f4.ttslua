@@ -18,21 +18,42 @@ function setupMission1()
     print("Launching Mission 1: New Darkness, New Fortunes\nGood Luck Miners!\n")
 
     -- These cards must be removed from the start of the mission
-    preatorianCard = getObjectFromGUID('e5495f')
-    opressorCard = getObjectFromGUID('9610a0')
+    preatorianCard_GUID = 'e5495f'
+    preatorianCard = getObjectFromGUID(preatorianCard_GUID)
+    opressorCard_GUID = '9610a0'
+    opressorCard = getObjectFromGUID(opressorCard)
+    local swarmDeck = Global.call('getSwarmDeck')
 
     params={
-        bag = getObjectFromGUID('bf5456'),
-        ID = preatorianCard.guid
+        bag = swarmDeck,
+        ID = preatorianCard_GUID
     }
     if Global.call('isInBag',params) then
-        bag.takeObject({
+        swarmDeck.takeObject({
             position = {-7.31, 0.97, 11.63},
             rotation = {0.0,90.0,0.0},
-            guid = preatorianCard
+            guid = preatorianCard_GUID,
         })
 
         print("Removing preatorian card from swarm deck")
+    else
+        print("Warning: Unable to remove preatorian card from swarm deck")
+    end
+
+    params={
+        bag = swarmDeck,
+        ID = opressorCard_GUID
+    }
+    if Global.call('isInBag',params) then
+        swarmDeck.takeObject({
+            position = {-7.31, 1.2, 11.63},
+            rotation = {0.0,90.0,0.0},
+            guid = opressorCard_GUID,
+        })
+
+        print("Removing Opressor card from swarm deck")
+    else
+        print("Warning: Unable to remove Opressor card from swarm deck")
     end
 
 
