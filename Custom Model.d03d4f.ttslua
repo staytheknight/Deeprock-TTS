@@ -21,7 +21,12 @@ function onLoad()
 end
 
 function Reveal()
+    self.flip()
 
+    local gruntBag = Global.call('getGruntBag')
+    local stalagBag = Global.call('getStalagmiteModelBag')
+    local explorationBag = Global.call('getExplorationBag')
+    local weaponUpgradeBag = Global.call('getWeaponUpgradeBag')
 end
 
 function rotatePos(pos)

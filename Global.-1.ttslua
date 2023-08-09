@@ -63,6 +63,9 @@ function onLoad()
     salagmiteModelBag_GUID = 'c275d1'
     stalagmiteModelBag = getObjectFromGUID(salagmiteModelBag_GUID)
 
+    weaponUpgradeBag_GUID = 'b48a6d'
+    weaponUpgradeBag = getObjectFromGUID(weaponUpgradeBag_GUID)
+
     miscTilesBag_GUID = 'e7bcb4'
     miscTilesBag = getObjectFromGUID(miscTilesBag_GUID)
 
@@ -330,6 +333,10 @@ end
 
 function getStalagmiteModelBag()
     return stalagmiteModelBag
+end
+
+function getWeaponUpgradeBag()
+    return weaponUpgradeBag
 end
 
 -- Glyphid Bags
