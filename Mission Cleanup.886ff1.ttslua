@@ -295,4 +295,12 @@ function Cleanup()
     buttonBoard.setScale({0.675,0.675,0.675})
     missionBoard.setState(2)
 
+    -- these decks like to go inside the mission Board after the board changes
+    -- state - so the location of these decks is forced
+    local swarmDeck = Global.call('getSwarmDeck')
+    swarmDeck.setPosition({-3.66, 2.20, 7.92})
+
+    local resupplyDeck = Global.call('getResupplyDeck')
+    resupplyDeck.setPosition({7.20, 2.20, 7.99})
+
 end

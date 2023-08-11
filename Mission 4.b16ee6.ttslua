@@ -162,7 +162,7 @@ function setupMission4()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print('Warning: Unable to setup cave exit 1, it is not in the cave bag')
+        print('Warning: Unable to setup cave exit 2, it is not in the cave bag')
     end
 
     -- Hidden cave segments

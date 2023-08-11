@@ -183,6 +183,11 @@ function Setup()
     rockAndStoneDeck.shuffle()
     resupplyDeck.shuffle()
 
+    -- these decks keep going under the board on setup
+    -- forcing positions
+    swarmDeck.setPosition({-3.66, 1.20, 7.92})
+    resupplyDeck.setPosition({7.20, 1.20, 7.99})
+
     -- Mission board setup in the middle of table
     missionBoard.setPosition({0.0,1.0,0.0})
     missionBoard.setLock(true)
@@ -356,6 +361,10 @@ end
 
 function getEventDeck()
     return eventDeck
+end
+
+function getResupplyDeck()
+    return resupplyDeck
 end
 
 function getCaveBag()
