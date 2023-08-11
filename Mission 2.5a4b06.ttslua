@@ -226,7 +226,7 @@ function setupMission2()
         print("Warning: Unable to set up exploration tokens, loot bug bag is empty")
     end
 
-    if not Global.call('isBagEmpty',lootBugBag) then
+    if not Global.call('isBagEmpty',starchNutBag) then
         explorationBag.putObject(starchNutBag.takeObject())
     else
         print("Warning: Unable to set up exploration tokens, starch nut bag is empty")
