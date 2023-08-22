@@ -1,3 +1,42 @@
+-- table of every hexes location
+hexes = {
+    row1={},
+    row2={},
+    row3={},
+    row4={},
+    row5={},
+    row6={},
+    row7={},
+    row8={},
+    row9={},
+    row10={},
+    row11={},
+    row12={},
+    row13={},
+    row14={},
+    row15={},
+}
+
+-- table of every hexes occupation status
+occupied = {
+    row1={false,false,false,false,false,false,false,false,false,false,false,false,false,false,false},
+    row2={false,false,false,false,false,false,false,false,false,false,false,false,false,false},
+    row3={false,false,false,false,false,false,false,false,false,false,false,false,false,false,false},
+    row4={false,false,false,false,false,false,false,false,false,false,false,false,false,false},
+    row5={false,false,false,false,false,false,false,false,false,false,false,false,false},
+    row6={false,false,false,false,false,false,false,false,false,false,false,false,false,false},
+    row7={false,false,false,false,false,false,false,false,false,false,false,false,false,false,false},
+    row8={false,false,false,false,false,false,false,false,false,false,false,false,false,false},
+    row9={false,false,false,false,false,false,false,false,false,false,false,false,false,false,false},
+    row10={false,false,false,false,false,false,false,false,false,false,false,false,false,false},
+    row11={false,false,false,false,false,false,false,false,false,false,false,false,false},
+    row12={false,false,false,false,false,false,false,false,false,false,false,false,false,false},
+    row13={false,false,false,false,false,false,false,false,false,false,false,false,false,false,false},
+    row14={false,false,false,false,false,false,false,false,false,false,false,false,false,false},
+    row15={false,false,false,false,false,false,false,false,false,false,false,false,false,false,false},
+}
+
+-- possible rotations for the cave tiles
 possibleRotations = {
     rotations = {0.0,60.0,120.0,180.0,240.0,300.0,360.0},
     flip = {0.0,180.0}
