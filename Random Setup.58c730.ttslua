@@ -1,0 +1,14 @@
+function onLoad()
+    self.createButton(
+        {click_function='test', function_owner=self, label='test',
+        position={0.0 , 0.2 , 0.0}, rotation={0,0,0}, width=500, height=500, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 100.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='test'}
+    )
+
+    local caveBag = Global.call('getCaveBag')
+    local caveSeg1_GUID = Global.call('getCaveSeg1GUID')
+    local caveSeg2_GUID = Global.call('getCaveSeg2GUID')
+    local caveSeg3_GUID = Global.call('getCaveSeg3GUID')
+    local caveSeg4_GUID = Global.call('getCaveSeg4GUID')
+end
