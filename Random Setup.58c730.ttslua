@@ -44,6 +44,16 @@ hexes = {
 
     row15={{-7.7,1.2,-7.42},{-6.6,1.2,-7.42},{-5.5,1.2,-7.42},{-4.4,1.2,-7.42},{-3.3,1.2,-7.42},{-2.2,1.2,-7.42},{-1.1,1.2,-7.42},{0.0,1.2,-7.42},
         {1.1,1.2,-7.42},{2.2,1.2,-7.42},{3.3,1.2,-7.42},{4.4,1.2,-7.42},{5.5,1.2,-7.42},{6.6,1.2,-7.42},{7.7,1.2,-7.42}},
+
+    -- Notes on this table, there is probably a better dynamic way to make this rather than hard code world values
+    -- there is probably a way to make it tied to the location of the mission board as if the mission board moves these values wont (not very extensible)
+    -- every row Xincrement 1.1, Zincrement 0.95 -- bit tricky since each row has a differnet number of hexes
+
+    -- Clockwise starting at the top left
+    -- Quadrant 1 limits X:{-7.7 to 0}, Z:{5.92 to -0.75}
+    -- Quadrant 2 limits X:{0 to -7.7}, Z:{5.92 to -0.75}
+    -- Quadrant 3 limits X:{0 to -7.7}, Z:{-0.75 to -7.42}
+    -- Quadrant 4 limits X:{-7.7 to 0}, Z:{-0.75 to -7.42}
 }
 
 -- table of every hexes occupation status
