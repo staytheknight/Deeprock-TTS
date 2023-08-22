@@ -95,12 +95,14 @@ function onLoad()
         tooltip='test'}
     )
 
-    local caveBag = Global.call('getCaveBag')
+    caveBag = Global.call('getCaveBag')
     -- these may not be needed
+    --[[
     local caveSeg1_GUID = Global.call('getCaveSeg1GUID')
     local caveSeg2_GUID = Global.call('getCaveSeg2GUID')
     local caveSeg3_GUID = Global.call('getCaveSeg3GUID')
     local caveSeg4_GUID = Global.call('getCaveSeg4GUID')
+    ]]--
 end
 
 function test()
@@ -115,14 +117,22 @@ function test()
     local location = row[randomIndex]
     --print(location[1],location[2],location[3])
 
+    math.randomseed(os.time())
+    local randomIndex = math.random(1,7)
+    local rotation = possibleRotations.rotations[randomIndex]
+
+    math.randomseed(os.time())
+    local randomIndex = math.random(1,2)
+    local flip = possibleLocations.flip[randomIndex]
+
     params={
         bag = caveBag,
         ID = Global.call('getCaveSeg1GUID'),
     }
     if Global.call('isInBag',params) then
         caveBag.takeObject({
-            position = {-2.74, 1.09, -4.56},
-            rotation = {0.0,179.0,0.0},
+            position = location,
+            rotation = {0.0,flip,rotation},
             guid = Global.call('getCaveSeg1GUID'), -- Bottom Left (L Segment)
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
