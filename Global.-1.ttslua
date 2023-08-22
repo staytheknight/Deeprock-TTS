@@ -63,6 +63,9 @@ function onLoad()
     salagmiteModelBag_GUID = 'c275d1'
     stalagmiteModelBag = getObjectFromGUID(salagmiteModelBag_GUID)
 
+    weaponUpgradeBag_GUID = 'b48a6d'
+    weaponUpgradeBag = getObjectFromGUID(weaponUpgradeBag_GUID)
+
     miscTilesBag_GUID = 'e7bcb4'
     miscTilesBag = getObjectFromGUID(miscTilesBag_GUID)
 
@@ -170,6 +173,8 @@ function onLoad()
     cleanupZone_GUID = '41b22f'
     cleanupZone = getObjectFromGUID(cleanupZone_GUID)
 
+    swarmDeck.setPosition({-3.66, 1.20, 7.92})
+    resupplyDeck.setPosition({7.20, 1.20, 7.99})
 
 function Setup()
     missionBoard = getObjectFromGUID(missionBoard_GUID)
@@ -177,6 +182,11 @@ function Setup()
     swarmDeck.shuffle()
     rockAndStoneDeck.shuffle()
     resupplyDeck.shuffle()
+
+    -- these decks keep going under the board on setup
+    -- forcing positions
+    swarmDeck.setPosition({-3.66, 1.20, 7.92})
+    resupplyDeck.setPosition({7.20, 1.20, 7.99})
 
     -- Mission board setup in the middle of table
     missionBoard.setPosition({0.0,1.0,0.0})
@@ -206,6 +216,33 @@ function Setup()
     --hideMissionTokens()
 end
 
+end
+
+-- checks if a bag / container is empty
+function isBagEmpty(bag)
+    counter = 0
+    for _, containedObjects in ipairs(bag.getObjects()) do
+        counter = counter + 1
+    end
+
+    -- if the bag is empty
+    if counter==0 then
+        return true
+    else
+        return false
+    end
+end
+
+-- checks if an object is in the bag
+function isInBag(params)
+    --print(params.bag)
+    --print(params.ID)
+    for _, containedObject in ipairs(params.bag.getObjects()) do
+        if containedObject.guid == params.ID then
+            return true
+        end
+    end
+    return false
 end
 
 function afterSpawnLock(spawnedObject)
@@ -318,6 +355,18 @@ function getCleanupZone()
     return cleanupZone
 end
 
+function getSwarmDeck()
+    return swarmDeck
+end
+
+function getEventDeck()
+    return eventDeck
+end
+
+function getResupplyDeck()
+    return resupplyDeck
+end
+
 function getCaveBag()
     return caveBag
 end
@@ -328,6 +377,10 @@ end
 
 function getStalagmiteModelBag()
     return stalagmiteModelBag
+end
+
+function getWeaponUpgradeBag()
+    return weaponUpgradeBag
 end
 
 -- Glyphid Bags

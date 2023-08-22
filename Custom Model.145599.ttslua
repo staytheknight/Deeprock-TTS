@@ -1,0 +1,92 @@
+-- 1 Brood Nexus
+-- 2 stalagmites
+-- 1 Exploration Tile
+-- 1 Weapon Upgrade Tile
+
+spawnLocations={
+    -- These locations are relative to the spawn point
+    broodNexusLoc=Vector{1.1,1.0,0.0},
+    stalagLocs={Vector{-1.1,1.0,0.0},Vector{-0.55,1.0,0.95}},
+    explorationTileLoc=Vector{-0.55,1.0,-0.95},
+    weaponUpgradeLoc=Vector{0.55,1.0,0.95}
+}
+
+function onLoad()
+    self.createButton(
+        {click_function='Reveal', function_owner=self, label='Reveal',
+        position={0.0 , 0.2 , 0.3}, rotation={0.0, 0.0, 0.0}, width=500, height=100, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0, 255.0},
+        tooltip='Flip & Populate Cave Segment'}
+    )
+end
+
+function Reveal()
+    self.flip()
+
+    local broodNexusBag = Global.call('getbroodNexusBag')
+    local gruntBag = Global.call('getGruntBag')
+    local stalagBag = Global.call('getStalagmiteModelBag')
+    local explorationBag = Global.call('getExplorationBag')
+    local weaponUpgradeBag = Global.call('getWeaponUpgradeBag')
+
+    local bagEmpty
+
+    bagEmpty = Global.call('isBagEmpty',broodNexusBag)
+    -- if the bag is not empty then
+    if bagEmpty == false then
+        broodNexusBag.takeObject({
+            position = self.getPosition() + rotatePos(spawnLocations.broodNexusLoc)
+        })
+    else
+        print('Warning: Unable to spawn Brood Nexus, bag is empty, replacing with Grunt')
+        bagEmpty = Global.call('isBagEmpty',gruntBag)
+        -- if the bag is not empty then
+        if bagEmpty == false then
+            gruntBag.takeObject({position = self.getPosition() + rotatePos(spawnLocations.broodNexusLoc)})
+        else
+            print('Warning: Unable to spawn Grunt, bag empty')
+        end
+    end
+
+    for i=1, 2 do
+        position = spawnLocations.stalagLocs[i]
+        position = rotatePos(position)
+        stalagBag.takeObject({position = self.getPosition() + position})
+    end
+
+    -- Exploration Token
+    bagEmpty = Global.call('isBagEmpty',explorationBag)
+    -- if the bag is not empty then
+    if bagEmpty == false then
+        position = rotatePos(spawnLocations.explorationTileLoc)
+        explorationBag.takeObject({
+            position = self.getPosition() + position,
+            rotation = self.getRotation() + Vector{0.0,30.0,180.0}
+        })
+    else
+        print('Warning: No more exploration tokens available to be placed in cave segment')
+    end
+
+    -- Weapon Upgrade Token
+    bagEmpty = Global.call('isBagEmpty',weaponUpgradeBag)
+    -- if the bag is not empty then
+    if bagEmpty == false then
+        position = rotatePos(spawnLocations.weaponUpgradeLoc)
+        weaponUpgradeBag.takeObject({
+            position = self.getPosition() + position,
+            rotation = Vector{0.0,0.0,180.0}
+        })
+    else
+        print('Warning: No more weapon upgrade tokens available to be placed in cave segment')
+    end
+end
+
+function rotatePos(pos)
+    local posX,posY,posZ = pos:get()
+    local rot = self.getRotation()
+    local rotX,rotY,rotZ = rot:get()
+    rotatedPos = Vector{math.cos(math.rad(rotY))*posX + math.sin(math.rad(rotY))*posZ,
+                  1.1,
+                  -math.sin(math.rad(rotY))*posX + math.cos(math.rad(rotY))*posZ}
+    return rotatedPos
+end

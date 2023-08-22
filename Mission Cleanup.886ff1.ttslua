@@ -83,6 +83,7 @@ function Cleanup()
 
     local pAmmoBag = getObjectFromGUID('16ca6a')
     local sAmmoBag = getObjectFromGUID('941a5f')
+    local wAmmoBag = Global.call('getWeaponUpgradeBag')
 
     local apocaBloomBag = Global.call('getApocaBloomBag')
     local starchNutBag = Global.call('getStarchNutBag')
@@ -277,6 +278,10 @@ function Cleanup()
             sAmmoBag.putObject(object)
         end
 
+        if object.getGMNotes() == "wUpgrade" then
+            wAmmoBag.putObject(object)
+        end
+
     end
 
     swarmBlock.setPosition({-8.24, 1.37, -8.91})
@@ -289,5 +294,13 @@ function Cleanup()
     -- Resets the button board scale to be visible and useable
     buttonBoard.setScale({0.675,0.675,0.675})
     missionBoard.setState(2)
+
+    -- these decks like to go inside the mission Board after the board changes
+    -- state - so the location of these decks is forced
+    local swarmDeck = Global.call('getSwarmDeck')
+    swarmDeck.setPosition({-3.66, 2.20, 7.92})
+
+    local resupplyDeck = Global.call('getResupplyDeck')
+    resupplyDeck.setPosition({7.20, 2.20, 7.99})
 
 end
