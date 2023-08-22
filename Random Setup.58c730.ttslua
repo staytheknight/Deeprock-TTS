@@ -123,7 +123,7 @@ function test()
 
     math.randomseed(os.time())
     local randomIndex = math.random(1,2)
-    local flip = possibleLocations.flip[randomIndex]
+    local flip = possibleRotations.flip[randomIndex]
 
     params={
         bag = caveBag,
@@ -132,7 +132,7 @@ function test()
     if Global.call('isInBag',params) then
         caveBag.takeObject({
             position = location,
-            rotation = {0.0,flip,rotation},
+            rotation = {rotation,flip,0.0},
             guid = Global.call('getCaveSeg1GUID'), -- Bottom Left (L Segment)
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
