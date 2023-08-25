@@ -173,6 +173,16 @@ function onLoad()
     cleanupZone_GUID = '41b22f'
     cleanupZone = getObjectFromGUID(cleanupZone_GUID)
 
+    -- Board Zones
+    OutBoundsTop_GUID = '61a384'
+    OutBoundsTop = getObjectFromGUID(OutBoundsTop_GUID)
+    OutBoundsBottom_GUID = '539d9b'
+    OutBoundsBottom = getObjectFromGUID(OutBoundsBottom_GUID)
+    OutBoundsLeft_GUID = '1f4be1'
+    OutBoundsLeft = getObjectFromGUID(OutBoundsLeft_GUID)
+    OutBoundsRight_GUID = '238926'
+    OutBoundsRight = getObjectFromGUID(OutBoundsRight_GUID)
+
     swarmDeck.setPosition({-3.66, 1.20, 7.92})
     resupplyDeck.setPosition({7.20, 1.20, 7.99})
 
@@ -353,6 +363,22 @@ end
 
 function getCleanupZone()
     return cleanupZone
+end
+
+function getOutBoundsTop()
+    return OutBoundsTop
+end
+
+function getOutBoundsBottom()
+    return OutBoundsBottom
+end
+
+function getOutBoundsLeft()
+    return OutBoundsLeft
+end
+
+function getOutBoundsRight()
+    return OutBoundsRight
 end
 
 function getSwarmDeck()
