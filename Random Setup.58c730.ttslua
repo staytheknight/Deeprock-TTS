@@ -103,7 +103,10 @@ function onLoad()
     local caveSeg3_GUID = Global.call('getCaveSeg3GUID')
     local caveSeg4_GUID = Global.call('getCaveSeg4GUID')
     ]]--
-
+    OutBoundsTop = Global.call('getOutBoundsTop')
+    OutBoundsBottom = Global.call('getOutBoundsBottom')
+    OutBoundsRight = Global.call('getOutBoundsRight')
+    OutBoundsLeft = Global.call('getOutBoundsLeft')
 end
 
 function test()
@@ -128,13 +131,22 @@ function test()
     local flip = possibleRotations.flip[randomIndex]
     print("flip: ", flip)
 
+    -- this is to change the y lock depending on the flip value
+    -- of the cave tile, as if it's 1.1 for a certain flip value
+    -- the tile will fall through the board
+    local yLoc = 1.1
+    if flip == 180 then
+        yLoc = 1.2
+    end
+
+    -- need to make it choose a random segment
     params={
         bag = caveBag,
         ID = Global.call('getCaveSeg1GUID'),
     }
     if Global.call('isInBag',params) then
         caveBag.takeObject({
-            position = location,
+            position = {location[1], yLoc, location[3]},
             rotation = {0.0,spin,flip},
             guid = Global.call('getCaveSeg1GUID'), -- Bottom Left (L Segment)
             -- Lock tiles afer spawn
@@ -144,5 +156,11 @@ function test()
         print('Warning: Unable to setup cave, cave tiles are not in the cave bag')
     end
 
+    local zone = OutBoundsTop
+    local objectsInZone = zone.getObjects()
+    print(objectsInZone)
+    for _, object in ipairs(objectsInZone) do
+
+    end
 
 end
