@@ -178,6 +178,22 @@ function test()
 
 end
 
+-- reflects a vector along the x axis
+function reflectX(pos)
+    local posX,posY,posZ = pos:get()
+    reflectedPos = {-posX,posY,posZ}
+    return reflectedPos
+end
+
+-- takes a current pos, and translate it by given amount
+function translatePos(currentPos, translateAmount)
+    local posX,posY,posZ = pos:get()
+    local translateX, translateY, translateZ = translateAmount:get()
+    local newLoc = {posX+translateX, posY+translateY, posZ+translateZ}
+    return newLoc
+end
+
+-- Takes a vector and rotates it by the given rotation
 function rotatePos(pos,rotation)
     local posX,posY,posZ = pos:get()
     local rot = rotation
