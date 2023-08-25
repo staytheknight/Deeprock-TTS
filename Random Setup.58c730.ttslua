@@ -1,3 +1,5 @@
+-- This file is a mess as I struggled making this work properly
+
 -- table of every hexes location
 hexes = {
     row1={{-7.7,1.1,5.92},{-6.6,1.1,5.92},{-5.5,1.1,5.92},{-4.4,1.1,5.92},{-3.3,1.1,5.92},{-2.2,1.1,5.92},{-1.1,1.1,5.92},{0.0,1.1,5.92},
@@ -62,6 +64,8 @@ hexes = {
 rowNames = {hexes.row1,hexes.row2,hexes.row3,hexes.row4,hexes.row5,hexes.row6,hexes.row7,hexes.row8,
             hexes.row9,hexes.row10,hexes.row11,hexes.row12,hexes.row13,hexes.row14,hexes.row15}
 
+rowLengths = {15,14,15,14,13,14,15,14,15,14,13,14,15,14,15}
+
 -- table of every hexes occupation status
 occupied = {
     row1={false,false,false,false,false,false,false,false,false,false,false,false,false,false,false},
@@ -87,6 +91,9 @@ possibleRotations = {
     flip = {0.0,180.0}
 }
 
+caveSegments = {caveSeg1Locs, caveSeg2Locs, caveSeg3Locs, caveSeg4Locs}
+caveSegCalls = {Global.call('getCaveSeg1GUID'),Global.call('getCaveSeg2GUID'),Global.call('getCaveSeg3GUID'),Global.call('getCaveSeg4GUID')}
+
 -- relative to pivot point of this segment
 caveSeg1Locs = {{-2.75,1.1,0.95},{-1.62,1.1,0.95},{-0.55,1.1,0.95},{0.55,1.1,0.95},
                 {-3.3,1.1,0.0},{-2.2,1.1,0.0},{-1.1,1.1,0.0},{0.0,1.0,0.0},{1.1,1.0,0.0},
@@ -108,22 +115,31 @@ function onLoad()
     local caveSeg2_GUID = Global.call('getCaveSeg2GUID')
     local caveSeg3_GUID = Global.call('getCaveSeg3GUID')
     local caveSeg4_GUID = Global.call('getCaveSeg4GUID')
-    ]]--
     OutBoundsTop = Global.call('getOutBoundsTop')
     OutBoundsBottom = Global.call('getOutBoundsBottom')
     OutBoundsRight = Global.call('getOutBoundsRight')
     OutBoundsLeft = Global.call('getOutBoundsLeft')
+    ]]--
+
 end
 
 function test()
+    -- Chooses if the cave segment is flipped or not
+    math.randomseed(os.time())
+    local randomIndex = math.random(1,2)
+    local flip = possibleRotations.flip[randomIndex]
+    print("flip: ", flip)
+
     -- randomize select a row
     math.randomseed(os.time())
-    local randomIndex = math.random(1,8)
+    local randomIndex = math.random(1,15)
     local row = rowNames[randomIndex]
+    -- reach row has a variable length
+    local rowLength = rowLengths[randomIndex]
 
     -- then randomly selects a location
     math.randomseed(os.time())
-    local randomIndex = math.random(1,8)
+    local randomIndex = math.random(1,rowLength)
     local location = row[randomIndex]
     print("location:" ,location[1],location[2],location[3])
 
@@ -132,10 +148,8 @@ function test()
     local spin = possibleRotations.rotations[randomIndex]
     print("spin: ",spin)
 
-    math.randomseed(os.time())
-    local randomIndex = math.random(1,2)
-    local flip = possibleRotations.flip[randomIndex]
-    print("flip: ", flip)
+
+
 
     -- this is to change the y lock depending on the flip value
     -- of the cave tile, as if it's 1.1 for a certain flip value
