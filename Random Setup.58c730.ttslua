@@ -87,6 +87,12 @@ possibleRotations = {
     flip = {0.0,180.0}
 }
 
+-- relative to pivot point of this segment
+caveSeg1Locs = {{-2.75,1.1,0.95},{-1.62,1.1,0.95},{-0.55,1.1,0.95},{0.55,1.1,0.95},
+                {-3.3,1.1,0.0},{-2.2,1.1,0.0},{-1.1,1.1,0.0},{0.0,1.0,0.0},{1.1,1.0,0.0},
+                {-2.75,1.1,-0.95},{-1.65,1.1,-0.95},{-0.55,1.1,-0.95},{0.55,1.1,-0.95},{1.65,1.1,-0.95},
+                {0.0,1.1,-1.9},{1.1,1.1,-1.9}}
+
 function onLoad()
     self.createButton(
         {click_function='test', function_owner=self, label='test',
@@ -156,11 +162,28 @@ function test()
         print('Warning: Unable to setup cave, cave tiles are not in the cave bag')
     end
 
+    --[[
     local zone = OutBoundsTop
     local objectsInZone = zone.getObjects()
-    print(objectsInZone)
-    for _, object in ipairs(objectsInZone) do
+    local count = 0
 
+    for _, object in ipairs(objectsInZone) do
+        if object.getGMNotes() == "caveSeg" then
+            count = count + 1
+        end
     end
 
+    print(count)
+    ]]--
+
+end
+
+function rotatePos(pos,rotation)
+    local posX,posY,posZ = pos:get()
+    local rot = rotation
+    local rotX,rotY,rotZ = rot:get()
+    rotatedPos = Vector{math.cos(math.rad(rotY))*posX + math.sin(math.rad(rotY))*posZ,
+                  1.1,
+                  -math.sin(math.rad(rotY))*posX + math.cos(math.rad(rotY))*posZ}
+    return rotatedPos
 end
