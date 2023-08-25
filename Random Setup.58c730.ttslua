@@ -131,6 +131,8 @@ occupied = {
 }
 
 rowLengths = {15,14,15,14,13,14,15,14,15,14,13,14,15,14,15}
+-- empty quadrant list that the quadrant that has been picked will be added to
+quadrants = {}
 
 -- possible rotations for the cave tiles
 possibleRotations = {
@@ -191,7 +193,25 @@ function test()
     local location = row[randomIndex]
     print("location:" ,location[1],location[2],location[3])
 
+    -- Clockwise starting at the top left
+    -- Quadrant 1 limits X:{-7.7 to 0}, Z:{5.92 to -0.75}
+    -- Quadrant 2 limits X:{0 to -7.7}, Z:{5.92 to -0.75}
+    -- Quadrant 3 limits X:{0 to -7.7}, Z:{-0.75 to -7.42}
+    -- Quadrant 4 limits X:{-7.7 to 0}, Z:{-0.75 to -7.42}
 
+    local quadrant = 0
+    if location[1] >= -8.0 && location[1] <= 0.5 && location[3] <= 6.2 && location[3] >= -1.0 then
+        quadrant = 1
+    elseif location[1] <= 0.5 && location[1] >= -8.0 && location[3] <= 6.2 && location[3] >= -1.0 then
+        quadrant = 2
+    elseif location[1] >= -8.0 && location[1] <= 0.5 && location[3] <= 0.5 && location[3] >= -8.0 then
+        quadrant = 3
+    elseif location[1] <= 0.5 && location[1] >= -8.0 && location[3] <= 0.5 && location[3] >= -8.0 then
+        quadrant = 4
+    end
+
+
+    -- rotates the piece
     math.randomseed(os.time())
     local randomIndex = math.random(1,7)
     local spin = possibleRotations.rotations[randomIndex]
