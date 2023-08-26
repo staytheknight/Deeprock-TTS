@@ -141,7 +141,7 @@ possibleRotations = {
 }
 
 caveSegments = {caveSeg1Locs, caveSeg2Locs, caveSeg3Locs, caveSeg4Locs}
-caveSegCalls = {Global.call('getCaveSeg1GUID'),Global.call('getCaveSeg2GUID'),Global.call('getCaveSeg3GUID'),Global.call('getCaveSeg4GUID')}
+caveSegCalls = {'getCaveSeg1GUID','getCaveSeg2GUID','getCaveSeg3GUID','getCaveSeg4GUID'}
 
 -- relative to pivot point of this segment
 caveSeg1Locs = {{-2.75,1.1,0.95},{-1.62,1.1,0.95},{-0.55,1.1,0.95},{0.55,1.1,0.95},
@@ -178,10 +178,9 @@ function test()
     while r < 0.1 or r >= 0.3 do
         r = Global.call('monteCarloRand')
     end
-    print('result: ',r)
     randomIndex = (math.floor(r*10))
     local flip = possibleRotations.flip[randomIndex]
-    print("flip: ", flip)
+    --print("flip: ", flip)
 
     -- randomize select a row
     r = Global.call('monteCarloRand')
@@ -189,11 +188,11 @@ function test()
         r = Global.call('monteCarloRand')
     end
     randomIndex = (math.floor(r*100))
-    print('row index: ', randomIndex)
+    --print('row index: ', randomIndex)
     local row = rowNames[randomIndex]
     -- reach row has a variable length
     local rowLength = rowLengths[randomIndex]
-    print('row length: ', rowLength)
+    --print('row length: ', rowLength)
 
     -- then randomly selects a location
     r = Global.call('monteCarloRand')
@@ -201,9 +200,9 @@ function test()
         r = Global.call('monteCarloRand')
     end
     randomIndex = (math.floor(r*100))
-    print ('random location index: ', randomIndex)
+    --print ('random location index: ', randomIndex)
     local location = row[randomIndex]
-    print("location:" ,location[1],location[2],location[3])
+    --print("location:" ,location[1],location[2],location[3])
 
     -- Clockwise starting at the top left
     -- Quadrant 1 limits X:{-7.7 to 0}, Z:{5.92 to -0.75}
@@ -222,7 +221,7 @@ function test()
         quadrant = 4
     end
 
-    print('quadrant: ', quadrant)
+    --print('quadrant: ', quadrant)
 
     -- rotates the piece
     r = Global.call('monteCarloRand')
@@ -231,7 +230,7 @@ function test()
     end
     randomIndex = (math.floor(r*10))
     local spin = possibleRotations.rotations[randomIndex]
-    print("spin: ",spin)
+    --print("spin: ",spin)
 
     -- this is to change the y lock depending on the flip value
     -- of the cave tile, as if it's 1.1 for a certain flip value
@@ -241,16 +240,27 @@ function test()
         yLoc = 1.2
     end
 
+    r = Global.call('monteCarloRand')
+    while r < 0.1 or r >= 0.5 do
+        r = Global.call('monteCarloRand')
+    end
+    randomIndex = (math.floor(r*10))
+    --print('call index:', randomIndex)
+
+    call = caveSegCalls[randomIndex]
+    cave_GUID = Global.call(call)
+    --print('call: ',cave_GUID)
+
     -- need to make it choose a random segment
     params={
         bag = caveBag,
-        ID = Global.call('getCaveSeg1GUID'),
+        ID = cave_GUID
     }
     if Global.call('isInBag',params) then
         caveBag.takeObject({
             position = {location[1], yLoc, location[3]},
             rotation = {0.0,spin,flip},
-            guid = Global.call('getCaveSeg1GUID'), -- Bottom Left (L Segment)
+            guid = cave_GUID,
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
         })
