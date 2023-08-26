@@ -186,6 +186,15 @@ function onLoad()
     swarmDeck.setPosition({-3.66, 1.20, 7.92})
     resupplyDeck.setPosition({7.20, 1.20, 7.99})
 
+    -- Runs the monte carlo randomizer a certain number of times
+    -- this is to truley randomize it, as it starts with the same numbers
+    -- each time you start the simulation
+    math.randomseed(os.clock())
+    r = math.random(1,50)
+    for i=1, r do
+        monteCarloRand()
+    end
+
 function Setup()
     missionBoard = getObjectFromGUID(missionBoard_GUID)
     eventDeck.shuffle()
