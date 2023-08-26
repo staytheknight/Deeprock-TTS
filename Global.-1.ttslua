@@ -570,6 +570,7 @@ function getDrone2GUID()
     return drone2_GUID
 end
 
+-- Monte Carlo randomizer from https://9to5answer.com/generating-uniform-random-numbers-in-lua
 local A1, A2 = 727595, 798405  -- 5^17=D20*A1+A2
 local D20, D40 = 1048576, 1099511627776  -- 2^20, 2^40
 local X1, X2 = 0,1

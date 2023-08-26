@@ -164,10 +164,6 @@ function onLoad()
     local caveSeg2_GUID = Global.call('getCaveSeg2GUID')
     local caveSeg3_GUID = Global.call('getCaveSeg3GUID')
     local caveSeg4_GUID = Global.call('getCaveSeg4GUID')
-    OutBoundsTop = Global.call('getOutBoundsTop')
-    OutBoundsBottom = Global.call('getOutBoundsBottom')
-    OutBoundsRight = Global.call('getOutBoundsRight')
-    OutBoundsLeft = Global.call('getOutBoundsLeft')
     ]]--
 
 end
@@ -251,7 +247,7 @@ function test()
     cave_GUID = Global.call(call)
     --print('call: ',cave_GUID)
 
-    -- need to make it choose a random segment
+    -- Brags a random cave segment
     params={
         bag = caveBag,
         ID = cave_GUID
@@ -267,20 +263,6 @@ function test()
     else
         print('Warning: Unable to setup cave, cave tiles are not in the cave bag')
     end
-
-    --[[
-    local zone = OutBoundsTop
-    local objectsInZone = zone.getObjects()
-    local count = 0
-
-    for _, object in ipairs(objectsInZone) do
-        if object.getGMNotes() == "caveSeg" then
-            count = count + 1
-        end
-    end
-
-    print(count)
-    ]]--
 
 end
 
