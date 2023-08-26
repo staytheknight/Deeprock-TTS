@@ -178,6 +178,7 @@ function test()
     while r < 0.1 or r >= 0.3 do
         r = Global.call('monteCarloRand')
     end
+    print('result: ',r)
     randomIndex = (math.floor(r*10))
     local flip = possibleRotations.flip[randomIndex]
     print("flip: ", flip)
@@ -192,10 +193,11 @@ function test()
     local row = rowNames[randomIndex]
     -- reach row has a variable length
     local rowLength = rowLengths[randomIndex]
+    print('row length: ', rowLength)
 
     -- then randomly selects a location
     r = Global.call('monteCarloRand')
-    while r < 0.01 or r >= ((rowLength+1)*-100) do
+    while r < 0.01 or r >= (rowLength+1)*0.01 do
         r = Global.call('monteCarloRand')
     end
     randomIndex = (math.floor(r*100))
