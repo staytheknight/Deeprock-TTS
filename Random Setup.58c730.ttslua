@@ -174,22 +174,31 @@ end
 
 function test()
     -- Chooses if the cave segment is flipped or not
-    math.randomseed(os.clock())
-    local randomIndex = math.random(1,2)
+    r = Global.call('monteCarloRand')
+    while r < 0.1 or r >= 0.3 do
+        r = Global.call('monteCarloRand')
+    end
+    randomIndex = (math.floor(r*10))
     local flip = possibleRotations.flip[randomIndex]
     print("flip: ", flip)
 
     -- randomize select a row
-    math.randomseed(os.clock())
-    local randomIndex = math.random(1,15)
+    r = Global.call('monteCarloRand')
+    while r < 0.01 or r >= 0.16 do
+        r = Global.call('monteCarloRand')
+    end
+    randomIndex = (math.floor(r*100))
     print('row index: ', randomIndex)
     local row = rowNames[randomIndex]
     -- reach row has a variable length
     local rowLength = rowLengths[randomIndex]
 
     -- then randomly selects a location
-    math.randomseed(os.clock())
-    local randomIndex = math.random(1,rowLength)
+    r = Global.call('monteCarloRand')
+    while r < 0.01 or r >= ((rowLength+1)*-100) do
+        r = Global.call('monteCarloRand')
+    end
+    randomIndex = (math.floor(r*100))
     print ('random location index: ', randomIndex)
     local location = row[randomIndex]
     print("location:" ,location[1],location[2],location[3])
