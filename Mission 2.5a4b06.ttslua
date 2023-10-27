@@ -132,7 +132,7 @@ function setupMission2()
     if Global.call('isInBag',params) then
         caveBag.takeObject({
             position = {2.75, 1.27, -6.47},
-            rotation = {0.0,180.0,0.0},
+            rotation = {0.0,0.0,0.0},
             guid = Global.call('getCaveEntrance1GUID'),
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
@@ -148,7 +148,7 @@ function setupMission2()
     if Global.call('isInBag',params) then
         caveBag.takeObject({
             position = {0.00, 1.27, 4.01},
-            rotation = {0.0,180.0,0.0},
+            rotation = {0.0,0.0,0.0},
             guid = Global.call('getCaveEntrance2GUID'),
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
@@ -190,7 +190,7 @@ function setupMission2()
     local explorationBag = Global.call('getExplorationBag') -- need to call global function to get proper object ID
     local fossilBag = Global.call('getFossilBag')
     local redSugarBag = Global.call('getRedSugarBag')
-    local starchNutBag = Global.call('getStarchNutBag')
+    local barleyBulbBag = Global.call('getBarleyBulbBag')
     local lootBugBag = Global.call('getLootBugBag')
 
     local mineralBag = Global.call('getMineralBag')
@@ -226,10 +226,10 @@ function setupMission2()
         print("Warning: Unable to set up exploration tokens, loot bug bag is empty")
     end
 
-    if not Global.call('isBagEmpty',starchNutBag) then
-        explorationBag.putObject(starchNutBag.takeObject())
+    if not Global.call('isBagEmpty',barleyBulbBag) then
+        explorationBag.putObject(barleyBulbBag.takeObject())
     else
-        print("Warning: Unable to set up exploration tokens, starch nut bag is empty")
+        print("Warning: Unable to set up exploration tokens, barley bulb bag is empty")
     end
 
     if not Global.call('isBagEmpty',redSugarBag) then
@@ -256,7 +256,7 @@ function setupMission2()
         if not Global.call('isBagEmpty',explorationBag) then
             explorationBag.takeObject({
                 position = mission2Positions.explorationTiles[i],
-                rotation = {0.0, 210, 180.0}
+                rotation = {0.0, 0.0, 180.0}
             })
         else
             print("Warning: Unable to setup exploration tokens, the bag is empty")

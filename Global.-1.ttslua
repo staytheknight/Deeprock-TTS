@@ -1,11 +1,6 @@
 
 function onLoad()
     -- Boards
-    --buttonBoard_GUID = '01209b'
-    buttonBoard_GUID = '85eacf'
-    buttonBoard = getObjectFromGUID(buttonBoard_GUID)
-    missionBoard_GUID = '6b3694' -- State 2 (Button State)
-    missionBoard = getObjectFromGUID(missionBoard_GUID)
     engineerBoard_GUID = 'da9ffc'
     engineerBoard = getObjectFromGUID(engineerBoard_GUID)
     drillerBoard_GUID = 'e367fd'
@@ -213,7 +208,6 @@ function onLoad()
     resupplyDeck.setPosition({7.20, 1.20, 7.99})
 
 function Setup()
-    missionBoard = getObjectFromGUID(missionBoard_GUID)
     eventDeck.shuffle()
     swarmDeck.shuffle()
     rockAndStoneDeck.shuffle()
@@ -224,10 +218,7 @@ function Setup()
     swarmDeck.setPosition({-3.66, 1.20, 7.92})
     resupplyDeck.setPosition({7.20, 1.20, 7.99})
 
-    -- Mission board setup in the middle of table
-    missionBoard.setPosition({0.0,1.0,0.0})
-    missionBoard.setLock(true)
-
+    --[[ Hiding these as the values are incorrect
     -- Character board setup around mission board
     engineerBoard.setPosition({0.0,1.0,-15.0})
     engineerBoard.setLock(true)
@@ -243,11 +234,7 @@ function Setup()
     scoutBoard.setPosition({-15.0,1.0,0.0})
     --scoutBoard.rotate({0.0,0.0,0.0})
     scoutBoard.setLock(true)
-
-    -- Removes the button board
-    buttonBoard.call('hideBoard')
-    -- Switches the mission board to the side without buttons
-    missionBoard.setState(1)
+    --]]
 
     --hideMissionTokens()
 end
@@ -375,14 +362,6 @@ function setupMission14()
 end
 
 -- Object getters
-function getButtonBoard()
-    return buttonBoard
-end
-
-function getMissionBoard()
-    return missionBoard
-end
-
 function getMissionBook()
     return missionBook
 end
@@ -485,8 +464,8 @@ function getRedSugarBag()
     return redSugarBag
 end
 
-function getStarchNutBag()
-    return starchNutBag
+function getBarleyBulbBag()
+    return barleyBulbBag
 end
 
 function getEggBag()

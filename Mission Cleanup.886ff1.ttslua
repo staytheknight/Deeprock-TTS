@@ -291,9 +291,6 @@ function Cleanup()
 
     -- Puts the cleanup button back
     cleanupButton()
-    -- Resets the button board scale to be visible and useable
-    buttonBoard.setScale({0.675,0.675,0.675})
-    missionBoard.setState(2)
 
     -- these decks like to go inside the mission Board after the board changes
     -- state - so the location of these decks is forced

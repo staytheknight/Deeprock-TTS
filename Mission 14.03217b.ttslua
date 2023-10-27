@@ -209,14 +209,14 @@ function setupMission14()
 
     -- Exploration Tokens
     local explorationBag = Global.call('getExplorationBag') -- need to call global function to get proper object ID
-    local starchNutBag = Global.call('getStarchNutBag')
+    local barleyBulbBag = Global.call('getBarleyBulbBag')
     local fossilBag = Global.call('getFossilBag')
 
     for i=1, 2 do
-        if not Global.call('isBagEmpty',starchNutBag) then
-            explorationBag.putObject(starchNutBag.takeObject())
+        if not Global.call('isBagEmpty',barleyBulbBag) then
+            explorationBag.putObject(barleyBulbBag.takeObject())
         else
-            print("Warning: Unable to set up exploration tokens, starch nut bag is empty")
+            print("Warning: Unable to set up exploration tokens, barley bulb bag is empty")
             break
         end
     end
