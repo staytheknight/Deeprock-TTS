@@ -37,7 +37,7 @@ function onLoad()
 
     hexPit2_GUID = '3799b9' -- 2 Hex Pit
     hexPit2 = getObjectFromGUID(hexPit2_GUID) -- 2 Hex Pit
-    hexPit3_GUID = 'f75a4c'
+    hexPit3_GUID = '574cc3'
     hexPit3 = getObjectFromGUID(hexPit3_GUID) -- 3 Hex Pit (Extractor on back)
     hexPit4_GUID = '38def5'
     hexPit4 = getObjectFromGUID(hexPit4_GUID) -- 4 Hex Pit
@@ -493,8 +493,8 @@ function getAquardBag()
     return aquardBag
 end
 
-function getMiscTilesBag()
-    return miscTilesBag
+function getExclamationTilesBag()
+    return exclamationTilesBag
 end
 
 -- GUID getters

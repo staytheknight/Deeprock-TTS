@@ -76,7 +76,7 @@ function Cleanup()
     local missionBoard = getObjectFromGUID('d8201c') -- Button board state 1 (no buttons)
     local missionBook = Global.call('getMissionBook')
 
-    local miscBag = Global.call('getMiscTilesBag')
+    local exclaimTilesBag = Global.call('getExclamationTilesBag')
 
     local caveBag = Global.call('getCaveBag')
     local hiddenCaveBag = Global.call('getHiddenCaveBag')
@@ -217,7 +217,7 @@ function Cleanup()
 
         -- Misc Tiles
         if object.getGMNotes() == "MiscToken" then
-            miscBag.putObject(object)
+            exclaimTilesBag.putObject(object)
         end
 
 

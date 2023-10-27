@@ -272,16 +272,16 @@ function setupMission5()
     end
 
     -- Drone Placements
-    local miscTilesBag = Global.call('getMiscTilesBag')
+    local exclaimTilesBag = Global.call('getExclamationTilesBag')
 
-    if not Global.call('isBagEmpty',miscTilesBag) then
-        miscTilesBag.takeObject({
+    if not Global.call('isBagEmpty',exclaimTilesBag) then
+        exclaimTilesBag.takeObject({
             position = mission5Positions.drones[1],
             rotation = {0.0, 180.0, 0.0},
             guid = Global.call('getDrone1GUID')
         })
     else
-        print("Warning: Unable to setup drones, they are not in the misc tile bag")
+        print("Warning: Unable to setup drones, they are not in the [!] tile bag")
     end
 
     -- Exploration Tokens
