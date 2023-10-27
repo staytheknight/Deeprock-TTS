@@ -145,15 +145,15 @@ function onLoad()
         yeastConesBag = getObjectFromGUID(yeastConesBag_GUID)
 
         -- Mineral bags
-        mineralBag_GUID = 'f08e80'
+        mineralBag_GUID = '3f422e'
         mineralBag = getObjectFromGUID(mineralBag_GUID)
-        nitraBag_GUID = '3d6e3d'
+        nitraBag_GUID = '6095c4'
         nitraBag = getObjectFromGUID(nitraBag_GUID)
-        morkiteBag_GUID = '469918'
+        morkiteBag_GUID = '58dc2b'
         morkiteBag = getObjectFromGUID(morkiteBag_GUID)
-        goldBag_GUID = '6eb360'
+        goldBag_GUID = '3e9882'
         goldBag = getObjectFromGUID(goldBag_GUID)
-        aquardBag_GUID = 'ca3f82'
+        aquardBag_GUID = '3e6db3'
         aquardBag = getObjectFromGUID(aquardBag_GUID)
 
     -- Misc tiles
