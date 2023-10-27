@@ -49,25 +49,29 @@ function onLoad()
     hexPit5_GUID = '008e96' -- 5 Hex Pit
     hexPit5 = getObjectFromGUID(hexPit5_GUID) -- 5 Hex Pit
 
-    caveEntrance1_GUID = '472331'
+    caveEntrance1_GUID = 'a81d4f'
     caveEntrance1 = getObjectFromGUID(caveEntrance1_GUID)
-    caveEntrance2_GUID = 'b00adf'
+    caveEntrance2_GUID = '14348e'
     caveEntrance2 = getObjectFromGUID(caveEntrance2_GUID)
 
     -- Bags
-    caveBag_GUID = '9bb5a0'
+    caveBag_GUID = 'b147e9'
     caveBag = getObjectFromGUID(caveBag_GUID)
-    hiddenCaveBag_GUID = '3eb852'
+    expansionCaveBag_GUID = 'b17808'
+    expansioNCaveBag = getObjectFromGUID(expansionCaveBag_GUID)
+    hiddenCaveBag_GUID = '26ac93'
     hiddenCaveBag = getObjectFromGUID(hiddenCaveBag_GUID)
+    miniHiddenCaveBag_GUID = '3cff09'
+    miniHiddenCaveBag = getObjectFromGUID(miniHiddenCaveBag_GUID)
 
     salagmiteModelBag_GUID = 'c275d1'
     stalagmiteModelBag = getObjectFromGUID(salagmiteModelBag_GUID)
 
-    weaponUpgradeBag_GUID = 'b48a6d'
+    weaponUpgradeBag_GUID = '1523e1'
     weaponUpgradeBag = getObjectFromGUID(weaponUpgradeBag_GUID)
 
-    miscTilesBag_GUID = 'e7bcb4'
-    miscTilesBag = getObjectFromGUID(miscTilesBag_GUID)
+    exclamationTilesBag_GUID = '1b7054'
+    exclamationTilesBag = getObjectFromGUID(exclamationTilesBag_GUID)
 
         -- Glyphid bags
         gruntBag_GUID = 'a9ba4b'
@@ -91,6 +95,27 @@ function onLoad()
         opressorBag_GUID = 'd0a1fc'
         opressorBag = getObjectFromGUID(opressorBag_GUID)
 
+        -- Goo From Above Glyphids
+        gooBomberBag_GUID = '35b987'
+        gooBomberBag = getObjectFromGUID(gooBomberBag_GUID)
+        menaceBag_GUID = '88f9cc'
+        menaceBag = getObjectFromGUID(menaceBag_GUID)
+        gooBag_GUID = 'f4fe09'
+        gooBag = getObjectFromGUID(gooBag_GUID)
+
+        -- Biome Expansion Glyphids
+        naedocyteHatchlingsBag_GUID = '5b74ba'
+        naedocyteHatchlingsBag = getObjectFromGUID(naedocyteHatchlingsBag_GUID)
+        naedocyteBreederBag_GUID = '79d59b'
+        naedocyteBreederBag = getObjectFromGUID(naedocyteHatchlingsBag_GUID)
+        qronarShellbackBag_GUID = '28e956'
+        qronarShellbackBag = getObjectFromGUID(qronarShellbackBag_GUID)
+        rammersBag_GUID = '5874bd'
+        rammerBag = getObjectFromGUID(rammersBag_GUID)
+        stingtailBag_GUID = '664a84'
+        stingtailBag = getObjectFromGUID(stingtailBag_GUID)
+        dreadnoughtBag_GUID = 'a15ee2'
+        dreadnoughtBag = getObjectFromGUID(dreadnoughtBag_GUID)
 
         -- Exploration Bags
         explorationBag_GUID = 'efa37d'
