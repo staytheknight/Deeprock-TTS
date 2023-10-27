@@ -86,7 +86,7 @@ function Cleanup()
     local wAmmoBag = Global.call('getWeaponUpgradeBag')
 
     local apocaBloomBag = Global.call('getApocaBloomBag')
-    local starchNutBag = Global.call('getStarchNutBag')
+    local barleyBulbBag = Global.call('getBarleyBulbBag')
     local fossilBag = Global.call('getFossilBag')
     local redSugarBag = Global.call('getRedSugarBag')
     local lootBugBag = Global.call('getLootBugBag')
@@ -132,7 +132,7 @@ function Cleanup()
         end
 
         if object.getGMNotes() == "StarchNut" then
-            starchNutBag.putObject(object)
+            barleyBulbBag.putObject(object)
         end
 
         if object.getGMNotes() == "Fossil" then

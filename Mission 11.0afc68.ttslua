@@ -127,7 +127,7 @@ function setupMission11()
     if Global.call('isInBag',params) then
         caveBag.takeObject({
             position = {-3.30, 1.29, -1.71},
-            rotation = {0.0, 180.0, 0.0},
+            rotation = {0.0, 0.0, 0.0},
             guid = Global.call('getCaveEntrance1GUID'),
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
@@ -143,7 +143,7 @@ function setupMission11()
     if Global.call('isInBag',params) then
         caveBag.takeObject({
             position = {1.10, 1.27, -3.61},
-            rotation = {0.0,180.0,0.0},
+            rotation = {0.0,0.0,0.0},
             guid = Global.call('getCaveEntrance2GUID'),
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
@@ -271,7 +271,7 @@ function setupMission11()
         if not Global.call('isBagEmpty',explorationBag) then
             explorationBag.takeObject({
                 position = mission11Positions.explorationTiles[i],
-                rotation = {0.0, 210, 180.0}
+                rotation = {0.0, 0.0, 180.0}
             })
         else
             print("Warning: Unable to setup exploration tokens, the bag is empty")
