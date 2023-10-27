@@ -1,0 +1,102 @@
+-- Mission Selection board
+function onLoad()
+    self.createButton(
+        {click_function='setupMission1', function_owner=Global, label='MISSION 1:\nNEW DARKNESS, NEW FORTUNES',
+        position={-0.45,0.2,-0.71}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 1:\nNEW DARKNESS, NEW FORTUNES'}
+    )
+
+    self.createButton(
+        {click_function='setupMission2', function_owner=Global, label='MISSION 2:\nUNEXPLORED OPPORTUNITIES',
+        position={-0.45 , 0.2 , -0.6}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 2:\nUNEXPLORED OPPORTUNITIES'}
+    )
+
+    self.createButton(
+        {click_function='setupMission3', function_owner=Global, label='MISSION 3:\nTHE GREAT UNKNOW',
+        position={-0.45 , 0.2 , -0.52}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 3:\nTHE GREAT UNKNOW'}
+    )
+
+    self.createButton(
+        {click_function='setupMission4', function_owner=Global, label='MISSION 4:\nSEARCH "N" RETRIEVE',
+        position={-0.45 , 0.2 , -0.325}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 4:\nSEARCH "N" RETRIEVE'}
+    )
+
+    self.createButton(
+        {click_function='setupMission5', function_owner=Global, label='MISSION 5:\nCIRCLE OF CARNAGE',
+        position={-0.45 , 0.2 , -0.25}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 5:\nCIRCLE OF CARNAGE'}
+    )
+
+    self.createButton(
+        {click_function='setupMission6', function_owner=Global, label='MISSION 6:\nCAVE OF THE PRAETORIAN',
+        position={-0.45 , 0.2 , 0.2}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 6:\nCAVE OF THE PRAETORIAN'}
+    )
+
+    self.createButton(
+        {click_function='setupMission7', function_owner=Global, label='MISSION 7:\nHELLISH CORRIDOR',
+        position={-0.45 , 0.2 , 0.275}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 7:\nHELLISH CORRIDOR'}
+    )
+
+    self.createButton(
+        {click_function='setupMission8', function_owner=Global, label='MISSION 8:\nMORKITE MADNESS',
+        position={-0.45 , 0.2 , 0.35}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 8:\nMORKITE MADNESS'}
+    )
+
+    self.createButton(
+        {click_function='setupMission9', function_owner=Global, label='MISSION 9:\nPOINT EXTRACTION',
+        position={-0.45 , 0.2 , 0.425}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 9:\nPOINT EXTRACTION'}
+    )
+
+    self.createButton(
+        {click_function='setupMission10', function_owner=Global, label='MISSION 10:\nEGGS, EGGS, EGGS',
+        position={-0.45 , 0.2 , 0.5}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 10:\nEGGS, EGGS, EGGS'}
+    )
+
+    self.createButton(
+        {click_function='setupMission11', function_owner=Global, label='MISSION 11:\nPITS OF RICHES',
+        position={-0.45 , 0.2 , 0.58}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 11:\nPITS OF RICHES'}
+    )
+
+    self.createButton(
+        {click_function='setupMission12', function_owner=Global, label='MISSION 12:\nTHE DARK CAVES',
+        position={-0.45 , 0.2 , 0.665}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 12:\nTHE DARK CAVES'}
+    )
+
+    self.createButton(
+        {click_function='setupMission13', function_owner=Global, label='MISSION 13:\nBUG SANCTUARY',
+        position={-0.45 , 0.2 , 0.735}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 13:\nBUG SANCTUARY'}
+    )
+
+    self.createButton(
+        {click_function='setupMission14', function_owner=Global, label='MISSION 14:\nDEVIL`S FORK',
+        position={-0.45 , 0.2 , 0.82}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 14:\nDEVIL`S FORK'}
+    )
+
+
+end
