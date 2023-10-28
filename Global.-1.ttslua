@@ -52,8 +52,8 @@ function onLoad()
     -- Bags
     caveBag_GUID = 'b147e9'
     caveBag = getObjectFromGUID(caveBag_GUID)
-    expansionCaveBag_GUID = 'b17808'
-    expansioNCaveBag = getObjectFromGUID(expansionCaveBag_GUID)
+    biomeCaveBag_GUID = 'b17808'
+    biomeCaveBag = getObjectFromGUID(biomeCaveBag_GUID)
     hiddenCaveBag_GUID = '26ac93'
     hiddenCaveBag = getObjectFromGUID(hiddenCaveBag_GUID)
     miniHiddenCaveBag_GUID = '3cff09'
@@ -420,6 +420,10 @@ end
 
 function getCaveBag()
     return caveBag
+end
+
+function getBiomeCaveBag()
+    return biomeCaveBag
 end
 
 function getHiddenCaveBag()
