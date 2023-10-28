@@ -5,6 +5,7 @@
 -- 1 Weapon Upgrade Tile
 
 spawnLocations={
+    -- These locations are relative to the spawn point
     gruntLoc=Vector{0.0,1.0,1.9},
     slasherLoc=Vector{1.1,1.0,0.0},
     stalagLocs={Vector{0.0,1.0,0.0},Vector{0.55,1.0,0.95}},
@@ -70,7 +71,7 @@ function Reveal()
         position = rotatePos(spawnLocations.explorationTileLoc)
         explorationBag.takeObject({
             position = self.getPosition() + position,
-            rotation = self.getRotation() + Vector{0.0,30.0,180.0}
+            rotation = self.getRotation() + Vector{0.0,0.0,180.0}
         })
     else
         print('Warning: No more exploration tokens available to be placed in cave segment')
@@ -83,7 +84,7 @@ function Reveal()
         position = rotatePos(spawnLocations.weaponUpgradeLoc)
         weaponUpgradeBag.takeObject({
             position = self.getPosition() + position,
-            rotation = Vector{0.0,0.0,180.0}
+            rotation = Vector{0.0,30.0,180.0}
         })
     else
         print('Warning: No more weapon upgrade tokens available to be placed in cave segment')
