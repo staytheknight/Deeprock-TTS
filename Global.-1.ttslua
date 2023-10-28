@@ -207,6 +207,44 @@ function onLoad()
     swarmDeck.setPosition({-3.66, 1.20, 7.92})
     resupplyDeck.setPosition({7.20, 1.20, 7.99})
 
+    -- Runs the monte carlo randomizer a certain number of times
+    -- this is to truley randomize it, as it starts with the same numbers
+    -- each time you start the simulation
+    math.randomseed(os.clock())
+    r = math.random(1,50)
+    for i=1, r do
+        monteCarloRand()
+    end
+end
+
+-- Monte Carlo randomizer from https://9to5answer.com/generating-uniform-random-numbers-in-lua
+local A1, A2 = 727595, 798405  -- 5^17=D20*A1+A2
+local D20, D40 = 1048576, 1099511627776  -- 2^20, 2^40
+local X1, X2 = 0,1
+function monteCarloRand()
+    local U = X2*A2
+    local V = (X1*A2 + X2*A1) % D20
+    V = (V*D20 + U) % D40
+    X1 = math.floor(V/D20)
+    X2 = V - X1*D20
+    return V/D40    -- returns a float [0,1]
+end
+
+-- params are the floor and ceiling of the float ranges returned
+-- by the monte carlo randomizer
+-- this then takes those results and returns them as an integer
+function randInt(params)
+    r = monteCarloRand()
+    -- if the float is not in the desired range, search again
+    while r < params.floor or r >= params.ceiling do
+        r = monteCarloRand()
+    end
+    randomIndex = (math.floor(r*10))
+
+    return randomIndex
+end
+
+
 function Setup()
     eventDeck.shuffle()
     swarmDeck.shuffle()
@@ -237,8 +275,6 @@ function Setup()
     --]]
 
     --hideMissionTokens()
-end
-
 end
 
 -- checks if a bag / container is empty
