@@ -82,6 +82,18 @@ function onLoad()
 
     salagmiteModelBag_GUID = 'c275d1'
     stalagmiteModelBag = getObjectFromGUID(salagmiteModelBag_GUID)
+    explodingPlantsBag_GUID = '10bb36'
+    explodingPlantsBag = getObjectFromGUID(explodingPlantsBag_GUID)
+    cryoBulbBag_GUID = 'a94e55'
+    cryoBulbBag = getObjectFromGUID(cryoBulbBag_GUID)
+    glowingCrystalBag_GUID = '351d41'
+    glowingCrystalBag = getObjectFromGUID(glowingCrystalBag_GUID)
+    geyserBag_GUID = '1feb7d'
+    geyserBag = getObjectFromGUID(geyserBag_GUID)
+    glyphidCocoonBag_GUID = '6d901c'
+    glyphidCocoonBag = getObjectFromGUID(glyphidCocoonBag_GUID)
+    poisonSporeBag_GUID = '31336f'
+    poisonSporeBag = getObjectFromGUID(poisonSporeBag_GUID)
 
     weaponUpgradeBag_GUID = '1523e1'
     weaponUpgradeBag = getObjectFromGUID(weaponUpgradeBag_GUID)
@@ -218,6 +230,60 @@ function onLoad()
 
     mission14_GUID = '03217b'
     mission14 = getObjectFromGUID(mission14_GUID)
+
+    missionB1_GUID = '6c6c75'
+    missionB1 = getObjectFromGUID(missionB1_GUID)
+    missionB2_GUID = '4a39b7'
+    missionB2 = getObjectFromGUID(missionB2_GUID)
+    missionB3_GUID = '6efdef'
+    missionB3 = getObjectFromGUID(missionB3_GUID)
+    missionB4_GUID = 'be276a'
+    missionB4 = getObjectFromGUID(missionB4_GUID)
+    missionB5_GUID = 'daf000'
+    missionB5 = getObjectFromGUID(missionB5_GUID)
+    missionB6_GUID = 'c090ef'
+    missionB6 = getObjectFromGUID(missionB6_GUID)
+    missionB7_GUID = '566064'
+    missionB7 = getObjectFromGUID(missionB7_GUID)
+    missionB8_GUID = '6c7782'
+    missionB8 = getObjectFromGUID(missionB8_GUID)
+    missionB9_GUID = '5a99a7'
+    missionB9 = getObjectFromGUID(missionB9_GUID)
+    missionB10_GUID = '9a3de5'
+    missionB10 = getObjectFromGUID(missionB10_GUID)
+    missionB11_GUID = '2f4877'
+    missionB11 = getObjectFromGUID(missionB11_GUID)
+    missionB12_GUID = '88e086'
+    missionB12 = getObjectFromGUID(missionB12_GUID)
+    missionB13_GUID = '5d17e6'
+    missionB13 = getObjectFromGUID(missionB13_GUID)
+    missionB14_GUID = 'f73680'
+    missionB14 = getObjectFromGUID(missionB14_GUID)
+    missionB15_GUID = '746669'
+    missionB15 = getObjectFromGUID(missionB15_GUID)
+    missionB16_GUID = '42ad11'
+    missionB16 = getObjectFromGUID(missionB16_GUID)
+
+    missionSR1_GUID = '58b819'
+    missionSR1 = getObjectFromGUID(missionSR1_GUID)
+    missionSR2_GUID = 'ec0446'
+    missionSR2 = getObjectFromGUID(missionSR2_GUID)
+    missionSR3_GUID = '5fa281'
+    missionSR3 = getObjectFromGUID(missionSR3_GUID)
+    missionSR4_GUID = '2f8724'
+    missionSR4 = getObjectFromGUID(missionSR4_GUID)
+    missionSR5_GUID = 'f0eb8f'
+    missionSR5 = getObjectFromGUID(missionSR5_GUID)
+    missionSR6_GUID = 'a38291'
+    missionSR6 = getObjectFromGUID(missionSR6_GUID)
+    missionSR7_GUID = '637f51'
+    missionSR7 = getObjectFromGUID(missionSR7_GUID)
+    missionSR8_GUID = '6027a8'
+    missionSR8 = getObjectFromGUID(missionSR8_GUID)
+    missionSR9_GUID = '6123a1'
+    missionSR9 = getObjectFromGUID(missionSR9_GUID)
+    missionSR10_GUID = '6123a1'
+    missionSR10 = getObjectFromGUID(missionSR10_GUID)
 
     missionCleanup_GUID = '886ff1'
     missionCleanup = getObjectFromGUID(missionCleanup_GUID)
@@ -453,6 +519,30 @@ end
 
 function getStalagmiteModelBag()
     return stalagmiteModelBag
+end
+
+function getExplodingPlantsBag()
+    return explodingPlantsBag
+end
+
+function getCryoBulbBag()
+    return cryoBulbBag
+end
+
+function getGlowingCrystalBag()
+    return glowingCrystalBag
+end
+
+function getGeyserBag()
+    return geyserBag
+end
+
+function getGlyphidCocoonBag()
+    return glyphidCocoonBag
+end
+
+function getPoisonSporeBag()
+    return poisonSporeBag
 end
 
 function getWeaponUpgradeBag()

@@ -1,5 +1,8 @@
 mission1Positions = {
-
+    -- One of three potential locations / rotations for the first hidden cave location
+    -- (Top Right) -- Each index are paired
+    hiddenCaveLoc1 = {{1.65, 1.11, 3.06}, {1.10, 1.11, 4.01}, {2.20, 1.11, 4.01}},
+    hiddenCaveRot1 = {{359.94, 0.00, 0.07}, {359.97, 120.01, 359.91}, {0.09, 240.00, 0.01}},
 }
 
 function setupMissionB1()
@@ -22,5 +25,104 @@ function setupMissionB1()
         })
     else
         print('Warning: Unable to setup Drop Pod, object is not in cave bag')
+    end
+
+
+    params={
+        bag = biomeCaveBag,
+        ID = Global.call('getIceSegL_GUID'),
+    }
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = {0.00, 1.25, -3.61},
+            rotation = {0.06, 180.00, 179.93},
+            guid = Global.call('getIceSegL_GUID'),
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print('Warning: Unable to setup cave, cave tiles are not in the biome cave bag')
+    end
+
+
+    params={
+        bag = biomeCaveBag,
+        ID = Global.call('getIceSegLong_GUID'),
+    }
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = {4.40, 1.25, -1.71},
+            rotation = {0.09, 210.00, 179.97},
+            guid = Global.call('getIceSegLong_GUID'),
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print('Warning: Unable to setup cave, cave tiles are not in the biome cave bag')
+    end
+
+
+    params={
+        bag = biomeCaveBag,
+        ID = Global.call('getIceSegMed_GUID'),
+    }
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = {-4.40, 1.25, 2.10},
+            rotation = {359.91, 60.01, 179.99},
+            guid = Global.call('getIceSegMed_GUID'),
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print('Warning: Unable to setup cave, cave tiles are not in the biome cave bag')
+    end
+
+    params={
+        bag = caveBag,
+        ID = Global.call('getCaveEntrance1GUID'),
+    }
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = {-3.85, 1.24, -2.66},
+            rotation = {0.0,0.0,0.0},
+            guid = Global.call('getCaveEntrance1GUID'),
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print('Warning: Unable to setup cave exit 1, it is not in the cave bag')
+    end
+
+    params={
+        bag = caveBag,
+        ID = Global.call('getCaveEntrance2GUID'),
+    }
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = {6.05, 1.25, -2.66},
+            rotation = {0.0,0.0,0.0},
+            guid = Global.call('getCaveEntrance2GUID'),
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print('Warning: Unable to setup cave exit 2, it is not in the cave bag')
+    end
+
+
+    local hiddenCaveBag = Global.call('getHiddenCaveBag') -- need to call global function to get proper object ID
+    hiddenCaveBag.shuffle()
+
+    params = {floor = 0.1, ceiling = 0.4,}
+    randomIndex = Global.call('randInt',params)
+
+    if not Global.call('isBagEmpty',hiddenCaveBag) then
+        hiddenCaveBag.takeObject({
+            position = mission1Positions.hiddenCaveLoc1[randomIndex],
+            rotation = mission1Positions.hiddenCaveRot1[randomIndex]
+        })
+    else
+        print("Warning: Unable to setup hidden cave segment, bag is empty")
     end
 end
