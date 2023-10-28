@@ -6,6 +6,8 @@ function onLoad()
     swarmEndScriptBox = getObjectFromGUID(swarmEndScriptBox_GUID)
 
     missionBook = Global.call('getMissionBook')
+    missionBoard_GUID = 'd8201c'
+    missionBoard = getObjectFromGUID(missionBoard_GUID)
 
     explorationBag = Global.call('getExplorationBag')
 
@@ -104,6 +106,10 @@ function confirmationButton()
     end
 end
 
+-- Function empties the explore bags first and places objects on the board before doing mission cleanup
+-- Waits a few moments for the objects to travel to the board as an issue happened before
+-- where the objects travel time to the cleanup zone would take too long and the cleanup
+-- algorithm would happen before the objects hit the table
 function emptyExploreBags()
     while not Global.call('isBagEmpty',explorationBag)
     do
@@ -128,6 +134,10 @@ function Cleanup()
 
         -- TODO: Turn this into a k,v database
         -- name / gm note of object ,,, where it goes back to
+
+        -- unlocks the object (this is to prevent locked objects from being put
+        -- back in bags, and when they're locked and pulled out they can't move)
+        object.locked = false
 
         -- Cleanup Cave Segments
         if object.getGMNotes() == "caveSeg" then
@@ -300,6 +310,9 @@ function Cleanup()
 
     -- Brings the mission book back to the first page
     missionBook.Book.setPage(0)
+
+    -- relocks the mission board as it gets unlocked during the cleanup process
+    missionBoard.locked = true
 
     -- Puts the cleanup button back
     cleanupButton()
