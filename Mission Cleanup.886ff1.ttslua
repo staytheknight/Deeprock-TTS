@@ -3,7 +3,45 @@ function onLoad()
     swarmBlock_GUID = '60a4ea'
     swarmBlock = getObjectFromGUID(swarmBlock_GUID)
     swarmEndScriptBox_GUID = '54c7e7'
-    swarmEndScriptBox = getObjectFromGUID(swarmEndScriptBox_GUID )
+    swarmEndScriptBox = getObjectFromGUID(swarmEndScriptBox_GUID)
+
+    missionBook = Global.call('getMissionBook')
+
+    explorationBag = Global.call('getExplorationBag')
+
+    exclaimTilesBag = Global.call('getExclamationTilesBag')
+
+    caveBag = Global.call('getCaveBag')
+    hiddenCaveBag = Global.call('getHiddenCaveBag')
+
+    pAmmoBag = getObjectFromGUID('16ca6a')
+    sAmmoBag = getObjectFromGUID('941a5f')
+    wAmmoBag = Global.call('getWeaponUpgradeBag')
+
+    apocaBloomBag = Global.call('getApocaBloomBag')
+    barleyBulbBag = Global.call('getBarleyBulbBag')
+    fossilBag = Global.call('getFossilBag')
+    redSugarBag = Global.call('getRedSugarBag')
+    lootBugBag = Global.call('getLootBugBag')
+    eggBag = Global.call('getEggBag')
+
+    nitraBag = Global.call('getNitraBag')
+    goldBag = Global.call('getGoldBag')
+    morkiteBag = Global.call('getMorkiteBag')
+    aquardBag = Global.call('getAquardBag')
+
+    spitballerBag = Global.call('getSpitballerBag')
+    broodNexusBag = Global.call('getbroodNexusBag')
+    webspitterBag = Global.call('getWebSpitterBag')
+    gruntBag = Global.call('getGruntBag')
+    slasherBag = Global.call('getSlasherBag')
+    exploderBag = Global.call('getExploderBag')
+    macteraBag = Global.call('getMacteraBag')
+    wardenBag = Global.call('getWardenBag')
+    praetorianBag = Global.call('getPraetorianBag')
+    opressorBag = Global.call('getOpressorBag')
+
+
 end
 
 function swarmBlockCheck()
@@ -69,48 +107,18 @@ end
 function Cleanup()
     print("Performing Cleanup\n")
 
-    -- TODO: Might need to move all the init variables to onLoad()
     self.clearButtons()
 
-    local buttonBoard = Global.call('getButtonBoard')
-    local missionBoard = getObjectFromGUID('d8201c') -- Button board state 1 (no buttons)
-    local missionBook = Global.call('getMissionBook')
-
-    local exclaimTilesBag = Global.call('getExclamationTilesBag')
-
-    local caveBag = Global.call('getCaveBag')
-    local hiddenCaveBag = Global.call('getHiddenCaveBag')
-
-    local pAmmoBag = getObjectFromGUID('16ca6a')
-    local sAmmoBag = getObjectFromGUID('941a5f')
-    local wAmmoBag = Global.call('getWeaponUpgradeBag')
-
-    local apocaBloomBag = Global.call('getApocaBloomBag')
-    local barleyBulbBag = Global.call('getBarleyBulbBag')
-    local fossilBag = Global.call('getFossilBag')
-    local redSugarBag = Global.call('getRedSugarBag')
-    local lootBugBag = Global.call('getLootBugBag')
-    local eggBag = Global.call('getEggBag')
-
-    local nitraBag = Global.call('getNitraBag')
-    local goldBag = Global.call('getGoldBag')
-    local morkiteBag = Global.call('getMorkiteBag')
-    local aquardBag = Global.call('getAquardBag')
-
-    local spitballerBag = Global.call('getSpitballerBag')
-    local broodNexusBag = Global.call('getbroodNexusBag')
-    local webspitterBag = Global.call('getWebSpitterBag')
-    local gruntBag = Global.call('getGruntBag')
-    local slasherBag = Global.call('getSlasherBag')
-    local exploderBag = Global.call('getExploderBag')
-    local macteraBag = Global.call('getMacteraBag')
-    local wardenBag = Global.call('getWardenBag')
-    local praetorianBag = Global.call('getPraetorianBag')
-    local opressorBag = Global.call('getOpressorBag')
-
-    -- local allObjects = getAllObjects()
     local zone = Global.call('getCleanupZone')
     local objectsInZone = zone.getObjects()
+
+    while not Global.call('isBagEmpty',explorationBag)
+    do
+        explorationBag.takeObject({
+            position = {1.10, 2.20, -1.71},
+            smooth = false
+        })
+    end
 
     for _, object in ipairs(objectsInZone) do
 
