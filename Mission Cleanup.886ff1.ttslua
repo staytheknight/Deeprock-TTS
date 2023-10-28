@@ -113,7 +113,7 @@ function emptyExploreBags()
         })
     end
 
-    Wait.frames(Cleanup, 1000)
+    Wait.frames(Cleanup, 30)
 end
 
 function Cleanup()
