@@ -35,6 +35,22 @@ function onLoad()
     caveSeg4_GUID = '8898d9' -- Big Shape
     caveSeg4 = getObjectFromGUID(caveSeg4_GUID) -- Big Shape
 
+    -- Biome cave Segments
+    bogSegBig_GUID = 'c647a9'
+    bogSegBig = getObjectFromGUID(bogSegBig_GUID)
+    bogSegSeq_GUID = '9fcc36'
+    bogSegSeq = getObjectFromGUID(bogSegSeq_GUID)
+    bogSegLong_GUID = '8005d9'
+    bogSegLong = getObjectFromGUID(bogSegLong_GUID)
+    bogSegSmall_GUID = 'c91a14'
+    bogSegSmall = getObjectFromGUID(bogSegSmall_GUID)
+    iceSegMed_GUID = '0438f7'
+    iceSegMed = getObjectFromGUID(iceSegMed_GUID)
+    iceSegLong_GUID = '571c73'
+    iceSegLong = getObjectFromGUID(iceSegLong_GUID)
+    iceSegL_GUID = 'd460dd'
+    iceSegL = getObjectFromGUID(iceSegL_GUID)
+
     hexPit2_GUID = '3799b9' -- 2 Hex Pit
     hexPit2 = getObjectFromGUID(hexPit2_GUID) -- 2 Hex Pit
     hexPit3_GUID = '574cc3'
@@ -43,6 +59,11 @@ function onLoad()
     hexPit4 = getObjectFromGUID(hexPit4_GUID) -- 4 Hex Pit
     hexPit5_GUID = '008e96' -- 5 Hex Pit
     hexPit5 = getObjectFromGUID(hexPit5_GUID) -- 5 Hex Pit
+
+    dreadCocoonHex_GUID = '3c82c8'
+    dreadCocoonHex = getObjectFromGUID(dreadCocoonHex_GUID)
+    magicHoleHex_GUID = '7f914b'
+    magicHoleHex = getObjectFromGUID(magicHoleHex_GUID)
 
     caveEntrance1_GUID = 'a81d4f'
     caveEntrance1 = getObjectFromGUID(caveEntrance1_GUID)
@@ -572,6 +593,42 @@ end
 
 function getHexPit5GUID()
     return hexPit5_GUID
+end
+
+function getBogSegBig_GUID()
+    return bogSegBig_GUID
+end
+
+function getBogSegSeq_GUID()
+    return bogSegSeq_GUID
+end
+
+function getBogSegLong_GUID()
+    return bogSegLong_GUID
+end
+
+function getBogSegSmall_GUID()
+    return bogSegSmall_GUID
+end
+
+function getIceSegMed_GUID()
+    return iceSegMed_GUID
+end
+
+function getIceSegLong_GUID()
+    return iceSegLong_GUID
+end
+
+function getIceSegL_GUID()
+    return iceSegL_GUID
+end
+
+function getDreadCocoonHex_GUID()
+    return dreadCocoonHex_GUID
+end
+
+function getMagicHoleHex_GUID()
+    return magicHoleHex_GUID
 end
 
 function getCaveEntrance1GUID()
