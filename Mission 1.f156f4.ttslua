@@ -30,7 +30,7 @@ function setupMission1()
     }
     if Global.call('isInBag',params) then
         swarmDeck.takeObject({
-            position = {-7.31, 0.97, 11.63},
+            position = {-3.54, 1.10, 11.23},
             rotation = {0.0,90.0,0.0},
             guid = preatorianCard_GUID,
         })
@@ -46,7 +46,7 @@ function setupMission1()
     }
     if Global.call('isInBag',params) then
         swarmDeck.takeObject({
-            position = {-7.31, 1.2, 11.63},
+            position = {-3.54, 1.00, 11.23},
             rotation = {0.0,90.0,0.0},
             guid = opressorCard_GUID,
         })

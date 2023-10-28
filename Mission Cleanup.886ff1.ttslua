@@ -43,6 +43,8 @@ function onLoad()
     praetorianBag = Global.call('getPraetorianBag')
     opressorBag = Global.call('getOpressorBag')
 
+    swarmDeck = Global.call('getSwarmDeck')
+    resupplyDeck = Global.call('getResupplyDeck')
 
 end
 
@@ -304,6 +306,10 @@ function Cleanup()
             wAmmoBag.putObject(object)
         end
 
+        if object.getGMNotes() == "swarmCard" then
+            swarmDeck.putObject(object)
+        end
+
     end
 
     swarmBlock.setPosition({-8.24, 1.37, -8.91})
@@ -319,10 +325,8 @@ function Cleanup()
 
     -- these decks like to go inside the mission Board after the board changes
     -- state - so the location of these decks is forced
-    local swarmDeck = Global.call('getSwarmDeck')
-    swarmDeck.setPosition({-3.66, 2.20, 7.92})
 
-    local resupplyDeck = Global.call('getResupplyDeck')
+    swarmDeck.setPosition({-3.66, 2.20, 7.92})
     resupplyDeck.setPosition({7.20, 2.20, 7.99})
 
 end
