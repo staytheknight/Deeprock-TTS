@@ -86,7 +86,7 @@ function confirmationButton()
         print("Place all objects on the playmat you wish to be returned to original positions before pressing confirm\n")
 
         self.createButton(
-            {click_function='Cleanup', function_owner=self, label='Confirm',
+            {click_function='emptyExploreBags', function_owner=self, label='Confirm',
             position={0.0 , 0.01 , -0.8}, rotation={0,0,0}, width=1000, height=700, font_size=200,
             scale={0.9,0.9,0.9}, color={0.0, 0.0, 0.0, 255.0}, font_color={252.8,245.0,0.0,255.0},
             tooltip='Confirm cleanup'}
@@ -104,14 +104,7 @@ function confirmationButton()
     end
 end
 
-function Cleanup()
-    print("Performing Cleanup\n")
-
-    self.clearButtons()
-
-    local zone = Global.call('getCleanupZone')
-    local objectsInZone = zone.getObjects()
-
+function emptyExploreBags()
     while not Global.call('isBagEmpty',explorationBag)
     do
         explorationBag.takeObject({
@@ -119,6 +112,17 @@ function Cleanup()
             smooth = false
         })
     end
+
+    Wait.frames(Cleanup, 1000)
+end
+
+function Cleanup()
+    print("Performing Cleanup\n")
+
+    self.clearButtons()
+
+    local zone = Global.call('getCleanupZone')
+    local objectsInZone = zone.getObjects()
 
     for _, object in ipairs(objectsInZone) do
 
