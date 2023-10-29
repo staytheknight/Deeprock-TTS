@@ -484,6 +484,136 @@ function setupMission14()
     Setup()
 end
 
+function setupMissionB1()
+    missionB1.call('setupMissionB1')
+    Setup()
+end
+
+function setupMissionB2()
+    missionB2.call('setupMissionB2')
+    Setup()
+end
+
+function setupMissionB3()
+    missionB3.call('setupMissionB3')
+    Setup()
+end
+
+function setupMissionB4()
+    missionB4.call('setupMissionB4')
+    Setup()
+end
+
+function setupMissionB5()
+    missionB5.call('setupMissionB5')
+    Setup()
+end
+
+function setupMissionB6()
+    missionB6.call('setupMissionB6')
+    Setup()
+end
+
+function setupMissionB7()
+    missionB7.call('setupMissionB7')
+    Setup()
+end
+
+function setupMissionB8()
+    missionB8.call('setupMissionB8')
+    Setup()
+end
+
+function setupMissionB9()
+    missionB9.call('setupMissionB9')
+    Setup()
+end
+
+function setupMissionB10()
+    missionB10.call('setupMissionB10')
+    Setup()
+end
+
+function setupMissionB11()
+    missionB11.call('setupMissionB11')
+    Setup()
+end
+
+function setupMissionB12()
+    missionB12.call('setupMissionB12')
+    Setup()
+end
+
+function setupMissionB13()
+    missionB13.call('setupMissionB13')
+    Setup()
+end
+
+function setupMissionB14()
+    missionB14.call('setupMissionB14')
+    Setup()
+end
+
+function setupMissionB15()
+    missionB15.call('setupMissionB15')
+    Setup()
+end
+
+function setupMissionB16()
+    missionB16.call('setupMissionB16')
+    Setup()
+end
+
+function setupMissionSR1()
+    missionSR1.call('setupMissionSR1')
+    Setup()
+end
+
+function setupMissionSR2()
+    missionSR2.call('setupMissionSR2')
+    Setup()
+end
+
+function setupMissionSR3()
+    missionSR3.call('setupMissionSR3')
+    Setup()
+end
+
+function setupMissionSR4()
+    missionSR4.call('setupMissionSR4')
+    Setup()
+end
+
+function setupMissionSR5()
+    missionSR5.call('setupMissionSR5')
+    Setup()
+end
+
+function setupMissionSR6()
+    missionSR6.call('setupMissionSR6')
+    Setup()
+end
+
+function setupMissionSR7()
+    missionSR7.call('setupMissionSR7')
+    Setup()
+end
+
+function setupMissionSR8()
+    missionSR8.call('setupMissionSR8')
+    Setup()
+end
+
+function setupMissionSR9()
+    missionSR9.call('setupMissionSR9')
+    Setup()
+end
+
+function setupMissionSR10()
+    missionSR10.call('setupMissionSR10')
+    Setup()
+end
+
 -- Object getters
 function getMissionBook()
     return missionBook
