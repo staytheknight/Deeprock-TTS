@@ -14,7 +14,11 @@ function onLoad()
     exclaimTilesBag = Global.call('getExclamationTilesBag')
 
     caveBag = Global.call('getCaveBag')
+    biomeCaveBag = Global.call('getBiomeCaveBag')
     hiddenCaveBag = Global.call('getHiddenCaveBag')
+
+    geyserBag = Global.call('getGeyserBag')
+    explodingPlantsBag = Global.call('getExplodingPlantsBag')
 
     pAmmoBag = getObjectFromGUID('16ca6a')
     sAmmoBag = getObjectFromGUID('941a5f')
@@ -146,6 +150,10 @@ function Cleanup()
             caveBag.putObject(object)
         end
 
+        if object.getGMNotes() == "BCaveSeg" then
+            biomeCaveBag.putObject(object)
+        end
+
         if object.getGMNotes() == "HiddenCave" then
             hiddenCaveBag.putObject(object)
         end
@@ -238,6 +246,13 @@ function Cleanup()
             object.destruct()
         end
 
+        if object.getGMNotes() == "geyser" then
+            geyserBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "explodingPlants" then
+            explodingPlantsBag.putObject(object)
+        end
 
         -- Misc Tiles
         if object.getGMNotes() == "MiscToken" then
