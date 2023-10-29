@@ -3,6 +3,7 @@ mission1Positions = {
     -- (Top Right) -- Each index are paired
     hiddenCaveLoc1 = {{1.65, 1.11, 3.06}, {1.10, 1.11, 4.01}, {2.20, 1.11, 4.01}},
     hiddenCaveRot1 = {{359.94, 0.00, 0.07}, {359.97, 120.01, 359.91}, {0.09, 240.00, 0.01}},
+    stalagmites = {{0.00, 2.24, -5.52}, {0.55, 2.24, -4.56}},
 }
 
 function setupMissionB1()
