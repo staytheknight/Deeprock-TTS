@@ -1,13 +1,13 @@
-mission1BPositions = {
+missionB1Positions = {
     -- One of three potential locations / rotations for the first hidden cave location
     -- (Top Right) -- Each index are paired
     hiddenCaveLoc1 = {{1.65, 1.11, 3.06}, {1.10, 1.11, 4.01}, {2.20, 1.11, 4.01}},
     hiddenCaveRot1 = {{359.94, 0.00, 0.07}, {359.97, 120.01, 359.91}, {0.09, 240.00, 0.01}},
     stalagmites = {{0.00, 2.24, -5.52}, {0.55, 2.24, -4.56}},
-    geysers = {{-1.65, 1.24, -2.66},{2.20, 1.24, -3.61},{-5.50, 1.24, 0.20},{-3.30, 1.24, 2.10}},
+    geysers = {{-1.65, 2.24, -2.66},{2.20, 2.24, -3.61},{-5.50, 2.24, 0.20},{-3.30, 2.24, 2.10}},
     explodingPlants = {{-3.30, 1.23, 0.20},{4.40, 1.25, -3.61}},
     grunts = {{-2.20, 1.35, -1.70},{3.30, 1.25, -1.70}},
-    explorationTokens = {{-4.40, 1.36, 4.01},{-2.77, 1.36, 3.05},{-2.75, 1.36, 1.17},
+    explorationTiles = {{-4.40, 1.36, 4.01},{-2.77, 1.36, 3.05},{-2.75, 1.36, 1.17},
     {-2.20, 1.36, -1.71},{1.65, 1.36, -4.56},{3.85, 1.36, -4.56},{5.50, 1.37, 0.20}},
     minerals = {{5.50, 1.20, -5.52},{6.60, 1.21, 2.10},{4.40, 1.21, 4.01},
     {3.85, 1.21, 4.96},{0.00, 1.21, 5.91},{-0.55, 1.20, 4.96},{-6.05, 1.20, 4.96},
@@ -42,7 +42,7 @@ function setupMissionB1()
         ID = Global.call('getIceSegL_GUID'),
     }
     if Global.call('isInBag',params) then
-        caveBag.takeObject({
+        biomeCaveBag.takeObject({
             position = {0.00, 1.25, -3.61},
             rotation = {0.06, 180.00, 179.93},
             guid = Global.call('getIceSegL_GUID'),
@@ -59,7 +59,7 @@ function setupMissionB1()
         ID = Global.call('getIceSegLong_GUID'),
     }
     if Global.call('isInBag',params) then
-        caveBag.takeObject({
+        biomeCaveBag.takeObject({
             position = {4.40, 1.25, -1.71},
             rotation = {0.09, 210.00, 179.97},
             guid = Global.call('getIceSegLong_GUID'),
@@ -76,7 +76,7 @@ function setupMissionB1()
         ID = Global.call('getIceSegMed_GUID'),
     }
     if Global.call('isInBag',params) then
-        caveBag.takeObject({
+        biomeCaveBag.takeObject({
             position = {-4.40, 1.25, 2.10},
             rotation = {359.91, 60.01, 179.99},
             guid = Global.call('getIceSegMed_GUID'),
@@ -128,8 +128,8 @@ function setupMissionB1()
 
     if not Global.call('isBagEmpty',hiddenCaveBag) then
         hiddenCaveBag.takeObject({
-            position = mission1Positions.hiddenCaveLoc1[randomIndex],
-            rotation = mission1Positions.hiddenCaveRot1[randomIndex]
+            position = missionB1Positions.hiddenCaveLoc1[randomIndex],
+            rotation = missionB1Positions.hiddenCaveRot1[randomIndex]
         })
     else
         print("Warning: Unable to setup hidden cave segment, bag is empty")
@@ -139,7 +139,7 @@ function setupMissionB1()
     -- Placing Stalagmites
     for i=1, 2 do
         stalagmiteModelBag.takeObject({
-            position = mission1BPositions.stalagmites[i],
+            position = missionB1Positions.stalagmites[i],
             -- rotation = -- ADD RANDOM
         })
     end
@@ -149,7 +149,7 @@ function setupMissionB1()
     for i=1, 4 do
         if not Global.call('isBagEmpty',geyserBag) then
             geyserBag.takeObject({
-                position = mission1BPositions.geyers[i]
+                position = missionB1Positions.geysers[i]
             })
         else
             print("Warning: Unable to set up geysers, the geyser bag is empty")
@@ -161,7 +161,7 @@ function setupMissionB1()
     for i=1, 2 do
         if not Global.call('isBagEmpty',explodingPlantBag) then
             explodingPlantBag.takeObject({
-                position = mission1BPositions.explodingPlants[i]
+                position = missionB1Positions.explodingPlants[i]
             })
         else
             print("Warning: Unable to set up exploding plants, the exploding plants bag is empty")
@@ -169,10 +169,11 @@ function setupMissionB1()
     end
 
     -- Placing Grunts
+    local gruntBag = Global.call('getGruntBag')
     for i=1, 2 do
         if not Global.call('isBagEmpty',gruntBag) then
             gruntBag.takeObject({
-                position = mission2Positions.grunts[i],
+                position = missionB1Positions.grunts[i],
 
             })
         else
@@ -182,6 +183,8 @@ function setupMissionB1()
     end
 
     -- Generating exploration bag
+    local explorationBag = Global.call('getExplorationBag')
+    local lootBugBag = Global.call('getLootBugBag')
     for i=1, 2 do
         if not Global.call('isBagEmpty',lootBugBag) then
             explorationBag.putObject(lootBugBag.takeObject())
@@ -190,18 +193,21 @@ function setupMissionB1()
         end
     end
 
+    local barleyBulbBag = Global.call('getBarleyBulbBag')
     if not Global.call('isBagEmpty',barleyBulbBag) then
         explorationBag.putObject(barleyBulbBag.takeObject())
     else
         print("Warning: Unable to set up exploration tokens, barley bulb bag is empty")
     end
 
+    local redSugarBag = Global.call('getRedSugarBag')
     if not Global.call('isBagEmpty',redSugarBag) then
         explorationBag.putObject(redSugarBag.takeObject())
     else
         print("Warning: Unable to set up exploration tokens, red sugar bag is empty")
     end
 
+    local fossilBag = Global.call('getFossilBag')
     for i=1, 4 do
         if not Global.call('isBagEmpty',fossilBag) then
             explorationBag.putObject(fossilBag.takeObject())
@@ -219,7 +225,7 @@ function setupMissionB1()
     for i=1, 7 do
         if not Global.call('isBagEmpty',explorationBag) then
             explorationBag.takeObject({
-                position = mission2Positions.explorationTiles[i],
+                position = missionB1Positions.explorationTiles[i],
                 rotation = {0.0, 0.0, 180.0}
             })
         else
@@ -229,12 +235,16 @@ function setupMissionB1()
     end
 
     -- Generating Mineral Bag
+    local mineralBag = Global.call('getMineralBag')
+
+    local goldBag = Global.call('getGoldBag')
     if not Global.call('isBagEmpty',goldBag) then
         mineralBag.putObject(goldBag.takeObject())
     else
         print("Warning: Unable to set up minerals, the gold bag is empty")
     end
 
+    local nitraBag = Global.call('getNitraBag')
     for i=1, 3 do
         if not Global.call('isBagEmpty',nitraBag) then
             mineralBag.putObject(nitraBag.takeObject())
@@ -244,6 +254,7 @@ function setupMissionB1()
         end
     end
 
+    local morkiteBag = Global.call('getMorkiteBag')
     for i=1, 6 do
         if not Global.call('isBagEmpty',morkiteBag) then
             mineralBag.putObject(morkiteBag.takeObject())
@@ -260,7 +271,7 @@ function setupMissionB1()
     for i=1, 10 do
         if not Global.call('isBagEmpty',mineralBag) then
             mineralBag.takeObject({
-                position = mission2Positions.minerals[i]
+                position = missionB1Positions.minerals[i]
             })
         else
             print("Warning: Unable to set up minerals, the bag is empty")
