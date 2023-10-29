@@ -24,6 +24,7 @@ function onLoad()
 
     geyserBag = Global.call('getGeyserBag')
     explodingPlantsBag = Global.call('getExplodingPlantsBag')
+    poisonSporeBag = Global.call('getPoisonSporeBag')
 
     pAmmoBag = getObjectFromGUID('16ca6a')
     sAmmoBag = getObjectFromGUID('941a5f')
@@ -51,6 +52,14 @@ function onLoad()
     wardenBag = Global.call('getWardenBag')
     praetorianBag = Global.call('getPraetorianBag')
     opressorBag = Global.call('getOpressorBag')
+
+    -- Biome Glypids
+    naedocyteHatchlingsBag = Global.call('getNaedoHatchlingBag')
+    naedocyteBreederBag = Global.call('getNaedoBreederBag')
+    qronarShellbackBag = Global.call('getQShellbackBag')
+    rammerBag = Global.call('getRammersBag')
+    stingtailBag = Global.call('getStingtailBag')
+    dreadnoughtBag = Global.call('getDreadBag')
 
     swarmDeck = Global.call('getSwarmDeck')
     resupplyDeck = Global.call('getResupplyDeck')
@@ -246,6 +255,10 @@ function Cleanup()
             opressorBag.putObject(object)
         end
 
+        if object.getGMNotes() == "rammer" then
+            rammerBag.putObject(object)
+        end
+
         -- Cleanup Stalagmite (destroy, since infinite bag, don't need to put back)
         if object.getName() == "Stalagmite" then
             object.destruct()
@@ -257,6 +270,10 @@ function Cleanup()
 
         if object.getGMNotes() == "explodingPlants" then
             explodingPlantsBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "pSpore" then
+            poisonSporeBag.putObject(object)
         end
 
         -- Misc Tiles
