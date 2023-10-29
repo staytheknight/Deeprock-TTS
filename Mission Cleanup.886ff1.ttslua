@@ -6,6 +6,11 @@ function onLoad()
     swarmEndScriptBox = getObjectFromGUID(swarmEndScriptBox_GUID)
 
     missionBook = Global.call('getMissionBook')
+    missionBookB1 = Global.call('getMissionBookB1')
+    missionBookB2 = Global.call('getMissionBookB2')
+    missionBookSR1 = Global.call('getMissionBookSR1')
+    missionBookSR2 = Global.call('getMissionBookSR2')
+
     missionBoard_GUID = 'd8201c'
     missionBoard = getObjectFromGUID(missionBoard_GUID)
 
@@ -331,6 +336,11 @@ function Cleanup()
 
     -- Brings the mission book back to the first page
     missionBook.Book.setPage(0)
+
+    missionBookB1.setScale({0.0,0.0,0.0})
+    missionBookB2.setScale({0.0,0.0,0.0})
+    missionBookSR1.setScale({0.0,0.0,0.0})
+    missionBookSR2.setScale({0.0,0.0,0.0})
 
     -- relocks the mission board as it gets unlocked during the cleanup process
     missionBoard.locked = true
