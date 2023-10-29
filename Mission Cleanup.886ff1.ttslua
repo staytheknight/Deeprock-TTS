@@ -262,7 +262,7 @@ function Cleanup()
             rammerBag.putObject(object)
         end
 
-        if object.getGMNotes() == "nHatchling" then
+        if object.getGMNotes() == "nHatchlings" then
             naedocyteHatchlingsBag.putObject(object)
         end
 
