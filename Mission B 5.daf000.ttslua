@@ -3,8 +3,8 @@ missionB5Positions = {
     hiddenCaveRot1 = {{0.06, 180.01, 359.93},{0.03, 300.00, 0.09},{359.91, 60.00, 359.99}},
     stalagmites = {{-2.75, 2.24, -2.66},{-0.53, 2.25, -0.73}},
     geysers = {{-2.20, 2.24, 0.23},{2.20, 2.25, -1.70}},
-    grunts = {{-4.40, 1.24, 2.11}},
-    broodNexus = {{-0.56, 1.25, 1.15}},
+    grunts = {{-4.40, 2.24, 2.11}},
+    broodNexus = {{-0.56, 2.25, 1.15}},
     explorationTiles = {{-5.50, 2.36, 2.10},{-1.65, 2.36, -0.75},{-4.95,2.36, -4.56},
     {-3.30,2.36, -5.52},{-1.65, 2.36, -4.56},{1.10, 2.36, -3.61},{2.75, 2.36, 1.15}},
     minerals = {{-6.05, 1.20, 3.06},{-4.95, 1.19, -6.47},{-3.85, 1.19, -6.47},
@@ -25,7 +25,7 @@ function setupMissionB5()
     if Global.call('isInBag',params) then
         caveBag.takeObject({
             position = {-3.30, 1.23, 4.01},
-            rotation = {0.0,300.0,180.0},
+            rotation = {0.0,0.0,180.0},
             guid = Global.call('getDropPodGUID'),
             -- Lock tiles afer spawn
             --callback="afterSpawnLock", callback_owner=Global
@@ -246,6 +246,7 @@ function setupMissionB5()
     end
 
     -- Placing Minerals
+    mineralBag.shuffle()
     for i=1, 8 do
         if not Global.call('isBagEmpty',mineralBag) then
             mineralBag.takeObject({

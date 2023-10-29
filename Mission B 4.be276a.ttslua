@@ -282,6 +282,7 @@ function setupMissionB4()
     end
 
     -- Placing Minerals
+    mineralBag.shuffle()
     for i=1, 13 do
         if not Global.call('isBagEmpty',mineralBag) then
             mineralBag.takeObject({
