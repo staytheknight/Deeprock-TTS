@@ -1,8 +1,8 @@
 missionB3Positions = {
     hiddenCaveLoc1 = {{-0.55, 1.09, -4.56},{0.00, 1.09, -5.51},{0.55, 1.10, -4.56}},
     hiddenCaveRot1 = {{359.97, 120.00, 359.91},{359.94, 0.00, 0.07},{0.09, 240.03, 0.01}},
-    stalagmites = {{-2.75, 1.25, 4.96},{5.50, 1.25, 0.20},{4.95, 1.25, -0.75}},
-    glowingCrystals = {{-1.10, 1.25, 4.01},{2.20, 1.25, 0.20}},
+    stalagmites = {{-2.75, 2.25, 4.96},{5.50, 2.25, 0.20},{4.95, 2.25, -0.75}},
+    glowingCrystals = {{-1.10, 2.25, 4.01},{2.20, 2.25, 0.20}},
     grunts = {{3.30, 1.25, 0.20}},
     spitballLoc = {{3.85, 1.25, 1.15}},
     explorationTiles = {{4.40, 1.36, -1.70},{2.75, 1.36, 1.15},{-2.20, 1.37, 4.01},
@@ -136,8 +136,8 @@ function setupMissionB3()
     }
     if Global.call('isInBag',params) then
         biomeCaveBag.takeObject({
-            position = {-4.40, 1.31, 0.20},
-            rotation = {7.27, 299.97, 359.94},
+            position = {0.55, 1.26, 3.06},
+            rotation = {0.09, 240.00, 0.01},
             guid = Global.call('getMagicHoleHex_GUID'), -- 5 Hex Pit
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
@@ -177,6 +177,9 @@ function setupMissionB3()
     else
         print('Warning: Unable to setup cave exit 2, it is not in the cave bag')
     end
+
+    local hiddenCaveBag = Global.call('getHiddenCaveBag') -- need to call global function to get proper object ID
+    hiddenCaveBag.shuffle()
 
     params = {floor = 0.1, ceiling = 0.4,}
     randomIndex = Global.call('randInt',params)
@@ -219,6 +222,7 @@ function setupMissionB3()
         print("Warning: Unable to setup grunts, the grunt bag is empty")
     end
 
+    local spitballerBag = Global.call('getSpitballerBag')
     if not Global.call('isBagEmpty',spitballerBag) then
         spitballerBag.takeObject({
             position = missionB3Positions.spitballLoc[1],
@@ -280,6 +284,7 @@ function setupMissionB3()
         end
     end
 
+    local aquardBag = Global.call('getAquardBag')
     for i=1, 5 do
         if not Global.call('isBagEmpty',aquardBag) then
             mineralBag.putObject(aquardBag.takeObject())
@@ -288,7 +293,7 @@ function setupMissionB3()
             break
         end
     end
-
+    
     -- Shuffling Minerals
     mineralBag.shuffle()
 
