@@ -115,10 +115,17 @@ function onLoad()
     )
 
     self.createButton(
-        {click_function='setupMissionB3', function_owner=Global, label='MISSION 2:\nPURPLE PERIL',
+        {click_function='setupMissionB3', function_owner=Global, label='MISSION 3:\nPURPLE PERIL',
         position={0.24 , 0.2 , -0.44}, rotation={0,0,0}, width=100, height=30, font_size=20,
         scale={3.3,0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
-        tooltip='MISSION 2:\nPURPLE PERIL'}
+        tooltip='MISSION 3:\nPURPLE PERIL'}
+    )
+
+    self.createButton(
+        {click_function='setupMissionB4', function_owner=Global, label='MISSION 4:\nICE-OLATED CAVES',
+        position={0.24 , 0.2 , -0.325}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 4:\nICE-OLATED CAVES'}
     )
 
 end
