@@ -128,4 +128,11 @@ function onLoad()
         tooltip='MISSION 4:\nICE-OLATED CAVES'}
     )
 
+    self.createButton(
+        {click_function='setupMissionB5', function_owner=Global, label='MISSION 5:\nCOOKED CAVERN',
+        position={0.24 , 0.2 , -0.25}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 5:\nCOOKED CAVERN'}
+    )
+
 end
