@@ -13,6 +13,17 @@ function onLoad()
     missionBook_GUID = '7b94b7'
     missionBook = getObjectFromGUID(missionBook_GUID)
 
+    -- split in two as the mission spreads are on each page
+    -- need to show two pages to show the whole mission
+    missionBookB1_GUID = '06f4ab'
+    missionBookB1 = getObjectFromGUID(missionBookB1_GUID)
+    missionBookB2_GUID = 'd2455f'
+    missionBookB2 = getObjectFromGUID(missionBookB2_GUID)
+    missionBookSR1_GUID = '38d501'
+    missionBookSR1 = getObjectFromGUID(missionBookSR1_GUID)
+    missionBookSR2_GUID = '72cff6'
+    missionBookSR2 = getObjectFromGUID(missionBookSR2_GUID)
+
     -- Card Decks
     eventDeck_GUID = 'b28715'
     eventDeck = getObjectFromGUID(eventDeck_GUID)
@@ -617,6 +628,22 @@ end
 -- Object getters
 function getMissionBook()
     return missionBook
+end
+
+function getMissionBookB1()
+    return missionBookB1
+end
+
+function getMissionBookB2()
+    return missionBookB2
+end
+
+function getMissionBookSR1()
+    return missionBookSR1
+end
+
+function getMissionBookSR2()
+    return missionBookSR2
 end
 
 function getCleanupZone()
