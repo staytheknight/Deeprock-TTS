@@ -25,6 +25,7 @@ function onLoad()
     geyserBag = Global.call('getGeyserBag')
     explodingPlantsBag = Global.call('getExplodingPlantsBag')
     poisonSporeBag = Global.call('getPoisonSporeBag')
+    glowingCrystalBag = Global.call('getGlowingCrystalBag')
 
     pAmmoBag = getObjectFromGUID('16ca6a')
     sAmmoBag = getObjectFromGUID('941a5f')
@@ -270,6 +271,10 @@ function Cleanup()
 
         if object.getGMNotes() == "explodingPlants" then
             explodingPlantsBag.putObject(object)
+        end
+
+        if object.getGMNotes() == 'gCrystal' then
+            glowingCrystalBag.putObject(object)
         end
 
         if object.getGMNotes() == "pSpore" then
