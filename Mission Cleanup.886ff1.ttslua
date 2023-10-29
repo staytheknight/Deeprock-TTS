@@ -137,6 +137,7 @@ function emptyExploreBags()
     do
         explorationBag.takeObject({
             position = {1.10, 2.20, -1.71},
+            rotation = {0.0,0.0,180.0},
             smooth = false
         })
     end
