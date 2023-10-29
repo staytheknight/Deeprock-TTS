@@ -201,6 +201,7 @@ function setupMissionB4()
             explorationBag.putObject(lootBugBag.takeObject())
         else
             print("Warning: Unable to set up exploration tokens, loot bug bag is empty")
+            break
         end
     end
 
@@ -210,6 +211,7 @@ function setupMissionB4()
             explorationBag.putObject(barleyBulbBag.takeObject())
         else
             print("Warning: Unable to set up exploration tokens, barley bulb bag is empty")
+            break
         end
     end
 
@@ -219,6 +221,7 @@ function setupMissionB4()
             explorationBag.putObject(redSugarBag.takeObject())
         else
             print("Warning: Unable to set up exploration tokens, red sugar bag is empty")
+            break
         end
     end
 
