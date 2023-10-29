@@ -212,7 +212,7 @@ function setupMissionB7()
 
     local exclaimTokenBag = Global.call('getExclamationTilesBag')
     for i=1, 2 do
-        if not Global.call('isBagEmpty',glyphidCocoonBag) then
+        if not Global.call('isBagEmpty',exclaimTokenBag) then
             exclaimTokenBag.takeObject({
                 position = missionB7Positions.exclaimTokens[i]
             })
@@ -270,7 +270,7 @@ function setupMissionB7()
     end
 
     explorationBag.shuffle()
-    for i=1, 6 do
+    for i=1, 7 do
         if not Global.call('isBagEmpty',explorationBag) then
             explorationBag.takeObject({
                 position = missionB7Positions.explorationTiles[i],
