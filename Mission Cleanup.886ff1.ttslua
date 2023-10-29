@@ -262,6 +262,26 @@ function Cleanup()
             rammerBag.putObject(object)
         end
 
+        if object.getGMNotes() == "nHatchling" then
+            naedocyteHatchlingsBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "nBreeder" then
+            naedocyteBreederBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "qShellback" then
+            qronarShellbackBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "stingtail" then
+            stingtailBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "dread" then
+            dreadnoughtBag.putObject(object)
+        end
+
         -- Cleanup Stalagmite (destroy, since infinite bag, don't need to put back)
         if object.getName() == "Stalagmite" then
             object.destruct()
