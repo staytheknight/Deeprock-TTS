@@ -747,6 +747,31 @@ function getOpressorBag()
     return opressorBag
 end
 
+-- Biome Glyphids
+function getNaedoHatchlingBag()
+    return naedocyteHatchlingsBag
+end
+
+function getNaedoBreederBag()
+    return naedocyteBreederBag
+end
+
+function getQShellbackBag()
+    return qronarShellbackBag
+end
+
+function getRammersBag()
+    return rammerBag
+end
+
+function getStingtailBag()
+    return stingtailBag
+end
+
+function getDreadBag()
+    return dreadnoughtBag
+end
+
 -- Exploration Bag
 function getExplorationBag()
     return explorationBag

@@ -163,7 +163,7 @@ function setupMissionB2()
     -- Placing Stalagmites
     for i=1, 2 do
         stalagmiteModelBag.takeObject({
-            position = missionB1Positions.stalagmites[i],
+            position = missionB2Positions.stalagmites[i],
             -- rotation = -- ADD RANDOM
         })
     end
@@ -173,10 +173,39 @@ function setupMissionB2()
     for i=1, 4 do
         if not Global.call('isBagEmpty',explodingPlantBag) then
             explodingPlantBag.takeObject({
-                position = missionB1Positions.explodingPlants[i]
+                position = missionB2Positions.explodingPlants[i]
             })
         else
             print("Warning: Unable to set up exploding plants, the exploding plants bag is empty")
         end
+    end
+
+    local poisonSporeBag = Global.call('getPoisonSporeBag')
+    for i=1, 5 do
+        if not Global.call('isBagEmpty',poisonSporeBag) then
+            poisonSporeBag.takeObject({
+                position = missionB2Positions.pSporeFungus[i]
+            })
+        end
+    end
+
+    -- Placing Grunts
+    local gruntBag = Global.call('getGruntBag')
+    if not Global.call('isBagEmpty',gruntBag) then
+        gruntBag.takeObject({
+            position = missionB2Positions.grunts[1],
+        })
+    else
+        print("Warning: Unable to setup grunts, the grunt bag is empty")
+        break
+    end
+
+    if not Global.call('isBagEmpty',broodNexusBag) then
+        broodNexusBag.takeObject({
+            position = missionB2Positions.broodNexus[1],
+            rotation = {0.00, 210.0 , 0.00}
+        })
+    else
+        print("Warning: Unable to setup brood nexus, the brood nexus bag is empty")
     end
 end
