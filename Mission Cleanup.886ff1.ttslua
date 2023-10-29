@@ -27,6 +27,7 @@ function onLoad()
     glowingCrystalBag = Global.call('getGlowingCrystalBag')
     cryoBulbBag = Global.call('getCryoBulbBag')
     poisonSporeBag = Global.call('getPoisonSporeBag')
+    glyphidCocoonBag = Global.call('getGlyphidCocoonBag')
 
     pAmmoBag = getObjectFromGUID('16ca6a')
     sAmmoBag = getObjectFromGUID('941a5f')
@@ -305,6 +306,10 @@ function Cleanup()
 
         if object.getGMNotes() == "pSpore" then
             poisonSporeBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "cocoon" then
+            glyphidCocoonBag.putObject(object)
         end
 
         -- Misc Tiles

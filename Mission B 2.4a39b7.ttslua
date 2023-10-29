@@ -186,6 +186,8 @@ function setupMissionB2()
             poisonSporeBag.takeObject({
                 position = missionB2Positions.pSporeFungus[i]
             })
+        else
+            print("Warning: Unable to setup glyphid cocoons, the bag is empty")
         end
     end
 
