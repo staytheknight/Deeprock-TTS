@@ -221,7 +221,7 @@ function setupMissionB11()
     for i=1, 2 do
         if not Global.call('isBagEmpty',nHatchlingsBag) then
             nHatchlingsBag.takeObject({
-                position = missionB11Positions.nHatchlings[1]
+                position = missionB11Positions.nHatchlings[i]
             })
         else
             print("Warning: Unable to setup Naedocyte Hatchling, the bag is empty")
@@ -341,9 +341,9 @@ function setupMissionB11()
     local missionBookB1 = Global.call('getMissionBookB1')
     missionBookB1.setScale({2.0,1.0,2.0})
     missionBookB1.setPosition({-53.52, 0.97, -35.66})
-    missionBookB1.Book.setPage(36)
+    missionBookB1.Book.setPage(35)
     local missionBookB2 = Global.call('getMissionBookB2')
     missionBookB2.setScale({2.0,1.0,2.0})
     missionBookB2.setPosition({-47.86, 0.97, -35.63})
-    missionBookB2.Book.setPage(37)
+    missionBookB2.Book.setPage(36)
 end
