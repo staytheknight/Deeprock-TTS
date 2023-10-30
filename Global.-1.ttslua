@@ -361,6 +361,44 @@ function randInt(params)
     return randomIndex
 end
 
+-- Takes all the tiles from the individual space rig explore tokens
+-- and puts them in the shuffle bag
+function fillSRExploreBag()
+    for i=1, 2 do
+        if not isBagEmpty(abandonedGearBag) then
+            miniExploreTokenBag.putObject(abandonedGearBag.takeObject())
+        else
+            print("Warning: Unable to fill space rig explore token shuffle,abandoned gear bag is empty")
+        end
+    end
+
+    for i=1, 2 do
+        if not isBagEmpty(goldLootBugBag) then
+            miniExploreTokenBag.putObject(goldLootBugBag.takeObject())
+        else
+            print("Warning: Unable to fill space rig explore token shuffle, gold loot bug bag is empty")
+        end
+    end
+
+    for i=1, 2 do
+        if not isBagEmpty(maltStarBag) then
+            miniExploreTokenBag.putObject(maltStarBag.takeObject())
+        else
+            print("Warning: Unable to fill space rig explore token shuffle, malt star bag is empty")
+        end
+    end
+
+    for i=1, 2 do
+        if not isBagEmpty(yeastConesBag) then
+            miniExploreTokenBag.putObject(yeastConesBag.takeObject())
+        else
+            print("Warning: Unable to fill space rig explore token shuffle, yeast cone bag is empty")
+        end
+    end
+
+    miniExploreTokenBag.shuffle()
+end
+
 
 function Setup()
     eventDeck.shuffle()

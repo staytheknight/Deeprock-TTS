@@ -145,7 +145,7 @@ function emptyExploreBags()
     while not Global.call('isBagEmpty',explorationBag)
     do
         explorationBag.takeObject({
-            position = {1.10, 2.20, -1.71},
+            position = {0.10, 3.20, -1.71},
             rotation = {0.0,0.0,180.0},
             smooth = false
         })
@@ -154,7 +154,7 @@ function emptyExploreBags()
     while not Global.call('isBagEmpty',spaceRigExploreBag)
     do
         spaceRigExploreBag.takeObject({
-            position = {1.10, 2.20, -1.71},
+            position = {1.10, 3.20, -1.71},
             rotation = {0.0,0.0,180.0},
             smooth = false
         })
@@ -163,7 +163,7 @@ function emptyExploreBags()
     while not Global.call('isBagEmpty',mineralShuffleBag)
     do
         mineralShuffleBag.takeObject({
-            position = {1.10, 2.20, -1.71},
+            position = {2.10, 3.20, -1.71},
             smooth = false
         })
     end
