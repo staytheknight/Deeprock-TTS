@@ -76,6 +76,25 @@ function onLoad()
     magicHoleHex_GUID = '7f914b'
     magicHoleHex = getObjectFromGUID(magicHoleHex_GUID)
 
+    mRefinery_GUID = '1d5b9a'
+    mRefinery = getObjectFromGUID(mRefinery_GUID)
+    pumpjackBag_GUID = '845be5'
+    pumpjackBag = getObjectFromGUID(pumpjackBag_GUID)
+    sPipeBag_GUID = '8d3753'
+    sPipeBag = getObjectFromGUID(sPipeBag_GUID)
+    cPipeBag_GUID = 'a52a6d'
+    cPipeBag = getObjectFromGUID(cPipeBag_GUID)
+    drilldozerBag_GUID = '8ecd59'
+    drilldozerBag = getObjectFromGUID(drilldozerBag_GUID)
+    beamersBag_GUID = '3d4ec3'
+    beamersBag = getObjectFromGUID(beamersBag_GUID)
+    cHeartstone_GUID = '64c2ff'
+    cHeartstone = getObjectFromGUID(cHeartstone_GUID)
+    oHeartstone_GUID = 'd84756'
+    oHearstone = getObjectFromGUID(oHeartstone_GUID)
+    hearstoneGem_GUID = 'c0ab17'
+    hearstoneGem = getObjectFromGUID(hearstoneGem_GUID)
+
     caveEntrance1_GUID = 'a81d4f'
     caveEntrance1 = getObjectFromGUID(caveEntrance1_GUID)
     caveEntrance2_GUID = '14348e'
@@ -943,4 +962,42 @@ end
 
 function getDrone2GUID()
     return drone2_GUID
+end
+
+-- Space Rig component getters
+
+function getRefinery()
+    return mRefinery
+end
+
+function getPumpjackBag()
+    return pumpjackBag
+end
+
+function getSPipeBag()
+    return sPipeBag
+end
+
+function getCPipeBag()
+    return cPipeBag
+end
+
+function getDrilldozerBag()
+    return drilldozerBag
+end
+
+function getBreamersBag()
+    return beamersBag
+end
+
+function getCHeartstone()
+    return cHeartstone
+end
+
+function getOHearstone()
+    return oHearstone
+end
+
+function getHearstoneGem()
+    return hearstoneGem
 end
