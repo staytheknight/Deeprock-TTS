@@ -674,6 +674,10 @@ function getHiddenCaveBag()
     return hiddenCaveBag
 end
 
+function getMiniHiddenCaveBag()
+    return miniHiddenCaveBag
+end
+
 function getStalagmiteModelBag()
     return stalagmiteModelBag
 end

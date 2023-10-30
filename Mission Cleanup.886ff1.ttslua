@@ -21,6 +21,7 @@ function onLoad()
     caveBag = Global.call('getCaveBag')
     biomeCaveBag = Global.call('getBiomeCaveBag')
     hiddenCaveBag = Global.call('getHiddenCaveBag')
+    miniHiddenCaveBag = Global.call('getMiniHiddenCaveBag')
 
     geyserBag = Global.call('getGeyserBag')
     explodingPlantsBag = Global.call('getExplodingPlantsBag')
@@ -173,7 +174,13 @@ function Cleanup()
         end
 
         if object.getGMNotes() == "HiddenCave" then
+            object.setRotation({0.0,0.0,0.0})
             hiddenCaveBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "miniHiddenCave" then
+            object.setRotation({0.0,0.0,0.0})
+            miniHiddenCaveBag.putObject(object)
         end
 
         -- Cleanup Exploration Tiles
