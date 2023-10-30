@@ -170,4 +170,10 @@ function onLoad()
         tooltip='MISSION 10:\nHARD-BOILED EGGS'}
     )
 
+    self.createButton(
+        {click_function='setupMissionB11', function_owner=Global, label='MISSION 11:\nFAIRY RING OF TROUBLE',
+        position={0.24 , 0.2 , 0.275}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 11:\nFAIRY RING OF TROUBLE'}
+    )
 end
