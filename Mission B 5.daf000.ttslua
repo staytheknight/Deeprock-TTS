@@ -132,6 +132,20 @@ function setupMissionB5()
         print("Warning: Unable to setup hidden cave segment, bag is empty")
     end
 
+    params={
+        bag = biomeCaveBag,
+        ID = Global.call('getDreadCocoonHex_GUID'),
+    }
+    if Global.call('isInBag',params) then
+        biomeCaveBag.takeObject({
+            position = {0.01, 1.39, -1.71},
+            rotation = {0.03, 300.17, 180.09},
+            guid = Global.call('ggetDreadCocoonHex_GUID'),
+        })
+    else
+        print('Warning: Unable to setup dreadnought cocoon, it is not in the biome cave bag')
+    end
+
     local stalagmiteModelBag = Global.call('getStalagmiteModelBag')
     -- Placing Stalagmites
     for i=1, 2 do

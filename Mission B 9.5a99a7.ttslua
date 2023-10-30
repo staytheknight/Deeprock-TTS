@@ -3,12 +3,12 @@ missionB9Positions = {
     hiddenCaveRot1 = {{0.09, 240.00, 0.01},{359.94, 0.02, 0.07},{359.97, 120.07, 359.91}},
     hiddenCaveLoc2 = {{4.40, 1.11, 4.01},{4.95, 1.11, 3.06},{3.85, 1.11, 3.06}},
     hiddenCaveRot2 = {{0.06, 180.00, 359.93},{0.03, 299.98, 0.09},{359.91, 59.94, 359.99}},
-    stalagmites = {{2.20, 1.25, -1.70},{2.75, 1.25, -0.75}},
-    cryoBulbs = {{-3.85, 1.23, -6.47},{-3.85, 1.23, -4.56},{-1.65, 1.24, -0.75},{-0.55, 1.24, 1.15}},
-    nHatchlings = {{-1.65, 1.24, 1.15}},
-    nBreeder = {{-1.65, 1.24, 3.06}},
-    explorationTiles = {{-5.50, 1.35, -5.52},{-3.30, 1.35, -5.52},{0.00, 1.36, 0.20},
-    {0.55, 1.36, -2.66},{3.85, 1.36, -0.75},{3.85, 1.36, -2.66},{-2.20, 1.36, 2.11}},
+    stalagmites = {{2.20, 2.25, -1.70},{2.75, 2.25, -0.75}},
+    cryoBulbs = {{-3.85, 2.25, -6.47},{-3.85, 2.25, -4.56},{-1.65, 2.25, -0.75},{-0.55, 2.25, 1.15}},
+    nHatchlings = {{-1.65, 2.25, 1.15}},
+    nBreeder = {{-1.65, 2.25, 3.06}},
+    explorationTiles = {{-5.50, 2.25, -5.52},{-3.30, 2.25, -5.52},{0.00, 2.25, 0.20},
+    {0.55, 2.25, -2.66},{3.85, 2.25, -0.75},{3.85, 2.25, -2.66},{-2.20, 2.25, 2.11}},
     minerals = {{-0.55, 1.19, -6.47},{-1.10, 1.19, -5.52},{-2.75, 1.20, 4.96},
     {2.20, 1.21, 4.01},{2.75, 1.21, 4.96},{6.05, 1.21, 4.96},{6.60, 1.21, 4.01}}
 }
@@ -84,6 +84,20 @@ function setupMissionB9()
         })
     else
         print('Warning: Unable to setup cave, cave tiles are not in the biome cave bag')
+    end
+
+    params={
+        bag = biomeCaveBag,
+        ID = Global.call('getDreadCocoonHex_GUID'),
+    }
+    if Global.call('isInBag',params) then
+        biomeCaveBag.takeObject({
+            position = {4.95, 1.40, -0.75},
+            rotation = {0.30, 240.00, 180.02},
+            guid = Global.call('ggetDreadCocoonHex_GUID'),
+        })
+    else
+        print('Warning: Unable to setup dreadnought cocoon, it is not in the biome cave bag')
     end
 
     params={
