@@ -172,8 +172,8 @@ function onLoad()
         apocaBloomBag_GUID = '7e5edf'
         apocaBloomBag = getObjectFromGUID(apocaBloomBag_GUID)
 
-        miniExploreBag_GUID = '1f2255'
-        miniExploreBag = getObjectFromGUID(miniExploreBag_GUID)
+        miniExploreTokenBag_GUID = '1f2255'
+        miniExploreTokenBag = getObjectFromGUID(miniExploreTokenBag_GUID)
         abandonedGearBag_GUID = '9455c7'
         abandonedGearBag = getObjectFromGUID(abandonedGearBag_GUID)
         goldLootBugBag_GUID = '3ebf97'
@@ -803,6 +803,28 @@ end
 
 function getEggBag()
     return eggBag
+end
+
+-- Mini hidden explore Tokens
+
+function getMiniExploreTokenBag()
+    return miniExploreTokenBag
+end
+
+function getAbandonedGearBag()
+    return abandonedGearBag
+end
+
+function getGoldLootBugBag()
+    return goldLootBugBag
+end
+
+function getMaltStarBag()
+    return maltStarBag
+end
+
+function getYeastConesBag()
+    return yeastConesBag
 end
 
 -- Mineral Bag
