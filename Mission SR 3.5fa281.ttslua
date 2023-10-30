@@ -298,6 +298,8 @@ function setupMissionSR3()
     -- Shuffling Minerals
     mineralBag.shuffle()
 
+
+
     -- Placing Minerals
     for i=1, 7 do
         if not Global.call('isBagEmpty',mineralBag) then
@@ -309,7 +311,12 @@ function setupMissionSR3()
         end
     end
 
-    Wait.frames(setupHearstone, 60)
+    Wait.frames(setupHeartstone, 60)
+
+    Global.call('getDrilldozerBag').takeObject({
+        positions = {-0.55, 1.23, -4.56},
+        rotation = {3.09, 30.00, 0.03}
+    })
 
     local missionBookB1 = Global.call('getMissionBookSR1')
     missionBookB1.setScale({2.0,1.0,2.0})
@@ -323,6 +330,5 @@ end
 
 function setupHeartstone()
     Global.call('getCHeartstone').setPosition({4.40, 1.26, 4.01})
-    Global.call('getOHearstone').setPosition({4.40, 1.26, 4.01})
     Global.call('getHearstoneGem').setPosition({4.38, 2.25, 3.99})
 end
