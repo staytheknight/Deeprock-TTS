@@ -34,7 +34,7 @@ function onLoad()
 
     pAmmoBag = getObjectFromGUID('16ca6a')
     sAmmoBag = getObjectFromGUID('941a5f')
-    wAmmoBag = Global.call('getWeaponUpgradeBag')
+    wUpgradeBag = Global.call('getWeaponUpgradeBag')
 
     apocaBloomBag = Global.call('getApocaBloomBag')
     barleyBulbBag = Global.call('getBarleyBulbBag')
@@ -435,7 +435,8 @@ function Cleanup()
         end
 
         if object.getGMNotes() == "wUpgrade" then
-            wAmmoBag.putObject(object)
+            object.setRotation({0.0,0.0,180.0})
+            wUpgradeBag.putObject(object)
         end
 
         if object.getGMNotes() == "swarmCard" then

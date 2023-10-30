@@ -4,8 +4,8 @@
 
 spawnLocations={
     -- These locations are relative to the spawn point
-    stalagLocs = Vector{1.1,1.0,0.0},
-    explorationTileLoc = Vector{0.55,1.0,-0.95},
+    stalagLocs = Vector{0.55,1.0,-0.95},
+    explorationTileLoc = Vector{0.0,1.0,0.0},
 }
 
 function onLoad()
