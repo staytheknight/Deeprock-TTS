@@ -5,8 +5,8 @@ missionSR4Positions = {
     hiddenCaveRot2 = {{359.91, 60.00, 359.99},{0.06, 180.00, 359.93},{0.03, 300.01, 0.09}},
     miniHiddenCaveLoc1 = {{1.65, 1.11, 4.96},{2.20, 1.11, 4.01},{1.10, 1.11, 4.01}},
     miniHiddenCaveRot1 = {{359.91, 60.00, 359.99},{0.06, 180.00, 359.93},{0.03, 300.00, 0.09}},
-    miniHiddenCaveLoc1 = {{5.50, 1.11, 4.01},{6.05, 1.11, 3.06},{4.95, 1.11, 3.06}},
-    miniHiddenCaveRot1 = {{359.91, 60.00, 359.99},{0.06, 180.01, 359.93},{0.03, 300.16, 0.09}},
+    miniHiddenCaveLoc2 = {{5.50, 1.11, 4.01},{6.05, 1.11, 3.06},{4.95, 1.11, 3.06}},
+    miniHiddenCaveRot2 = {{359.91, 60.00, 359.99},{0.06, 180.01, 359.93},{0.03, 300.16, 0.09}},
     stalagmites = {{3.30, 2.23, -5.51},{5.50, 2.23, 0.20},{-1.10, 2.23, 2.10},{-1.65, 2.23, 3.06}},
     grunts = {{-3.30, 2.23, 0.20},{-2.20, 2.23, 2.10}},
     slashers = {{6.05, 2.23, 1.15}},
@@ -185,8 +185,8 @@ function setupMissionSR4()
 
     if not Global.call('isBagEmpty',miniHiddenCaveBag) then
         miniHiddenCaveBag.takeObject({
-            position = missionSR3Positions.miniHiddenCaveLoc1[randomIndex],
-            rotation = missionSR3Positions.miniHiddenCaveRot1[randomIndex]
+            position = missionSR4Positions.miniHiddenCaveLoc1[randomIndex],
+            rotation = missionSR4Positions.miniHiddenCaveRot1[randomIndex]
         })
     else
         print("Warning: Unable to setup hidden cave segment, bag is empty")
@@ -197,8 +197,8 @@ function setupMissionSR4()
 
     if not Global.call('isBagEmpty',miniHiddenCaveBag) then
         miniHiddenCaveBag.takeObject({
-            position = missionSR3Positions.miniHiddenCaveLoc2[randomIndex],
-            rotation = missionSR3Positions.miniHiddenCaveRot2[randomIndex]
+            position = missionSR4Positions.miniHiddenCaveLoc2[randomIndex],
+            rotation = missionSR4Positions.miniHiddenCaveRot2[randomIndex]
         })
     else
         print("Warning: Unable to setup hidden cave segment, bag is empty")
@@ -279,7 +279,7 @@ function setupMissionSR4()
     for i=1, 5 do
         if not Global.call('isBagEmpty',explorationBag) then
             explorationBag.takeObject({
-                position = missionB2Positions.explorationTiles[i],
+                position = missionSR4Positions.explorationTiles[i],
                 rotation = {0.0, 0.0, 180.0}
             })
         else
@@ -317,7 +317,7 @@ function setupMissionSR4()
     for i=1, 7 do
         if not Global.call('isBagEmpty',mineralBag) then
             mineralBag.takeObject({
-                position = missionB2Positions.minerals[i]
+                position = missionSR4Positions.minerals[i]
             })
         else
             print("Warning: Unable to set up minerals, the bag is empty")
