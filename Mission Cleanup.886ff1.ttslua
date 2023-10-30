@@ -209,43 +209,53 @@ function Cleanup()
 
         -- Cleanup Exploration Tiles
         if object.getGMNotes() == "ApocaBloom" then
+            object.setRotation({0.0,0.0,180.0})
             apocaBloomBag.putObject(object)
         end
 
         if object.getGMNotes() == "StarchNut" then
+            object.setRotation({0.0,0.0,180.0})
             barleyBulbBag.putObject(object)
         end
 
         if object.getGMNotes() == "Fossil" then
+            object.setRotation({0.0,0.0,180.0})
             fossilBag.putObject(object)
         end
 
         if object.getGMNotes() == "RedSugar" then
+            object.setRotation({0.0,0.0,180.0})
             redSugarBag.putObject(object)
         end
 
         if object.getGMNotes() == "LootBugs" then
+            object.setRotation({0.0,0.0,180.0})
             lootBugBag.putObject(object)
         end
 
         if object.getGMNotes() == "Eggs" then
+            object.setRotation({0.0,0.0,180.0})
             eggBag.putObject(object)
         end
 
         -- Space rig explore pickups
         if object.getGMNotes() == "abandonedGear" then
+            object.setRotation({0.0,0.0,180.0})
             abandonedGearBag.putObject(object)
         end
 
         if object.getGMNotes() == "gLootbug" then
+            object.setRotation({0.0,0.0,180.0})
             goldLootBugBag.putObject(object)
         end
 
         if object.getGMNotes() == "yeastCone" then
+            object.setRotation({0.0,0.0,180.0})
             maltStarBag.putObject(object)
         end
 
         if object.getGMNotes() == "maltStar" then
+            object.setRotation({0.0,0.0,180.0})
             yeastConesBag.putObject(object)
         end
 
