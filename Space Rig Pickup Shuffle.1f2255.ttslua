@@ -6,3 +6,47 @@ function onCollisionExit(ignore)
    self.shuffle()
    self.shuffle()
 end
+
+-- Takes all the tiles from the individual space rig explore tokens
+-- and puts them in the shuffle bag
+function fill()
+    abandonedGearBag = Global.call('getAbandonedGearBag')
+    for i=1, 2 do
+        if not Global.call('isBagEmpty',abandonedGearBag) then
+            self.putObject(abandonedGearBag.takeObject())
+        else
+            print("Warning: Unable to fill space rig explore token shuffle,
+                 abandoned gear bag is empty")
+        end
+    end
+
+    goldLootBugBag = Global.call('getGoldLootBugBag')
+    for i=1, 2 do
+        if not Global.call('isBagEmpty',goldLootBugBag) then
+            self.putObject(goldLootBugBag.takeObject())
+        else
+            print("Warning: Unable to fill space rig explore token shuffle,
+                gold loot bug bag is empty")
+        end
+    end
+
+    maltStarBag = Global.call('getMaltStarBag')
+    for i=1, 2 do
+        if not Global.call('isBagEmpty',maltStarBag) then
+            self.putObject(maltStarBag.takeObject())
+        else
+            print("Warning: Unable to fill space rig explore token shuffle,
+                malt star bag is empty")
+        end
+    end
+
+    yeastConesBag = Global.call('getYeastConesBag')
+    for i=1, 2 do
+        if not Global.call('isBagEmpty',yeastConesBag) then
+            self.putObject(yeastConesBag.takeObject())
+        else
+            print("Warning: Unable to fill space rig explore token shuffle,
+                yeast cone bag is empty")
+        end
+    end
+end
