@@ -146,7 +146,7 @@ function onLoad()
         naedocyteHatchlingsBag_GUID = '5b74ba'
         naedocyteHatchlingsBag = getObjectFromGUID(naedocyteHatchlingsBag_GUID)
         naedocyteBreederBag_GUID = '79d59b'
-        naedocyteBreederBag = getObjectFromGUID(naedocyteHatchlingsBag_GUID)
+        naedocyteBreederBag = getObjectFromGUID(naedocyteBreederBag_GUID)
         qronarShellbackBag_GUID = '28e956'
         qronarShellbackBag = getObjectFromGUID(qronarShellbackBag_GUID)
         rammersBag_GUID = '5874bd'
