@@ -1,0 +1,41 @@
+-- Mini hidden cavern
+-- 1 space rig explore token
+
+spawnLocations={
+    -- These locations are relative to the spawn point
+    explorationTileLoc = Vector{0.55,1.0,-0.95},
+}
+
+function onLoad()
+    self.createButton(
+        {click_function='Reveal', function_owner=self, label='Reveal',
+        position={-0.2 , 0.15 , -0.2}, rotation={0.0, 30.0, 0.0}, width=500, height=100, font_size=150,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0, 255.0},
+        tooltip='Flip & Populate Cave Segment'}
+    )
+end
+
+function Reveal()
+    self.flip()
+    self.rotate({0.0,-120.0,180.0})
+
+    local miniExploreTokenBag = Global.call('getMiniExploreTokenBag')
+    if not Global.call('isBagEmpty',miniExploreTokenBag) then
+        miniExploreTokenBag.takeObject({
+            position = self.getPosition() + rotatePos(spawnLocations.explorationTileLoc),
+            rotation = self.getRotation() + Vector{0.0,0.0,180.0}
+        })
+    else
+        print('Warning: Unable to setup space rig explore token, bag is empty')
+    end
+end
+
+function rotatePos(pos)
+    local posX,posY,posZ = pos:get()
+    local rot = self.getRotation()
+    local rotX,rotY,rotZ = rot:get()
+    rotatedPos = Vector{math.cos(math.rad(rotY))*posX + math.sin(math.rad(rotY))*posZ,
+                  1.1,
+                  -math.sin(math.rad(rotY))*posX + math.cos(math.rad(rotY))*posZ}
+    return rotatedPos
+end
