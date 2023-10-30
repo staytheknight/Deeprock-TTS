@@ -188,6 +188,11 @@ function Cleanup()
         -- back in bags, and when they're locked and pulled out they can't move)
         object.locked = false
 
+        -- Single hex tiles
+        if object.getGMNotes() == "single" then
+            object.destruct()
+        end
+
         -- Cleanup Cave Segments
         if object.getGMNotes() == "caveSeg" then
             caveBag.putObject(object)
