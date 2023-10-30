@@ -443,6 +443,47 @@ function Cleanup()
             swarmDeck.putObject(object)
         end
 
+        -- Spacerig component cleanup
+        if object.getGMNotes() == "refinery" then
+            object.setPosition({-15.95, 1.13, -2.66})
+            object.setRotation({0.00, 300.00, 180.00})
+        end
+
+        if object.getGMNotes() == "pJack" then
+            Global.call('getPumpjackBag').putObject(object)
+        end
+
+        if object.getGMNotes() == "sPipe" then
+            object.setRotation({0.00, 0.00, 0.00})
+            Global.call('getSPipeBag').putObject(object)
+        end
+
+        if object.getGMNotes() == "cPipe" then
+            object.setRotation({0.00, 0.00, 0.00})
+            Global.call('getCPipeBag').putObject(object)
+        end
+
+        if object.getGMNotes() == "dDozer" then
+            Global.call('getDrilldozerBag').putObject(object)
+        end
+
+        if object.getGMNotes() == "beamer" then
+            Global.call('getBreamersBag').putObject(object)
+        end
+
+        if object.getGMNotes() == "cHeart" then
+            object.setPosition({-21.45, 0.96, 1.15})
+        end
+
+        if object.getGMNotes() == "oHeart" then
+            object.setState(1)
+            object.setPosition({-21.45, 0.96, 1.15})
+        end
+
+        if object.getGMNotes() == "heartGem" then
+            object.setPosition({-21.45, 1.96, 1.15})
+        end
+
     end
 
     swarmBlock.setPosition({-8.24, 1.37, -8.91})
