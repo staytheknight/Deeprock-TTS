@@ -224,6 +224,20 @@ function setupMissionB16()
         })
     end
 
+    -- Placing Grunts
+    local gruntBag = Global.call('getGruntBag')
+    for i=1, 5 do
+        if not Global.call('isBagEmpty',gruntBag) then
+            gruntBag.takeObject({
+                position = missionB16Positions.grunts[i],
+
+            })
+        else
+            print("Warning: Unable to setup grunts, the grunt bag is empty")
+            break
+        end
+    end
+
     local nHatchlingsBag = Global.call('getNaedoHatchlingBag')
     for i=1, 2 do
         if not Global.call('isBagEmpty',nHatchlingsBag) then
