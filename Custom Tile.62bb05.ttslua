@@ -176,4 +176,11 @@ function onLoad()
         scale={3.3,0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
         tooltip='MISSION 11:\nFAIRY RING OF TROUBLE'}
     )
+
+    self.createButton(
+        {click_function='setupMissionB12', function_owner=Global, label='MISSION 12:\nA SONG OF SNOW AND ICE',
+        position={0.24 , 0.2 , 0.35}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 12:\nA SONG OF SNOW AND ICE'}
+    )
 end
