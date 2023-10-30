@@ -5,9 +5,9 @@
 
 spawnLocations={
     -- These locations are relative to the spawn point
-    stalagLocs = {0.55,1.0,-0.95},
-    explorationTileLoc = {0.0,1.0,0.0},
-    gruntLoc = {-0.55,1.0,-0.95}
+    stalagLocs = Vector{01.1,1.0,0.0},
+    explorationTileLoc = Vector{0.0,1.0,0.0},
+    gruntLoc = Vector{0.55,1.0,-0.95}
 }
 
 function onLoad()
@@ -21,6 +21,7 @@ end
 
 function Reveal()
     self.flip()
+    self.rotate({0.0,-120.0,180.0})
 
     local gruntBag = Global.call('getGruntBag')
     if not Global.call('isBagEmpty',gruntBag) then
@@ -32,11 +33,23 @@ function Reveal()
     local miniExploreTokenBag = Global.call('getMiniExploreTokenBag')
     if not Global.call('isBagEmpty',miniExploreTokenBag) then
         miniExploreTokenBag.takeObject({
-            position = self.getPosition() + rotatePos(spawnLocations.explorationTileLoc)})
+            position = self.getPosition() + rotatePos(spawnLocations.explorationTileLoc),
+            rotation = self.getRotation() + Vector{0.0,0.0,180.0}
+        })
     else
         print('Warning: Unable to setup space rig explore token, bag is empty')
     end
 
     local stalagmiteModelBag = Global.call('getStalagmiteModelBag')
     stalagmiteModelBag.takeObject({position = self.getPosition() + rotatePos(spawnLocations.stalagLocs)})
+end
+
+function rotatePos(pos)
+    local posX,posY,posZ = pos:get()
+    local rot = self.getRotation()
+    local rotX,rotY,rotZ = rot:get()
+    rotatedPos = Vector{math.cos(math.rad(rotY))*posX + math.sin(math.rad(rotY))*posZ,
+                  1.1,
+                  -math.sin(math.rad(rotY))*posX + math.cos(math.rad(rotY))*posZ}
+    return rotatedPos
 end
