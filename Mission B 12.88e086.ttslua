@@ -10,7 +10,7 @@ missionB12Positions = {
     {-0.55, 2.24, 3.06},{2.20, 2.24, 2.10},{2.20, 2.24, -1.70},{0.55, 2.24, -2.66}},
     minerals = {{-4.95, 1.19, -4.56},{-6.60, 1.19, -1.71},{-5.50, 1.19, 0.20},
     {-4.95, 1.20, 3.06},{-2.75, 1.20, 4.96},{0.55, 1.21, 4.96},{3.85, 1.21, 3.06},
-    {3.85, 1.21, 1.15},{4.95, 1.21, -0.75}}
+    {3.85, 1.21, 1.15},{4.95, 1.21, -0.75},{4.95, 1.21, -0.75}}
 }
 
 function setupMissionB12()
@@ -209,7 +209,7 @@ function setupMissionB12()
     local explorationBag = Global.call('getExplorationBag')
 
     local lootBugBag = Global.call('getLootBugBag')
-    for i=1, 2 do
+    for i=1, 3 do
         if not Global.call('isBagEmpty',lootBugBag) then
             explorationBag.putObject(lootBugBag.takeObject())
         else
