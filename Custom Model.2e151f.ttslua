@@ -77,7 +77,7 @@ function Reveal()
         position = rotatePos(spawnLocations.explorationTileLoc)
         explorationBag.takeObject({
             position = self.getPosition() + position,
-            rotation = self.getRotation() + Vector{0.0,0.0,180.0}
+            rotation = self.getRotation() + flip
         })
     else
         print('Warning: No more exploration tokens available to be placed in cave segment')
