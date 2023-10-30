@@ -104,6 +104,9 @@ function setupMissionB8()
         print("Warning: Unable to setup hidden cave segment, bag is empty")
     end
 
+    params = {floor = 0.1, ceiling = 0.4,}
+    randomIndex = Global.call('randInt',params)
+
     if not Global.call('isBagEmpty',hiddenCaveBag) then
         hiddenCaveBag.takeObject({
             position = missionB8Positions.hiddenCaveLoc2[randomIndex],
@@ -112,6 +115,9 @@ function setupMissionB8()
     else
         print("Warning: Unable to setup hidden cave segment, bag is empty")
     end
+
+    params = {floor = 0.1, ceiling = 0.4,}
+    randomIndex = Global.call('randInt',params)
 
     if not Global.call('isBagEmpty',hiddenCaveBag) then
         hiddenCaveBag.takeObject({

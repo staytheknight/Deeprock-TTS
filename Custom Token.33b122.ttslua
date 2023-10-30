@@ -1,3 +1,6 @@
+-- This is the big black cave board that sits on the table
+-- it turns off the ability for anyone to click on it or move it
+-- very bad things happen if you are able to move it
 function onLoad()
     self.interactable = false
 end
