@@ -498,8 +498,12 @@ function Cleanup()
 
     missionBookB1.setScale({0.0,0.0,0.0})
     missionBookB2.setScale({0.0,0.0,0.0})
+    missionBookB1.setPosition({-73.31, 0.97, -6.43})
+    missionBookB2.setPosition({-67.20, 0.97, -6.49})
     missionBookSR1.setScale({0.0,0.0,0.0})
     missionBookSR2.setScale({0.0,0.0,0.0})
+    missionBookSR1.setPosition({-73.64, 0.97, -16.55})
+    missionBookSR2.setPosition({-67.53, 0.97, -16.61})
 
     -- relocks the mission board as it gets unlocked during the cleanup process
     missionBoard.locked = true

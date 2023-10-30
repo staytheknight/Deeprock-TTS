@@ -90,9 +90,6 @@ function setupMissionSR2()
         print('Warning: Unable to setup pits, pit tiles are not in the cave bag')
     end
 
-    Global.call('getRefinery').setPosition({-1.08, 1.39, -1.73})
-    Global.call('getRefinery').setRotation({0.05, 240.05, 179.99})
-
     params={
         bag = caveBag,
         ID = Global.call('getCaveEntrance1GUID'),
@@ -229,8 +226,8 @@ function setupMissionSR2()
 
     local exploderBag = Global.call('getExploderBag')
     for i=1, 1 do
-        if not Global.call('isBagEmpty',getExploderBag) then
-            getExploderBag.takeObject({
+        if not Global.call('isBagEmpty',exploderBag) then
+            exploderBag.takeObject({
                 position = missionSR2Positions.exploders[i],
                 rotation = {0.0, 30.0 , 0.0}
             })
@@ -310,12 +307,14 @@ function setupMissionSR2()
     for i=1, 8 do
         if not Global.call('isBagEmpty',mineralBag) then
             mineralBag.takeObject({
-                position = missionSR1Positions.minerals[i]
+                position = missionSR2Positions.minerals[i]
             })
         else
             print("Warning: Unable to set up minerals, the bag is empty")
         end
     end
+
+    Wait.frames(setupRefinery, 60)
 
     local missionBookB1 = Global.call('getMissionBookSR1')
     missionBookB1.setScale({2.0,1.0,2.0})
@@ -325,4 +324,9 @@ function setupMissionSR2()
     missionBookB2.setScale({2.0,1.0,2.0})
     missionBookB2.setPosition({-47.86, 0.97, -35.63})
     missionBookB2.Book.setPage(26)
+end
+
+function setupRefinery()
+    Global.call('getRefinery').setPosition({-1.08, 2.39, -1.73})
+    Global.call('getRefinery').setRotation({0.05, 240.05, 179.99})
 end
