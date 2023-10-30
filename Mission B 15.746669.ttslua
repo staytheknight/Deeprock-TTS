@@ -245,8 +245,8 @@ function setupMissionB15()
 
     local webspitterBag = Global.call('getWebSpitterBag')
     for i=1, 2 do
-        if not Global.call('isBagEmpty',webspitterBa) then
-            webspitterBa.takeObject({
+        if not Global.call('isBagEmpty',webspitterBag) then
+            webspitterBag.takeObject({
                 position = missionB15Positions.webspitters[i]
             })
         else
@@ -340,7 +340,7 @@ function setupMissionB15()
     for i=1, 6 do
         if not Global.call('isBagEmpty',mineralBag) then
             mineralBag.takeObject({
-                position = missionB2Positions.minerals[i]
+                position = missionB15Positions.minerals[i]
             })
         else
             print("Warning: Unable to set up minerals, the bag is empty")
