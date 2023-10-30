@@ -54,6 +54,27 @@ function Reveal()
         stalagBag.takeObject({position = self.getPosition() + position})
     end
 
+    -- Boolean if it's doing a refinery mission
+    refineryMission = false
+    flip = Vector{0.0,0.0,180.0}
+
+    -- Checks all objects in the play zone to see if the refinery is in play
+    -- if it is in play then set the mission type of refineryMission to true
+    local zone = Global.call('getCleanupZone')
+    local objectsInZone = zone.getObjects()
+    for _, object in ipairs(objectsInZone) do
+        if object.getGMNotes() == "refinery" then
+            refineryMission = true;
+        end
+    end
+
+    -- If the current mission is a refinery mission, set the explorationBag
+    -- to be the pumpjack bag instead - pumpjacks will be placed instead of exploration tokens
+    if refineryMission then
+        explorationBag = Global.call('getPumpjackBag')
+        flip = Vector{0.0,0.0,0.0}
+    end
+
     -- Exploration Token
     bagEmpty = Global.call('isBagEmpty',explorationBag)
     -- if the bag is not empty then
@@ -61,7 +82,7 @@ function Reveal()
         position = rotatePos(spawnLocations.explorationTileLoc)
         explorationBag.takeObject({
             position = self.getPosition() + position,
-            rotation = self.getRotation() + Vector{0.0,0.0,180.0}
+            rotation = self.getRotation() + flip
         })
     else
         print('Warning: No more exploration tokens available to be placed in cave segment')
