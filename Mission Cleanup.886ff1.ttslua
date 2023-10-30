@@ -15,6 +15,8 @@ function onLoad()
     missionBoard = getObjectFromGUID(missionBoard_GUID)
 
     explorationBag = Global.call('getExplorationBag')
+    spaceRigExploreBag = Global.call('getMiniExploreTokenBag')
+    mineralShuffleBag = Global.call('getMineralBag')
 
     exclaimTilesBag = Global.call('getExclamationTilesBag')
 
@@ -40,6 +42,11 @@ function onLoad()
     redSugarBag = Global.call('getRedSugarBag')
     lootBugBag = Global.call('getLootBugBag')
     eggBag = Global.call('getEggBag')
+
+    abandonedGearBag = Global.call('getAbandonedGearBag')
+    goldLootBugBag = Global.call('getGoldLootBugBag')
+    maltStarBag = Global.call('getMaltStarBag')
+    yeastConesBag = Global.call('getYeastConesBag')
 
     nitraBag = Global.call('getNitraBag')
     goldBag = Global.call('getGoldBag')
@@ -144,6 +151,23 @@ function emptyExploreBags()
         })
     end
 
+    while not Global.call('isBagEmpty',spaceRigExploreBag)
+    do
+        spaceRigExploreBag.takeObject({
+            position = {1.10, 2.20, -1.71},
+            rotation = {0.0,0.0,180.0},
+            smooth = false
+        })
+    end
+
+    while not Global.call('isBagEmpty',mineralShuffleBag)
+    do
+        mineralShuffleBag.takeObject({
+            position = {1.10, 2.20, -1.71},
+            smooth = false
+        })
+    end
+
     Wait.frames(Cleanup, 30)
 end
 
@@ -207,6 +231,24 @@ function Cleanup()
         if object.getGMNotes() == "Eggs" then
             eggBag.putObject(object)
         end
+
+        -- Space rig explore pickups
+        if object.getGMNotes() == "abandonedGear" then
+            abandonedGearBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "gLootbug" then
+            goldLootBugBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "yeastCone" then
+            maltStarBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "maltStar" then
+            yeastConesBag.putObject(object)
+        end
+
 
         -- Cleanup Minerals
         if object.getName() == "Morkite" then
