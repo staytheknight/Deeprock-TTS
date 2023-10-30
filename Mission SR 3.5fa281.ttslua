@@ -1,28 +1,22 @@
-missionSR2Positions = {
-    hiddenCaveLoc1 = {{-3.85, 1.09, -4.56},{-4.95, 1.09, -4.56},{-4.40, 1.09, -3.61}},
-    hiddenCaveRot1 = {{0.03, 300.00, 0.09},{359.91, 60.02, 359.99},{0.06, 179.96, 359.93}},
-    hiddenCaveLoc2 = {{-1.65, 1.10, 3.06},{-2.75, 1.10, 3.06},{-2.20, 1.10, 4.01}},
-    hiddenCaveRot2 = {{0.03, 300.00, 0.09},{359.91, 60.02, 359.99},{0.06, 179.96, 359.93}},
-    hiddenCaveLoc3 = {{5.50, 1.10, -3.61},{4.40, 1.10, -3.61},{4.95, 1.10, -2.66}},
-    hiddenCaveRot3 = {{0.03, 300.00, 0.09},{359.91, 60.02, 359.99},{0.06, 179.96, 359.93}},
-    miniHiddenCaveLoc1 = {{2.20, 1.11, 5.92},{2.75, 1.11, 4.96},{1.65, 1.11, 4.96}},
-    miniHiddenCaveRot1 = {{359.91, 59.99, 359.99},{0.06, 180.11, 359.93},{0.03, 300.02, 0.09}},
-    miniHiddenCaveLoc2 = {{5.50, 1.11, 5.92},{6.05, 1.11, 4.96},{4.95, 1.11, 4.96}},
-    miniHiddenCaveRot2 = {{359.91, 60.00, 359.99},{0.06, 180.11, 359.93},{0.03, 300.02, 0.09}},
-    miniHiddenCaveLoc3 = {{6.05, 1.11, 1.15},{6.60, 1.11, 0.20},{5.50, 1.11, 0.20}},
-    miniHiddenCaveRot3 = {{359.91, 60.00, 359.99},{0.06, 180.11, 359.93},{0.03, 300.02, 0.09}},
-    stalagmites = {{0.55, 2.24, -2.66},{0.00, 2.24, 0.20},{1.10, 2.24, 0.20}},
-    grunts = {{-2.75,2.24, -0.75},{2.75, 2.24, 3.06}},
-    exploders = {{2.20, 2.24, 2.10}},
-    explorationTiles = {{0.00, 2.35, -3.61},{-2.20, 2.24, 0.20},{0.52,2.24, -0.79},
-    {3.30, 2.24, 2.10}},
-    minerals = {{-1.65, 1.19, -4.56},{-4.40, 1.20, 2.10},{-4.40, 1.20, 4.01},
-    {-4.95, 1.20, 4.96},{0.55, 1.20, 3.06},{2.20, 1.21, 4.01},{4.95, 1.21, -0.75},
-    {4.40, 1.20, -5.52}}
+missionSR3Positions = {
+    hiddenCaveLoc1 = {{5.50, 1.10, -3.61},{4.40, 1.10, -3.61},{4.95, 1.10, -2.66}},
+    hiddenCaveRot1 = {{0.03, 300.01, 0.09},{359.91, 60.00, 359.99},{0.06, 180.00, 359.93}},
+    miniHiddenCaveLoc1 = {{-4.40, 1.10, 2.11},{-3.85, 1.10, 1.15},{-4.95, 1.09, 1.15}},
+    miniHiddenCaveRot1 = {{359.91, 60.00, 359.99},{0.06, 180.01, 359.93},{0.03, 300.10, 0.09}},
+    miniHiddenCaveLoc2 = {{-2.75, 1.10, 4.96},{-2.20, 1.10, 4.01},{-3.30, 1.10, 4.01}},
+    miniHiddenCaveRot2 = {{359.91, 60.00, 359.99},{0.06, 180.09, 359.93},{0.03, 300.10, 0.09}},
+    stalagmites = {{-2.75, 2.23, -2.66},{4.40, 2.23, 0.20},{0.55, 2.23, 3.06}},
+    grunts = {{-2.75, 2.23, -0.75}},
+    webspitters = {{-1.10, 2.23, -1.70}},
+    exclaimationTokens = {{2.20, 2.23, 4.01},{5.50, 2.23, 2.11}},
+    explorationTiles = {{-2.20, 2.23, -1.71},{3.30, 2.23, 0.20},{1.65, 2.23, 3.06},
+    {3.30, 2.23, 5.91},{0.55, 2.23, -6.47}},
+    minerals = {{-5.50, 1.19, 0.20},{-2.75, 1.20, 1.15},{-0.55, 1.20, 3.06},
+    {-0.55, 1.20, 4.96},{3.30, 1.20, -1.71},{6.05, 1.21, -0.75},{6.60, 1.21, -1.71}}
 }
 
-function setupMissionSR2()
-    print("Launching Mission 2: Liquid Riches\nGood Luck Miners!\n")
+function setupMissionSR3()
+    print("Launching Mission 3: Escort Duty\nGood Luck Miners!\n")
 
     local caveBag = Global.call('getCaveBag') -- need to call global function to get proper object ID
 
@@ -32,8 +26,8 @@ function setupMissionSR2()
     }
     if Global.call('isInBag',params) then
         caveBag.takeObject({
-            position = {0.55, 1.22, -6.47},
-            rotation = {0.03, 300.00, 180.09},
+            position = {-4.96, 1.21, -4.57},
+            rotation = {0.04, 300.00, 180.09},
             guid = Global.call('getDropPodGUID'),
             -- Lock tiles afer spawn
             --callback="afterSpawnLock", callback_owner=Global
@@ -44,13 +38,29 @@ function setupMissionSR2()
 
     params={
         bag = caveBag,
+        ID = Global.call('getCaveSeg1GUID'),
+    }
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = {-1.10, 1.09, -5.52},
+            rotation = {0.06, 180.23, 359.93},
+            guid = Global.call('getCaveSeg1GUID'),
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print('Warning: Unable to setup cave, cave tiles are not in the cave bag')
+    end
+
+    params={
+        bag = caveBag,
         ID = Global.call('getCaveSeg2GUID'),
     }
     if Global.call('isInBag',params) then
         caveBag.takeObject({
-            position = {2.75, 1.10, 1.15},
-            rotation = {359.94, 359.97, 0.08},
-            guid = Global.call('getCaveSeg2GUID'), -- Top (Increment Segment)
+            position = {-3.30, 1.09, -1.71},
+            rotation = {359.91, 60.00, 359.99},
+            guid = Global.call('getCaveSeg2GUID'),
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
         })
@@ -60,13 +70,13 @@ function setupMissionSR2()
 
     params={
         bag = caveBag,
-        ID = Global.call('getCaveSeg3GUID'),
+        ID = Global.call('getCaveSeg4GUID'),
     }
     if Global.call('isInBag',params) then
         caveBag.takeObject({
-            position = {0.00, 1.10, -1.70},
-            rotation = {0.08, 240.02, 0.01},
-            guid = Global.call('getCaveSeg3GUID'), -- Top Left (L Segment)
+            position = {3.30, 1.11, 2.10},
+            rotation = {359.92, 59.97, 359.98},
+            guid = Global.call('getCaveSeg4GUID'),
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
         })
@@ -76,13 +86,13 @@ function setupMissionSR2()
 
     params={
         bag = caveBag,
-        ID = Global.call('getHexPit5GUID'),
+        ID = Global.call('getHexPit3GUID'),
     }
     if Global.call('isInBag',params) then
         caveBag.takeObject({
-            position = {2.20, 1.38, 0.20},
-            rotation = {359.95, 119.99, 179.90},
-            guid = Global.call('getHexPit5GUID'), -- 5 Hex Pit
+            position = {-2.20, 1.36, -3.61},
+            rotation = {0.10, 240.01, 180.02},
+            guid = Global.call('getHexPit3GUID'),
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
         })
@@ -96,7 +106,7 @@ function setupMissionSR2()
     }
     if Global.call('isInBag',params) then
         caveBag.takeObject({
-            position = {-3.30, 1.24, 0.20},
+            position = {-1.65, 1.23, -0.75},
             rotation = {0.0,0.0,0.0},
             guid = Global.call('getCaveEntrance1GUID'),
             -- Lock tiles afer spawn
@@ -112,7 +122,7 @@ function setupMissionSR2()
     }
     if Global.call('isInBag',params) then
         caveBag.takeObject({
-            position = {4.95, 1.24, 3.06},
+            position = {2.20, 1.22, -5.52},
             rotation = {0.0,0.0,0.0},
             guid = Global.call('getCaveEntrance2GUID'),
             -- Lock tiles afer spawn
@@ -131,32 +141,8 @@ function setupMissionSR2()
 
     if not Global.call('isBagEmpty',hiddenCaveBag) then
         hiddenCaveBag.takeObject({
-            position = missionSR2Positions.hiddenCaveLoc1[randomIndex],
-            rotation = missionSR2Positions.hiddenCaveRot1[randomIndex]
-        })
-    else
-        print("Warning: Unable to setup hidden cave segment, bag is empty")
-    end
-
-    params = {floor = 0.1, ceiling = 0.4,}
-    randomIndex = Global.call('randInt',params)
-
-    if not Global.call('isBagEmpty',hiddenCaveBag) then
-        hiddenCaveBag.takeObject({
-            position = missionSR2Positions.hiddenCaveLoc2[randomIndex],
-            rotation = missionSR2Positions.hiddenCaveRot2[randomIndex]
-        })
-    else
-        print("Warning: Unable to setup hidden cave segment, bag is empty")
-    end
-
-    params = {floor = 0.1, ceiling = 0.4,}
-    randomIndex = Global.call('randInt',params)
-
-    if not Global.call('isBagEmpty',hiddenCaveBag) then
-        hiddenCaveBag.takeObject({
-            position = missionSR2Positions.hiddenCaveLoc3[randomIndex],
-            rotation = missionSR2Positions.hiddenCaveRot3[randomIndex]
+            position = missionSR3Positions.hiddenCaveLoc1[randomIndex],
+            rotation = missionSR3Positions.hiddenCaveRot1[randomIndex]
         })
     else
         print("Warning: Unable to setup hidden cave segment, bag is empty")
@@ -170,8 +156,8 @@ function setupMissionSR2()
 
     if not Global.call('isBagEmpty',miniHiddenCaveBag) then
         miniHiddenCaveBag.takeObject({
-            position = missionSR2Positions.miniHiddenCaveLoc1[randomIndex],
-            rotation = missionSR2Positions.miniHiddenCaveRot1[randomIndex]
+            position = missionSR3Positions.miniHiddenCaveLoc1[randomIndex],
+            rotation = missionSR3Positions.miniHiddenCaveRot1[randomIndex]
         })
     else
         print("Warning: Unable to setup hidden cave segment, bag is empty")
@@ -182,20 +168,8 @@ function setupMissionSR2()
 
     if not Global.call('isBagEmpty',miniHiddenCaveBag) then
         miniHiddenCaveBag.takeObject({
-            position = missionSR2Positions.miniHiddenCaveLoc2[randomIndex],
-            rotation = missionSR2Positions.miniHiddenCaveRot2[randomIndex]
-        })
-    else
-        print("Warning: Unable to setup hidden cave segment, bag is empty")
-    end
-
-    params = {floor = 0.1, ceiling = 0.4,}
-    randomIndex = Global.call('randInt',params)
-
-    if not Global.call('isBagEmpty',miniHiddenCaveBag) then
-        miniHiddenCaveBag.takeObject({
-            position = missionSR2Positions.miniHiddenCaveLoc3[randomIndex],
-            rotation = missionSR2Positions.miniHiddenCaveRot3[randomIndex]
+            position = missionSR3Positions.miniHiddenCaveLoc2[randomIndex],
+            rotation = missionSR3Positions.miniHiddenCaveRot2[randomIndex]
         })
     else
         print("Warning: Unable to setup hidden cave segment, bag is empty")
@@ -206,16 +180,28 @@ function setupMissionSR2()
     -- Stalagmites
     for i=1, 3 do
         stalagmiteModelBag.takeObject({
-            position = missionSR2Positions.stalagmites[i],
+            position = missionSR3Positions.stalagmites[i],
             -- rotation = -- ADD RANDOM
         })
     end
+
+    local exclaimBag = Global.call('getExclamationTilesBag')
+    for i=1, 2 do
+        if not Global.call('isBagEmpty',exclaimBag) then
+            exclaimBag.takeObject({
+                position = missionSR3Positions.exclaimationTokens[i],
+            })
+        else
+            print("Warning: Unable to setup up [!] tokens, the bag is empty")
+        end
+    end
+
 
     local gruntBag = Global.call('getGruntBag')
     for i=1, 2 do
         if not Global.call('isBagEmpty',gruntBag) then
             gruntBag.takeObject({
-                position = missionSR2Positions.grunts[i],
+                position = missionSR3Positions.grunts[i],
                 rotation = {0.0, 30.0 , 0.0}
             })
         else
@@ -224,11 +210,11 @@ function setupMissionSR2()
         end
     end
 
-    local exploderBag = Global.call('getExploderBag')
+    local webspitterBag = Global.call('getWebSpitterBag')
     for i=1, 1 do
-        if not Global.call('isBagEmpty',exploderBag) then
-            exploderBag.takeObject({
-                position = missionSR2Positions.exploders[i],
+        if not Global.call('isBagEmpty',webspitterBag) then
+            webspitterBag.takeObject({
+                position = missionSR3Positions.webspitters[i],
                 rotation = {0.0, 30.0 , 0.0}
             })
         else
@@ -258,15 +244,24 @@ function setupMissionSR2()
         end
     end
 
+    local redSugarBag = Global.call('getRedSugarBag')
+    for i=1, 2 do
+        if not Global.call('isBagEmpty',redSugarBag) then
+            explorationBag.putObject(redSugarBag.takeObject())
+        else
+            print("Warning: Unable to set up exploration tokens, red sugar bag is empty")
+        end
+    end
+
     -- Shuffling Exploration Tiles
     explorationBag.shuffle()
 
     -- Placing Exploration Tiles
     -- Originally places 7, some kept in bag for hidden cave code to work
-    for i=1, 4 do
+    for i=1, 5 do
         if not Global.call('isBagEmpty',explorationBag) then
             explorationBag.takeObject({
-                position = missionSR2Positions.explorationTiles[i],
+                position = missionSR3Positions.explorationTiles[i],
                 rotation = {0.0, 0.0, 180.0}
             })
         else
@@ -282,7 +277,7 @@ function setupMissionSR2()
     local mineralBag = Global.call('getMineralBag')
 
     local goldBag = Global.call('getGoldBag')
-    for i=1, 3 do
+    for i=1, 2 do
         if not Global.call('isBagEmpty',goldBag) then
             mineralBag.putObject(goldBag.takeObject())
         else
@@ -304,29 +299,30 @@ function setupMissionSR2()
     mineralBag.shuffle()
 
     -- Placing Minerals
-    for i=1, 8 do
+    for i=1, 7 do
         if not Global.call('isBagEmpty',mineralBag) then
             mineralBag.takeObject({
-                position = missionSR2Positions.minerals[i]
+                position = missionSR3Positions.minerals[i]
             })
         else
             print("Warning: Unable to set up minerals, the bag is empty")
         end
     end
 
-    Wait.frames(setupRefinery, 60)
+    Wait.frames(setupHearstone, 60)
 
     local missionBookB1 = Global.call('getMissionBookSR1')
     missionBookB1.setScale({2.0,1.0,2.0})
     missionBookB1.setPosition({-53.52, 0.97, -35.66})
-    missionBookB1.Book.setPage(25)
+    missionBookB1.Book.setPage(27)
     local missionBookB2 = Global.call('getMissionBookSR2')
     missionBookB2.setScale({2.0,1.0,2.0})
     missionBookB2.setPosition({-47.86, 0.97, -35.63})
-    missionBookB2.Book.setPage(26)
+    missionBookB2.Book.setPage(28)
 end
 
-function setupRefinery()
-    Global.call('getRefinery').setPosition({-1.08, 2.39, -1.73})
-    Global.call('getRefinery').setRotation({0.05, 240.05, 179.99})
+function setupHeartstone()
+    Global.call('getCHeartstone').setPosition({4.40, 1.26, 4.01})
+    Global.call('getOHearstone').setPosition({4.40, 1.26, 4.01})
+    Global.call('getHearstoneGem').setPosition({4.38, 2.25, 3.99})
 end
