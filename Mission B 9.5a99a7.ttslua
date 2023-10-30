@@ -94,7 +94,7 @@ function setupMissionB9()
         biomeCaveBag.takeObject({
             position = {4.95, 1.40, -0.75},
             rotation = {0.30, 240.00, 180.02},
-            guid = Global.call('ggetDreadCocoonHex_GUID'),
+            guid = Global.call('getDreadCocoonHex_GUID'),
         })
     else
         print('Warning: Unable to setup dreadnought cocoon, it is not in the biome cave bag')
