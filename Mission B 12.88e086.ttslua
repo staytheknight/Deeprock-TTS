@@ -285,7 +285,7 @@ function setupMissionB12()
     mineralBag.shuffle()
 
     -- Placing Minerals
-    for i=1, 8 do
+    for i=1, 9 do
         if not Global.call('isBagEmpty',mineralBag) then
             mineralBag.takeObject({
                 position = missionB12Positions.minerals[i]
