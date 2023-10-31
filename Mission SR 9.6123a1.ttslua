@@ -56,13 +56,13 @@ function setupMissionSR9()
 
     params={
         bag = caveBag,
-        ID = Global.call('getCaveSeg1GUID'),
+        ID = Global.call('getCaveSeg2GUID'),
     }
     if Global.call('isInBag',params) then
         caveBag.takeObject({
             position = {1.65, 1.10, 3.06},
             rotation = {359.91, 60.00, 359.96},
-            guid = Global.call('getCaveSeg1GUID'),
+            guid = Global.call('getCaveSeg2GUID'),
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
         })
