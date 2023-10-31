@@ -198,7 +198,7 @@ function setupMissionSR3()
 
 
     local gruntBag = Global.call('getGruntBag')
-    for i=1, 2 do
+    for i=1, 1 do
         if not Global.call('isBagEmpty',gruntBag) then
             gruntBag.takeObject({
                 position = missionSR3Positions.grunts[i],
