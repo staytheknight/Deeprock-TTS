@@ -351,11 +351,7 @@ function setupMissionSR7()
     end
 
     Wait.frames(setupHeartstone, 60)
-
-    Global.call('getDrilldozerBag').takeObject({
-        positions = {-5.50, 1.27, 0.20},
-        rotation = {356.01, 89.96, 359.96}
-    })
+    Wait.frames(setupDrilldozer, 60)
 
     local missionBookB1 = Global.call('getMissionBookSR1')
     missionBookB1.setScale({2.0,1.0,2.0})
@@ -368,6 +364,11 @@ function setupMissionSR7()
 end
 
 function setupHeartstone()
-    Global.call('getCHeartstone').setPosition({6.60, 1.23, 0.20})
+    Global.call('getCHeartstone').setPosition({6.60, 2.23, 0.20})
     Global.call('getHearstoneGem').setPosition({6.59, 2.22, 0.18})
+end
+
+function setupDrilldozer()
+    Global.call('getDrilldozer').setPosition({-5.50, 1.27, 0.20})
+    Global.call('getDrilldozer').setRotation({356.01, 89.96, 359.96})
 end

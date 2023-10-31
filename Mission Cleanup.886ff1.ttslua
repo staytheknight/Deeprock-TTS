@@ -469,7 +469,8 @@ function Cleanup()
         end
 
         if object.getGMNotes() == "dDozer" then
-            Global.call('getDrilldozerBag').putObject(object)
+            object.setPosition({-24.75, 0.98, 1.15})
+            object.setRotation({357.75, 270.13, 0.01})
         end
 
         if object.getGMNotes() == "beamer" then

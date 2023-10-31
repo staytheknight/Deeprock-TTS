@@ -84,8 +84,8 @@ function onLoad()
     sPipeBag = getObjectFromGUID(sPipeBag_GUID)
     cPipeBag_GUID = 'a52a6d'
     cPipeBag = getObjectFromGUID(cPipeBag_GUID)
-    drilldozerBag_GUID = '8ecd59'
-    drilldozerBag = getObjectFromGUID(drilldozerBag_GUID)
+    drilldozer_GUID = '8887ac'
+    drilldozer = getObjectFromGUID(drilldozer_GUID)
     beamersBag_GUID = '3d4ec3'
     beamersBag = getObjectFromGUID(beamersBag_GUID)
     cHeartstone_GUID = '64c2ff'
@@ -1020,8 +1020,8 @@ function getCPipeBag()
     return cPipeBag
 end
 
-function getDrilldozerBag()
-    return drilldozerBag
+function getDrilldozer()
+    return drilldozer
 end
 
 function getBreamersBag()

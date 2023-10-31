@@ -354,7 +354,7 @@ function setupMissionSR8()
     for i=1, 13 do
         if not Global.call('isBagEmpty',mineralBag) then
             mineralBag.takeObject({
-                position = missionSR1Positions.minerals[i]
+                position = missionSR8Positions.minerals[i]
             })
         else
             print("Warning: Unable to set up minerals, the bag is empty")
