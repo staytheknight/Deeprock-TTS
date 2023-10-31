@@ -228,7 +228,7 @@ function setupMissionSR4()
     end
 
     local slasherBag = Global.call('getSlasherBag')
-    for i=1, 2 do
+    for i=1, 1 do
         if not Global.call('isBagEmpty',gruntBag) then
             slasherBag.takeObject({
                 position = missionSR4Positions.slashers[i],
