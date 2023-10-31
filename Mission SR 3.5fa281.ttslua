@@ -298,8 +298,6 @@ function setupMissionSR3()
     -- Shuffling Minerals
     mineralBag.shuffle()
 
-
-
     -- Placing Minerals
     for i=1, 7 do
         if not Global.call('isBagEmpty',mineralBag) then
