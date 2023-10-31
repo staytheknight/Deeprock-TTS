@@ -1,14 +1,14 @@
 missionSR5Positions = {
-    hiddenCaveLoc1 = {{-4.40, 1.09, -3.61},},
-    hiddenCaveRot1 = {{0.03, 300.00, 0.09},},
-    hiddenCaveLoc2 = {{-2.75, 1.10, 3.06},},
-    hiddenCaveRot2 = {{0.03, 300.01, 0.09},},
-    hiddenCaveLoc3 = {{3.85, 1.11, 1.15},},
-    hiddenCaveRot3 = {{359.94, 0.00, 0.07},},
-    miniHiddenCaveLoc1 = {{0.00, 1.10, 4.01},},
-    miniHiddenCaveRot1 = {{359.94, 0.00, 0.07},},
-    miniHiddenCaveLoc2 = {{-2.20, 1.09, -5.51},},
-    miniHiddenCaveRot2 = {{359.91, 60.06, 359.99},},
+    hiddenCaveLoc1 = {{-4.40, 1.09, -3.61},{-5.50, 1.09, -3.61},{-4.95, 1.09, -2.66}},
+    hiddenCaveRot1 = {{0.03, 300.00, 0.09},{359.91, 60.00, 359.99},{0.06, 179.99, 359.93}},
+    hiddenCaveLoc2 = {{-2.75, 1.10, 3.06},{-3.85, 1.10, 3.06},{-3.30, 1.10, 4.01}},
+    hiddenCaveRot2 = {{0.03, 300.01, 0.09},{359.91, 60.00, 359.99},{0.06, 180.04, 359.93}},
+    hiddenCaveLoc3 = {{3.85, 1.11, 1.15},{3.30, 1.11, 2.11},{4.40, 1.11, 2.11}},
+    hiddenCaveRot3 = {{359.94, 0.00, 0.07},{359.97, 120.01, 359.91},{0.09, 240.07, 0.01}},
+    miniHiddenCaveLoc1 = {{0.00, 1.10, 4.01},{-2.20, 1.09, -5.51},{-1.65, 1.09, -6.47}},
+    miniHiddenCaveRot1 = {{359.94, 0.00, 0.07},{359.91, 60.06, 359.99},{0.06, 180.02, 359.93}},
+    miniHiddenCaveLoc2 = {{-2.20, 1.09, -5.51},{0.00, 1.10, 4.01},{1.10, 1.11, 4.01},{359.97, 120.01, 359.91}},
+    miniHiddenCaveRot2 = {{359.91, 60.06, 359.99},{359.94, 359.99, 0.07}},
     stalagmites = {{-0.55, 2.24, -0.75},{3.85, 2.23, -4.56},{3.30, 2.23, -5.52}},
     grunts = {{2.20, 2.23, -7.42},{0.55, 2.24, -4.56},{-0.55, 2.24, -4.56}},
     explorationTiles = {{-2.20, 2.35, 0.20},{0.55, 2.36, -0.75},{0.00, 2.35, -3.61},{3.30, 2.35, -3.61}},
@@ -145,6 +145,18 @@ function setupMissionSR5()
         print("Warning: Unable to setup hidden cave segment, bag is empty")
     end
 
+    params = {floor = 0.1, ceiling = 0.4,}
+    randomIndex = Global.call('randInt',params)
+
+    if not Global.call('isBagEmpty',hiddenCaveBag) then
+        hiddenCaveBag.takeObject({
+            position = missionSR5Positions.hiddenCaveLoc3[randomIndex],
+            rotation = missionSR5Positions.hiddenCaveRot3[randomIndex]
+        })
+    else
+        print("Warning: Unable to setup hidden cave segment, bag is empty")
+    end
+
     local miniHiddenCaveBag = Global.call('getMiniHiddenCaveBag')
     miniHiddenCaveBag.shuffle()
 
@@ -167,18 +179,6 @@ function setupMissionSR5()
         miniHiddenCaveBag.takeObject({
             position = missionSR5Positions.miniHiddenCaveLoc2[randomIndex],
             rotation = missionSR5Positions.miniHiddenCaveRot2[randomIndex]
-        })
-    else
-        print("Warning: Unable to setup hidden cave segment, bag is empty")
-    end
-
-    params = {floor = 0.1, ceiling = 0.4,}
-    randomIndex = Global.call('randInt',params)
-
-    if not Global.call('isBagEmpty',miniHiddenCaveBag) then
-        miniHiddenCaveBag.takeObject({
-            position = missionSR5Positions.miniHiddenCaveLoc3[randomIndex],
-            rotation = missionSR5Positions.miniHiddenCaveRot3[randomIndex]
         })
     else
         print("Warning: Unable to setup hidden cave segment, bag is empty")
