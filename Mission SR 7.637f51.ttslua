@@ -10,7 +10,7 @@ missionSR7Positions = {
     miniHiddenCaveLoc3 = {{-1.65, 1.10, 4.96},{-1.10, 1.10, 4.01},{-2.20, 1.10, 4.01}},
     miniHiddenCaveRot3 = {{359.91, 60.00, 359.99},{0.06, 180.01, 359.93},{0.03, 299.97, 0.09}},
     stalagmites = {{-1.65, 2.24, -0.75},{-2.20, 2.24, -1.71}},
-    exclamationTiles = {{5.50, 2.33, 2.10},{7.15, 2.33, -2.66}},
+    exclamationTokens = {{5.50, 2.33, 2.10},{7.15, 2.33, -2.66}},
     grunts = {{-6.05, 2.39, -2.66}},
     slashers = {{-5.50, 2.24, 2.10}},
     mactera = {{-3.85, 2.39, -0.75}},
@@ -218,7 +218,7 @@ function setupMissionSR7()
     for i=1, 2 do
         if not Global.call('isBagEmpty',exclaimBag) then
             exclaimBag.takeObject({
-                position = missionSR7Positions.exclaimationTokens[i],
+                position = missionSR7Positions.exclamationTokens[i],
             })
         else
             print("Warning: Unable to setup up [!] tokens, the bag is empty")
@@ -230,19 +230,6 @@ function setupMissionSR7()
         if not Global.call('isBagEmpty',gruntBag) then
             gruntBag.takeObject({
                 position = missionSR7Positions.grunts[i],
-                rotation = {0.0, 30.0 , 0.0}
-            })
-        else
-            print("Warning: Unable to setup grunts, the grunt bag is empty")
-            break
-        end
-    end
-
-    local webspitterBag = Global.call('getWebSpitterBag')
-    for i=1, 1 do
-        if not Global.call('isBagEmpty',webspitterBag) then
-            webspitterBag.takeObject({
-                position = missionSR7Positions.webspitters[i],
                 rotation = {0.0, 30.0 , 0.0}
             })
         else
@@ -264,10 +251,10 @@ function setupMissionSR7()
         end
     end
 
-    local macteraBag = Global.call('getSlasherBag')
+    local macteraBag = Global.call('getMacteraBag')
     for i=1, 1 do
-        if not Global.call('isBagEmpty',mactera) then
-            mactera.takeObject({
+        if not Global.call('isBagEmpty',macteraBag) then
+            macteraBag.takeObject({
                 position = missionSR7Positions.mactera[i],
                 rotation = {0.0, 30.0 , 0.0}
             })
@@ -373,15 +360,14 @@ function setupMissionSR7()
     local missionBookB1 = Global.call('getMissionBookSR1')
     missionBookB1.setScale({2.0,1.0,2.0})
     missionBookB1.setPosition({-53.52, 0.97, -35.66})
-    missionBookB1.Book.setPage(27)
+    missionBookB1.Book.setPage(35)
     local missionBookB2 = Global.call('getMissionBookSR2')
     missionBookB2.setScale({2.0,1.0,2.0})
     missionBookB2.setPosition({-47.86, 0.97, -35.63})
-    missionBookB2.Book.setPage(28)
+    missionBookB2.Book.setPage(36)
 end
 
 function setupHeartstone()
     Global.call('getCHeartstone').setPosition({6.60, 1.23, 0.20})
     Global.call('getHearstoneGem').setPosition({6.59, 2.22, 0.18})
-end
 end
