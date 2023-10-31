@@ -350,11 +350,11 @@ function setupMissionSR10()
 end
 
 function setupHeartstone()
-    Global.call('getCHeartstone').setPosition({6.60, 1.23, 0.20})
-    Global.call('getHearstoneGem').setPosition({6.59, 2.22, 0.18})
+    Global.call('getCHeartstone').setPosition({-3.85, 1.25, 4.96})
+    Global.call('getHearstoneGem').setPosition({-3.85, 2.25, 4.96})
 end
 
 function setupDrilldozer()
-    Global.call('getDrilldozer').setPosition({-5.50, 1.27, 0.20})
-    Global.call('getDrilldozer').setRotation({356.01, 89.96, 359.96})
+    Global.call('getDrilldozer').setPosition({0.55, 1.24, -4.56})
+    Global.call('getDrilldozer').setRotation({3.31, 330.03, 0.09})
 end

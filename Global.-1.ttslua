@@ -312,8 +312,10 @@ function onLoad()
     missionSR8 = getObjectFromGUID(missionSR8_GUID)
     missionSR9_GUID = '6123a1'
     missionSR9 = getObjectFromGUID(missionSR9_GUID)
-    missionSR10_GUID = '6123a1'
+    missionSR10_GUID = '36284e'
     missionSR10 = getObjectFromGUID(missionSR10_GUID)
+
+    --hideMissionTokens()
 
     missionCleanup_GUID = '886ff1'
     missionCleanup = getObjectFromGUID(missionCleanup_GUID)
@@ -429,7 +431,7 @@ function Setup()
     scoutBoard.setLock(true)
     --]]
 
-    --hideMissionTokens()
+
 end
 
 -- checks if a bag / container is empty
@@ -469,8 +471,12 @@ end
 function hideMissionTokens()
     missionName = {mission1, mission2, mission3, mission4, mission5,
     mission6, mission7, mission8, mission9, mission10, mission11,
-    mission12, mission13, mission14}
-    for i=1, 14 do
+    mission12, mission13, mission14, missionB1, missionB2, missionB3,
+    missionB4, missionB5, missionB6, missionB7, missionB8, missionB9,
+    missionB10, missionB11, missionB12, missionB13, missionB14, missionB15,
+    missionB16, missionSR1, missionSR2, missionSR3, missionSR4, missionSR5,
+    missionSR6, missionSR7, missionSR8, missionSR9, missionSR10, missionSR11}
+    for i=1, 40 do
         missionName[i].setScale{0.0,0.0,0.0}
     end
 
