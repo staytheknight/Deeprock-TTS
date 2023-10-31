@@ -9,7 +9,7 @@ spawnLocations={
 function onLoad()
     self.createButton(
         {click_function='Reveal', function_owner=self, label='Reveal',
-        position={-0.2 , 0.15 , -0.2}, rotation={0.0, 30.0, 0.0}, width=500, height=100, font_size=150,
+        position={-0.4 , 0.15 , -0.3}, rotation={0.0, 0.0, 0.0}, width=300, height=50, font_size=100,
         scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0, 255.0},
         tooltip='Flip & Populate Cave Segment'}
     )
