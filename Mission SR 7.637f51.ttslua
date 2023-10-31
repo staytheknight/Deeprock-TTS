@@ -364,7 +364,7 @@ function setupMissionSR7()
 end
 
 function setupHeartstone()
-    Global.call('getCHeartstone').setPosition({6.60, 2.23, 0.20})
+    Global.call('getCHeartstone').setPosition({6.60, 1.23, 0.20})
     Global.call('getHearstoneGem').setPosition({6.59, 2.22, 0.18})
 end
 
