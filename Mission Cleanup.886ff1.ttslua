@@ -53,6 +53,7 @@ function onLoad()
     morkiteBag = Global.call('getMorkiteBag')
     aquardBag = Global.call('getAquardBag')
 
+    -- Base game Glypids
     spitballerBag = Global.call('getSpitballerBag')
     broodNexusBag = Global.call('getbroodNexusBag')
     webspitterBag = Global.call('getWebSpitterBag')
@@ -63,6 +64,11 @@ function onLoad()
     wardenBag = Global.call('getWardenBag')
     praetorianBag = Global.call('getPraetorianBag')
     opressorBag = Global.call('getOpressorBag')
+
+    -- Goo from Above Glyphids
+    gooBomberBag = Global.call('getGooBomberBag')
+    menaceBag = Global.call('getMenaceBag')
+    gooBag = Global.call('getGooBag')
 
     -- Biome Glypids
     naedocyteHatchlingsBag = Global.call('getNaedoHatchlingBag')
@@ -321,6 +327,18 @@ function Cleanup()
 
         if object.getName() == "Opressor" then
             opressorBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "gBomber" then
+            gooBomberBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "menace" then
+            menaceBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "goo" then
+            gooBag.putObject(object)
         end
 
         if object.getGMNotes() == "rammer" then

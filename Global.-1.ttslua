@@ -814,6 +814,19 @@ function getOpressorBag()
     return opressorBag
 end
 
+-- Goo from Above Glyphids
+function getGooBomberBag()
+    return gooBomberBag
+end
+
+function getMenaceBag()
+    return menaceBag
+end
+
+function getGooBag()
+    return gooBag
+end
+
 -- Biome Glyphids
 function getNaedoHatchlingBag()
     return naedocyteHatchlingsBag
