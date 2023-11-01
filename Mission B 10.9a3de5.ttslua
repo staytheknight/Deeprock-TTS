@@ -198,11 +198,20 @@ function setupMissionB10()
     local explorationBag = Global.call('getExplorationBag')
 
     local lootBugBag = Global.call('getLootBugBag')
-    for i=1, 2 do
+    for i=1, 1 do
         if not Global.call('isBagEmpty',lootBugBag) then
             explorationBag.putObject(lootBugBag.takeObject())
         else
             print("Warning: Unable to set up exploration tokens, loot bug bag is empty")
+        end
+    end
+
+    local redSugarBag = Global.call('getRedSugarBag')
+    for i=1, 1 do
+        if not Global.call('isBagEmpty',redSugarBag) then
+            explorationBag.putObject(redSugarBag.takeObject())
+        else
+            print("Warning: Unable to set up exploration tokens, red sugar bag is empty")
         end
     end
 
