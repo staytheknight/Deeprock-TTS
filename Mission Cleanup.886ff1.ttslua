@@ -480,6 +480,22 @@ function Cleanup()
             swarmDeck.putObject(object)
         end
 
+        if object.getGMNotes() == "sCharge" then
+            object.setPosition({-23.10, 1.07, -11.23})
+        end
+
+        if object.getGMNotes() == "iField" then
+            object.setPosition({-22.00, 1.07, -11.23})
+        end
+
+        if object.getGMNotes() == "Lure" then
+            object.setPosition({-20.90, 1.07, -11.23})
+        end
+
+        if object.getGMNotes() == "pMine" then
+            object.setPosition({-19.80, 1.07, -11.23})
+        end
+
         -- Spacerig component cleanup
         if object.getGMNotes() == "refinery" then
             object.setPosition({-15.95, 1.13, -2.66})
