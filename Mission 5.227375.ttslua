@@ -307,7 +307,7 @@ function setupMission5()
     end
 
     for i=1, 2 do
-        if not Global.call('isBagEmpty',baleyBulbBag) then
+        if not Global.call('isBagEmpty',barleyBulbBag) then
             explorationBag.putObject(barleyBulbBag.takeObject())
         else
             print("Warning: Unable to set up exploration tokens, barley bulb bag is empty")
