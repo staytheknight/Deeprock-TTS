@@ -8,7 +8,7 @@ missionB14Positions = {
     hiddenCaveLoc4 = {{2.20, 1.10, -5.51},{2.75, 1.10, -4.56},{3.30, 1.10, -5.51}},
     hiddenCaveRot4 = {{359.91, 60.00, 359.99},{0.06, 180.03, 359.93},{0.03, 299.98, 0.09}},
     stalagmites = {{-1.65, 2.24, -2.66},{5.50, 2.24, 4.01}},
-    geysers = {{-1.65, 2.24, -0.75},{1.65, 2.24, 3.06}},
+    geysers = {{-1.65, 1.24, -0.75},{1.65, 1.24, 3.06}},
     nHatchlings = {{0.55, 2.24, -0.75},{1.10, 2.24, 2.10}},
     nBreeder = {{-0.55, 2.24, -4.56}},
     qShellback = {{-2.18,2.24, -3.59}},
@@ -188,7 +188,8 @@ function setupMissionB14()
     for i=1, 2 do
         if not Global.call('isBagEmpty',geyserBag) then
             geyserBag.takeObject({
-                position = missionB14Positions.geysers[i]
+                position = missionB14Positions.geysers[i],
+                callback="afterSpawnLock", callback_owner=Global
             })
         else
             print("Warning: Unable to set up geysers, the geyser bag is empty")

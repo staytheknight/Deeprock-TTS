@@ -2,7 +2,7 @@ missionB10Positions = {
     hiddenCaveLoc1 = {{-3.85, 1.09, -4.56},{-4.40, 1.09, -3.61},{-3.30, 1.09, -3.61}},
     hiddenCaveRot1 = {{359.94, 0.00, 0.07},{359.97, 120.01, 359.91},{0.09, 240.00, 0.01}},
     stalagmites = {{4.40, 2.25, -1.70}},
-    geysers = {{-3.30, 2.25, 4.01},{-4.40, 2.25, 2.10},{1.65, 2.25, 3.06},{4.95, 2.25, 1.15}},
+    geysers = {{-3.30, 1.25, 4.01},{-4.40, 1.25, 2.10},{1.65, 1.25, 3.06},{4.95, 1.25, 1.15}},
     grunts = {{3.30, 2.25, 4.01},{6.05, 2.25, 3.06},{1.65, 2.25, -0.75}},
     rammers = {{3.30, 2.25, 2.11}},
     explorationTiles = {{1.10, 2.25, -3.61},{1.10, 2.25, -1.70},{2.75, 2.25, -0.75},
@@ -163,7 +163,8 @@ function setupMissionB10()
     for i=1, 4 do
         if not Global.call('isBagEmpty',geyserBag) then
             geyserBag.takeObject({
-                position = missionB10Positions.geysers[i]
+                position = missionB10Positions.geysers[i],
+                callback="afterSpawnLock", callback_owner=Global
             })
         else
             print("Warning: Unable to set up geysers, the geyser bag is empty")
