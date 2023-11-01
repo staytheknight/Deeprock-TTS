@@ -87,6 +87,22 @@ function setupMissionB9()
     end
 
     params={
+        bag = caveBag,
+        ID = Global.call('getHexPit3GUID'),
+    }
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = {-2.75, 1.39, -0.75},
+            rotation = {0.00, 300.00, 180.09},
+            guid = Global.call('getHexPit3GUID'),
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print('Warning: Unable to setup pits, pit tiles are not in the cave bag')
+    end
+
+    params={
         bag = biomeCaveBag,
         ID = Global.call('getDreadCocoonHex_GUID'),
     }

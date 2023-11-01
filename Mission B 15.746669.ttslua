@@ -234,7 +234,7 @@ function setupMissionB15()
         print("Warning: Unable to setup slasher, the bag is empty")
     end
 
-    local macteraBag = Global.call('getSlasherBag')
+    local macteraBag = Global.call('getMacteraBag')
     if not Global.call('isBagEmpty',macteraBag) then
         macteraBag.takeObject({
             position = missionB15Positions.mactera[1]

@@ -205,7 +205,7 @@ function setupMissionB16()
     end
 
     local poisonSporeBag = Global.call('getPoisonSporeBag')
-    for i=1, 2 do
+    for i=1, 4 do
         if not Global.call('isBagEmpty',poisonSporeBag) then
             poisonSporeBag.takeObject({
                 position = missionB16Positions.pSporeFungus[i]
