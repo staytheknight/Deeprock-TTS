@@ -22,40 +22,48 @@ function setupMission1()
     preatorianCard = getObjectFromGUID(preatorianCard_GUID)
     opressorCard_GUID = '9610a0'
     opressorCard = getObjectFromGUID(opressorCard)
-    local swarmDeck = Global.call('getSwarmDeck')
 
-    params={
-        bag = swarmDeck,
-        ID = preatorianCard_GUID
-    }
-    if Global.call('isInBag',params) then
-        swarmDeck.takeObject({
-            position = {-3.54, 1.10, 11.23},
-            rotation = {0.0,90.0,0.0},
-            guid = preatorianCard_GUID,
-        })
+    -- Checks to see if these cards exist in the swarm deck zone
+    -- pulls them out
+    -- only checks inside of decks
+    local zone = Global.call('getSwarmDeckZone')
+    local objectsInZone = zone.getObjects()
 
-        print("Removing preatorian card from swarm deck")
-    else
-        print("Warning: Unable to remove preatorian card from swarm deck")
+    for _, object in ipairs(objectsInZone) do
+        if object.type == "Deck" then
+            params={
+                bag = object,
+                ID = preatorianCard_GUID
+            }
+            if Global.call('isInBag',params) then
+                object.takeObject({
+                    position = {-3.54, 1.10, 11.23},
+                    rotation = {0.0,90.0,0.0},
+                    guid = preatorianCard_GUID,
+                })
+
+                print("Removing preatorian card from swarm deck")
+            else
+                print("Warning: Unable to remove preatorian card from swarm deck")
+            end
+
+            params={
+                bag = object,
+                ID = opressorCard_GUID
+            }
+            if Global.call('isInBag',params) then
+                object.takeObject({
+                    position = {-3.54, 1.00, 11.23},
+                    rotation = {0.0,90.0,0.0},
+                    guid = opressorCard_GUID,
+                })
+
+                print("Removing Opressor card from swarm deck")
+            else
+                print("Warning: Unable to remove Opressor card from swarm deck")
+            end
+        end
     end
-
-    params={
-        bag = swarmDeck,
-        ID = opressorCard_GUID
-    }
-    if Global.call('isInBag',params) then
-        swarmDeck.takeObject({
-            position = {-3.54, 1.00, 11.23},
-            rotation = {0.0,90.0,0.0},
-            guid = opressorCard_GUID,
-        })
-
-        print("Removing Opressor card from swarm deck")
-    else
-        print("Warning: Unable to remove Opressor card from swarm deck")
-    end
-
 
     local caveBag = Global.call('getCaveBag') -- need to call global function to get proper object ID
 

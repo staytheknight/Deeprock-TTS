@@ -449,8 +449,6 @@ end
 
 -- checks if an object is in the bag
 function isInBag(params)
-    --print(params.bag)
-    --print(params.ID)
     for _, containedObject in ipairs(params.bag.getObjects()) do
         if containedObject.guid == params.ID then
             return true

@@ -472,30 +472,43 @@ function Cleanup()
             wUpgradeBag.putObject(object)
         end
 
+        -- Card cleanups
         if object.getGMNotes() == "swarmCard" then
             object.setPosition({-3.66, 2.22, 7.92})
+            object.setRotation({0.00, 90.03, 180.00})
         end
 
         if object.getGMNotes() == "eventCard" then
             object.setPosition({-7.16, 2.37, 7.91})
+            object.setRotation({0.00, 90.03, 180.00})
         end
 
         if object.getGMNotes() == "rockAndStoneCard" then
-            object.setPosition({7.20, 2.18, 7.99})
+            object.setPosition({3.69, 1.13, 8.01})
+            object.setRotation({0.00, 90.03, 180.00})
+        end
+
+        if object.getGMNotes() == "resupplyCard" then
+            object.setPosition({7.21, 1.13, 7.99})
+            object.setRotation({0.00, 90.03, 180.00})
         end
 
         if object.getGMNotes() == "secondariesCard" then
             object.setPosition({22.30, 2.03, 6.57})
+            object.setRotation({0.00, 180.0, 0.00})
         end
 
         if object.getGMNotes() == "throwableCard" then
             object.setPosition({25.01, 2.07, 6.59})
+            object.setRotation({0.00, 180.0, 180.00})
         end
 
         if object.getGMNotes() == "oHeartCard" then
             object.setPosition({-21.45, 2.02, 4.96})
+            object.setRotation({0.00, 180.0, 180.00})
         end
 
+        -- Misc token cleanup
         if object.getGMNotes() == "sCharge" then
             object.setPosition({17.60, 1.07, 7.82})
         end

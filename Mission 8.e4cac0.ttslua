@@ -24,22 +24,31 @@ function setupMission8()
     -- This card must be removed from the event Decks
     caveLeechCard_GUID = 'b67c3d'
     caveLeechCard = getObjectFromGUID(caveLeechCard_GUID)
-    local eventDeck = Global.call('getEventDeck')
 
-    params={
-        bag = eventDeck,
-        ID = caveLeechCard_GUID
-    }
-    if Global.call('isInBag',params) then
-        eventDeck.takeObject({
-            position = {-7.31, 0.97, 11.63},
-            rotation = {0.0,90.0,0.0},
-            guid = caveLeechCard_GUID,
-        })
+    -- Checks to see if this cards exist in the event deck zone
+    -- pulls them out
+    -- only checks inside of decks
+    local zone = Global.call('getEventDeckZone')
+    local objectsInZone = zone.getObjects()
 
-        print("Removing cave leech attack card from event deck")
-    else
-        print("Warning: Unable to remove ave leech attack card from event deck")
+    for _, object in ipairs(objectsInZone) do
+        if object.type == "Deck" then
+            params={
+                bag = object,
+                ID = caveLeechCard_GUID
+            }
+            if Global.call('isInBag',params) then
+                object.takeObject({
+                    position = {-7.31, 0.97, 11.63},
+                    rotation = {0.0,90.0,0.0},
+                    guid = caveLeechCard_GUID,
+                })
+
+                print("Removing cave leech attack card from event deck")
+            else
+                print("Warning: Unable to remove ave leech attack card from event deck")
+            end
+        end
     end
 
     local caveBag = Global.call('getCaveBag') -- need to call global function to get proper object ID
