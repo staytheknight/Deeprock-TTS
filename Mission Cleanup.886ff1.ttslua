@@ -328,11 +328,11 @@ function Cleanup()
             opressorBag.putObject(object)
         end
 
-        if object.getGMNotes() == "gBomber" then
+        if object.getName() == "Goo Bomber" then
             gooBomberBag.putObject(object)
         end
 
-        if object.getGMNotes() == "menace" then
+        if object.getName() == "Menace" then
             menaceBag.putObject(object)
         end
 
@@ -340,27 +340,27 @@ function Cleanup()
             gooBag.putObject(object)
         end
 
-        if object.getGMNotes() == "rammer" then
+        if object.getName() == "Rammer" then
             rammerBag.putObject(object)
         end
 
-        if object.getGMNotes() == "nHatchlings" then
+        if object.getName() == "Naedocyte Hatchlings" then
             naedocyteHatchlingsBag.putObject(object)
         end
 
-        if object.getGMNotes() == "nBreeder" then
+        if object.getName() == "Naedocyte Breeder" then
             naedocyteBreederBag.putObject(object)
         end
 
-        if object.getGMNotes() == "qShellback" then
+        if object.getName() == "Q'ronar Shellback" then
             qronarShellbackBag.putObject(object)
         end
 
-        if object.getGMNotes() == "stingtail" then
+        if object.getName() == "Stingtail" then
             stingtailBag.putObject(object)
         end
 
-        if object.getGMNotes() == "dread" then
+        if object.getName() == "Dreadnought" then
             dreadnoughtBag.putObject(object)
         end
 
@@ -369,19 +369,19 @@ function Cleanup()
             object.destruct()
         end
 
-        if object.getGMNotes() == "geyser" then
+        if object.getName() == "Geyser" then
             geyserBag.putObject(object)
         end
 
-        if object.getGMNotes() == "explodingPlants" then
+        if object.getName() == "Exploding Plant" then
             explodingPlantsBag.putObject(object)
         end
 
-        if object.getGMNotes() == 'gCrystal' then
+        if object.getName() == 'Glowing Crystal' then
             glowingCrystalBag.putObject(object)
         end
 
-        if object.getGMNotes() == 'cBulb' then
+        if object.getName() == 'Cryo Bulb' then
             cryoBulbBag.putObject(object)
         end
 
@@ -506,6 +506,35 @@ function Cleanup()
         if object.getGMNotes() == "oHeartCard" then
             object.setPosition({-21.45, 2.02, 4.96})
             object.setRotation({0.00, 180.0, 180.00})
+        end
+
+        -- If the cards are in decks, search the deck for card tags
+        -- to decide where to place these decks
+        if object.type == "Deck" then
+            for _, containedObject in ipairs(object.getObjects()) do
+                if containedObject.gm_notes == "swarmCard" then
+                    object.setPosition({-3.66, 2.22, 7.92})
+                    object.setRotation({0.00, 90.03, 180.00})
+                elseif containedObject.gm_notes == "eventCard" then
+                    object.setPosition({-7.16, 2.37, 7.91})
+                    object.setRotation({0.00, 90.03, 180.00})
+                elseif containedObject.gm_notes == "rockAndStoneCard" then
+                    object.setPosition({3.69, 1.13, 8.01})
+                    object.setRotation({0.00, 90.03, 180.00})
+                elseif containedObject.gm_notes == "resupplyCard" then
+                    object.setPosition({7.21, 1.13, 7.99})
+                    object.setRotation({0.00, 90.03, 180.00})
+                elseif containedObject.gm_notes == "secondariesCard" then
+                    object.setPosition({22.30, 2.03, 6.57})
+                    object.setRotation({0.00, 180.0, 0.00})
+                elseif containedObject.gm_notes == "throwableCard" then
+                    object.setPosition({25.01, 2.07, 6.59})
+                    object.setRotation({0.00, 180.0, 180.00})
+                elseif containedObject.gm_notes == "oHeartCard" then
+                    object.setPosition({-21.45, 2.02, 4.96})
+                    object.setRotation({0.00, 180.0, 180.00})
+                end
+            end
         end
 
         -- Misc token cleanup
