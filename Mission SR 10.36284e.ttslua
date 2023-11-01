@@ -336,8 +336,8 @@ function setupMissionSR10()
         end
     end
 
-    Wait.frames(setupHeartstone, 60)
-    Wait.frames(setupDrilldozer, 60)
+    Wait.time(setupHeartstone, 3)
+    Wait.time(setupDrilldozer, 3)
 
     local missionBookB1 = Global.call('getMissionBookSR1')
     missionBookB1.setScale({2.0,1.0,2.0})

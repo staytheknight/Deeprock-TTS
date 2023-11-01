@@ -295,9 +295,9 @@ function setupMissionSR5()
 
     -- Have to wait for everything else to spawn or else the refinery
     -- will spawn underneath everything else
-    Wait.frames(setupRefinery, 60)
+    Wait.time(setupRefinery, 3)
     -- Have to wait to lock the refinery or else it'll hang in the air
-    Wait.frames(lockRefinery, 80)
+    Wait.time(lockRefinery, 5)
 
     local missionBookB1 = Global.call('getMissionBookSR1')
     missionBookB1.setScale({2.0,1.0,2.0})
@@ -310,7 +310,7 @@ function setupMissionSR5()
 end
 
 function setupRefinery()
-    Global.call('getRefinery').setPosition({-1.10, 1.39, -1.71})
+    Global.call('getRefinery').setPosition({-1.10, 2.39, -1.71})
     Global.call('getRefinery').setRotation({0.13, 240.01, 180.03})
 end
 
