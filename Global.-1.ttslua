@@ -24,15 +24,21 @@ function onLoad()
     missionBookSR2_GUID = '72cff6'
     missionBookSR2 = getObjectFromGUID(missionBookSR2_GUID)
 
-    -- Card Decks
-    eventDeck_GUID = 'b28715'
-    eventDeck = getObjectFromGUID(eventDeck_GUID)
-    swarmDeck_GUID = 'bf5456'
-    swarmDeck = getObjectFromGUID(swarmDeck_GUID)
-    rockAndStoneDeck_GUID = 'c8a1c9'
-    rockAndStoneDeck = getObjectFromGUID(rockAndStoneDeck_GUID)
-    resupplyDeck_GUID = '87da4a'
-    resupplyDeck = getObjectFromGUID(resupplyDeck_GUID)
+    -- Card Deck Zones
+    throwablesDeckZone_GUID = '2fedef'
+    throwablesDeckZone = getObjectFromGUID(throwablesDeckZone_GUID)
+    secondariesDeckZone_GUID = '66f9bd'
+    secondariesDeckZone = getObjectFromGUID(secondariesDeckZone_GUID)
+    resupplyDeckZone_GUID = 'd5f672'
+    resupplyDeckZone = getObjectFromGUID(resupplyDeckZone_GUID)
+    rockAndStoneDeckZone_GUID = '319de7'
+    rockAndStoneDeckZone = getObjectFromGUID(rockAndStoneDeckZone_GUID)
+    swarmDeckZone_GUID = '4455f1'
+    swarmDeckZone = getObjectFromGUID(swarmDeckZone_GUID)
+    eventDeckZone_GUID = '346b36'
+    eventDeckZone = getObjectFromGUID(eventDeckZone_GUID)
+    oHeartDeckZone_GUID = '97cfde'
+    oHeartDeckZone = getObjectFromGUID(oHeartDeckZone_GUID)
 
     -- Cave Segments
     dropPod_GUID = 'b78594'
@@ -330,9 +336,6 @@ function onLoad()
     cleanupZone_GUID = '41b22f'
     cleanupZone = getObjectFromGUID(cleanupZone_GUID)
 
-    swarmDeck.setPosition({-3.66, 1.20, 7.92})
-    resupplyDeck.setPosition({7.20, 1.20, 7.99})
-
     -- Runs the monte carlo randomizer a certain number of times
     -- this is to truley randomize it, as it starts with the same numbers
     -- each time you start the simulation
@@ -410,35 +413,23 @@ end
 
 
 function Setup()
-    eventDeck.shuffle()
-    swarmDeck.shuffle()
-    rockAndStoneDeck.shuffle()
-    resupplyDeck.shuffle()
+    ShuffleDeckZones()
+end
 
-    -- these decks keep going under the board on setup
-    -- forcing positions
-    swarmDeck.setPosition({-3.66, 1.20, 7.92})
-    resupplyDeck.setPosition({7.20, 1.20, 7.99})
+-- Shuffles anything that's in the deck zones
+function ShuffleDeckZones()
+    zones = {'getThrowablesDeckZone','getSecondariesDeckZone','getResupplyDeckZone',
+    'getRockAndStoneDeckZone','getSwarmDeckZone','getEventDeckZone',
+    'getOHeartDeckZone'}
 
-    --[[ Hiding these as the values are incorrect
-    -- Character board setup around mission board
-    engineerBoard.setPosition({0.0,1.0,-15.0})
-    engineerBoard.setLock(true)
+    for i=1, 7 do
+        local zone = Global.call(zones[i])
+        local objectsInZone = zone.getObjects()
 
-    drillerBoard.setPosition({15.0,1.0,0.0})
-    --drillerBoard.rotate({0.0,0.0,0.0})
-    drillerBoard.setLock(true)
-
-    gunnerBoard.setPosition({0.0,1.0,15.0})
-    --gunnerBoard.rotate({0.0,0.0,0.0})
-    gunnerBoard.setLock(true)
-
-    scoutBoard.setPosition({-15.0,1.0,0.0})
-    --scoutBoard.rotate({0.0,0.0,0.0})
-    scoutBoard.setLock(true)
-    --]]
-
-
+        for _, object in ipairs(objectsInZone) do
+            object.shuffle()
+        end
+    end
 end
 
 -- checks if a bag / container is empty
@@ -716,22 +707,41 @@ function getMissionBookSR2()
     return missionBookSR2
 end
 
+-- Zone getters
 function getCleanupZone()
     return cleanupZone
 end
 
-function getSwarmDeck()
-    return swarmDeck
+function getThrowablesDeckZone()
+    return throwablesDeckZone
 end
 
-function getEventDeck()
-    return eventDeck
+function getSecondariesDeckZone()
+    return secondariesDeckZone
 end
 
-function getResupplyDeck()
-    return resupplyDeck
+function getResupplyDeckZone()
+    return resupplyDeckZone
 end
 
+function getRockAndStoneDeckZone()
+    return rockAndStoneDeckZone
+end
+
+function getSwarmDeckZone()
+    return swarmDeckZone
+end
+
+function getEventDeckZone()
+    return eventDeckZone
+end
+
+function getOHeartDeckZone()
+    return oHeartDeckZone
+end
+
+
+-- Bag Getters
 function getCaveBag()
     return caveBag
 end

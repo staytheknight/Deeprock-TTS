@@ -80,10 +80,6 @@ function onLoad()
     rammerBag = Global.call('getRammersBag')
     stingtailBag = Global.call('getStingtailBag')
     dreadnoughtBag = Global.call('getDreadBag')
-
-    swarmDeck = Global.call('getSwarmDeck')
-    resupplyDeck = Global.call('getResupplyDeck')
-
 end
 
 function swarmBlockCheck()
@@ -477,23 +473,43 @@ function Cleanup()
         end
 
         if object.getGMNotes() == "swarmCard" then
-            swarmDeck.putObject(object)
+            object.setPosition({-3.66, 2.22, 7.92})
+        end
+
+        if object.getGMNotes() == "eventCard" then
+            object.setPosition({-7.16, 2.37, 7.91})
+        end
+
+        if object.getGMNotes() == "rockAndStoneCard" then
+            object.setPosition({7.20, 2.18, 7.99})
+        end
+
+        if object.getGMNotes() == "secondariesCard" then
+            object.setPosition({22.30, 2.03, 6.57})
+        end
+
+        if object.getGMNotes() == "throwableCard" then
+            object.setPosition({25.01, 2.07, 6.59})
+        end
+
+        if object.getGMNotes() == "oHeartCard" then
+            object.setPosition({-21.45, 2.02, 4.96})
         end
 
         if object.getGMNotes() == "sCharge" then
-            object.setPosition({-23.10, 1.07, -11.23})
+            object.setPosition({17.60, 1.07, 7.82})
         end
 
         if object.getGMNotes() == "iField" then
-            object.setPosition({-22.00, 1.07, -11.23})
+            object.setPosition({18.70, 1.07, 7.82})
         end
 
         if object.getGMNotes() == "Lure" then
-            object.setPosition({-20.90, 1.07, -11.23})
+            object.setPosition({18.15, 1.07, 6.87})
         end
 
         if object.getGMNotes() == "pMine" then
-            object.setPosition({-19.80, 1.07, -11.23})
+            object.setPosition({19.25, 1.07, 6.87})
         end
 
         -- Spacerig component cleanup
@@ -540,6 +556,8 @@ function Cleanup()
 
     end
 
+    Global.call('ShuffleDeckZones')
+
     swarmBlock.setPosition({-8.24, 1.37, -8.91})
 
     -- Brings the mission book back to the first page
@@ -559,11 +577,4 @@ function Cleanup()
 
     -- Puts the cleanup button back
     cleanupButton()
-
-    -- these decks like to go inside the mission Board after the board changes
-    -- state - so the location of these decks is forced
-
-    swarmDeck.setPosition({-3.66, 2.20, 7.92})
-    resupplyDeck.setPosition({7.20, 2.20, 7.99})
-
 end
