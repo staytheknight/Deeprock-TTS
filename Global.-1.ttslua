@@ -218,6 +218,13 @@ function onLoad()
     drone1_GUID = '2c1fae'
     drone2_GUID = '204549'
 
+    frozenBag_GUID = 'a7d977'
+    frozenBag = getObjectFromGUID(frozenBag_GUID)
+    webbedBag_GUID = '375e77'
+    webbedBag = getObjectFromGUID(webbedBag_GUID)
+    stunnedBag_GUID = '4fa902'
+    stunnedBag = getObjectFromGUID(stunnedBag_GUID)
+
     -- Missions
     mission1_GUID = 'f156f4'
     mission1 = getObjectFromGUID(mission1_GUID)
@@ -930,6 +937,18 @@ end
 
 function getExclamationTilesBag()
     return exclamationTilesBag
+end
+
+function getFrozenBag()
+    return frozenBag
+end
+
+function getWebbedBag()
+    return webbedBag
+end
+
+function getStunnedBag()
+    return stunnedBag
 end
 
 -- GUID getters

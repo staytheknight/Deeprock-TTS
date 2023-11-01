@@ -19,6 +19,9 @@ function onLoad()
     mineralShuffleBag = Global.call('getMineralBag')
 
     exclaimTilesBag = Global.call('getExclamationTilesBag')
+    frozenBag = Global.call('getFrozenBag')
+    webbedBag = Global.call('getWebbedBag')
+    stunnedBag = Global.call('getStunnedBag')
 
     caveBag = Global.call('getCaveBag')
     biomeCaveBag = Global.call('getBiomeCaveBag')
@@ -325,7 +328,7 @@ function Cleanup()
             praetorianBag.putObject(object)
         end
 
-        if object.getName() == "Opressor" then
+        if object.getName() == "Oppressor" then
             opressorBag.putObject(object)
         end
 
@@ -399,9 +402,20 @@ function Cleanup()
             exclaimTilesBag.putObject(object)
         end
 
+        if object.getGMNotes () == "Frozen" then
+            frozenBag.putObject(object)
+        end
+
+        if object.getGMNotes () == "Webbed" then
+            webbedBag.putObject(object)
+        end
+
+        if object.getGMNotes () == "Stunned" then
+            stunnedBag.putObject(object)
+        end
 
         -- Character stuff
-        if object.getName() == "Bosco" then
+        if object.getGMNotes() == "bosco" then
             object.setPositionSmooth({-21.45, 0.97, -4.56},true,false)
         end
 
