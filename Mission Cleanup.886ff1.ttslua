@@ -35,8 +35,8 @@ function onLoad()
     poisonSporeBag = Global.call('getPoisonSporeBag')
     glyphidCocoonBag = Global.call('getGlyphidCocoonBag')
 
-    pAmmoBag = getObjectFromGUID('16ca6a')
-    sAmmoBag = getObjectFromGUID('941a5f')
+    pAmmoBag = getObjectFromGUID('8d7660')
+    sAmmoBag = getObjectFromGUID('9d2b2f')
     wUpgradeBag = Global.call('getWeaponUpgradeBag')
 
     apocaBloomBag = Global.call('getApocaBloomBag')
@@ -467,6 +467,14 @@ function Cleanup()
             sAmmoBag.putObject(object)
         end
 
+        if object.getGMNotes() == "gCube" then
+            object.destruct()
+        end
+
+        if object.getGMNotes() == "rCube" then
+            object.destruct()
+        end
+
         if object.getGMNotes() == "wUpgrade" then
             object.setRotation({0.0,0.0,180.0})
             wUpgradeBag.putObject(object)
@@ -508,6 +516,11 @@ function Cleanup()
             object.setRotation({0.00, 180.0, 180.00})
         end
 
+        if object.getGMNotes() == "dreadCard" then
+            object.setPosition({33.55, 1.03, 14.49})
+            object.setRotation({0.00, 180.00, 180.00})
+        end
+
         -- If the cards are in decks, search the deck for card tags
         -- to decide where to place these decks
         if object.type == "Deck" then
@@ -533,6 +546,9 @@ function Cleanup()
                 elseif containedObject.gm_notes == "oHeartCard" then
                     object.setPosition({-21.45, 2.02, 4.96})
                     object.setRotation({0.00, 180.0, 180.00})
+                elseif containedObject.gm_notes == "dreadCard" then
+                    object.setPosition({33.55, 1.03, 14.49})
+                    object.setRotation({0.00, 180.00, 180.00})
                 end
             end
         end
@@ -596,11 +612,83 @@ function Cleanup()
             object.setPosition({-21.45, 1.96, 1.15})
         end
 
+        -- Dice cleanups
+        if object.getGMNotes() == "eDie1" then
+            object.setPosition({21., 1.30, -2.15})
+            object.setRotation({0.0,0.0,0.0})
+        end
+
+        if object.getGMNotes() == "eDie2" then
+            object.setPosition({22.00, 1.30, -2.15})
+            object.setRotation({0.0,0.0,0.0})
+        end
+
+        if object.getGMNotes() == "mDie1" then
+            object.setPosition({24.0, 1.30, -2.15})
+            object.setRotation({0.0,0.0,0.0})
+        end
+
+        if object.getGMNotes() == "pDie1" then
+            object.setPosition({21.5, 1.30, -7.10})
+            object.setRotation({0.0,0.0,0.0})
+        end
+
+        if object.getGMNotes() == "bDie1" then
+            object.setPosition({20.0, 1.30, -3.8})
+            object.setRotation({0.0,0.0,0.0})
+        end
+
+        if object.getGMNotes() == "bDie2" then
+            object.setPosition({21.0, 1.30, -3.8})
+            object.setRotation({0.0,0.0,0.0})
+        end
+
+        if object.getGMNotes() == "bDie3" then
+            object.setPosition({22.0, 1.30, -3.8})
+            object.setRotation({0.0,0.0,0.0})
+        end
+
+        if object.getGMNotes() == "aDie1" then
+            object.setPosition({21.0, 1.30, -5.4})
+            object.setRotation({0.0,0.0,0.0})
+        end
+
+        if object.getGMNotes() == "aDie2" then
+            object.setPosition({22.0, 1.30, -5.4})
+            object.setRotation({0.0,0.0,0.0})
+        end
+
+        if object.getGMNotes() == "exDie1" then
+            object.setPosition({24.0, 1.30, -5.4})
+            object.setRotation({0.0,0.0,0.0})
+        end
+
+        if object.getGMNotes() == "exDie2" then
+            object.setPosition({25.0, 1.30, -5.4})
+            object.setRotation({0.0,0.0,0.0})
+        end
+
+        if object.getGMNotes() == "fDie1" then
+            object.setPosition({24.0, 1.30, -3.8})
+            object.setRotation({0.0,0.0,0.0})
+        end
+
+        if object.getGMNotes() == "fDie2" then
+            object.setPosition({25.0, 1.30, -3.8})
+            object.setRotation({0.0,0.0,0.0})
+        end
+
+        if object.getGMNotes() == "fDie3" then
+            object.setPosition({26.00, 1.30, -3.8})
+            object.setRotation({0.0,0.0,0.0})
+        end
+
     end
 
     Global.call('ShuffleDeckZones')
 
     swarmBlock.setPosition({-8.24, 1.37, -8.91})
+    swarmBlock.setRotation({0.0,0.0,0.0})
 
     -- Brings the mission book back to the first page
     missionBook.Book.setPage(0)

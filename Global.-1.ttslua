@@ -39,6 +39,8 @@ function onLoad()
     eventDeckZone = getObjectFromGUID(eventDeckZone_GUID)
     oHeartDeckZone_GUID = '97cfde'
     oHeartDeckZone = getObjectFromGUID(oHeartDeckZone_GUID)
+    dreadDeckZone_GUID = '247612'
+    dreadDeckZone = getObjectFromGUID(dreadDeckZone_GUID)
 
     -- Cave Segments
     dropPod_GUID = 'b78594'
@@ -420,9 +422,9 @@ end
 function ShuffleDeckZones()
     zones = {'getThrowablesDeckZone','getSecondariesDeckZone','getResupplyDeckZone',
     'getRockAndStoneDeckZone','getSwarmDeckZone','getEventDeckZone',
-    'getOHeartDeckZone'}
+    'getOHeartDeckZone','getDreadDeckZone'}
 
-    for i=1, 7 do
+    for i=1, 8 do
         local zone = Global.call(zones[i])
         local objectsInZone = zone.getObjects()
 
@@ -736,6 +738,10 @@ end
 
 function getOHeartDeckZone()
     return oHeartDeckZone
+end
+
+function getDreadDeckZone()
+    return dreadDeckZone
 end
 
 
