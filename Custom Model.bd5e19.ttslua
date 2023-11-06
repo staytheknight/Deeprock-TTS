@@ -17,6 +17,7 @@ end
 
 function Reveal()
     self.flip()
+    Wait.time(selfLock,3)
     self.rotate({0.0,-120.0,180.0})
 
     local miniExploreTokenBag = Global.call('getMiniExploreTokenBag')
@@ -38,4 +39,8 @@ function rotatePos(pos)
                   1.1,
                   -math.sin(math.rad(rotY))*posX + math.cos(math.rad(rotY))*posZ}
     return rotatedPos
+end
+
+function selfLock()
+    self.lock()
 end

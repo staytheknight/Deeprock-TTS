@@ -23,6 +23,7 @@ function onLoad()
 end
 
 function Reveal()
+    Wait.time(selfLock, 3)
     self.flip()
     local macteraBag = Global.call('getMacteraBag')
     local spitballerBag = Global.call('getSpitballerBag')
@@ -130,4 +131,8 @@ function rotatePos(pos)
                   1.1,
                   -math.sin(math.rad(rotY))*posX + math.cos(math.rad(rotY))*posZ}
     return rotatedPos
+end
+
+function selfLock()
+    self.lock()
 end

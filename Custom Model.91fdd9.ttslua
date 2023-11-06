@@ -21,6 +21,7 @@ function onLoad()
 end
 
 function Reveal()
+    Wait.time(selfLock, 3)
     self.flip()
     local preatorianBag = Global.call('getPraetorianBag')
     local gruntBag = Global.call('getGruntBag')
@@ -112,4 +113,8 @@ function rotatePos(pos)
                   1.1,
                   -math.sin(math.rad(rotY))*posX + math.cos(math.rad(rotY))*posZ}
     return rotatedPos
+end
+
+function selfLock()
+    self.lock()
 end

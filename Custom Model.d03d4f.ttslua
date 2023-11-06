@@ -22,7 +22,7 @@ end
 
 function Reveal()
     self.flip()
-
+    Wait.time(selfLock, 3)
     local gruntBag = Global.call('getGruntBag')
     local stalagBag = Global.call('getStalagmiteModelBag')
     local explorationBag = Global.call('getExplorationBag')
@@ -107,4 +107,8 @@ function rotatePos(pos)
                   1.1,
                   -math.sin(math.rad(rotY))*posX + math.cos(math.rad(rotY))*posZ}
     return rotatedPos
+end
+
+function selfLock()
+    self.lock()
 end

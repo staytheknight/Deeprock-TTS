@@ -19,13 +19,27 @@ end
 
 function Reveal()
     self.flip()
+    Wait.time(selfLock,3)
     self.rotate({0.0,-120.0,180.0})
 
     local macteraBag = Global.call('getMacteraBag')
-    if not Global.call('isBagEmpty',macteraBag) then
-        macteraBag.takeObject({position = self.getPosition() + rotatePos(spawnLocations.macteraLoc)})
+    local gruntBag = Global.call('getGruntBag')
+    -- Mactera Placement
+    bagEmpty = Global.call('isBagEmpty',macteraBag)
+    -- if the bag is not empty then
+    if bagEmpty == false then
+        macteraBag.takeObject({
+            position = self.getPosition() + rotatePos(spawnLocations.macteraLoc),
+        })
     else
-        print('Warning: Unable to spawn Grunt, bag empty')
+        print('Warning: Unable to spawn Mactera, bag is empty, replacing with Grunt')
+        bagEmpty = Global.call('isBagEmpty',gruntBag)
+        -- if the bag is not empty then
+        if bagEmpty == false then
+            gruntBag.takeObject({position = self.getPosition() + rotatePos(spawnLocations.macteraLoc)})
+        else
+            print('Warning: Unable to spawn Grunt, bag empty')
+        end
     end
 
     local miniExploreTokenBag = Global.call('getMiniExploreTokenBag')
@@ -47,4 +61,8 @@ function rotatePos(pos)
                   1.1,
                   -math.sin(math.rad(rotY))*posX + math.cos(math.rad(rotY))*posZ}
     return rotatedPos
+end
+
+function selfLock()
+    self.lock()
 end

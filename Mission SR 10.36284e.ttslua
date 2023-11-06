@@ -355,6 +355,6 @@ function setupHeartstone()
 end
 
 function setupDrilldozer()
-    Global.call('getDrilldozer').setPosition({0.55, 1.24, -4.56})
+    Global.call('getDrilldozer').setPosition({1.66, 1.23, -4.56})
     Global.call('getDrilldozer').setRotation({3.31, 330.03, 0.09})
 end

@@ -261,12 +261,12 @@ function Cleanup()
 
         if object.getGMNotes() == "yeastCone" then
             object.setRotation({0.0,0.0,180.0})
-            maltStarBag.putObject(object)
+            yeastConesBag.putObject(object)
         end
 
         if object.getGMNotes() == "maltStar" then
             object.setRotation({0.0,0.0,180.0})
-            yeastConesBag.putObject(object)
+            maltStarBag.putObject(object)
         end
 
 
