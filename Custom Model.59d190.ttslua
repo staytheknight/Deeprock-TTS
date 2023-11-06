@@ -24,6 +24,7 @@ end
 
 function Reveal()
     self.flip()
+    Wait.time(selfLock, 3)
     local slasherBag = Global.call('getSlasherBag')
     local gruntBag = Global.call('getGruntBag')
     local stalagBag = Global.call('getStalagmiteModelBag')
@@ -66,8 +67,6 @@ function Reveal()
 
     -- Boolean if it's doing a refinery mission
     refineryMission = false
-    flip = Vector{0.0,0.0,180.0}
-
     -- Checks all objects in the play zone to see if the refinery is in play
     -- if it is in play then set the mission type of refineryMission to true
     local zone = Global.call('getCleanupZone')
@@ -82,20 +81,32 @@ function Reveal()
     -- to be the pumpjack bag instead - pumpjacks will be placed instead of exploration tokens
     if refineryMission then
         explorationBag = Global.call('getPumpjackBag')
-        flip = Vector{0.0,0.0,0.0}
-    end
-
-    -- Exploration Token
-    bagEmpty = Global.call('isBagEmpty',explorationBag)
-    -- if the bag is not empty then
-    if bagEmpty == false then
-        position = rotatePos(spawnLocations.explorationTileLoc)
-        explorationBag.takeObject({
-            position = self.getPosition() + position,
-            rotation = self.getRotation() + flip
-        })
+        -- Pumpjack
+        bagEmpty = Global.call('isBagEmpty',explorationBag)
+        -- if the bag is not empty then
+        if bagEmpty == false then
+            position = rotatePos(spawnLocations.explorationTileLoc)
+            explorationBag.takeObject({
+                position = self.getPosition() + position - Vector{0.0,1.0,0.0},
+                rotation = self.getRotation() + Vector{0.0,0.0,0.0},
+                callback="afterSpawnLock", callback_owner=Global
+            })
+        else
+            print('Warning: Unable to place pumpjack, the bag is empty')
+        end
     else
-        print('Warning: No more exploration tokens available to be placed in cave segment')
+        -- Exploration Token
+        bagEmpty = Global.call('isBagEmpty',explorationBag)
+        -- if the bag is not empty then
+        if bagEmpty == false then
+            position = rotatePos(spawnLocations.explorationTileLoc)
+            explorationBag.takeObject({
+                position = self.getPosition() + position,
+                rotation = self.getRotation() + Vector{0.0,0.0,180.0}
+            })
+        else
+            print('Warning: No more exploration tokens available to be placed in cave segment')
+        end
     end
 
     -- Weapon Upgrade Token
@@ -105,7 +116,7 @@ function Reveal()
         position = rotatePos(spawnLocations.weaponUpgradeLoc)
         weaponUpgradeBag.takeObject({
             position = self.getPosition() + position,
-            rotation = Vector{0.0,30.0,180.0}
+            rotation = Vector{0.0,0.0,180.0}
         })
     else
         print('Warning: No more weapon upgrade tokens available to be placed in cave segment')
@@ -121,4 +132,8 @@ function rotatePos(pos)
                   1.1,
                   -math.sin(math.rad(rotY))*posX + math.cos(math.rad(rotY))*posZ}
     return rotatedPos
+end
+
+function selfLock()
+    self.lock()
 end
