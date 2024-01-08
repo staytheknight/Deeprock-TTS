@@ -183,6 +183,18 @@ function onLoad()
         dreadnoughtBag_GUID = 'a15ee2'
         dreadnoughtBag = getObjectFromGUID(dreadnoughtBag_GUID)
 
+        -- Bulk Glyphid
+        bulkBag_GUID = '8caff9'
+        bulkBag = getObjectFromGUID(bulk_bag_GUID)
+
+        -- Korlok Tyrant Weed
+        kHeartBag_GUID = '6b2359'
+        kHeartBag = getObjectFromGUID(kHeartBag)
+        kSproutBag_GUID = '5b120d'
+        kSproutBag = getObjectFromGUID(kSproutBag)
+        kHealingBag_GUID = 'ade8ab'
+        kHealingBag = getObjectFromGUID(kHealingBag)
+
         -- Exploration Bags
         explorationBag_GUID = 'c0a72f'
         explorationBag = getObjectFromGUID(explorationBag_GUID)
@@ -871,6 +883,24 @@ end
 
 function getDreadBag()
     return dreadnoughtBag
+end
+
+-- Bulk Glyphid
+function getBulkBag()
+    return bulkBag
+end
+
+-- Korlok Tyrant Weed
+function getKHeartBag()
+    return kHeartBag
+end
+
+function getKSproutBag()
+    return kSproutBag
+end
+
+function getKHealingBag()
+    return kHealingBag
 end
 
 -- Exploration Bag
