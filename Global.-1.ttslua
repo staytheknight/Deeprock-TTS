@@ -185,7 +185,7 @@ function onLoad()
 
         -- Bulk Glyphid
         bulkBag_GUID = '8caff9'
-        bulkBag = getObjectFromGUID(bulk_bag_GUID)
+        bulkBag = getObjectFromGUID(bulkBag_GUID)
 
         -- Korlok Tyrant Weed
         kHeartBag_GUID = '6b2359'
