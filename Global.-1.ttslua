@@ -293,6 +293,9 @@ function onLoad()
     mission14_GUID = '03217b'
     mission14 = getObjectFromGUID(mission14_GUID)
 
+    missionEssen_GUID = 'fca575'
+    missionEssen = getObjectFromGUID(missionEssen_GUID)
+
     missionB1_GUID = '6c6c75'
     missionB1 = getObjectFromGUID(missionB1_GUID)
     missionB2_GUID = '4a39b7'
@@ -325,6 +328,10 @@ function onLoad()
     missionB15 = getObjectFromGUID(missionB15_GUID)
     missionB16_GUID = '42ad11'
     missionB16 = getObjectFromGUID(missionB16_GUID)
+    missionB17_GUID = 'eecb30'
+    missionB17 = getObjectFromGUID(missionB17_GUID)
+    missionB18_GUID = '27884c'
+    missioNB18 = getObjectFromGUID(missionB18_GUID)
 
     missionSR1_GUID = '58b819'
     missionSR1 = getObjectFromGUID(missionSR1_GUID)
@@ -346,6 +353,10 @@ function onLoad()
     missionSR9 = getObjectFromGUID(missionSR9_GUID)
     missionSR10_GUID = '36284e'
     missionSR10 = getObjectFromGUID(missionSR10_GUID)
+    missionSR11_GUID = '512b4e'
+    missionSR11 = getObjectFromGUID(missionSR11_GUID)
+    missionSR12_GUID = '666d8e'
+    missionSR12 = getObjectFromGUID(missionSR12_GUID)
 
     --hideMissionTokens()
 
@@ -573,6 +584,11 @@ function setupMission14()
     Setup()
 end
 
+function setupMissionEssen()
+    missionEssen.call('setupMissionEssen')
+    Setup()
+end
+
 function setupMissionB1()
     missionB1.call('setupMissionB1')
     Setup()
@@ -653,6 +669,16 @@ function setupMissionB16()
     Setup()
 end
 
+function setupMissionB17()
+    missionB17.call('setupMissionB17')
+    Setup()
+end
+
+function setupMissionB18()
+    missionB18.call('setupMissionB18')
+    Setup()
+end
+
 function setupMissionSR1()
     missionSR1.call('setupMissionSR1')
     Setup()
@@ -700,6 +726,16 @@ end
 
 function setupMissionSR10()
     missionSR10.call('setupMissionSR10')
+    Setup()
+end
+
+function setupMissionSR11()
+    missionSR11.call('setupMissionSR11')
+    Setup()
+end
+
+function setupMissionSR12()
+    missionSR12.call('setupMissionSR12')
     Setup()
 end
 

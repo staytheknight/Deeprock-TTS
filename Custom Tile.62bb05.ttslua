@@ -98,6 +98,13 @@ function onLoad()
         tooltip='MISSION 14:\nDEVIL`S FORK'}
     )
 
+    self.createButton(
+        {click_function='setupMissionEssen', function_owner=Global, label='MISSION ESSEN:\nEGGS AND GEMS',
+        position={-0.45 , 0.2 , 1.62}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION ESSEN:\nEGGS AND GEMS'}
+    )
+
     -- Biome Expansion missions
 
     self.createButton(
@@ -213,6 +220,20 @@ function onLoad()
     )
 
     self.createButton(
+        {click_function='setupMissionB17', function_owner=Global, label='MISSION 17:\nLOST IN AZURE',
+        position={0.24 , 0.2 , 0.735}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 17:\nLOST IN AZURE'}
+    )
+
+    self.createButton(
+        {click_function='setupMissionB18', function_owner=Global, label='MISSION 18:\nDEADLY TEMPTATIONS',
+        position={0.24 , 0.2 , 0.82}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 18:\nDEADLY TEMPTATIONS'}
+    )
+
+    self.createButton(
         {click_function='setupMissionSR1', function_owner=Global, label='MISSION 1:\nDARK CAVES OF MORKITE',
         position={0.95 , 0.2 , -0.6}, rotation={0,0,0}, width=100, height=30, font_size=20,
         scale={3.3,0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
@@ -280,5 +301,19 @@ function onLoad()
         position={0.95 , 0.2 , 0.425}, rotation={0,0,0}, width=100, height=30, font_size=20,
         scale={3.3,0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
         tooltip='MISSION 10:\nBUSY NIGHT'}
+    )
+
+    self.createButton(
+        {click_function='setupMissionSR11', function_owner=Global, label='MISSION 11:\nSUBTERRANEAN TROUBLE',
+        position={0.95 , 0.2 , 0.5}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 11:\nSUBTERRANEAN TROUBLE'}
+    )
+
+    self.createButton(
+        {click_function='setupMissionSR12', function_owner=Global, label='MISSION 12:\nCAVES OF THE HUULI HOARDER',
+        position={0.95 , 0.2 , 0.58}, rotation={0,0,0}, width=100, height=30, font_size=20,
+        scale={3.3,0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0,0.0},
+        tooltip='MISSION 12:\nCAVES OF THE HUULI HOARDER'}
     )
 end
