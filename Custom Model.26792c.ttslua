@@ -2,11 +2,11 @@
 
 spawnLocations={
     -- These locations are relative to the spawn point
-    korlokHealingLoc = {{-0.55,0.0,-0.95},{1.1,0.0,1.9}},
-    korlokSproutLoc = {{0.55,0.0,-0.95},{-1.1,0.0,1.9}},
-    korlokHeartLoc = {0.55,0.0,0.95},
-    stalagLoc=Vector{-1.1,0.0,0.0},
-    explorationTileLoc=Vector{-1.65,0.0,0.95}
+    korlokHealingLoc = {Vector{-0.55,2.0,-0.95},Vector{1.1,2.0,1.9}},
+    korlokSproutLoc = {Vector{0.55,2.0,-0.95},Vector{-1.1,2.0,1.9}},
+    korlokHeartLoc = Vector{0.55,2.0,0.95},
+    stalagLoc=Vector{-1.1,2.0,0.0},
+    explorationTileLoc=Vector{-1.65,2.0,0.95}
 }
 
 function onLoad()
@@ -41,7 +41,7 @@ function Reveal()
     end
 
     -- Sprout Placement
-    for i=1 do 2
+    for i=1, 2 do
         bagEmpty = Global.call('isBagEmpty',kSproutBag)
         -- if the bag is not empty then
         if bagEmpty == false then
@@ -54,7 +54,7 @@ function Reveal()
     end
 
     -- Healing Placement
-    for i=1 do 2
+    for i=1, 2 do
         bagEmpty = Global.call('isBagEmpty',kHealingBag)
         -- if the bag is not empty then
         if bagEmpty == false then
@@ -67,7 +67,7 @@ function Reveal()
     end
 
 
-    stalagBag.takeObject({position = self.getPosition() + rotatePos(spawnLocations.stalagLoc)})
+    stalagmiteBag.takeObject({position = self.getPosition() + rotatePos(spawnLocations.stalagLoc)})
 
     -- Boolean if it's doing a refinery mission
     refineryMission = false

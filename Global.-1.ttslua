@@ -189,11 +189,11 @@ function onLoad()
 
         -- Korlok Tyrant Weed
         kHeartBag_GUID = '6b2359'
-        kHeartBag = getObjectFromGUID(kHeartBag)
+        kHeartBag = getObjectFromGUID(kHeartBag_GUID)
         kSproutBag_GUID = '5b120d'
-        kSproutBag = getObjectFromGUID(kSproutBag)
+        kSproutBag = getObjectFromGUID(kSproutBag_GUID)
         kHealingBag_GUID = 'ade8ab'
-        kHealingBag = getObjectFromGUID(kHealingBag)
+        kHealingBag = getObjectFromGUID(kHealingBag_GUID)
 
         -- Exploration Bags
         explorationBag_GUID = 'c0a72f'
