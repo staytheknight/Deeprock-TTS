@@ -211,6 +211,11 @@ function onLoad()
         apocaBloomBag_GUID = '7e5edf'
         apocaBloomBag = getObjectFromGUID(apocaBloomBag_GUID)
 
+        miniMuleBag_GUID = '2b80fe'
+        miniMuleBag = getObjectFromGUID(miniMuleBag_GUID)
+        muleLegBag_GUID = '9ec2da'
+        muleLegBag = getObjectFromGUID(muleLegBag_GUID)
+
         miniExploreTokenBag_GUID = '1f2255'
         miniExploreTokenBag = getObjectFromGUID(miniExploreTokenBag_GUID)
         abandonedGearBag_GUID = '9455c7'
@@ -934,6 +939,14 @@ end
 
 function getEggBag()
     return eggBag
+end
+
+function getMiniMuleBag()
+    return miniMuleBag
+end
+
+function getMuleLegBag()
+    return muleLegBag
 end
 
 -- Mini hidden explore Tokens

@@ -46,6 +46,9 @@ function onLoad()
     lootBugBag = Global.call('getLootBugBag')
     eggBag = Global.call('getEggBag')
 
+    miniMuleBag = Global.call('getMiniMuleBag')
+    muleLegBag = Global.call('getMuleLegBag')
+
     abandonedGearBag = Global.call('getAbandonedGearBag')
     goldLootBugBag = Global.call('getGoldLootBugBag')
     maltStarBag = Global.call('getMaltStarBag')
@@ -80,6 +83,12 @@ function onLoad()
     rammerBag = Global.call('getRammersBag')
     stingtailBag = Global.call('getStingtailBag')
     dreadnoughtBag = Global.call('getDreadBag')
+
+    -- Bulk Detonator
+    bulkBag = Global.call("getBulkBag")
+    kHeartBag = Global.call("getKHeartBag")
+    kSproutBag = Global.call("getKSproutBag")
+    kHealingBag = Global.call("getKHealingBag")
 end
 
 function swarmBlockCheck()
@@ -248,6 +257,16 @@ function Cleanup()
             eggBag.putObject(object)
         end
 
+        if object.getGMNotes() == "mMule" then
+            object.setRotation({0.0,0.0,180.0})
+            miniMuleBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "muleLeg" then
+            object.setRotation({0.0,0.0,180.0})
+            muleLegBag.putObject(object)
+        end
+
         -- Space rig explore pickups
         if object.getGMNotes() == "abandonedGear" then
             object.setRotation({0.0,0.0,180.0})
@@ -364,6 +383,22 @@ function Cleanup()
             dreadnoughtBag.putObject(object)
         end
 
+        if object.getGMNotes() == "kHeart" then
+            kHeartBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "kSprout" then
+            kSproutBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "kHeal" then
+            kHealingBag.putObject(object)
+        end
+
+        if object.getGMNotes() == "bulk" then
+            bulkBag.putObject(object)
+        end
+
         -- Cleanup Stalagmite (destroy, since infinite bag, don't need to put back)
         if object.getName() == "Stalagmite" then
             object.destruct()
@@ -437,6 +472,10 @@ function Cleanup()
 
         if object.getName() == "Flame" then
             object.setPositionSmooth({5.50, 1.07, -20.76},true,false)
+        end
+
+        if object.getName() == "Acid Sludge" then
+            object.setPositionSmooth({6.05, 1.07, -23.61},true,false)
         end
 
         if object.getName() == "Gunner" then
@@ -568,6 +607,10 @@ function Cleanup()
 
         if object.getGMNotes() == "pMine" then
             object.setPosition({19.25, 1.07, 6.87})
+        end
+
+        if object.getGMNotes() == "nGrenade" then
+            object.setPosition({17.05, 1.07, 6.87})
         end
 
         -- Spacerig component cleanup
