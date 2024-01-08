@@ -208,361 +208,361 @@ function Cleanup()
         end
 
         -- Cleanup Cave Segments
-        if object.getGMNotes() == "caveSeg" then
+        elseif object.getGMNotes() == "caveSeg" then
             caveBag.putObject(object)
         end
 
-        if object.getGMNotes() == "BCaveSeg" then
+        elseif object.getGMNotes() == "BCaveSeg" then
             biomeCaveBag.putObject(object)
         end
 
-        if object.getGMNotes() == "HiddenCave" then
+        elseif object.getGMNotes() == "HiddenCave" then
             object.setRotation({0.0,0.0,0.0})
             hiddenCaveBag.putObject(object)
         end
 
-        if object.getGMNotes() == "miniHiddenCave" then
+        elseif object.getGMNotes() == "miniHiddenCave" then
             object.setRotation({0.0,0.0,0.0})
             miniHiddenCaveBag.putObject(object)
         end
 
         -- Cleanup Exploration Tiles
-        if object.getGMNotes() == "ApocaBloom" then
+        elseif object.getGMNotes() == "ApocaBloom" then
             object.setRotation({0.0,0.0,180.0})
             apocaBloomBag.putObject(object)
         end
 
-        if object.getGMNotes() == "StarchNut" then
+        elseif object.getGMNotes() == "StarchNut" then
             object.setRotation({0.0,0.0,180.0})
             barleyBulbBag.putObject(object)
         end
 
-        if object.getGMNotes() == "Fossil" then
+        elseif object.getGMNotes() == "Fossil" then
             object.setRotation({0.0,0.0,180.0})
             fossilBag.putObject(object)
         end
 
-        if object.getGMNotes() == "RedSugar" then
+        elseif object.getGMNotes() == "RedSugar" then
             object.setRotation({0.0,0.0,180.0})
             redSugarBag.putObject(object)
         end
 
-        if object.getGMNotes() == "LootBugs" then
+        elseif object.getGMNotes() == "LootBugs" then
             object.setRotation({0.0,0.0,180.0})
             lootBugBag.putObject(object)
         end
 
-        if object.getGMNotes() == "Eggs" then
+        elseif object.getGMNotes() == "Eggs" then
             object.setRotation({0.0,0.0,180.0})
             eggBag.putObject(object)
         end
 
-        if object.getGMNotes() == "mMule" then
+        elseif object.getGMNotes() == "mMule" then
             object.setRotation({0.0,0.0,180.0})
             miniMuleBag.putObject(object)
         end
 
-        if object.getGMNotes() == "muleLeg" then
+        elseif object.getGMNotes() == "muleLeg" then
             object.setRotation({0.0,0.0,180.0})
             muleLegBag.putObject(object)
         end
 
         -- Space rig explore pickups
-        if object.getGMNotes() == "abandonedGear" then
+        elseif object.getGMNotes() == "abandonedGear" then
             object.setRotation({0.0,0.0,180.0})
             abandonedGearBag.putObject(object)
         end
 
-        if object.getGMNotes() == "gLootbug" then
+        elseif object.getGMNotes() == "gLootbug" then
             object.setRotation({0.0,0.0,180.0})
             goldLootBugBag.putObject(object)
         end
 
-        if object.getGMNotes() == "yeastCone" then
+        elseif object.getGMNotes() == "yeastCone" then
             object.setRotation({0.0,0.0,180.0})
             yeastConesBag.putObject(object)
         end
 
-        if object.getGMNotes() == "maltStar" then
+        elseif object.getGMNotes() == "maltStar" then
             object.setRotation({0.0,0.0,180.0})
             maltStarBag.putObject(object)
         end
 
 
         -- Cleanup Minerals
-        if object.getName() == "Morkite" then
+        elseif object.getName() == "Morkite" then
             morkiteBag.putObject(object)
         end
 
-        if object.getName() == "Nitra" then
+        elseif object.getName() == "Nitra" then
             nitraBag.putObject(object)
         end
 
-        if object.getName() == "Gold" then
+        elseif object.getName() == "Gold" then
             goldBag.putObject(object)
         end
 
-        if object.getName() == "Aquarq" then
+        elseif object.getName() == "Aquarq" then
             aquardBag.putObject(object)
         end
 
         -- Cleanup Glyphids
-        if object.getName() == "Grunt" then
+        elseif object.getName() == "Grunt" then
             gruntBag.putObject(object)
         end
 
-        if object.getName() == "Brood Nexus" then
+        elseif object.getName() == "Brood Nexus" then
             broodNexusBag.putObject(object)
         end
 
-        if object.getName() == "Spitball Infector" then
+        elseif object.getName() == "Spitball Infector" then
             spitballerBag.putObject(object)
         end
 
-        if object.getName() == "Webspitter" then
+        elseif object.getName() == "Webspitter" then
             webspitterBag.putObject(object)
         end
 
-        if object.getName() == "Exploder" then
+        elseif object.getName() == "Exploder" then
             exploderBag.putObject(object)
         end
 
-        if object.getName() == "Slasher" then
+        elseif object.getName() == "Slasher" then
             slasherBag.putObject(object)
         end
 
-        if object.getName() == "Mactera Spawn" then
+        elseif object.getName() == "Mactera Spawn" then
             macteraBag.putObject(object)
         end
 
-        if object.getName() == "Warden" then
+        elseif object.getName() == "Warden" then
             wardenBag.putObject(object)
         end
 
-        if object.getName() == "Praetorian" then
+        elseif object.getName() == "Praetorian" then
             praetorianBag.putObject(object)
         end
 
-        if object.getName() == "Oppressor" then
+        elseif object.getName() == "Oppressor" then
             opressorBag.putObject(object)
         end
 
-        if object.getName() == "Goo Bomber" then
+        elseif object.getName() == "Goo Bomber" then
             gooBomberBag.putObject(object)
         end
 
-        if object.getName() == "Menace" then
+        elseif object.getName() == "Menace" then
             menaceBag.putObject(object)
         end
 
-        if object.getGMNotes() == "goo" then
+        elseif object.getGMNotes() == "goo" then
             gooBag.putObject(object)
         end
 
-        if object.getName() == "Rammer" then
+        elseif object.getName() == "Rammer" then
             rammerBag.putObject(object)
         end
 
-        if object.getName() == "Naedocyte Hatchlings" then
+        elseif object.getName() == "Naedocyte Hatchlings" then
             naedocyteHatchlingsBag.putObject(object)
         end
 
-        if object.getName() == "Naedocyte Breeder" then
+        elseif object.getName() == "Naedocyte Breeder" then
             naedocyteBreederBag.putObject(object)
         end
 
-        if object.getName() == "Q'ronar Shellback" then
+        elseif object.getName() == "Q'ronar Shellback" then
             qronarShellbackBag.putObject(object)
         end
 
-        if object.getName() == "Stingtail" then
+        elseif object.getName() == "Stingtail" then
             stingtailBag.putObject(object)
         end
 
-        if object.getName() == "Dreadnought" then
+        elseif object.getName() == "Dreadnought" then
             dreadnoughtBag.putObject(object)
         end
 
-        if object.getGMNotes() == "kHeart" then
+        elseif object.getGMNotes() == "kHeart" then
             kHeartBag.putObject(object)
         end
 
-        if object.getGMNotes() == "kSprout" then
+        elseif object.getGMNotes() == "kSprout" then
             kSproutBag.putObject(object)
         end
 
-        if object.getGMNotes() == "kHeal" then
+        elseif object.getGMNotes() == "kHeal" then
             kHealingBag.putObject(object)
         end
 
-        if object.getGMNotes() == "bulk" then
+        elseif object.getGMNotes() == "bulk" then
             bulkBag.putObject(object)
         end
 
         -- Cleanup Stalagmite (destroy, since infinite bag, don't need to put back)
-        if object.getName() == "Stalagmite" then
+        elseif object.getName() == "Stalagmite" then
             object.destruct()
         end
 
-        if object.getName() == "Geyser" then
+        elseif object.getName() == "Geyser" then
             geyserBag.putObject(object)
         end
 
-        if object.getName() == "Exploding Plant" then
+        elseif object.getName() == "Exploding Plant" then
             explodingPlantsBag.putObject(object)
         end
 
-        if object.getName() == 'Glowing Crystal' then
+        elseif object.getName() == 'Glowing Crystal' then
             glowingCrystalBag.putObject(object)
         end
 
-        if object.getName() == 'Cryo Bulb' then
+        elseif object.getName() == 'Cryo Bulb' then
             cryoBulbBag.putObject(object)
         end
 
-        if object.getGMNotes() == "pSpore" then
+        elseif object.getGMNotes() == "pSpore" then
             poisonSporeBag.putObject(object)
         end
 
-        if object.getGMNotes() == "cocoon" then
+        elseif object.getGMNotes() == "cocoon" then
             glyphidCocoonBag.putObject(object)
         end
 
         -- Misc Tiles
-        if object.getGMNotes() == "MiscToken" then
+        elseif object.getGMNotes() == "MiscToken" then
             exclaimTilesBag.putObject(object)
         end
 
-        if object.getGMNotes () == "Frozen" then
+        elseif object.getGMNotes () == "Frozen" then
             frozenBag.putObject(object)
         end
 
-        if object.getGMNotes () == "Webbed" then
+        elseif object.getGMNotes () == "Webbed" then
             webbedBag.putObject(object)
         end
 
-        if object.getGMNotes () == "Stunned" then
+        elseif object.getGMNotes () == "Stunned" then
             stunnedBag.putObject(object)
         end
 
         -- Character stuff
-        if object.getGMNotes() == "bosco" then
+        elseif object.getGMNotes() == "bosco" then
             object.setPositionSmooth({-21.45, 0.97, -4.56},true,false)
         end
 
-        if object.getName() == "Resupply Pod" then
+        elseif object.getName() == "Resupply Pod" then
             object.setPosition{11.55, 0.97, 8.77}
         end
 
-        if object.getName() == "Engineer" then
+        elseif object.getName() == "Engineer" then
             object.setPosition({21.45, 1.11, -15.99})
         end
 
-        if object.getName() == "Sentry Gun" then
+        elseif object.getName() == "Sentry Gun" then
             object.setPositionSmooth({20.90, 0.97, -20.76},true,false)
         end
 
-        if object.getName() == "Platform" then
+        elseif object.getName() == "Platform" then
             object.setPositionSmooth({22.00, 1.07, -20.76},true,false)
         end
 
-        if object.getName() == "Driller" then
+        elseif object.getName() == "Driller" then
             object.setPosition{6.05, 1.07, -15.99}
         end
 
-        if object.getName() == "Flame" then
+        elseif object.getName() == "Flame" then
             object.setPositionSmooth({5.50, 1.07, -20.76},true,false)
         end
 
-        if object.getName() == "Acid Sludge" then
+        elseif object.getName() == "Acid Sludge" then
             object.setPositionSmooth({6.05, 1.07, -23.61},true,false)
         end
 
-        if object.getName() == "Gunner" then
+        elseif object.getName() == "Gunner" then
             object.setPosition{-24.75, 1.12, -15.99}
         end
 
-        if object.getName() == "Shield" then
+        elseif object.getName() == "Shield" then
             object.setPosition{-25.30, 1.07, -20.76}
         end
 
-        if object.getName() == "Zipline" then
+        elseif object.getName() == "Zipline" then
             object.setPositionSmooth({-24.20, 1.04, -20.76},true,false)
         end
 
-        if object.getName() == "Scout" then
+        elseif object.getName() == "Scout" then
             object.setPosition{-9.35, 1.07, -15.99}
         end
 
-        if object.getName() == "Flare" then
+        elseif object.getName() == "Flare" then
             object.setPositionSmooth({-8.80, 1.07, -20.76},true,false)
         end
 
-        if object.getGMNotes() == "PAmmo" then
+        elseif object.getGMNotes() == "PAmmo" then
             pAmmoBag.putObject(object)
         end
 
-        if object.getGMNotes() == "SAmmo" then
+        elseif object.getGMNotes() == "SAmmo" then
             sAmmoBag.putObject(object)
         end
 
-        if object.getGMNotes() == "gCube" then
+        elseif object.getGMNotes() == "gCube" then
             object.destruct()
         end
 
-        if object.getGMNotes() == "rCube" then
+        elseif object.getGMNotes() == "rCube" then
             object.destruct()
         end
 
-        if object.getGMNotes() == "wUpgrade" then
+        elseif object.getGMNotes() == "wUpgrade" then
             object.setRotation({0.0,0.0,180.0})
             wUpgradeBag.putObject(object)
         end
 
         -- Card cleanups
-        if object.getGMNotes() == "swarmCard" then
+        elseif object.getGMNotes() == "swarmCard" then
             object.setPosition({-3.66, 2.22, 7.92})
             object.setRotation({0.00, 90.03, 180.00})
         end
 
-        if object.getGMNotes() == "eventCard" then
+        elseif object.getGMNotes() == "eventCard" then
             object.setPosition({-7.16, 2.37, 7.91})
             object.setRotation({0.00, 90.03, 180.00})
         end
 
-        if object.getGMNotes() == "rockAndStoneCard" then
+        elseif object.getGMNotes() == "rockAndStoneCard" then
             object.setPosition({3.69, 1.13, 8.01})
             object.setRotation({0.00, 90.03, 180.00})
         end
 
-        if object.getGMNotes() == "resupplyCard" then
+        elseif object.getGMNotes() == "resupplyCard" then
             object.setPosition({7.21, 1.13, 7.99})
             object.setRotation({0.00, 90.03, 180.00})
         end
 
-        if object.getGMNotes() == "secondariesCard" then
+        elseif object.getGMNotes() == "secondariesCard" then
             object.setPosition({22.30, 2.03, 6.57})
             object.setRotation({0.00, 180.0, 0.00})
         end
 
-        if object.getGMNotes() == "throwableCard" then
+        elseif object.getGMNotes() == "throwableCard" then
             object.setPosition({25.01, 2.07, 6.59})
             object.setRotation({0.00, 180.0, 180.00})
         end
 
-        if object.getGMNotes() == "oHeartCard" then
+        elseif object.getGMNotes() == "oHeartCard" then
             object.setPosition({-21.45, 2.02, 4.96})
             object.setRotation({0.00, 180.0, 180.00})
         end
 
-        if object.getGMNotes() == "dreadCard" then
+        elseif object.getGMNotes() == "dreadCard" then
             object.setPosition({33.55, 1.03, 14.49})
             object.setRotation({0.00, 180.00, 180.00})
         end
 
         -- If the cards are in decks, search the deck for card tags
         -- to decide where to place these decks
-        if object.type == "Deck" then
+        elseif object.type == "Deck" then
             for _, containedObject in ipairs(object.getObjects()) do
                 if containedObject.gm_notes == "swarmCard" then
                     object.setPosition({-3.66, 2.22, 7.92})
@@ -593,135 +593,135 @@ function Cleanup()
         end
 
         -- Misc token cleanup
-        if object.getGMNotes() == "sCharge" then
+        elseif object.getGMNotes() == "sCharge" then
             object.setPosition({17.60, 1.07, 7.82})
         end
 
-        if object.getGMNotes() == "iField" then
+        elseif object.getGMNotes() == "iField" then
             object.setPosition({18.70, 1.07, 7.82})
         end
 
-        if object.getGMNotes() == "Lure" then
+        elseif object.getGMNotes() == "Lure" then
             object.setPosition({18.15, 1.07, 6.87})
         end
 
-        if object.getGMNotes() == "pMine" then
+        elseif object.getGMNotes() == "pMine" then
             object.setPosition({19.25, 1.07, 6.87})
         end
 
-        if object.getGMNotes() == "nGrenade" then
+        elseif object.getGMNotes() == "nGrenade" then
             object.setPosition({17.05, 1.07, 6.87})
         end
 
         -- Spacerig component cleanup
-        if object.getGMNotes() == "refinery" then
+        elseif object.getGMNotes() == "refinery" then
             object.setPosition({-15.95, 1.13, -2.66})
             object.setRotation({0.00, 300.00, 180.00})
         end
 
-        if object.getGMNotes() == "pJack" then
+        elseif object.getGMNotes() == "pJack" then
             Global.call('getPumpjackBag').putObject(object)
         end
 
-        if object.getGMNotes() == "sPipe" then
+        elseif object.getGMNotes() == "sPipe" then
             object.setRotation({0.00, 0.00, 0.00})
             Global.call('getSPipeBag').putObject(object)
         end
 
-        if object.getGMNotes() == "cPipe" then
+        elseif object.getGMNotes() == "cPipe" then
             object.setRotation({0.00, 0.00, 0.00})
             Global.call('getCPipeBag').putObject(object)
         end
 
-        if object.getGMNotes() == "dDozer" then
+        elseif object.getGMNotes() == "dDozer" then
             object.setPosition({-24.75, 0.98, 1.15})
             object.setRotation({357.75, 270.13, 0.01})
         end
 
-        if object.getGMNotes() == "beamer" then
+        elseif object.getGMNotes() == "beamer" then
             Global.call('getBreamersBag').putObject(object)
         end
 
-        if object.getGMNotes() == "cHeart" then
+        elseif object.getGMNotes() == "cHeart" then
             object.setPosition({-21.45, 0.96, 1.15})
         end
 
-        if object.getGMNotes() == "oHeart" then
+        elseif object.getGMNotes() == "oHeart" then
             object.setState(1)
             object.setPosition({-21.45, 0.96, 1.15})
         end
 
-        if object.getGMNotes() == "heartGem" then
+        elseif object.getGMNotes() == "heartGem" then
             object.setPosition({-21.45, 1.96, 1.15})
         end
 
         -- Dice cleanups
-        if object.getGMNotes() == "eDie1" then
+        elseif object.getGMNotes() == "eDie1" then
             object.setPosition({21., 1.30, -2.15})
             object.setRotation({0.0,0.0,0.0})
         end
 
-        if object.getGMNotes() == "eDie2" then
+        elseif object.getGMNotes() == "eDie2" then
             object.setPosition({22.00, 1.30, -2.15})
             object.setRotation({0.0,0.0,0.0})
         end
 
-        if object.getGMNotes() == "mDie1" then
+        elseif object.getGMNotes() == "mDie1" then
             object.setPosition({24.0, 1.30, -2.15})
             object.setRotation({0.0,0.0,0.0})
         end
 
-        if object.getGMNotes() == "pDie1" then
+        elseif object.getGMNotes() == "pDie1" then
             object.setPosition({21.5, 1.30, -7.10})
             object.setRotation({0.0,0.0,0.0})
         end
 
-        if object.getGMNotes() == "bDie1" then
+        elseif object.getGMNotes() == "bDie1" then
             object.setPosition({20.0, 1.30, -3.8})
             object.setRotation({0.0,0.0,0.0})
         end
 
-        if object.getGMNotes() == "bDie2" then
+        elseif object.getGMNotes() == "bDie2" then
             object.setPosition({21.0, 1.30, -3.8})
             object.setRotation({0.0,0.0,0.0})
         end
 
-        if object.getGMNotes() == "bDie3" then
+        elseif object.getGMNotes() == "bDie3" then
             object.setPosition({22.0, 1.30, -3.8})
             object.setRotation({0.0,0.0,0.0})
         end
 
-        if object.getGMNotes() == "aDie1" then
+        elseif object.getGMNotes() == "aDie1" then
             object.setPosition({21.0, 1.30, -5.4})
             object.setRotation({0.0,0.0,0.0})
         end
 
-        if object.getGMNotes() == "aDie2" then
+        elseif object.getGMNotes() == "aDie2" then
             object.setPosition({22.0, 1.30, -5.4})
             object.setRotation({0.0,0.0,0.0})
         end
 
-        if object.getGMNotes() == "exDie1" then
+        elseif object.getGMNotes() == "exDie1" then
             object.setPosition({24.0, 1.30, -5.4})
             object.setRotation({0.0,0.0,0.0})
         end
 
-        if object.getGMNotes() == "exDie2" then
+        elseif object.getGMNotes() == "exDie2" then
             object.setPosition({25.0, 1.30, -5.4})
             object.setRotation({0.0,0.0,0.0})
         end
 
-        if object.getGMNotes() == "fDie1" then
+        elseif object.getGMNotes() == "fDie1" then
             object.setPosition({24.0, 1.30, -3.8})
             object.setRotation({0.0,0.0,0.0})
         end
 
-        if object.getGMNotes() == "fDie2" then
+        elseif object.getGMNotes() == "fDie2" then
             object.setPosition({25.0, 1.30, -3.8})
             object.setRotation({0.0,0.0,0.0})
         end
 
-        if object.getGMNotes() == "fDie3" then
+        elseif object.getGMNotes() == "fDie3" then
             object.setPosition({26.00, 1.30, -3.8})
             object.setRotation({0.0,0.0,0.0})
         end
