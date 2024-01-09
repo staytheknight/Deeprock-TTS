@@ -95,7 +95,7 @@ function setupMissionB13()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print('Warning: Unable to setup pits, pit tiles are not in the cave bag')
+        print('Warning: Unable to setup magic hole, tiles is not in the biome cave bag')
     end
 
     params={
