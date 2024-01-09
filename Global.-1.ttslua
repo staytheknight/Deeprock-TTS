@@ -331,7 +331,7 @@ function onLoad()
     missionB17_GUID = 'eecb30'
     missionB17 = getObjectFromGUID(missionB17_GUID)
     missionB18_GUID = '27884c'
-    missioNB18 = getObjectFromGUID(missionB18_GUID)
+    missionB18 = getObjectFromGUID(missionB18_GUID)
 
     missionSR1_GUID = '58b819'
     missionSR1 = getObjectFromGUID(missionSR1_GUID)

@@ -15,7 +15,7 @@ missionB18Positions = {
     {1.65, 2.36, 3.06},{1.65, 2.36, 1.15},{3.85, 2.37, 1.15}},
     explorationTiles = {{-4.95, 1.35, -0.75},{0.00, 1.36, 0.20},
     {2.75, 1.37, 3.06},{6.60, 1.37, 0.20}},
-    minerals = {{3.85, 1.20, -4.56},{3.30, 1.20, -3.61},{2.20, 1.20, -1.71},
+    minerals = {{3.85, 1.20, -4.56},{3.30, 1.20, -3.61},{2.20, 1.20, -1.71}
     ,{2.75, 1.20, -0.75},{-2.20, 1.19, -3.61},{-2.75, 1.19, -6.47},{-6.05, 1.19, -6.47},
     {-6.60, 1.19, -1.71},{-6.60, 1.19, 0.20},{-6.05, 1.19, 1.15}}
 }
@@ -73,6 +73,22 @@ function setupMissionB18()
         })
     else
         print('Warning: Unable to setup cave, cave tiles are not in the biome cave bag')
+    end
+
+    params={
+        bag = caveBag,
+        ID = Global.call('getHexPit3GUID'),
+    }
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = {-5.50, 1.10, 4.01},
+            rotation = {0.09, 240.00, 0.01},
+            guid = Global.call('getHexPit3GUID'),
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print('Warning: Unable to setup pits, pit tiles are not in the cave bag')
     end
 
     params={
