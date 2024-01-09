@@ -232,27 +232,7 @@ function setupMissionSR11()
     for i=1, 2 do
         if not Global.call('isBagEmpty',exclaimBag) then
             exclaimBag.takeObject({
-                position = missionSR11Positions.ex
-
-                local explorationBag = Global.call('getExplorationBag')
-
-                local lootBugBag = Global.call('getLootBugBag')
-                for i=1, 1 do
-                    if not Global.call('isBagEmpty',lootBugBag) then
-                        explorationBag.putObject(lootBugBag.takeObject())
-                    else
-                        print("Warning: Unable to set up exploration tokens, loot bug bag is empty")
-                    end
-                end
-
-                local redSugarBag = Global.call('getRedSugarBag')
-                for i=1, 1 do
-                    if not Global.call('isBagEmpty',redSugarBag) then
-                        explorationBag.putObject(redSugarBag.takeObject())
-                    else
-                        print("Warning: Unable to set up exploration tokens, red sugar bag is empty")
-                    end
-                endclamationTokens[i],
+                position = missionSR11Positions.exclamationTokens[i],
             })
         else
             print("Warning: Unable to setup up [!] tokens, the bag is empty")
@@ -280,7 +260,7 @@ function setupMissionSR11()
     end
 
     local barleyBulbBag = Global.call('getBarleyBulbBag')
-    for i=1, 2 do
+    for i=1, 1 do
         if not Global.call('isBagEmpty',barleyBulbBag) then
             explorationBag.putObject(barleyBulbBag.takeObject())
         else
@@ -289,6 +269,7 @@ function setupMissionSR11()
         end
     end
 
+    local apocaBloomBag = Global.call('getApocaBloomBag')
     for i=1, 5 do
         if not Global.call('isBagEmpty',apocaBloomBag) then
             explorationBag.putObject(apocaBloomBag.takeObject())
@@ -357,9 +338,9 @@ function setupMissionSR11()
     local missionBookB1 = Global.call('getMissionBookSR1')
     missionBookB1.setScale({2.0,1.0,2.0})
     missionBookB1.setPosition({-53.52, 0.97, -35.66})
-    missionBookB1.Book.setPage(41)
+    missionBookB1.Book.setPage(45)
     local missionBookB2 = Global.call('getMissionBookSR2')
     missionBookB2.setScale({2.0,1.0,2.0})
     missionBookB2.setPosition({-47.86, 0.97, -35.63})
-    missionBookB2.Book.setPage(42)
+    missionBookB2.Book.setPage(46)
 end
