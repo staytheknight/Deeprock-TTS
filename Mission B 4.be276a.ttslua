@@ -302,10 +302,10 @@ function setupMissionB4()
     local missionBookB1 = Global.call('getMissionBookB1')
     missionBookB1.setScale({2.0,1.0,2.0})
     missionBookB1.setPosition({-53.52, 0.97, -35.66})
-    missionBookB1.Book.setPage(21)
+    missionBookB1.Book.setPage(23)
     local missionBookB2 = Global.call('getMissionBookB2')
     missionBookB2.setScale({2.0,1.0,2.0})
     missionBookB2.setPosition({-47.86, 0.97, -35.63})
-    missionBookB2.Book.setPage(22)
+    missionBookB2.Book.setPage(24)
 
 end
