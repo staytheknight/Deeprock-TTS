@@ -495,14 +495,17 @@ end
 -- Shrinks mission tokens so they are not accessible
 -- These objects store the scripts for the mission setups and should not be deleted
 function hideMissionTokens()
-    missionName = {mission1, mission2, mission3, mission4, mission5,
-    mission6, mission7, mission8, mission9, mission10, mission11,
-    mission12, mission13, mission14, missionB1, missionB2, missionB3,
-    missionB4, missionB5, missionB6, missionB7, missionB8, missionB9,
-    missionB10, missionB11, missionB12, missionB13, missionB14, missionB15,
-    missionB16, missionSR1, missionSR2, missionSR3, missionSR4, missionSR5,
-    missionSR6, missionSR7, missionSR8, missionSR9, missionSR10, missionSR11}
-    for i=1, 40 do
+    missionName = {
+    mission1, mission2, mission3, mission4, mission5,
+    mission6, mission7, mission8, mission9, mission10,
+    mission11, mission12, mission13, mission14, missionEssen,
+    missionB1, missionB2, missionB3, missionB4, missionB5,
+    missionB6, missionB7, missionB8, missionB9, missionB10,
+    missionB11, missionB12, missionB13, missionB14, missionB15,
+    missionB16, missionB17, missionB18, missionSR1, missionSR2,
+    missionSR3, missionSR4, missionSR5, missionSR6, missionSR7,
+    missionSR8, missionSR9, missionSR10, missionSR11, missionSR12}
+    for i=1, 45 do
         missionName[i].setScale{0.0,0.0,0.0}
     end
 
