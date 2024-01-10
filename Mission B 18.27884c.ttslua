@@ -222,6 +222,17 @@ function setupMissionB18()
         end
     end
 
+    local muleLegBag = Global.call('getMuleLegBag')
+    for i=1, 6 do
+        if not Global.call('isBagEmpty',muleLegBag) then
+            muleLegBag.takeObject({
+                position = missionB18Positions.muleLegs[i]
+            })
+        else
+            print("Warning: Unable to place mule leg, the bag is empty")
+        end
+    end
+
     -- Generating exploration bag
     local explorationBag = Global.call('getExplorationBag')
     local lootBugBag = Global.call('getLootBugBag')
