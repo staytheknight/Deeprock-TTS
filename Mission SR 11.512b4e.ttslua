@@ -309,6 +309,7 @@ function setupMissionSR11()
         end
     end
 
+    --[[
     local aquardBag = Global.call('getAquardBag')
     for i=1, 6 do
         if not Global.call('isBagEmpty',aquardBag) then
@@ -318,6 +319,7 @@ function setupMissionSR11()
             break
         end
     end
+    ]]--
 
     -- Shuffling Minerals
     mineralBag.shuffle()

@@ -236,7 +236,7 @@ function setupMissionSR12()
     end
 
     local eggBag = Global.call('getEggBag')
-    for i=1, 5 do
+    for i=1, 3 do
         if not Global.call('isBagEmpty',eggBag) then
             explorationBag.putObject(eggBag.takeObject())
         else
@@ -275,6 +275,7 @@ function setupMissionSR12()
         end
     end
 
+    --[[
     local aquardBag = Global.call('getAquardBag')
     for i=1, 3 do
         if not Global.call('isBagEmpty',aquardBag) then
@@ -284,6 +285,7 @@ function setupMissionSR12()
             break
         end
     end
+    ]]--
 
     -- Shuffling Minerals
     mineralBag.shuffle()
