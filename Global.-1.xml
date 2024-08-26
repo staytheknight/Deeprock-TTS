@@ -2,18 +2,19 @@
 
 <Defaults>
     <Panel class="MissionPanel"  color="#8F8478" outline="#635351" outlineSize="2 -2"/>
-    <Button class="mapButton" padding="0 0 145 0" textColor="#FFFFFF" colors="#AD9F91|#C9B9A9|#756C63|rgba(0.78,0.78,0.78,0.5)"/>
-    <Image class="mapImage" width="144" height="144" rectAlignment="UpperCenter" offsetXY="0 -3"/>
+    <Button class="missionButton" padding="0 0 145 0" textColor="#FFFFFF"
+        colors="rgba(0.14,0.26,0.13,1)|rgba(0.17,0.3,0.13,1)|rgba(0.45,0.72,0.15,1)|rgba(0.78,0.78,0.78,0.5)"/>
+    <Image class="mapImage" width="390" height="600" rectAlignment="UpperCenter" offsetXY="0 -3"/>
 </Defaults>
 
 <!-- Mission Select Menu-->
 <Panel id="missionSelect" class="MissionPanel"
     active="false"
-    width="680"
-    height="500"
+    width="1400"
+    height="1000"
     color="rgba(0.83,0.73,0.2,1)"
     rectAlignment="UpperCenter"
-    offsetXY="0 -250"
+    offsetXY="0 -0"
     allowDragging="true"
     showAnimation="FadeIn"
     showAnimationDelay="2"
@@ -24,21 +25,70 @@
         scrollSensitivity="40"
         padding="0 0 50 0"
         scrollbarColors="grey|rgba(0.83,0.73,0.2,1)|orange|black"
-        width="680"
-        height="480"
+        width="1400"
+        height="1000"
         color="rgba(0,0,0,1)">
         <!-- scroll bar colors
         first = unfocused
         second = focused
         third = active -->
-        <!--Panel height="1000" rectAlignment="UpperCenter"-->
-        <GridLayout padding="0 0 8 3" spacing="8 8"  height="1400"
-            cellsize="150 190" childAlignment="UpperCenter">
-        </GridLayout>
+        <TableLayout
+            padding="100 100 50 50"
+            columnWidths="390 390 390"
+            cellSpacing="10"
+            useGlobalCellPadding="true"
+            autoCalculateHeight="true">
+            <Row preferredHeight="100">
+                <Cell></Cell>
+                <Cell><Image image="Banner_BaseMissions" width="390" height="93"></Image></Cell>
+                <Cell></Cell>
+            </Row>
+
+            <Row preferredHeight="600">
+                <Cell>
+                    <Button class="missionButton" onClick="setupMission1">
+                    <Image class="mapImage" image="Mission1Big"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="setupMission2">
+                        <Image class="mapImage" image="Mission2Big"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="setupMission3">
+                    <Image class="mapImage" image="Mission3Big"></Image></Button>
+                </Cell>
+            </Row>
+
+            <Row preferredHeight="600">
+                <Cell>
+                    <Button class="missionButton" onClick="setupMission4">
+                    <Image class="mapImage" image="Mission4Big"></Image></Button>
+                </Cell>
+                <Cell>
+
+                </Cell>
+                <Cell>
+
+                </Cell>
+            </Row>
+            <!--
+            <Row preferredHeight="600">
+                <Cell>
+
+                </Cell>
+                <Cell>
+
+                </Cell>
+                <Cell>
+
+                </Cell>
+            </Row>
+            -->
+        </TableLayout>
     </VerticalScrollView>
     <Button id="closeButton"
-    width="20"
-    height="20"
+    width="40"
+    height="40"
     rectAlignment="UpperRight"
     color="orange"
     textColor="black"
