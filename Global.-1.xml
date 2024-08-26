@@ -1,9 +1,51 @@
+<!-- Example modified from https://steamcommunity.com/sharedfiles/filedetails/?id=1382344471&searchtext=choose-->
+
 <Defaults>
     <Panel class="MissionPanel"  color="#8F8478" outline="#635351" outlineSize="2 -2"/>
     <Button class="mapButton" padding="0 0 145 0" textColor="#FFFFFF" colors="#AD9F91|#C9B9A9|#756C63|rgba(0.78,0.78,0.78,0.5)"/>
     <Image class="mapImage" width="144" height="144" rectAlignment="UpperCenter" offsetXY="0 -3"/>
 </Defaults>
 
+<!-- Mission Select Menu-->
+<Panel id="missionSelect" class="MissionPanel"
+    active="false"
+    width="680"
+    height="500"
+    color="rgba(0.83,0.73,0.2,1)"
+    rectAlignment="UpperCenter"
+    offsetXY="0 -250"
+    allowDragging="true"
+    showAnimation="FadeIn"
+    showAnimationDelay="2"
+    returnToOriginalPositionWhenReleased="false">
+    <VerticalScrollView
+        rectAlignment="LowerCenter"
+        offsetXY="0 -00"
+        scrollSensitivity="40"
+        padding="0 0 50 0"
+        scrollbarColors="grey|rgba(0.83,0.73,0.2,1)|orange|black"
+        width="680"
+        height="480"
+        color="rgba(0,0,0,1)">
+        <!-- scroll bar colors
+        first = unfocused
+        second = focused
+        third = active -->
+        <!--Panel height="1000" rectAlignment="UpperCenter"-->
+        <GridLayout padding="0 0 8 3" spacing="8 8"  height="1400"
+            cellsize="150 190" childAlignment="UpperCenter">
+        </GridLayout>
+    </VerticalScrollView>
+    <Button id="closeButton"
+    width="20"
+    height="20"
+    rectAlignment="UpperRight"
+    color="orange"
+    textColor="black"
+    text="X"
+    onClick="missionMenuOffButtonOn">
+</Button>
+</Panel>
 
 <!-- Cleanup/Show Maps button -->
 <Panel id="setup" class="MissionPanel"
@@ -23,7 +65,7 @@
         text="Mission
         Setup"
         fontStyle="bold"
-        onClick="setupMission1">
+        onClick="missionMenuOnButtonOff">
         <Image class="setupButtonClass" image="MissionSetupButton"></Image>
     </Button>
 </Panel>

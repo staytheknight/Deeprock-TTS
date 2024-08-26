@@ -366,8 +366,6 @@ function onLoad()
     cleanupZone_GUID = '41b22f'
     cleanupZone = getObjectFromGUID(cleanupZone_GUID)
 
-    UI.setAttribute("setup", "offsetXY")
-
     -- Runs the monte carlo randomizer a certain number of times
     -- this is to truley randomize it, as it starts with the same numbers
     -- each time you start the simulation
@@ -403,6 +401,34 @@ function randInt(params)
     randomIndex = (math.floor(r*10))
 
     return randomIndex
+end
+
+
+-- Toggles for UI elements
+function hideMissionSelectButton()
+    UI.setAttribute("setup", "active", false)
+end
+
+function showMissionSelectButton()
+    UI.setAttribute("setup", "active", true)
+end
+
+function hideMissionSelectMenu()
+    UI.setAttribute("missionSelect", "active", false)
+end
+
+function showMissionSelectMenu()
+    UI.setAttribute("missionSelect", "active", true)
+end
+
+function missionMenuOffButtonOn()
+    hideMissionSelectMenu()
+    showMissionSelectButton()
+end
+
+function missionMenuOnButtonOff()
+    showMissionSelectMenu()
+    hideMissionSelectButton()
 end
 
 -- Takes all the tiles from the individual space rig explore tokens
