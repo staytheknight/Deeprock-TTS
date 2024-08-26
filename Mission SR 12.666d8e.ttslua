@@ -3,6 +3,12 @@ missionSR12Positions = {
     hiddenCaveRot1 = {{359.94, 0.00, 0.07},{359.97, 120.02, 359.91},{0.09, 240.01, 0.01}},
     hiddenCaveLoc2 = {{5.50, 1.10, -5.51},{4.40, 1.10, -5.51},{4.95, 1.10, -4.56}},
     hiddenCaveRot2 = {{0.03, 300.00, 0.09},{359.91, 59.92, 359.99},{0.06, 180.04, 359.93}},
+    miniHiddenCaveLoc1 = {{-6.05, 1.09, -4.56},{-4.95, 1.09, -4.56},{-5.50, 1.09, -3.61}},
+    miniHiddenCaveRot1 = {{0.03, 300.16, 0.09},{0.06, 179.57, 359.93},{359.91, 59.83, 359.99}},
+    miniHiddenCaveLoc2 = {{-4.40, 1.10, 5.92},{-4.95, 1.10, 4.96},{-3.85, 1.10, 4.96}},
+    miniHiddenCaveRot2 = {{359.91, 59.98, 359.99},{0.03, 300.02, 0.09},{0.06, 179.92, 359.93}},
+    miniHiddenCaveLoc3 = {{6.05, 1.11, 3.06},{4.95, 1.07, 3.06},{5.50, 1.11, 2.11}},
+    miniHiddenCaveRot3 = {{359.97, 120.00, 359.91},{359.94, 359.91, 0.07},{0.09, 239.73, 0.01}},
     stalagmites = {{1.10, 2.22, -1.71},{3.30, 2.23, -1.71}},
     grunts = {{-0.55, 2.25, 1.15}},
     exploders = {{1.65, 2.23, -4.56}},
@@ -153,6 +159,39 @@ function setupMissionSR12()
         hiddenCaveBag.takeObject({
             position = missionSR12Positions.hiddenCaveLoc2[randomIndex],
             rotation = missionSR12Positions.hiddenCaveRot2[randomIndex]
+        })
+    else
+        print("Warning: Unable to setup hidden cave segment, bag is empty")
+    end
+
+    local miniHiddenCaveBag = Global.call('getMiniHiddenCaveBag')
+    miniHiddenCaveBag.shuffle()
+
+    params = {floor = 0.1, ceiling = 0.4,}
+    randomIndex = Global.call('randInt',params)
+
+    if not Global.call('isBagEmpty',miniHiddenCaveBag) then
+        miniHiddenCaveBag.takeObject({
+            position = missionSR12Positions.miniHiddenCaveLoc1[randomIndex],
+            rotation = missionSR12Positions.miniHiddenCaveRot1[randomIndex]
+        })
+    else
+        print("Warning: Unable to setup hidden cave segment, bag is empty")
+    end
+
+    if not Global.call('isBagEmpty',miniHiddenCaveBag) then
+        miniHiddenCaveBag.takeObject({
+            position = missionSR12Positions.miniHiddenCaveLoc2[randomIndex],
+            rotation = missionSR12Positions.miniHiddenCaveRot2[randomIndex]
+        })
+    else
+        print("Warning: Unable to setup hidden cave segment, bag is empty")
+    end
+
+    if not Global.call('isBagEmpty',miniHiddenCaveBag) then
+        miniHiddenCaveBag.takeObject({
+            position = missionSR12Positions.miniHiddenCaveLoc3[randomIndex],
+            rotation = missionSR12Positions.miniHiddenCaveRot3[randomIndex]
         })
     else
         print("Warning: Unable to setup hidden cave segment, bag is empty")
