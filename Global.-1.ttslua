@@ -365,7 +365,7 @@ function onLoad()
 
     cleanupZone_GUID = '41b22f'
     cleanupZone = getObjectFromGUID(cleanupZone_GUID)
-
+
     -- Runs the monte carlo randomizer a certain number of times
     -- this is to truley randomize it, as it starts with the same numbers
     -- each time you start the simulation
@@ -429,6 +429,18 @@ end
 function missionMenuOnButtonOff()
     showMissionSelectMenu()
     hideMissionSelectButton()
+end
+
+-- ideally a openPanel parameter would be passed, but I can't figure
+-- out how to pass more than one parameter from an onClick function (might not be possible)
+function closePanelOpenBasePanel(player,closePanel)
+    UI.setAttribute(closePanel, "active", false)
+    showMissionSelectMenu()
+end
+
+function mission1DetailsUI()
+    hideMissionSelectMenu()
+    UI.setAttribute("mission1Panel", "active", true)
 end
 
 -- Takes all the tiles from the individual space rig explore tokens

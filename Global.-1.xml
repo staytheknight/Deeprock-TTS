@@ -1,24 +1,47 @@
 <!-- Example modified from https://steamcommunity.com/sharedfiles/filedetails/?id=1382344471&searchtext=choose-->
 
 <Defaults>
-    <Panel class="MissionPanel"  color="#8F8478" outline="#635351" outlineSize="2 -2"/>
+    <Panel class="MissionPanel" outline="#635351" outlineSize="2 -2"
+        active="false"
+        width="1400"
+        height="1000"
+        color="rgba(0,0,0,0.5)"
+        rectAlignment="UpperCenter"
+        offsetXY="0 -50"
+        allowDragging="true"
+        showAnimation="FadeIn"
+        showAnimationDelay="2"
+        returnToOriginalPositionWhenReleased="false"/>
+
+    <Panel class="MissionDetailPanel" outline="#635351" outlineSize="2 -2"
+        active="false"
+        width="1400"
+        height="1000"
+        color="rgba(0,0,0,0.5)"
+        rectAlignment="UpperCenter"
+        offsetXY="0 -50"
+        allowDragging="true"
+        showAnimation="FadeIn"
+        showAnimationDelay="2"
+        returnToOriginalPositionWhenReleased="false"/>
+
+
     <Button class="missionButton" padding="0 0 145 0" textColor="#FFFFFF"
         colors="rgba(0.14,0.26,0.13,1)|rgba(0.17,0.3,0.13,1)|rgba(0.45,0.72,0.15,1)|rgba(0.78,0.78,0.78,0.5)"/>
+
     <Image class="mapImage" width="350" height="350" rectAlignment="UpperCenter" offsetXY="0 -3"/>
+    <Image class="mapDetailImage" width="350" height="595" rectAlignment="UpperCenter" offsetXY="0 -3"/>
+
+    <TableLayout class="missionDetailTable"
+        padding="150 150 50 50"
+        columnWidths="500 500"
+        cellSpacing="10"
+        useGlobalCellPadding="true"
+        autoCalculateHeight="true"/>
 </Defaults>
 
 <!-- Mission Select Menu-->
-<Panel id="missionSelectBase" class="MissionPanel"
-    active="false"
-    width="1400"
-    height="1000"
-    color="rgba(0,0,0,0.5)"
-    rectAlignment="UpperCenter"
-    offsetXY="0 -50"
-    allowDragging="true"
-    showAnimation="FadeIn"
-    showAnimationDelay="2"
-    returnToOriginalPositionWhenReleased="false">
+<Panel id="missionSelectBase" class="MissionPanel">
     <VerticalScrollView
         rectAlignment="LowerCenter"
         offsetXY="0 -00"
@@ -39,7 +62,7 @@
             useGlobalCellPadding="true"
             autoCalculateHeight="true">
             <Row preferredHeight="90">
-                <Cell><Image image="Banner_BaseMissions" width="350" height="90"></Image></Cell>
+                <Cell><Image image="Banner_BaseMissions_desaturated" width="350" height="90"></Image></Cell>
                 <Cell><Image image="Banner_BiomeMissions" width="350" height="90"></Image></Cell>
                 <Cell><Image image="Banner_SpaceRigMissions" width="350" height="90"></Image></Cell>
             </Row>
@@ -54,7 +77,7 @@
 
             <Row preferredHeight="50">
                 <Cell></Cell>
-                <Cell><Image image="Banner_Difficulty_1" width="300" height="50"></Image></Cell>
+                <Cell><Image image="Banner_Difficulty_1" width="350" height="50"></Image></Cell>
                 <Cell></Cell>
             </Row>
 
@@ -63,7 +86,7 @@
 
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="setupMission1">
+                    <Button class="missionButton" onClick="mission1DetailsUI">
                         <Image class="mapImage" image="M1"></Image></Button>
                 </Cell>
                 <Cell>
@@ -95,6 +118,26 @@
     text="X"
     onClick="missionMenuOffButtonOn">
 </Button>
+</Panel>
+
+<Panel id="mission1Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="mission1Table">
+        <Row preferredHeight="90">
+            <Cell>
+            <Button onClick="closePanelOpenBasePanel(mission1Panel)"><Image image="BackButton" width="220" height="90"></Image></Button>
+            </Cell>
+            <Cell><Image image="SetupMissionButton" width="220" height="90"></Image></Cell>
+        </Row>
+
+        <Row preferredHeight="715">
+            <Cell>
+                <Image class="mapDetailImage" image="M1A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="M1B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
 </Panel>
 
 <!-- Cleanup/Show Maps button -->
