@@ -414,11 +414,11 @@ function showMissionSelectButton()
 end
 
 function hideMissionSelectMenu()
-    UI.setAttribute("missionSelect", "active", false)
+    UI.setAttribute("missionSelectBase", "active", false)
 end
 
 function showMissionSelectMenu()
-    UI.setAttribute("missionSelect", "active", true)
+    UI.setAttribute("missionSelectBase", "active", true)
 end
 
 function missionMenuOffButtonOn()

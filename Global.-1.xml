@@ -4,17 +4,17 @@
     <Panel class="MissionPanel"  color="#8F8478" outline="#635351" outlineSize="2 -2"/>
     <Button class="missionButton" padding="0 0 145 0" textColor="#FFFFFF"
         colors="rgba(0.14,0.26,0.13,1)|rgba(0.17,0.3,0.13,1)|rgba(0.45,0.72,0.15,1)|rgba(0.78,0.78,0.78,0.5)"/>
-    <Image class="mapImage" width="390" height="600" rectAlignment="UpperCenter" offsetXY="0 -3"/>
+    <Image class="mapImage" width="350" height="350" rectAlignment="UpperCenter" offsetXY="0 -3"/>
 </Defaults>
 
 <!-- Mission Select Menu-->
-<Panel id="missionSelect" class="MissionPanel"
+<Panel id="missionSelectBase" class="MissionPanel"
     active="false"
     width="1400"
     height="1000"
-    color="rgba(0.83,0.73,0.2,1)"
+    color="rgba(0,0,0,0.5)"
     rectAlignment="UpperCenter"
-    offsetXY="0 -0"
+    offsetXY="0 -50"
     allowDragging="true"
     showAnimation="FadeIn"
     showAnimationDelay="2"
@@ -27,50 +27,50 @@
         scrollbarColors="grey|rgba(0.83,0.73,0.2,1)|orange|black"
         width="1400"
         height="1000"
-        color="rgba(0,0,0,1)">
+        color="rgba(0,0,0,0)">
         <!-- scroll bar colors
         first = unfocused
         second = focused
         third = active -->
         <TableLayout
-            padding="100 100 50 50"
-            columnWidths="390 390 390"
+            padding="150 150 50 50"
+            columnWidths="350 350 350"
             cellSpacing="10"
             useGlobalCellPadding="true"
             autoCalculateHeight="true">
+            <Row preferredHeight="90">
+                <Cell><Image image="Banner_BaseMissions" width="350" height="90"></Image></Cell>
+                <Cell><Image image="Banner_BiomeMissions" width="350" height="90"></Image></Cell>
+                <Cell><Image image="Banner_SpaceRigMissions" width="350" height="90"></Image></Cell>
+            </Row>
+
+            <!--
             <Row preferredHeight="100">
                 <Cell></Cell>
-                <Cell><Image image="Banner_BaseMissions" width="390" height="93"></Image></Cell>
+                <Cell><Image image="Banner_MixedMissions" width="390" height="93"></Image></Cell>
+                <Cell></Cell>
+            </Row>
+            -->
+
+            <Row preferredHeight="50">
+                <Cell></Cell>
+                <Cell><Image image="Banner_Difficulty_1" width="300" height="50"></Image></Cell>
                 <Cell></Cell>
             </Row>
 
-            <Row preferredHeight="600">
+            <Row preferredHeight="350">
+                <Cell>
+
+                </Cell>
                 <Cell>
                     <Button class="missionButton" onClick="setupMission1">
-                    <Image class="mapImage" image="Mission1Big"></Image></Button>
-                </Cell>
-                <Cell>
-                    <Button class="missionButton" onClick="setupMission2">
-                        <Image class="mapImage" image="Mission2Big"></Image></Button>
-                </Cell>
-                <Cell>
-                    <Button class="missionButton" onClick="setupMission3">
-                    <Image class="mapImage" image="Mission3Big"></Image></Button>
-                </Cell>
-            </Row>
-
-            <Row preferredHeight="600">
-                <Cell>
-                    <Button class="missionButton" onClick="setupMission4">
-                    <Image class="mapImage" image="Mission4Big"></Image></Button>
-                </Cell>
-                <Cell>
-
+                        <Image class="mapImage" image="M1"></Image></Button>
                 </Cell>
                 <Cell>
 
                 </Cell>
             </Row>
+
             <!--
             <Row preferredHeight="600">
                 <Cell>
