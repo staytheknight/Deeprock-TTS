@@ -8,7 +8,7 @@
         color="rgba(0,0,0,0.5)"
         rectAlignment="UpperCenter"
         offsetXY="0 -50"
-        allowDragging="true"
+        allowDragging="false"
         showAnimation="FadeIn"
         showAnimationDelay="2"
         returnToOriginalPositionWhenReleased="false"/>
@@ -20,13 +20,12 @@
         color="rgba(0,0,0,0.5)"
         rectAlignment="UpperCenter"
         offsetXY="0 -50"
-        allowDragging="true"
+        allowDragging="false"
         showAnimation="FadeIn"
         showAnimationDelay="2"
         returnToOriginalPositionWhenReleased="false"/>
 
-    <Button
-        class="closeButton"
+    <Button class="closeButton"
         width="40"
         height="40"
         rectAlignment="UpperRight"
@@ -55,7 +54,7 @@
         offsetXY="0 -00"
         scrollSensitivity="40"
         padding="0 0 50 0"
-        scrollbarColors="grey|rgba(0.83,0.73,0.2,1)|orange|black"
+        scrollbarColors="rgba(0.83,0.73,0.2,1)|rgba(0.83,0.73,0.2,1)|rgba(0.83,0.73,0.2,1)|black"
         width="1400"
         height="1000"
         color="rgba(0,0,0,0)">
@@ -72,7 +71,13 @@
             cellBackgroundColor="rgba(1,1,1,0)">
             <Row preferredHeight="90">
                 <Cell><Image image="Banner_BaseMissions_desaturated" width="350" height="90"></Image></Cell>
-                <Cell><Image image="Banner_BiomeMissions" width="350" height="90"></Image></Cell>
+                <Cell>
+                    <Button onClick="closePanelOpenBasePanel(missionSelectBase missionSelectBiome)" color="rgba(1,1,1,0)"
+                       tooltip="Show Biome Missions">
+                       <Image image="Banner_BiomeMissions" width="350" height="90"></Image>
+                    </Button>
+
+                </Cell>
                 <Cell><Image image="Banner_SpaceRigMissions" width="350" height="90"></Image></Cell>
             </Row>
 
@@ -84,6 +89,9 @@
             </Row>
             -->
 
+            <!--Padding row-->
+            <Row preferredHeight="20"><Cell></Cell><Cell></Cell><Cell></Cell></Row>
+
             <Row preferredHeight="50">
                 <Cell></Cell>
                 <Cell><Image image="Banner_Difficulty_1" width="350" height="50"></Image></Cell>
@@ -91,38 +99,334 @@
             </Row>
 
             <Row preferredHeight="350">
-                <Cell>
-
-                </Cell>
+                <Cell></Cell>
                 <Cell>
                     <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission1Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="M1"></Image></Button>
                 </Cell>
-                <Cell>
+                <Cell></Cell>
+            </Row>
 
+            <!--Padding row-->
+            <Row preferredHeight="20"><Cell></Cell><Cell></Cell><Cell></Cell></Row>
+
+            <Row preferredHeight="50">
+                <Cell></Cell>
+                <Cell><Image image="Banner_Difficulty_2" width="350" height="50"></Image></Cell>
+                <Cell></Cell>
+            </Row>
+
+            <Row preferredHeight="350">
+                <Cell></Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission2Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="M2"></Image></Button>
+                </Cell>
+                <Cell></Cell>
+            </Row>
+
+            <!--Padding row-->
+            <Row preferredHeight="20"><Cell></Cell><Cell></Cell><Cell></Cell></Row>
+
+            <Row preferredHeight="50">
+                <Cell></Cell>
+                <Cell><Image image="Banner_Difficulty_3" width="350" height="50"></Image></Cell>
+                <Cell></Cell>
+            </Row>
+
+            <Row preferredHeight="350">
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission3Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="M3"></Image></Button>
+                </Cell>
+                <Cell></Cell>
+                <Cell><Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission4Panel)"
+                    tooltip="Click for mission details">
+                    <Image class="mapImage" image="M4"></Image></Button></Cell>
+            </Row>
+
+            <!--Padding row-->
+            <Row preferredHeight="20"><Cell></Cell><Cell></Cell><Cell></Cell></Row>
+
+            <Row preferredHeight="50">
+                <Cell></Cell>
+                <Cell><Image image="Banner_Difficulty_4" width="350" height="50"></Image></Cell>
+                <Cell></Cell>
+            </Row>
+
+            <Row preferredHeight="350">
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission5Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="M5"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission6Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="M6"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission7Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="M7"></Image></Button>
                 </Cell>
             </Row>
 
-            <!--
-            <Row preferredHeight="600">
+            <Row preferredHeight="350">
                 <Cell>
-
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission8Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="M8"></Image></Button>
                 </Cell>
                 <Cell>
-
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission9Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="M9"></Image></Button>
                 </Cell>
                 <Cell>
-
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission10Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="M10"></Image></Button>
                 </Cell>
             </Row>
-            -->
+
+            <Row preferredHeight="350">
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission11Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="M11"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission12Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="M12"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission13Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="M13"></Image></Button>
+                </Cell>
+            </Row>
+
+            <Row preferredHeight="350">
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission14Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="M14"></Image></Button>
+                </Cell>
+                <Cell></Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase missionEPanel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="ME"></Image></Button>
+                </Cell>
+            </Row>
+
         </TableLayout>
     </VerticalScrollView>
     <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSelectBase)">
 </Button>
 </Panel>
 
+<Panel id="missionSelectBiome" class="MissionPanel">
+    <VerticalScrollView
+        rectAlignment="LowerCenter"
+        offsetXY="0 -00"
+        scrollSensitivity="40"
+        padding="0 0 50 0"
+        scrollbarColors="blue|blue|blue|black"
+        width="1400"
+        height="1000"
+        color="rgba(0,0,0,0)">
+        <!-- scroll bar colors
+        first = unfocused
+        second = focused
+        third = active -->
+        <TableLayout
+            padding="150 150 50 50"
+            columnWidths="350 350 350"
+            cellSpacing="10"
+            useGlobalCellPadding="true"
+            autoCalculateHeight="true"
+            cellBackgroundColor="rgba(1,1,1,0)">
+            <Row preferredHeight="90">
+                <Cell>
+                    <Button onClick="closePanelOpenBasePanel(missionSelectBiome missionSelectBase)" color="rgba(1,1,1,0)"
+                       tooltip="Show Biome Missions">
+                       <Image image="Banner_BaseMissions" width="350" height="90"></Image>
+                    </Button>
+                </Cell>
+                <Cell><Image image="Banner_BiomeMissions_desaturated" width="350" height="90"></Image></Cell>
+                <Cell><Image image="Banner_SpaceRigMissions" width="350" height="90"></Image></Cell>
+            </Row>
+
+            <!--
+            <Row preferredHeight="100">
+                <Cell></Cell>
+                <Cell><Image image="Banner_MixedMissions" width="390" height="93"></Image></Cell>
+                <Cell></Cell>
+            </Row>
+            -->
+
+            <!--Padding row-->
+            <Row preferredHeight="20"><Cell></Cell><Cell></Cell><Cell></Cell></Row>
+
+            <Row preferredHeight="50">
+                <Cell></Cell>
+                <Cell><Image image="Banner_Difficulty_2" width="350" height="50"></Image></Cell>
+                <Cell></Cell>
+            </Row>
+
+            <Row preferredHeight="350">
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB1Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM1"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB2Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM2"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB2Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM2"></Image></Button>
+                </Cell>
+            </Row>
+
+            <!--Padding row-->
+            <Row preferredHeight="20"><Cell></Cell><Cell></Cell><Cell></Cell></Row>
+
+            <Row preferredHeight="50">
+                <Cell></Cell>
+                <Cell><Image image="Banner_Difficulty_3" width="350" height="50"></Image></Cell>
+                <Cell></Cell>
+            </Row>
+
+            <Row preferredHeight="350">
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB4Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM4"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB5Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM5"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB5Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM5"></Image></Button>
+                </Cell>
+            </Row>
+
+            <Row preferredHeight="350">
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB6Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM6"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB7Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM7"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB8Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM8"></Image></Button>
+                </Cell>
+            </Row>
+
+            <Row preferredHeight="350">
+                <Cell></Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB9Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM9"></Image></Button>
+                </Cell>
+                <Cell></Cell>
+            </Row>
+
+            <!--Padding row-->
+            <Row preferredHeight="20"><Cell></Cell><Cell></Cell><Cell></Cell></Row>
+
+            <Row preferredHeight="50">
+                <Cell></Cell>
+                <Cell><Image image="Banner_Difficulty_4" width="350" height="50"></Image></Cell>
+                <Cell></Cell>
+            </Row>
+
+            <Row preferredHeight="350">
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB10Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM10"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB11Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM11"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB12Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM12"></Image></Button>
+                </Cell>
+            </Row>
+
+            <Row preferredHeight="350">
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB13Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM13"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB14Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM14"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB15Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM15"></Image></Button>
+                </Cell>
+            </Row>
+
+            <Row preferredHeight="350">
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB16Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM16"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB17Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM17"></Image></Button>
+                </Cell>
+                <Cell>
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB18Panel)"
+                        tooltip="Click for mission details">
+                        <Image class="mapImage" image="BM18"></Image></Button>
+                </Cell>
+            </Row>
+
+        </TableLayout>
+    </VerticalScrollView>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSelectBiome)">
+</Button>
+</Panel>
+
+<!-- ideally I would want each of these panels on their own object, but I could not
+figure out how to get them to render while on their own object - so unfortunately they are
+all here in global - enjoy the mess!-->
+
+<!-- Base mission details-->
 <Panel id="mission1Panel" class="MissionDetailPanel">
     <TableLayout class="missionDetailTable" id="mission1Table" cellBackgroundColor="rgba(1,1,1,0)">
         <Row preferredHeight="90">
@@ -150,6 +454,935 @@
         </Row>
     </TableLayout>
     <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission1Panel)"></Button>
+</Panel>
+
+<Panel id="mission2Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="mission2Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(mission2Panel missionSelectBase)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(mission2Panel 2)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="M2A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="M2B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission2Panel)"></Button>
+</Panel>
+
+<Panel id="mission3Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="mission2Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(mission3Panel missionSelectBase)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(mission3Panel 2)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="M3A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="M3B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission3Panel)"></Button>
+</Panel>
+
+<Panel id="mission4Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="mission4Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(mission4Panel missionSelectBase)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(mission4Panel 4)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="M4A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="M4B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission4Panel)"></Button>
+</Panel>
+
+<Panel id="mission5Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="mission5Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(mission5Panel missionSelectBase)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(mission5Panel 5)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="M5A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="M5B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission5Panel)"></Button>
+</Panel>
+
+<Panel id="mission6Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="mission6Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(mission6Panel missionSelectBase)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(mission6Panel 6)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="M6A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="M6B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission6Panel)"></Button>
+</Panel>
+
+<Panel id="mission7Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="mission7Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(mission7Panel missionSelectBase)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(mission7Panel 7)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="M7A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="M7B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission7Panel)"></Button>
+</Panel>
+
+<Panel id="mission8Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="mission8Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(mission8Panel missionSelectBase)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(mission8Panel 8)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="M8A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="M8B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission8Panel)"></Button>
+</Panel>
+
+<Panel id="mission9Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="mission9Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(mission9Panel missionSelectBase)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(mission9Panel 9)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="M9A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="M9B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission9Panel)"></Button>
+</Panel>
+
+<Panel id="mission10Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="mission10Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(mission10Panel missionSelectBase)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(mission10Panel 10)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="M10A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="M10B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission10Panel)"></Button>
+</Panel>
+
+<Panel id="mission11Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="mission11Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(mission11Panel missionSelectBase)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(mission11Panel 11)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="M11A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="M11B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission11Panel)"></Button>
+</Panel>
+
+<Panel id="mission12Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="mission12Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(mission12Panel missionSelectBase)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(mission12Panel 12)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="M12A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="M12B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission12Panel)"></Button>
+</Panel>
+
+<Panel id="mission13Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="mission13Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(mission13Panel missionSelectBase)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(mission12Panel 13)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="M13A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="M13B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission13Panel)"></Button>
+</Panel>
+
+<Panel id="mission14Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="mission14Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(mission14Panel missionSelectBase)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(mission14Panel 14)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="M14A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="M14B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission14Panel)"></Button>
+</Panel>
+
+<Panel id="missionEPanel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionETable" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionEPanel missionSelectBase)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionEPanel E)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="MEA"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="MEB"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionEPanel)"></Button>
+</Panel>
+
+<!-- Biome mission details-->
+<Panel id="missionB1Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB1Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB1Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB1Panel B1)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM1A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM1B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB1Panel)"></Button>
+</Panel>
+
+<Panel id="missionB2Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB2Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB2Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB2Panel B1)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM2A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM2B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB2Panel)"></Button>
+</Panel>
+
+<Panel id="missionB3Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB3Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB3Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB3Panel B3)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM3A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM3B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB3Panel)"></Button>
+</Panel>
+
+<Panel id="missionB4Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB4Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB4Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB4Panel B4)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM4A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM4B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB4Panel)"></Button>
+</Panel>
+
+<Panel id="missionB5Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB5Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB5Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB5Panel B4)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM5A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM5B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB5Panel)"></Button>
+</Panel>
+
+<Panel id="missionB6Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB6Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB6Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB6Panel B6)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM6A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM6B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB6Panel)"></Button>
+</Panel>
+
+<Panel id="missionB7Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB7Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB7Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB7Panel B7)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM7A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM7B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB7Panel)"></Button>
+</Panel>
+
+<Panel id="missionB8Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB8Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB8Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB8Panel B8)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM8A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM8B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB8Panel)"></Button>
+</Panel>
+
+<Panel id="missionB9Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB9Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB9Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB9Panel B9)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM9A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM9B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB9Panel)"></Button>
+</Panel>
+
+<Panel id="missionB10Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB10Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB10Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB10Panel B10)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM10A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM10B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB10Panel)"></Button>
+</Panel>
+
+<Panel id="missionB11Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB11Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB11Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB11Panel B11)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM11A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM11B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB11Panel)"></Button>
+</Panel>
+
+<Panel id="missionB12Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB12Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB12Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB12Panel B12)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM12A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM12B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB12Panel)"></Button>
+</Panel>
+
+<Panel id="missionB13Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB13Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB13Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB13Panel B13)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM13A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM13B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB13Panel)"></Button>
+</Panel>
+
+<Panel id="missionB14Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB14Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB14Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB14Panel B14)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM14A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM14B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB14Panel)"></Button>
+</Panel>
+
+<Panel id="missionB15Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB15Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB15Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB15Panel B15)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM15A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM15B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB15Panel)"></Button>
+</Panel>
+
+<Panel id="missionB16Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB16Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB16Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB16Panel B16)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM16A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM16B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB16Panel)"></Button>
+</Panel>
+
+<Panel id="missionB17Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB17Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB17Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB17Panel B17)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM17A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM17B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB17Panel)"></Button>
+</Panel>
+
+<Panel id="missionB18Panel" class="MissionDetailPanel">
+    <TableLayout class="missionDetailTable" id="missionB18Table" cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionB18Panel missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelSetupMission(missionB18Panel B18)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
+        </Row>
+
+        <Row preferredHeight="850">
+            <Cell>
+                <Image class="mapDetailImage" image="BM18A"></Image>
+            </Cell>
+            <Cell>
+                <Image class="mapDetailImage" image="BM18B"></Image>
+            </Cell>
+        </Row>
+    </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB18Panel)"></Button>
 </Panel>
 
 <!-- Cleanup/Show Maps button -->
