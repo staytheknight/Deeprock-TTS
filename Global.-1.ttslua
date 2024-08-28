@@ -405,30 +405,13 @@ end
 
 
 -- Toggles for UI elements
-function hideMissionSelectButton()
-    UI.setAttribute("setup", "active", false)
+
+function showPanel(player, panel)
+    UI.setAttribute(panel, "active", true)
 end
 
 function showMissionSelectButton()
     UI.setAttribute("setup", "active", true)
-end
-
-function hideMissionSelectMenu()
-    UI.setAttribute("missionSelectBase", "active", false)
-end
-
-function showMissionSelectMenu()
-    UI.setAttribute("missionSelectBase", "active", true)
-end
-
-function missionMenuOffButtonOn()
-    hideMissionSelectMenu()
-    showMissionSelectButton()
-end
-
-function missionMenuOnButtonOff()
-    showMissionSelectMenu()
-    hideMissionSelectButton()
 end
 
 -- gets one string parameter containing two strings separated by a space
@@ -444,9 +427,20 @@ function closePanelOpenBasePanel(player,panels)
     UI.setAttribute(openPanel, "active", true)
 end
 
-function mission1DetailsUI()
-    hideMissionSelectMenu()
-    UI.setAttribute("mission1Panel", "active", true)
+-- closes the active panel and shows the mission setup button
+function closeActivePanel(player, panel)
+    UI.setAttribute(panel, "active", false)
+    showMissionSelectButton()
+end
+
+function closePanelSetupMission(player, params)
+    i = string.find(params," ")
+    length = string.len(params)
+    closePanel = string.sub(params,0,i-1)
+    mission = string.sub(params,i+1,length)
+
+    UI.setAttribute(closePanel, "active", false)
+
 end
 
 -- Takes all the tiles from the individual space rig explore tokens
@@ -560,7 +554,7 @@ end
 -- TODO: Clean up these function calls into one dynamic one
 --  setupMission(mission#) ect ...
 
--- Calls to mission Setups
+
 function setupMission1()
     -- Mission board variable assignment is set again here due to
     -- cleanup script interfeering

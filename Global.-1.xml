@@ -25,6 +25,14 @@
         showAnimationDelay="2"
         returnToOriginalPositionWhenReleased="false"/>
 
+    <Button
+        class="closeButton"
+        width="40"
+        height="40"
+        rectAlignment="UpperRight"
+        color="orange"
+        textColor="black"
+        text="X"/>
 
     <Button class="missionButton" padding="0 0 145 0" textColor="#FFFFFF"
         colors="rgba(0.14,0.26,0.13,1)|rgba(0.17,0.3,0.13,1)|rgba(0.45,0.72,0.15,1)|rgba(0.78,0.78,0.78,0.5)"/>
@@ -33,8 +41,8 @@
     <Image class="mapDetailImage" width="350" height="595" rectAlignment="UpperCenter" offsetXY="0 -3"/>
 
     <TableLayout class="missionDetailTable"
-        padding="150 150 50 50"
-        columnWidths="500 500"
+        padding="100 100 50 50"
+        columnWidths="600 600"
         cellSpacing="10"
         useGlobalCellPadding="true"
         autoCalculateHeight="true"/>
@@ -60,7 +68,8 @@
             columnWidths="350 350 350"
             cellSpacing="10"
             useGlobalCellPadding="true"
-            autoCalculateHeight="true">
+            autoCalculateHeight="true"
+            cellBackgroundColor="rgba(1,1,1,0)">
             <Row preferredHeight="90">
                 <Cell><Image image="Banner_BaseMissions_desaturated" width="350" height="90"></Image></Cell>
                 <Cell><Image image="Banner_BiomeMissions" width="350" height="90"></Image></Cell>
@@ -86,7 +95,8 @@
 
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="mission1DetailsUI">
+                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission1Panel)"
+                        tooltip="Click for mission details">
                         <Image class="mapImage" image="M1"></Image></Button>
                 </Cell>
                 <Cell>
@@ -109,27 +119,28 @@
             -->
         </TableLayout>
     </VerticalScrollView>
-    <Button id="closeButton"
-    width="40"
-    height="40"
-    rectAlignment="UpperRight"
-    color="orange"
-    textColor="black"
-    text="X"
-    onClick="missionMenuOffButtonOn">
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSelectBase)">
 </Button>
 </Panel>
 
 <Panel id="mission1Panel" class="MissionDetailPanel">
-    <TableLayout class="missionDetailTable" id="mission1Table">
+    <TableLayout class="missionDetailTable" id="mission1Table" cellBackgroundColor="rgba(1,1,1,0)">
         <Row preferredHeight="90">
             <Cell>
-            <Button onClick="closePanelOpenBasePanel(mission1Panel missionSelectBase)"><Image image="BackButton" width="220" height="90"></Image></Button>
+                <Button onClick="closePanelOpenBasePanel(mission1Panel missionSelectBase)" color="rgba(1,1,1,0)"
+                    tooltip="Click to go back">
+                    <Image image="BackButton" width="220" height="90"></Image>
+                </Button>
             </Cell>
-            <Cell><Image image="SetupMissionButton" width="220" height="90"></Image></Cell>
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(mission1Panel missionSelectBase)" color="rgba(1,1,1,0)"
+                    tooltip="Click to set up mission">
+                    <Image image="SetupMissionButton" width="220" height="90"></Image>
+                </Button>
+            </Cell>
         </Row>
 
-        <Row preferredHeight="715">
+        <Row preferredHeight="850">
             <Cell>
                 <Image class="mapDetailImage" image="M1A"></Image>
             </Cell>
@@ -138,6 +149,7 @@
             </Cell>
         </Row>
     </TableLayout>
+    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission1Panel)"></Button>
 </Panel>
 
 <!-- Cleanup/Show Maps button -->
@@ -158,7 +170,7 @@
         text="Mission
         Setup"
         fontStyle="bold"
-        onClick="missionMenuOnButtonOff">
+        onClick="showPanel(missionSelectBase)">
         <Image class="setupButtonClass" image="MissionSetupButton"></Image>
     </Button>
 </Panel>
