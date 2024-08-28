@@ -431,11 +431,17 @@ function missionMenuOnButtonOff()
     hideMissionSelectButton()
 end
 
--- ideally a openPanel parameter would be passed, but I can't figure
--- out how to pass more than one parameter from an onClick function (might not be possible)
-function closePanelOpenBasePanel(player,closePanel)
+-- gets one string parameter containing two strings separated by a space
+-- the first string is the panel that should be closed
+-- the second string is the panel that should be opened
+function closePanelOpenBasePanel(player,panels)
+    i = string.find(panels," ")
+    length = string.len(panels)
+    closePanel = string.sub(panels,0,i-1)
+    openPanel = string.sub(panels,i+1,length)
+
     UI.setAttribute(closePanel, "active", false)
-    showMissionSelectMenu()
+    UI.setAttribute(openPanel, "active", true)
 end
 
 function mission1DetailsUI()

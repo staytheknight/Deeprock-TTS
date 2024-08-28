@@ -124,7 +124,7 @@
     <TableLayout class="missionDetailTable" id="mission1Table">
         <Row preferredHeight="90">
             <Cell>
-            <Button onClick="closePanelOpenBasePanel(mission1Panel)"><Image image="BackButton" width="220" height="90"></Image></Button>
+            <Button onClick="closePanelOpenBasePanel(mission1Panel missionSelectBase)"><Image image="BackButton" width="220" height="90"></Image></Button>
             </Cell>
             <Cell><Image image="SetupMissionButton" width="220" height="90"></Image></Cell>
         </Row>
