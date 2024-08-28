@@ -133,7 +133,7 @@
                 </Button>
             </Cell>
             <Cell>
-                <Button onClick="closePanelOpenBasePanel(mission1Panel missionSelectBase)" color="rgba(1,1,1,0)"
+                <Button onClick="closePanelSetupMission(mission1Panel 1)" color="rgba(1,1,1,0)"
                     tooltip="Click to set up mission">
                     <Image image="SetupMissionButton" width="220" height="90"></Image>
                 </Button>

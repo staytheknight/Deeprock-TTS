@@ -14,7 +14,8 @@ mission1Positions = {
 }
 
 -- Setup mission 1
-function setupMission1()
+--function setupMission1()
+function setup()
     print("Launching Mission 1: New Darkness, New Fortunes\nGood Luck Miners!\n")
 
     -- These cards must be removed from the start of the mission

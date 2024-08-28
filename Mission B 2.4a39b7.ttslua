@@ -18,7 +18,7 @@
     {5.50, 1.20, -3.61},{6.05, 1.21, 1.15},{6.60, 1.21, 4.01},{6.05, 1.21, 4.96}}
 }
 
-function setupMissionB2()
+function setup()
     print("Launching Mission 2: Mucus Mining\nGood Luck Miners!\n")
 
     local caveBag = Global.call('getCaveBag')

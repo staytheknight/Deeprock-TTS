@@ -16,7 +16,7 @@ mission4Positions = {
     hiddenCaveRot2 = {{0.00, 180.08, 0.00},{0.00, 300.04, 0.00},{0.00, 60.20, 0.00}}
 }
 
-function setupMission4()
+function setup()
     print("Launching Mission 4: Search 'n' Retrieve\nGood Luck Miners!\n")
 
     local caveBag = Global.call('getCaveBag') -- need to call global function to get proper object ID

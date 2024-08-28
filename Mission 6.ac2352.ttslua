@@ -18,7 +18,7 @@ mission6Positions = {
 
 }
 
-function setupMission6()
+function setup()
     print("Launching Mission 6: Cave of the Praetorian\nGood Luck Miners!\n")
 
     local caveBag = Global.call('getCaveBag') -- need to call global function to get proper object ID

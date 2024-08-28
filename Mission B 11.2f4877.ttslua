@@ -16,7 +16,7 @@ missionB11Positions = {
     {6.05, 1.21, -2.66}}
 }
 
-function setupMissionB11()
+function setup()
     print("Launching Mission 11: Fiary Ring of Trouble\nGood Luck Miners!\n")
 
     local caveBag = Global.call('getCaveBag')

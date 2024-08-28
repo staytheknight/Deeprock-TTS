@@ -14,7 +14,7 @@ missionB4Positions = {
     {-5.50, 1.20, 4.01},{-4.95, 1.19, -2.66}},
 }
 
-function setupMissionB4()
+function setup()
     print("Launching Mission 4: Ice-Olated Caves\nGood Luck Miners!\n")
 
     local caveBag = Global.call('getCaveBag')

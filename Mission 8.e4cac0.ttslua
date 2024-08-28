@@ -18,7 +18,7 @@ mission8Positions = {
     hiddenCaveRot3 = {{0.00, 180.01, 0.00},{0.00, 300.01, 0.00},{0.00, 59.98, 0.00}}
 }
 
-function setupMission8()
+function setup()
     print("Launching Mission 8: Morkite Madness\nGood Luck Miners!\n")
 
     -- This card must be removed from the event Decks

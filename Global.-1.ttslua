@@ -253,46 +253,32 @@ function onLoad()
     -- Missions
     mission1_GUID = 'f156f4'
     mission1 = getObjectFromGUID(mission1_GUID)
-
     mission2_GUID = '5a4b06'
     mission2 = getObjectFromGUID(mission2_GUID)
-
     mission3_GUID = 'c20188'
     mission3 = getObjectFromGUID(mission3_GUID)
-
     mission4_GUID = 'b16ee6'
     mission4 = getObjectFromGUID(mission4_GUID)
-
     mission5_GUID = '227375'
     mission5 = getObjectFromGUID(mission5_GUID)
-
     mission6_GUID = 'ac2352'
     mission6 = getObjectFromGUID(mission6_GUID)
-
     mission7_GUID = '37a0da'
     mission7 = getObjectFromGUID(mission7_GUID)
-
     mission8_GUID = 'e4cac0'
     mission8 = getObjectFromGUID(mission8_GUID)
-
     mission9_GUID = '53a03c'
     mission9 = getObjectFromGUID(mission9_GUID)
-
     mission10_GUID = '61fc53'
     mission10 = getObjectFromGUID(mission10_GUID)
-
     mission11_GUID = '0afc68'
     mission11 = getObjectFromGUID(mission11_GUID)
-
     mission12_GUID = '1f2cad'
     mission12 = getObjectFromGUID(mission12_GUID)
-
     mission13_GUID = '6e50fd'
     mission13 = getObjectFromGUID(mission13_GUID)
-
     mission14_GUID = '03217b'
     mission14 = getObjectFromGUID(mission14_GUID)
-
     missionEssen_GUID = 'fca575'
     missionEssen = getObjectFromGUID(missionEssen_GUID)
 
@@ -360,6 +346,54 @@ function onLoad()
 
     --hideMissionTokens()
 
+    missionDictionary = {
+        ["1"] = mission1,
+        ["2"] = mission2,
+        ["3"] = mission3,
+        ["4"] = mission4,
+        ["5"] = mission5,
+        ["6"] = mission6,
+        ["7"] = mission7,
+        ["8"] = mission8,
+        ["9"] = mission9,
+        ["10"] = mission10,
+        ["11"] = mission11,
+        ["12"] = mission12,
+        ["13"] = mission13,
+        ["14"] = mission14,
+        ["E"] = missionEssen,
+        ["B1"] = missionB1,
+        ["B2"] = missionB2,
+        ["B3"] = missionB3,
+        ["B4"] = missionB4,
+        ["B5"] = missionB5,
+        ["B6"] = missionB6,
+        ["B7"] = missionB7,
+        ["B8"] = missionB8,
+        ["B9"] = missionB9,
+        ["B10"] = missionB10,
+        ["B11"] = missionB11,
+        ["B12"] = missionB12,
+        ["B13"] = missionB13,
+        ["B14"] = missionB14,
+        ["B15"] = missionB15,
+        ["B16"] = missionB16,
+        ["B17"] = missionB17,
+        ["B18"] = missionB18,
+        ["SR1"] = missionSR1,
+        ["SR2"] = missionSR2,
+        ["SR3"] = missionSR3,
+        ["SR4"] = missionSR4,
+        ["SR5"] = missionSR5,
+        ["SR6"] = missionSR6,
+        ["SR7"] = missionSR7,
+        ["SR8"] = missionSR8,
+        ["SR9"] = missionSR9,
+        ["SR10"] = missionSR10,
+        ["SR11"] = missionSR11,
+        ["SR12"] = missionSR12
+    }
+
     missionCleanup_GUID = '886ff1'
     missionCleanup = getObjectFromGUID(missionCleanup_GUID)
 
@@ -408,6 +442,7 @@ end
 
 function showPanel(player, panel)
     UI.setAttribute(panel, "active", true)
+    UI.setAttribute("setup", "active", false)
 end
 
 function showMissionSelectButton()
@@ -440,7 +475,7 @@ function closePanelSetupMission(player, params)
     mission = string.sub(params,i+1,length)
 
     UI.setAttribute(closePanel, "active", false)
-
+    setupMission(mission)
 end
 
 -- Takes all the tiles from the individual space rig explore tokens
@@ -535,252 +570,23 @@ end
 -- Shrinks mission tokens so they are not accessible
 -- These objects store the scripts for the mission setups and should not be deleted
 function hideMissionTokens()
-    missionName = {
-    mission1, mission2, mission3, mission4, mission5,
-    mission6, mission7, mission8, mission9, mission10,
-    mission11, mission12, mission13, mission14, missionEssen,
-    missionB1, missionB2, missionB3, missionB4, missionB5,
-    missionB6, missionB7, missionB8, missionB9, missionB10,
-    missionB11, missionB12, missionB13, missionB14, missionB15,
-    missionB16, missionB17, missionB18, missionSR1, missionSR2,
-    missionSR3, missionSR4, missionSR5, missionSR6, missionSR7,
-    missionSR8, missionSR9, missionSR10, missionSR11, missionSR12}
-    for i=1, 45 do
-        missionName[i].setScale{0.0,0.0,0.0}
+    for _, k in pairs(missionDictionary) do
+        k.setScale{0.0,0.0,0.0}
     end
 
+    --for i=1, 45 do
+    --    missionName[i].setScale{0.0,0.0,0.0}
+    --end
+
 end
 
--- TODO: Clean up these function calls into one dynamic one
+
 --  setupMission(mission#) ect ...
-
-
-function setupMission1()
-    -- Mission board variable assignment is set again here due to
-    -- cleanup script interfeering
-    mission1.call('setupMission1')
+function setupMission(mission)
+    missionDictionary[mission].call('setup')
     Setup()
 end
 
-function setupMission2()
-    mission2.call('setupMission2')
-    Setup()
-end
-
-function setupMission3()
-    mission3.call('setupMission3')
-    Setup()
-end
-
-function setupMission4()
-    mission4.call('setupMission4')
-    Setup()
-end
-
-function setupMission5()
-    mission5.call('setupMission5')
-    Setup()
-end
-
-function setupMission6()
-    mission6.call('setupMission6')
-    Setup()
-end
-
-function setupMission7()
-    mission7.call('setupMission7')
-    Setup()
-end
-
-function setupMission8()
-    mission8.call('setupMission8')
-    Setup()
-end
-
-function setupMission9()
-    mission9.call('setupMission9')
-    Setup()
-end
-
-function setupMission10()
-    mission10.call('setupMission10')
-    Setup()
-end
-
-function setupMission11()
-    mission11.call('setupMission11')
-    Setup()
-end
-
-function setupMission12()
-    mission12.call('setupMission12')
-    Setup()
-end
-
-function setupMission13()
-    mission13.call('setupMission13')
-    Setup()
-end
-
-function setupMission14()
-    mission14.call('setupMission14')
-    Setup()
-end
-
-function setupMissionEssen()
-    missionEssen.call('setupMissionEssen')
-    Setup()
-end
-
-function setupMissionB1()
-    missionB1.call('setupMissionB1')
-    Setup()
-end
-
-function setupMissionB2()
-    missionB2.call('setupMissionB2')
-    Setup()
-end
-
-function setupMissionB3()
-    missionB3.call('setupMissionB3')
-    Setup()
-end
-
-function setupMissionB4()
-    missionB4.call('setupMissionB4')
-    Setup()
-end
-
-function setupMissionB5()
-    missionB5.call('setupMissionB5')
-    Setup()
-end
-
-function setupMissionB6()
-    missionB6.call('setupMissionB6')
-    Setup()
-end
-
-function setupMissionB7()
-    missionB7.call('setupMissionB7')
-    Setup()
-end
-
-function setupMissionB8()
-    missionB8.call('setupMissionB8')
-    Setup()
-end
-
-function setupMissionB9()
-    missionB9.call('setupMissionB9')
-    Setup()
-end
-
-function setupMissionB10()
-    missionB10.call('setupMissionB10')
-    Setup()
-end
-
-function setupMissionB11()
-    missionB11.call('setupMissionB11')
-    Setup()
-end
-
-function setupMissionB12()
-    missionB12.call('setupMissionB12')
-    Setup()
-end
-
-function setupMissionB13()
-    missionB13.call('setupMissionB13')
-    Setup()
-end
-
-function setupMissionB14()
-    missionB14.call('setupMissionB14')
-    Setup()
-end
-
-function setupMissionB15()
-    missionB15.call('setupMissionB15')
-    Setup()
-end
-
-function setupMissionB16()
-    missionB16.call('setupMissionB16')
-    Setup()
-end
-
-function setupMissionB17()
-    missionB17.call('setupMissionB17')
-    Setup()
-end
-
-function setupMissionB18()
-    missionB18.call('setupMissionB18')
-    Setup()
-end
-
-function setupMissionSR1()
-    missionSR1.call('setupMissionSR1')
-    Setup()
-end
-
-function setupMissionSR2()
-    missionSR2.call('setupMissionSR2')
-    Setup()
-end
-
-function setupMissionSR3()
-    missionSR3.call('setupMissionSR3')
-    Setup()
-end
-
-function setupMissionSR4()
-    missionSR4.call('setupMissionSR4')
-    Setup()
-end
-
-function setupMissionSR5()
-    missionSR5.call('setupMissionSR5')
-    Setup()
-end
-
-function setupMissionSR6()
-    missionSR6.call('setupMissionSR6')
-    Setup()
-end
-
-function setupMissionSR7()
-    missionSR7.call('setupMissionSR7')
-    Setup()
-end
-
-function setupMissionSR8()
-    missionSR8.call('setupMissionSR8')
-    Setup()
-end
-
-function setupMissionSR9()
-    missionSR9.call('setupMissionSR9')
-    Setup()
-end
-
-function setupMissionSR10()
-    missionSR10.call('setupMissionSR10')
-    Setup()
-end
-
-function setupMissionSR11()
-    missionSR11.call('setupMissionSR11')
-    Setup()
-end
-
-function setupMissionSR12()
-    missionSR12.call('setupMissionSR12')
-    Setup()
-end
 
 -- Object getters
 function getMissionBook()

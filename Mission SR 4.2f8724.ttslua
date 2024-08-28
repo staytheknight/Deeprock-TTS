@@ -16,7 +16,7 @@ missionSR4Positions = {
     {6.60, 1.21, -1.71},{-0.55, 1.20, 4.96},{-5.50, 1.19, -3.61},{-6.05, 1.19, -4.56}}
 }
 
-function setupMissionSR4()
+function setup()
     print("Launching Mission 4: Eggciting Opportunities\nGood Luck Miners!\n")
 
     local caveBag = Global.call('getCaveBag') -- need to call global function to get proper object ID
