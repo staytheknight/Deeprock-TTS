@@ -439,9 +439,16 @@ end
 
 
 -- Toggles for UI elements
+previouslyOpenedPanel = "missionSelectBase"
 
+-- sets the previously opened panel (to make show panel remember)
+function setPreviouslyOpenedPanel(player, panel)
+    previouslyOpenedPanel = panel
+end
+
+-- Opens the previously opened panel
 function showPanel(player, panel)
-    UI.setAttribute(panel, "active", true)
+    UI.setAttribute(previouslyOpenedPanel, "active", true)
     UI.setAttribute("setup", "active", false)
 end
 
@@ -460,6 +467,7 @@ function closePanelOpenBasePanel(player,panels)
 
     UI.setAttribute(closePanel, "active", false)
     UI.setAttribute(openPanel, "active", true)
+    setPreviouslyOpenedPanel(player, openPanel)
 end
 
 -- closes the active panel and shows the mission setup button

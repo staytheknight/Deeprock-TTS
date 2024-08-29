@@ -1903,7 +1903,7 @@ all here in global - enjoy the mess!-->
         text="Mission
         Setup"
         fontStyle="bold"
-        onClick="showPanel(missionSelectBase)">
+        onClick="showPanel">
         <Image class="setupButtonClass" image="MissionSetupButton"></Image>
     </Button>
 </Panel>
