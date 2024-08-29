@@ -17,7 +17,7 @@ missionEssenPositions = {
 }
 
 function setup()
-    print("Launching Mission Essen: Hot Times on Hoxxes\nGood Luck Miners!\n")
+    print("Launching Mission Essen: Eggs and Gems\nGood Luck Miners!\n")
 
     local caveBag = Global.call('getCaveBag')
     local biomeCaveBag = Global.call('getBiomeCaveBag')

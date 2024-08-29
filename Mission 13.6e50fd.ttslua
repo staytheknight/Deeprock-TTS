@@ -246,7 +246,7 @@ function setup()
         if not Global.call('isBagEmpty',lootBugBag) then
             lootBugBag.takeObject({
                 position = mission13Positions.lootbugs[i],
-                rotation = {0.0, 150.0, 0.0}
+                rotation = {0.0, 300.0, 0.0}
             })
         else
             print("Warning: Unable to set up mission specific loot bugs, loot bug bag is empty")
