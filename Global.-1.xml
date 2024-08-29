@@ -25,12 +25,34 @@
         showAnimationDelay="2"
         returnToOriginalPositionWhenReleased="false"/>
 
-    <Button class="closeButton"
+    <Button class="closeButtonBase"
         width="40"
         height="40"
         rectAlignment="UpperRight"
-        color="orange"
+        color="Yellow"
         textColor="black"
+        fontStyle="bold"
+        fontSize="20"
+        text="X"/>
+
+    <Button class="closeButtonBiome"
+        width="40"
+        height="40"
+        rectAlignment="UpperRight"
+        color="Blue"
+        textColor="black"
+        fontStyle="bold"
+        fontSize="20"
+        text="X"/>
+
+    <Button class="closeButtonSR"
+        width="40"
+        height="40"
+        rectAlignment="UpperRight"
+        color="Orange"
+        textColor="black"
+        fontStyle="bold"
+        fontSize="20"
         text="X"/>
 
     <Button class="missionButton" padding="0 0 145 0" textColor="#FFFFFF"
@@ -233,7 +255,7 @@
 
         </TableLayout>
     </VerticalScrollView>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSelectBase)">
+    <Button class="closeButtonBase" id="closeButton" onClick="closeActivePanel(missionSelectBase)">
 </Button>
 </Panel>
 
@@ -419,7 +441,7 @@
 
         </TableLayout>
     </VerticalScrollView>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSelectBiome)">
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionSelectBiome)">
 </Button>
 </Panel>
 
@@ -569,7 +591,7 @@
 
         </TableLayout>
     </VerticalScrollView>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSelectSR)">
+    <Button class="closeButtonSR" id="closeButton" onClick="closeActivePanel(missionSelectSR)">
 </Button>
 </Panel>
 
@@ -604,7 +626,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission1Panel)"></Button>
+    <Button class="closeButtonBase" id="closeButton" onClick="closeActivePanel(mission1Panel)"></Button>
 </Panel>
 
 <Panel id="mission2Panel" class="MissionDetailPanel">
@@ -633,7 +655,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission2Panel)"></Button>
+    <Button class="closeButtonBase" id="closeButton" onClick="closeActivePanel(mission2Panel)"></Button>
 </Panel>
 
 <Panel id="mission3Panel" class="MissionDetailPanel">
@@ -662,7 +684,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission3Panel)"></Button>
+    <Button class="closeButtonBase" id="closeButton" onClick="closeActivePanel(mission3Panel)"></Button>
 </Panel>
 
 <Panel id="mission4Panel" class="MissionDetailPanel">
@@ -691,7 +713,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission4Panel)"></Button>
+    <Button class="closeButtonBase" id="closeButton" onClick="closeActivePanel(mission4Panel)"></Button>
 </Panel>
 
 <Panel id="mission5Panel" class="MissionDetailPanel">
@@ -720,7 +742,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission5Panel)"></Button>
+    <Button class="closeButtonBase" id="closeButton" onClick="closeActivePanel(mission5Panel)"></Button>
 </Panel>
 
 <Panel id="mission6Panel" class="MissionDetailPanel">
@@ -749,7 +771,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission6Panel)"></Button>
+    <Button class="closeButtonBase" id="closeButton" onClick="closeActivePanel(mission6Panel)"></Button>
 </Panel>
 
 <Panel id="mission7Panel" class="MissionDetailPanel">
@@ -778,7 +800,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission7Panel)"></Button>
+    <Button class="closeButtonBase" id="closeButton" onClick="closeActivePanel(mission7Panel)"></Button>
 </Panel>
 
 <Panel id="mission8Panel" class="MissionDetailPanel">
@@ -807,7 +829,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission8Panel)"></Button>
+    <Button class="closeButtonBase" id="closeButton" onClick="closeActivePanel(mission8Panel)"></Button>
 </Panel>
 
 <Panel id="mission9Panel" class="MissionDetailPanel">
@@ -836,7 +858,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission9Panel)"></Button>
+    <Button class="closeButtonBase" id="closeButton" onClick="closeActivePanel(mission9Panel)"></Button>
 </Panel>
 
 <Panel id="mission10Panel" class="MissionDetailPanel">
@@ -865,7 +887,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission10Panel)"></Button>
+    <Button class="closeButtonBase" id="closeButton" onClick="closeActivePanel(mission10Panel)"></Button>
 </Panel>
 
 <Panel id="mission11Panel" class="MissionDetailPanel">
@@ -894,7 +916,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission11Panel)"></Button>
+    <Button class="closeButtonBase" id="closeButton" onClick="closeActivePanel(mission11Panel)"></Button>
 </Panel>
 
 <Panel id="mission12Panel" class="MissionDetailPanel">
@@ -923,7 +945,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission12Panel)"></Button>
+    <Button class="closeButtonBase" id="closeButton" onClick="closeActivePanel(mission12Panel)"></Button>
 </Panel>
 
 <Panel id="mission13Panel" class="MissionDetailPanel">
@@ -952,7 +974,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission13Panel)"></Button>
+    <Button class="closeButtonBase" id="closeButton" onClick="closeActivePanel(mission13Panel)"></Button>
 </Panel>
 
 <Panel id="mission14Panel" class="MissionDetailPanel">
@@ -981,7 +1003,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(mission14Panel)"></Button>
+    <Button class="closeButtonBase" id="closeButton" onClick="closeActivePanel(mission14Panel)"></Button>
 </Panel>
 
 <Panel id="missionEPanel" class="MissionDetailPanel">
@@ -1010,7 +1032,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionEPanel)"></Button>
+    <Button class="closeButtonBase" id="closeButton" onClick="closeActivePanel(missionEPanel)"></Button>
 </Panel>
 
 <!-- Biome mission details-->
@@ -1040,7 +1062,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB1Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB1Panel)"></Button>
 </Panel>
 
 <Panel id="missionB2Panel" class="MissionDetailPanel">
@@ -1069,7 +1091,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB2Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB2Panel)"></Button>
 </Panel>
 
 <Panel id="missionB3Panel" class="MissionDetailPanel">
@@ -1098,7 +1120,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB3Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB3Panel)"></Button>
 </Panel>
 
 <Panel id="missionB4Panel" class="MissionDetailPanel">
@@ -1127,7 +1149,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB4Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB4Panel)"></Button>
 </Panel>
 
 <Panel id="missionB5Panel" class="MissionDetailPanel">
@@ -1156,7 +1178,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB5Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB5Panel)"></Button>
 </Panel>
 
 <Panel id="missionB6Panel" class="MissionDetailPanel">
@@ -1185,7 +1207,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB6Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB6Panel)"></Button>
 </Panel>
 
 <Panel id="missionB7Panel" class="MissionDetailPanel">
@@ -1214,7 +1236,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB7Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB7Panel)"></Button>
 </Panel>
 
 <Panel id="missionB8Panel" class="MissionDetailPanel">
@@ -1243,7 +1265,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB8Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB8Panel)"></Button>
 </Panel>
 
 <Panel id="missionB9Panel" class="MissionDetailPanel">
@@ -1272,7 +1294,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB9Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB9Panel)"></Button>
 </Panel>
 
 <Panel id="missionB10Panel" class="MissionDetailPanel">
@@ -1301,7 +1323,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB10Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB10Panel)"></Button>
 </Panel>
 
 <Panel id="missionB11Panel" class="MissionDetailPanel">
@@ -1330,7 +1352,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB11Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB11Panel)"></Button>
 </Panel>
 
 <Panel id="missionB12Panel" class="MissionDetailPanel">
@@ -1359,7 +1381,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB12Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB12Panel)"></Button>
 </Panel>
 
 <Panel id="missionB13Panel" class="MissionDetailPanel">
@@ -1388,7 +1410,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB13Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB13Panel)"></Button>
 </Panel>
 
 <Panel id="missionB14Panel" class="MissionDetailPanel">
@@ -1417,7 +1439,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB14Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB14Panel)"></Button>
 </Panel>
 
 <Panel id="missionB15Panel" class="MissionDetailPanel">
@@ -1446,7 +1468,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB15Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB15Panel)"></Button>
 </Panel>
 
 <Panel id="missionB16Panel" class="MissionDetailPanel">
@@ -1475,7 +1497,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB16Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB16Panel)"></Button>
 </Panel>
 
 <Panel id="missionB17Panel" class="MissionDetailPanel">
@@ -1504,7 +1526,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB17Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB17Panel)"></Button>
 </Panel>
 
 <Panel id="missionB18Panel" class="MissionDetailPanel">
@@ -1533,7 +1555,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionB18Panel)"></Button>
+    <Button class="closeButtonBiome" id="closeButton" onClick="closeActivePanel(missionB18Panel)"></Button>
 </Panel>
 
 <!-- Space Rig Misson Details-->
@@ -1563,7 +1585,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSR1Panel)"></Button>
+    <Button class="closeButtonSR" id="closeButton" onClick="closeActivePanel(missionSR1Panel)"></Button>
 </Panel>
 
 <Panel id="missionSR2Panel" class="MissionDetailPanel">
@@ -1592,7 +1614,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSR2Panel)"></Button>
+    <Button class="closeButtonSR" id="closeButton" onClick="closeActivePanel(missionSR2Panel)"></Button>
 </Panel>
 
 <Panel id="missionSR3Panel" class="MissionDetailPanel">
@@ -1621,7 +1643,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSR3Panel)"></Button>
+    <Button class="closeButtonSR" id="closeButton" onClick="closeActivePanel(missionSR3Panel)"></Button>
 </Panel>
 
 <Panel id="missionSR4Panel" class="MissionDetailPanel">
@@ -1650,7 +1672,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSR4Panel)"></Button>
+    <Button class="closeButtonSR" id="closeButton" onClick="closeActivePanel(missionSR4Panel)"></Button>
 </Panel>
 
 <Panel id="missionSR5Panel" class="MissionDetailPanel">
@@ -1679,7 +1701,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSR5Panel)"></Button>
+    <Button class="closeButtonSR" id="closeButton" onClick="closeActivePanel(missionSR5Panel)"></Button>
 </Panel>
 
 <Panel id="missionSR6Panel" class="MissionDetailPanel">
@@ -1708,7 +1730,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSR6Panel)"></Button>
+    <Button class="closeButtonSR" id="closeButton" onClick="closeActivePanel(missionSR6Panel)"></Button>
 </Panel>
 
 <Panel id="missionSR7Panel" class="MissionDetailPanel">
@@ -1737,7 +1759,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSR7Panel)"></Button>
+    <Button class="closeButtonSR" id="closeButton" onClick="closeActivePanel(missionSR7Panel)"></Button>
 </Panel>
 
 <Panel id="missionSR8Panel" class="MissionDetailPanel">
@@ -1766,7 +1788,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSR8Panel)"></Button>
+    <Button class="closeButtonSR" id="closeButton" onClick="closeActivePanel(missionSR8Panel)"></Button>
 </Panel>
 
 <Panel id="missionSR9Panel" class="MissionDetailPanel">
@@ -1795,7 +1817,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSR9Panel)"></Button>
+    <Button class="closeButtonSR" id="closeButton" onClick="closeActivePanel(missionSR9Panel)"></Button>
 </Panel>
 
 <Panel id="missionSR10Panel" class="MissionDetailPanel">
@@ -1824,7 +1846,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSR10Panel)"></Button>
+    <Button class="closeButtonSR" id="closeButton" onClick="closeActivePanel(missionSR10Panel)"></Button>
 </Panel>
 
 <Panel id="missionSR11Panel" class="MissionDetailPanel">
@@ -1853,7 +1875,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSR11Panel)"></Button>
+    <Button class="closeButtonSR" id="closeButton" onClick="closeActivePanel(missionSR11Panel)"></Button>
 </Panel>
 
 <Panel id="missionSR12Panel" class="MissionDetailPanel">
@@ -1882,7 +1904,7 @@ all here in global - enjoy the mess!-->
             </Cell>
         </Row>
     </TableLayout>
-    <Button class="closeButton" id="closeButton" onClick="closeActivePanel(missionSR12Panel)"></Button>
+    <Button class="closeButtonSR" id="closeButton" onClick="closeActivePanel(missionSR12Panel)"></Button>
 </Panel>
 
 <!-- Misson Setup button -->

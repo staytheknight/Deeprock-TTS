@@ -443,7 +443,11 @@ previouslyOpenedPanel = "missionSelectBase"
 
 -- sets the previously opened panel (to make show panel remember)
 function setPreviouslyOpenedPanel(player, panel)
-    previouslyOpenedPanel = panel
+    -- Only records the mission select panels 
+    if (panel == "missionSelectBase" or panel == "missionSelectBiome" or panel == "missionSelectSR") then
+        previouslyOpenedPanel = panel
+    end
+
 end
 
 -- Opens the previously opened panel
