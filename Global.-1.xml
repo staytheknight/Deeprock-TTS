@@ -1,13 +1,26 @@
 <!-- Example modified from https://steamcommunity.com/sharedfiles/filedetails/?id=1382344471&searchtext=choose-->
 
 <Defaults>
+    <Panel class="missionTypeButtons"
+        outline="#635351" outlineSize="2 -2"
+            active="false"
+            width="1400"
+            height="100"
+            color="rgba(0,0,0,0.1)"
+            rectAlignment="UpperCenter"
+            offsetXY="0 -50"
+            allowDragging="false"
+            showAnimation="FadeIn"
+            showAnimationDelay="2"
+            returnToOriginalPositionWhenReleased="false"/>
+
     <Panel class="MissionPanel" outline="#635351" outlineSize="2 -2"
         active="false"
         width="1400"
-        height="1000"
-        color="rgba(0,0,0,0.5)"
+        height="950"
+        color="rgba(0,0,0,0.1)"
         rectAlignment="UpperCenter"
-        offsetXY="0 -50"
+        offsetXY="0 -150"
         allowDragging="false"
         showAnimation="FadeIn"
         showAnimationDelay="2"
@@ -16,10 +29,10 @@
     <Panel class="MissionDetailPanel" outline="#635351" outlineSize="2 -2"
         active="false"
         width="1400"
-        height="1000"
-        color="rgba(0,0,0,0.5)"
+        height="950"
+        color="rgba(0,0,0,0.1)"
         rectAlignment="UpperCenter"
-        offsetXY="0 -50"
+        offsetXY="0 -150"
         allowDragging="false"
         showAnimation="FadeIn"
         showAnimationDelay="2"
@@ -62,7 +75,7 @@
     <Image class="mapDetailImage" width="350" height="595" rectAlignment="UpperCenter" offsetXY="0 -3"/>
 
     <TableLayout class="missionDetailTable"
-        padding="100 100 50 50"
+        padding="100 100 0 50"
         columnWidths="600 600"
         cellSpacing="10"
         useGlobalCellPadding="true"
@@ -75,45 +88,22 @@
         rectAlignment="LowerCenter"
         offsetXY="0 -00"
         scrollSensitivity="40"
-        padding="0 0 50 0"
+        padding="0 0 0 0"
         scrollbarColors="rgba(0.83,0.73,0.2,1)|rgba(0.83,0.73,0.2,1)|rgba(0.83,0.73,0.2,1)|black"
         width="1400"
-        height="1000"
+        height="950"
         color="rgba(0,0,0,0)">
         <!-- scroll bar colors
         first = unfocused
         second = focused
         third = active -->
         <TableLayout
-            padding="150 150 50 50"
+            padding="150 150 0 50"
             columnWidths="350 350 350"
             cellSpacing="10"
             useGlobalCellPadding="true"
             autoCalculateHeight="true"
             cellBackgroundColor="rgba(1,1,1,0)">
-            <Row preferredHeight="90">
-                <Cell><Image image="Banner_BaseMissions_desaturated" width="350" height="90"></Image></Cell>
-                <Cell>
-                    <Button onClick="closePanelOpenBasePanel(missionSelectBase missionSelectBiome)" color="rgba(1,1,1,0)"
-                       tooltip="Show Biome Missions">
-                       <Image image="Banner_BiomeMissions" width="350" height="90"></Image>
-                    </Button>
-                </Cell>
-                <Cell>
-                    <Button onClick="closePanelOpenBasePanel(missionSelectBase missionSelectSR)" color="rgba(1,1,1,0)"
-                       tooltip="Show Space Rig Missions">
-                       <Image image="Banner_SpaceRigMissions" width="350" height="90"></Image>
-                   </Button>
-                </Cell>
-            </Row>
-
-            <!--
-            <Row preferredHeight="100">
-                <Cell></Cell>
-                <Cell><Image image="Banner_MixedMissions" width="390" height="93"></Image></Cell>
-                <Cell></Cell>
-            </Row>
-            -->
 
             <!--Padding row-->
             <Row preferredHeight="20"><Cell></Cell><Cell></Cell><Cell></Cell></Row>
@@ -264,45 +254,22 @@
         rectAlignment="LowerCenter"
         offsetXY="0 -00"
         scrollSensitivity="40"
-        padding="0 0 50 0"
+        padding="0 0 0 0"
         scrollbarColors="blue|blue|blue|black"
         width="1400"
-        height="1000"
+        height="950"
         color="rgba(0,0,0,0)">
         <!-- scroll bar colors
         first = unfocused
         second = focused
         third = active -->
         <TableLayout
-            padding="150 150 50 50"
+            padding="150 150 0 50"
             columnWidths="350 350 350"
             cellSpacing="10"
             useGlobalCellPadding="true"
             autoCalculateHeight="true"
             cellBackgroundColor="rgba(1,1,1,0)">
-            <Row preferredHeight="90">
-                <Cell>
-                    <Button onClick="closePanelOpenBasePanel(missionSelectBiome missionSelectBase)" color="rgba(1,1,1,0)"
-                       tooltip="Show Base Game Missions">
-                       <Image image="Banner_BaseMissions" width="350" height="90"></Image>
-                    </Button>
-                </Cell>
-                <Cell><Image image="Banner_BiomeMissions_desaturated" width="350" height="90"></Image></Cell>
-                <Cell>
-                    <Button onClick="closePanelOpenBasePanel(missionSelectBiome missionSelectSR)" color="rgba(1,1,1,0)"
-                       tooltip="Show Space Rig Missions">
-                       <Image image="Banner_SpaceRigMissions" width="350" height="90"></Image>
-                   </Button>
-                </Cell>
-            </Row>
-
-            <!--
-            <Row preferredHeight="100">
-                <Cell></Cell>
-                <Cell><Image image="Banner_MixedMissions" width="390" height="93"></Image></Cell>
-                <Cell></Cell>
-            </Row>
-            -->
 
             <!--Padding row-->
             <Row preferredHeight="20"><Cell></Cell><Cell></Cell><Cell></Cell></Row>
@@ -450,22 +417,24 @@
         rectAlignment="LowerCenter"
         offsetXY="0 -00"
         scrollSensitivity="40"
-        padding="0 0 50 0"
+        padding="0 0 0 0"
         scrollbarColors="orange|orange|orange|black"
         width="1400"
-        height="1000"
+        height="950"
         color="rgba(0,0,0,0)">
         <!-- scroll bar colors
         first = unfocused
         second = focused
         third = active -->
         <TableLayout
-            padding="150 150 50 50"
+            padding="150 150 0 50"
             columnWidths="350 350 350"
             cellSpacing="10"
             useGlobalCellPadding="true"
             autoCalculateHeight="true"
             cellBackgroundColor="rgba(1,1,1,0)">
+
+            <!--
             <Row preferredHeight="90">
                 <Cell>
                     <Button onClick="closePanelOpenBasePanel(missionSelectSR missionSelectBase)" color="rgba(1,1,1,0)"
@@ -481,6 +450,7 @@
                 </Cell>
                 <Cell><Image image="Banner_SpaceRigMissions_desaturated" width="350" height="90"></Image></Cell>
             </Row>
+            -->
 
             <!--
             <Row preferredHeight="100">
@@ -1905,6 +1875,46 @@ all here in global - enjoy the mess!-->
         </Row>
     </TableLayout>
     <Button class="closeButtonSR" id="closeButton" onClick="closeActivePanel(missionSR12Panel)"></Button>
+</Panel>
+
+<!-- mission type buttons -->
+<Panel id="missionTypeButtons_ID" class="missionTypeButtons">
+    <TableLayout
+        padding="150 150 10 0"
+        columnWidths="350 350 350"
+        cellSpacing="10"
+        useGlobalCellPadding="true"
+        autoCalculateHeight="true"
+        cellBackgroundColor="rgba(1,1,1,0)">
+        <Row preferredHeight="90">
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionSelectBiome missionSelectBase)" color="rgba(1,1,1,0)"
+                   tooltip="Show Base Game Missions">
+                   <Image image="Banner_BaseMissions" width="350" height="90"></Image>
+                </Button>
+            </Cell>
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionSelectBase missionSelectBiome)" color="rgba(1,1,1,0)"
+                    tooltip="Show Biome Missions">
+                    <Image image="Banner_BiomeMissions" width="350" height="90"></Image>
+                </Button>
+           </Cell>
+            <Cell>
+                <Button onClick="closePanelOpenBasePanel(missionSelectBiome missionSelectSR)" color="rgba(1,1,1,0)"
+                   tooltip="Show Space Rig Missions">
+                   <Image image="Banner_SpaceRigMissions" width="350" height="90"></Image>
+               </Button>
+            </Cell>
+        </Row>
+
+        <!--
+        <Row preferredHeight="100">
+            <Cell></Cell>
+            <Cell><Image image="Banner_MixedMissions" width="390" height="93"></Image></Cell>
+            <Cell></Cell>
+        </Row>
+        -->
+    </TableLayout>
 </Panel>
 
 <!-- Misson Setup button -->

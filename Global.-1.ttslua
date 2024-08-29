@@ -443,17 +443,17 @@ previouslyOpenedPanel = "missionSelectBase"
 
 -- sets the previously opened panel (to make show panel remember)
 function setPreviouslyOpenedPanel(player, panel)
-    -- Only records the mission select panels 
+    -- Only records the mission select panels
     if (panel == "missionSelectBase" or panel == "missionSelectBiome" or panel == "missionSelectSR") then
         previouslyOpenedPanel = panel
     end
-
 end
 
 -- Opens the previously opened panel
 function showPanel(player, panel)
     UI.setAttribute(previouslyOpenedPanel, "active", true)
     UI.setAttribute("setup", "active", false)
+    UI.setAttribute("missionTypeButtons_ID", "active", true)
 end
 
 function showMissionSelectButton()
@@ -469,13 +469,16 @@ function closePanelOpenBasePanel(player,panels)
     closePanel = string.sub(panels,0,i-1)
     openPanel = string.sub(panels,i+1,length)
 
+    UI.setAttribute(previouslyOpenedPanel, "active", false)
     UI.setAttribute(closePanel, "active", false)
     UI.setAttribute(openPanel, "active", true)
     setPreviouslyOpenedPanel(player, openPanel)
+    UI.setAttribute("missionTypeButtons_ID", "active", true)
 end
 
 -- closes the active panel and shows the mission setup button
 function closeActivePanel(player, panel)
+    UI.setAttribute("missionTypeButtons_ID", "active", false)
     UI.setAttribute(panel, "active", false)
     showMissionSelectButton()
 end
