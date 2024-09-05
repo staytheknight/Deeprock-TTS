@@ -437,42 +437,62 @@ function randInt(params)
     return randomIndex
 end
 
+--///// UI /////
 
 -- Toggles for UI elements
 previouslyOpenedPanel = "missionSelectBase"
 
+missionPanels = {"missionSelectBase","missionSelectBiome","missionSelectSR"}
+missionTypeImages = {
+    ["missionSelectBase"] = {'baseMissionBanner',"Banner_BaseMissions","Banner_BaseMissions_desaturated"},
+    ["missionSelectBiome"] = {'biomeMissionBanner',"Banner_BiomeMissions","Banner_BiomeMissions_desaturated"},
+    ["missionSelectSR"] = {'spaceRigMissionBanner',"Banner_SpaceRigMissions","Banner_SpaceRigMissions_desaturated"}
+}
+
+-- Gets passed a panel, if it's a mission panel return true
+function isMissionPanel(panel)
+    for i=1, #missionPanels do
+        if (panel == missionPanels[i]) then
+            return true
+        end
+    end
+    return false
+end
+
 -- sets the previously opened panel (to make show panel remember)
 function setPreviouslyOpenedPanel(player, panel)
+    --[[
     -- Only records the mission select panels
-    if (panel == "missionSelectBase" or panel == "missionSelectBiome" or panel == "missionSelectSR") then
+    if (isMissionPanel(panel)) then
         previouslyOpenedPanel = panel
     end
+    ]]
+
+    previouslyOpenedPanel = panel
 end
 
--- Opens the previously opened panel
-function showPanel(player, panel)
-    UI.setAttribute(previouslyOpenedPanel, "active", true)
-    UI.setAttribute("setup", "active", false)
-    UI.setAttribute("missionTypeButtons_ID", "active", true)
-end
-
-function showMissionSelectButton()
-    UI.setAttribute("setup", "active", true)
-end
-
--- gets one string parameter containing two strings separated by a space
--- the first string is the panel that should be closed
--- the second string is the panel that should be opened
-function closePanelOpenBasePanel(player,panels)
+-- Parser for the panels string passed
+function getOpenClosePanels(panels)
     i = string.find(panels," ")
     length = string.len(panels)
     closePanel = string.sub(panels,0,i-1)
     openPanel = string.sub(panels,i+1,length)
+    p = {closePanel, openPanel}
+
+    return p
+end
+
+--- THIS IS A DUPLICATE OF missionTypeClick - but a lot of stuff uses it - so don't delete
+-- gets one string parameter containing two strings separated by a space
+-- the first string is the panel that should be closed
+-- the second string is the panel that should be opened
+function closePanelOpenBasePanel(player,panels)
+    p = getOpenClosePanels(panels)
 
     UI.setAttribute(previouslyOpenedPanel, "active", false)
-    UI.setAttribute(closePanel, "active", false)
-    UI.setAttribute(openPanel, "active", true)
-    setPreviouslyOpenedPanel(player, openPanel)
+    UI.setAttribute(p[1], "active", false)
+    UI.setAttribute(p[2], "active", true)
+    setPreviouslyOpenedPanel(player, p[2])
     UI.setAttribute("missionTypeButtons_ID", "active", true)
 end
 
@@ -480,18 +500,67 @@ end
 function closeActivePanel(player, panel)
     UI.setAttribute("missionTypeButtons_ID", "active", false)
     UI.setAttribute(panel, "active", false)
-    showMissionSelectButton()
+    UI.setAttribute("setup", "active", true)
 end
 
 function closePanelSetupMission(player, params)
-    i = string.find(params," ")
-    length = string.len(params)
-    closePanel = string.sub(params,0,i-1)
-    mission = string.sub(params,i+1,length)
+    p = getOpenClosePanels(panels)
 
-    UI.setAttribute(closePanel, "active", false)
+    UI.setAttribute(p[1], "active", false)
     setupMission(mission)
 end
+
+-- Click function for the 'Mission Setup' browse button
+function missionBrowseClick()
+    -- hides the button
+    UI.setAttribute("setup", "active", false)
+    -- opens the previously opened panel
+    UI.setAttribute(previouslyOpenedPanel, "active", true)
+
+    -- If the previously opened panel is a mission panel, then show the
+    -- mission type buttons
+    if (isMissionPanel(previouslyOpenedPanel)) then
+        UI.setAttribute("missionTypeButtons_ID", "active", true)
+        swapMissionTypeImage(previouslyOpenedPanel)
+    else
+        UI.setAttribute("missionTypeButtons_ID", "active", false)
+    end
+end
+
+-- click function for switching mission type panels (base, biome ect..)
+function missionTypeClick(player, panels)
+    p = getOpenClosePanels(panels)
+
+    UI.setAttribute(previouslyOpenedPanel, "active", false)
+    UI.setAttribute(p[1], "active", false)
+    UI.setAttribute(p[2], "active", true)
+    setPreviouslyOpenedPanel(player, p[2])
+    swapMissionTypeImage(p[2])
+    UI.setAttribute("missionTypeButtons_ID", "active", true)
+end
+
+-- switches the active banner to be saturated
+function swapMissionTypeImage(panel)
+    -- sets all banners to desaturated
+    for k, v in pairs(missionTypeImages) do
+        UI.setAttribute(v[1], "image", v[3])
+    end
+
+    -- saturate the active banner
+    UI.setAttribute(missionTypeImages[panel][1], "image", missionTypeImages[panel][2])
+end
+
+function missionDetailClick(player, panels)
+    p = getOpenClosePanels(panels)
+
+    UI.setAttribute(previouslyOpenedPanel, "active", false)
+    UI.setAttribute(p[1], "active", false)
+    UI.setAttribute(p[2], "active", true)
+    setPreviouslyOpenedPanel(player, p[2])
+    UI.setAttribute("missionTypeButtons_ID", "active", false)
+end
+
+-- ///// Space Rig Explore //////
 
 -- Takes all the tiles from the individual space rig explore tokens
 -- and puts them in the shuffle bag

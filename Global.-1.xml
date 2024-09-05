@@ -117,7 +117,7 @@
             <Row preferredHeight="350">
                 <Cell></Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission1Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBase mission1Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="M1"></Image></Button>
                 </Cell>
@@ -136,7 +136,7 @@
             <Row preferredHeight="350">
                 <Cell></Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission2Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBase mission2Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="M2"></Image></Button>
                 </Cell>
@@ -154,12 +154,12 @@
 
             <Row preferredHeight="350">
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission3Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBase mission3Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="M3"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission4Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBase mission4Panel)"
                     tooltip="Click for mission details">
                     <Image class="mapImage" image="M4"></Image></Button>
                 </Cell>
@@ -177,17 +177,17 @@
 
             <Row preferredHeight="350">
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission5Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBase mission5Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="M5"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission6Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBase mission6Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="M6"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission7Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBase mission7Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="M7"></Image></Button>
                 </Cell>
@@ -195,17 +195,17 @@
 
             <Row preferredHeight="350">
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission8Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBase mission8Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="M8"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission9Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBase mission9Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="M9"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission10Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBase mission10Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="M10"></Image></Button>
                 </Cell>
@@ -213,17 +213,17 @@
 
             <Row preferredHeight="350">
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission11Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBase mission11Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="M11"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission12Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBase mission12Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="M12"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission13Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBase mission13Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="M13"></Image></Button>
                 </Cell>
@@ -231,13 +231,13 @@
 
             <Row preferredHeight="350">
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase mission14Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBase mission14Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="M14"></Image></Button>
                 </Cell>
                 <Cell></Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBase missionEPanel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBase missionEPanel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="ME"></Image></Button>
                 </Cell>
@@ -282,17 +282,17 @@
 
             <Row preferredHeight="350">
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB1Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB1Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM1"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB2Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB2Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM2"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB3Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB3Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM3"></Image></Button>
                 </Cell>
@@ -309,17 +309,17 @@
 
             <Row preferredHeight="350">
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB4Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB4Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM4"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB5Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB5Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM5"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB6Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB6Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM6"></Image></Button>
                 </Cell>
@@ -327,17 +327,17 @@
 
             <Row preferredHeight="350">
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB7Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB7Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM7"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB8Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB8Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM8"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB9Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB9Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM9"></Image></Button>
                 </Cell>
@@ -354,17 +354,17 @@
 
             <Row preferredHeight="350">
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB10Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB10Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM10"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB11Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB11Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM11"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB12Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB12Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM12"></Image></Button>
                 </Cell>
@@ -372,17 +372,17 @@
 
             <Row preferredHeight="350">
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB13Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB13Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM13"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB14Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB14Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM14"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB15Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB15Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM15"></Image></Button>
                 </Cell>
@@ -390,17 +390,17 @@
 
             <Row preferredHeight="350">
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB16Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB16Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM16"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB17Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB17Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM17"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectBiome missionB18Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectBiome missionB18Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="BM18"></Image></Button>
                 </Cell>
@@ -434,32 +434,6 @@
             autoCalculateHeight="true"
             cellBackgroundColor="rgba(1,1,1,0)">
 
-            <!--
-            <Row preferredHeight="90">
-                <Cell>
-                    <Button onClick="closePanelOpenBasePanel(missionSelectSR missionSelectBase)" color="rgba(1,1,1,0)"
-                       tooltip="Show Base Game Missions">
-                       <Image image="Banner_BaseMissions" width="350" height="90"></Image>
-                    </Button>
-                </Cell>
-                <Cell>
-                    <Button onClick="closePanelOpenBasePanel(missionSelectSR missionSelectBiome)" color="rgba(1,1,1,0)"
-                       tooltip="Show Biome Missions">
-                       <Image image="Banner_BiomeMissions" width="350" height="90"></Image>
-                    </Button>
-                </Cell>
-                <Cell><Image image="Banner_SpaceRigMissions_desaturated" width="350" height="90"></Image></Cell>
-            </Row>
-            -->
-
-            <!--
-            <Row preferredHeight="100">
-                <Cell></Cell>
-                <Cell><Image image="Banner_MixedMissions" width="390" height="93"></Image></Cell>
-                <Cell></Cell>
-            </Row>
-            -->
-
             <!--Padding row-->
             <Row preferredHeight="20"><Cell></Cell><Cell></Cell><Cell></Cell></Row>
 
@@ -471,17 +445,17 @@
 
             <Row preferredHeight="350">
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectSR missionSR1Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectSR missionSR1Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="SRM1"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectSR missionSR2Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectSR missionSR2Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="SRM2"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectSR missionSR3Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectSR missionSR3Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="SRM3"></Image></Button>
                 </Cell>
@@ -498,17 +472,17 @@
 
             <Row preferredHeight="350">
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectSR missionSR4Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectSR missionSR4Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="SRM4"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectSR missionSR5Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectSR missionSR5Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="SRM5"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectSR missionSR6Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectSR missionSR6Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="SRM6"></Image></Button>
                 </Cell>
@@ -525,17 +499,17 @@
 
             <Row preferredHeight="350">
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectSR missionSR7Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectSR missionSR7Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="SRM7"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectSR missionSR8Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectSR missionSR8Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="SRM8"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectSR missionSR9Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectSR missionSR9Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="SRM9"></Image></Button>
                 </Cell>
@@ -543,17 +517,17 @@
 
             <Row preferredHeight="350">
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectSR missionSR10Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectSR missionSR10Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="SRM10"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectSR missionSR11Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectSR missionSR11Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="SRM11"></Image></Button>
                 </Cell>
                 <Cell>
-                    <Button class="missionButton" onClick="closePanelOpenBasePanel(missionSelectSR missionSR12Panel)"
+                    <Button class="missionButton" onClick="missionDetailClick(missionSelectSR missionSR12Panel)"
                         tooltip="Click for mission details">
                         <Image class="mapImage" image="SRM12"></Image></Button>
                 </Cell>
@@ -1888,21 +1862,21 @@ all here in global - enjoy the mess!-->
         cellBackgroundColor="rgba(1,1,1,0)">
         <Row preferredHeight="90">
             <Cell>
-                <Button onClick="closePanelOpenBasePanel(missionSelectBiome missionSelectBase)" color="rgba(1,1,1,0)"
+                <Button onClick="missionTypeClick(missionSelectBiome missionSelectBase)" color="rgba(1,1,1,0)"
                    tooltip="Show Base Game Missions">
-                   <Image image="Banner_BaseMissions" width="350" height="90"></Image>
+                   <Image id='baseMissionBanner' image="Banner_BaseMissions" width="350" height="90"></Image>
                 </Button>
             </Cell>
             <Cell>
-                <Button onClick="closePanelOpenBasePanel(missionSelectBase missionSelectBiome)" color="rgba(1,1,1,0)"
+                <Button onClick="missionTypeClick(missionSelectBase missionSelectBiome)" color="rgba(1,1,1,0)"
                     tooltip="Show Biome Missions">
-                    <Image image="Banner_BiomeMissions" width="350" height="90"></Image>
+                    <Image id='biomeMissionBanner' image="Banner_BiomeMissions" width="350" height="90"></Image>
                 </Button>
            </Cell>
             <Cell>
-                <Button onClick="closePanelOpenBasePanel(missionSelectBiome missionSelectSR)" color="rgba(1,1,1,0)"
+                <Button onClick="missionTypeClick(missionSelectBiome missionSelectSR)" color="rgba(1,1,1,0)"
                    tooltip="Show Space Rig Missions">
-                   <Image image="Banner_SpaceRigMissions" width="350" height="90"></Image>
+                   <Image id='spaceRigMissionBanner' image="Banner_SpaceRigMissions" width="350" height="90"></Image>
                </Button>
             </Cell>
         </Row>
@@ -1935,7 +1909,7 @@ all here in global - enjoy the mess!-->
         text="Mission
         Setup"
         fontStyle="bold"
-        onClick="showPanel">
+        onClick="missionBrowseClick">
         <Image class="setupButtonClass" image="MissionSetupButton"></Image>
     </Button>
 </Panel>
