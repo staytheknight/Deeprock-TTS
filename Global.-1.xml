@@ -24,7 +24,8 @@
         allowDragging="false"
         showAnimation="FadeIn"
         showAnimationDelay="2"
-        returnToOriginalPositionWhenReleased="false"/>
+        returnToOriginalPositionWhenReleased="false"
+        raycastTarget="true"/>
 
     <Panel class="MissionDetailPanel" outline="#635351" outlineSize="2 -2"
         active="false"
@@ -36,7 +37,8 @@
         allowDragging="false"
         showAnimation="FadeIn"
         showAnimationDelay="2"
-        returnToOriginalPositionWhenReleased="false"/>
+        returnToOriginalPositionWhenReleased="false"
+        raycastTarget="true"/>
 
     <Button class="closeButtonBase"
         width="40"
@@ -92,7 +94,8 @@
         scrollbarColors="rgba(0.83,0.73,0.2,1)|rgba(0.83,0.73,0.2,1)|rgba(0.83,0.73,0.2,1)|black"
         width="1400"
         height="950"
-        color="rgba(0,0,0,0)">
+        color="rgba(0,0,0,0)"
+        raycastTarget="true">
         <!-- scroll bar colors
         first = unfocused
         second = focused
@@ -258,7 +261,8 @@
         scrollbarColors="blue|blue|blue|black"
         width="1400"
         height="950"
-        color="rgba(0,0,0,0)">
+        color="rgba(0,0,0,0)"
+        raycastTarget="true">
         <!-- scroll bar colors
         first = unfocused
         second = focused
@@ -421,7 +425,8 @@
         scrollbarColors="orange|orange|orange|black"
         width="1400"
         height="950"
-        color="rgba(0,0,0,0)">
+        color="rgba(0,0,0,0)"
+        raycastTarget="true">
         <!-- scroll bar colors
         first = unfocused
         second = focused
@@ -1859,7 +1864,8 @@ all here in global - enjoy the mess!-->
         cellSpacing="10"
         useGlobalCellPadding="true"
         autoCalculateHeight="true"
-        cellBackgroundColor="rgba(1,1,1,0)">
+        cellBackgroundColor="rgba(1,1,1,0)"
+        raycastTarget="true">
         <Row preferredHeight="90">
             <Cell>
                 <Button onClick="missionTypeClick(missionSelectBiome missionSelectBase)" color="rgba(1,1,1,0)"
