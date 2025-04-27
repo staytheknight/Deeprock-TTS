@@ -22,7 +22,7 @@ function setup()
     print("Launching Mission 8: Morkite Madness\nGood Luck Miners!\n")
 
     -- This card must be removed from the event Decks
-    caveLeechCard_GUID = 'b67c3d'
+    caveLeechCard_GUID = '87b1c8'
     caveLeechCard = getObjectFromGUID(caveLeechCard_GUID)
 
     -- Checks to see if this cards exist in the event deck zone

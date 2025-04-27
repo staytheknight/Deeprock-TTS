@@ -1,0 +1,50 @@
+function onLoad()
+    self.clearButtons()
+    EnableExpansionButton()
+end
+
+function EnableExpansionButton()
+    self.createButton(
+        {
+            click_function='EnableExpansion',
+            function_owner=self,
+            label="Enable\n Expansion",
+            position={0.0,4.0,0.0},
+            rotation={0.0,-90.0,90.0},
+            width=1000,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Green',
+            tooltip='Enable Bulk Detonator - Mini Expansion'
+        }
+    )
+end
+
+function DisableExpansionButton()
+    self.createButton(
+        {
+            click_function='DisableExpansion',
+            function_owner=self,
+            label="Disable\n Expansion",
+            position={0.0,4.0,0.0},
+            rotation={0.0,-90.0,90.0},
+            width=1000,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Red',
+            tooltip='Disable Bulk Detonator - Mini Expansion'
+        }
+    )
+end
+
+function EnableExpansion()
+    self.clearButtons()
+    DisableExpansionButton()
+end
+
+function DisableExpansion()
+    self.clearButtons()
+    EnableExpansionButton()
+end

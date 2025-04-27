@@ -496,18 +496,23 @@ function closePanelOpenBasePanel(player,panels)
     UI.setAttribute("missionTypeButtons_ID", "active", true)
 end
 
+-- This is called by the cleanup button - DO NOT DELETE
+function showMissionSelectButton()
+    UI.setAttribute("setup", "active", true)
+end
+
 -- closes the active panel and shows the mission setup button
 function closeActivePanel(player, panel)
     UI.setAttribute("missionTypeButtons_ID", "active", false)
     UI.setAttribute(panel, "active", false)
-    UI.setAttribute("setup", "active", true)
+    showMissionSelectButton()
 end
 
-function closePanelSetupMission(player, params)
+function closePanelSetupMission(player, panels)
     p = getOpenClosePanels(panels)
 
     UI.setAttribute(p[1], "active", false)
-    setupMission(mission)
+    setupMission(p[2])
 end
 
 -- Click function for the 'Mission Setup' browse button
