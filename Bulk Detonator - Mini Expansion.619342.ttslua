@@ -70,18 +70,50 @@ function EnableExpansion()
 
     params={
         bag = expansionBox,
+        ID = GUIDs.bulkDetonatorInfoCard,
+    }
+    if Global.call('isInBag',params) then
+        expansionBox.takeObject({
+            position = locations.infoCardLoc,
+            rotation = locations.infoCardRot,
+            guid = GUIDs.bulkDetonatorInfoCard,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print("Warning: Unable to set up Bulk Detonator info card, it's not in the expansion box")
+    end
+
+    params={
+        bag = expansionBox,
         ID = GUIDs.bulkDetonatorMiniBag,
     }
     if Global.call('isInBag',params) then
-        caveBag.takeObject({
+        params.bag.takeObject({
             position = locations.bulkDetonatorMiniBagLoc,
             rotation = locations.bulkDetonatorMiniBagRot,
-            guid = GUIDs.bulkDetonatorMiniBag,
+            guid = params.ID,
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
         })
     else
         print("Warning: Unable to set up Bulk Detonator bag, it's not in the expansion box")
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.bulkDetonatorSwarmCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = {-3.66, 2.22, 7.92},
+            rotation = {0.00, 90.03, 180.00},
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            --callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print("Warning: Unable to set up Bulk Detonator swarm card, it's not in the expansion box")
     end
 end
 
