@@ -1,5 +1,6 @@
+local bulkDetonatorExpansionToggle = "test"
 
-function onLoad()
+function onLoad(script_state)
     -- Boards
     engineerBoard_GUID = 'da9ffc'
     engineerBoard = getObjectFromGUID(engineerBoard_GUID)
@@ -408,6 +409,23 @@ function onLoad()
     for i=1, r do
         monteCarloRand()
     end
+
+
+    -- Loading the save state
+    local state = JSON.decode(script_state)
+    bulkDetonatorExpansionToggle = state.expansionToggles.bulkDetonatorExpansionToggle
+    return JSON.encode(state)
+end
+
+function onSave()
+    local state =
+    {
+        expansionToggles =
+        {
+            bulkDetonatorExpansionToggle = bulkDetonatorExpansionToggle
+        }
+    }
+    return JSON.encode(state);
 end
 
 -- Monte Carlo randomizer from https://9to5answer.com/generating-uniform-random-numbers-in-lua
@@ -1107,4 +1125,13 @@ end
 
 function getHearstoneGem()
     return hearstoneGem
+end
+
+-- Expansion Toggles
+function getBulkDetonatorExpansionToggle()
+    return bulkDetonatorExpansionToggle
+end
+
+function setBulkDetonatorExpansionToggle(toggle)
+    bulkDetonatorExpansionToggle = toggle
 end

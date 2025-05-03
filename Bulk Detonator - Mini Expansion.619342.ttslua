@@ -1,9 +1,14 @@
 function onLoad()
     self.clearButtons()
-    EnableExpansionButton()
+
+    if Global.call('getBulkDetonatorExpansionToggle') then
+        ShowDisableExpansionButton()
+    else
+        ShowEnableExpansionButton()
+    end
 end
 
-function EnableExpansionButton()
+function ShowEnableExpansionButton()
     self.createButton(
         {
             click_function='EnableExpansion',
@@ -21,7 +26,7 @@ function EnableExpansionButton()
     )
 end
 
-function DisableExpansionButton()
+function ShowDisableExpansionButton()
     self.createButton(
         {
             click_function='DisableExpansion',
@@ -41,10 +46,12 @@ end
 
 function EnableExpansion()
     self.clearButtons()
-    DisableExpansionButton()
+    ShowDisableExpansionButton()
+    Global.Call('setBulkDetonatorExpansionToggle',true)
 end
 
 function DisableExpansion()
     self.clearButtons()
-    EnableExpansionButton()
+    ShowEnableExpansionButton()
+    Global.Call('setBulkDetonatorExpansionToggle',false)
 end
