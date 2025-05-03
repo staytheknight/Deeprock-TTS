@@ -1,4 +1,4 @@
-local bulkDetonatorExpansionToggle = "test"
+local bulkDetonatorExpansionToggle = false
 
 function onLoad(script_state)
     -- Boards

@@ -1,3 +1,20 @@
+local locations =
+{
+    bulkDetonatorMiniBagLoc = {37.94, 0.97, 18.30},
+    bulkDetonatorMiniBagRot = {359.50, 149.98, 0.23},
+    infoCardLoc = {38.00, 1.00, 14.59},
+    infoCardRot = {0.00, 179.86, 0.00}
+}
+
+local GUIDs =
+{
+    expansionBox = '619342',
+    bulkDetonatorMiniBag = '8caff9',
+    bulkDetonatorMini = 'd9404d',
+    bulkDetonatorInfoCard = 'cf0871',
+    bulkDetonatorSwarmCard = '004e7b'
+}
+
 function onLoad()
     self.clearButtons()
 
@@ -6,6 +23,8 @@ function onLoad()
     else
         ShowEnableExpansionButton()
     end
+
+    expansionBox = getObjectFromGUID(GUIDs.expansionBox)
 end
 
 function ShowEnableExpansionButton()
@@ -48,6 +67,22 @@ function EnableExpansion()
     self.clearButtons()
     ShowDisableExpansionButton()
     Global.Call('setBulkDetonatorExpansionToggle',true)
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.bulkDetonatorMiniBag,
+    }
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = locations.bulkDetonatorMiniBagLoc,
+            rotation = locations.bulkDetonatorMiniBagRot,
+            guid = GUIDs.bulkDetonatorMiniBag,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print("Warning: Unable to set up Bulk Detonator bag, it's not in the expansion box")
+    end
 end
 
 function DisableExpansion()
