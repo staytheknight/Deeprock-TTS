@@ -34,9 +34,11 @@ function onLoad()
 end
 
 function ShowEnableExpansionButton()
+    self.clearButtons()
+
     self.createButton(
         {
-            click_function='EnableExpansion',
+            click_function='ConfirmSetupButton',
             function_owner=self,
             label="Enable\n Expansion",
             position={0.0,4.0,0.0},
@@ -52,9 +54,11 @@ function ShowEnableExpansionButton()
 end
 
 function ShowDisableExpansionButton()
+    self.clearButtons()
+
     self.createButton(
         {
-            click_function='DisableExpansion',
+            click_function='ConfirmCleanupButton',
             function_owner=self,
             label="Disable\n Expansion",
             position={0.0,4.0,0.0},
@@ -69,9 +73,85 @@ function ShowDisableExpansionButton()
     )
 end
 
+function ConfirmSetupButton()
+    self.createButton(
+        {
+            click_function='EnableExpansion',
+            function_owner=self,
+            label="Yes",
+            position={0.0,3.0,0.5},
+            rotation={0.0,-90.0,90.0},
+            width=500,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Green',
+            tooltip='Yes - Continue Setup'
+        }
+    )
+
+    self.createButton(
+        {
+            click_function='ShowEnableExpansionButton',
+            function_owner=self,
+            label="No",
+            position={0.0,3.0,-0.5},
+            rotation={0.0,-90.0,90.0},
+            width=500,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Red',
+            tooltip='No - Cancel Setup'
+        }
+    )
+end
+
+function ConfirmCleanupButton()
+    self.createButton(
+        {
+            click_function='DisableExpansion',
+            function_owner=self,
+            label="Yes",
+            position={0.0,3.0,0.5},
+            rotation={0.0,-90.0,90.0},
+            width=500,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Green',
+            tooltip='Yes - Continue Cleanup'
+        }
+    )
+
+    self.createButton(
+        {
+            click_function='ShowDisableExpansionButton',
+            function_owner=self,
+            label="No",
+            position={0.0,3.0,-0.5},
+            rotation={0.0,-90.0,90.0},
+            width=500,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Red',
+            tooltip='No - Cancel Cleanup'
+        }
+    )
+end
+
 function EnableExpansion()
     self.clearButtons()
     ShowDisableExpansionButton()
+
+    if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
+        printToAll('Unable to set up: Bulk Detonator Mini Expansion', 'Red')
+        printToAll('Mission in progress detected, cleanup mission before enabling expansion\n', 'Red')
+        return
+    end
+    printToAll('Setting up: Bulk Detonator Mini Expansion', 'Yellow')
+
     Global.Call('setBulkDetonatorExpansionToggle',true)
 
     params={
@@ -126,6 +206,14 @@ end
 function DisableExpansion()
     self.clearButtons()
     ShowEnableExpansionButton()
+
+    if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
+        printToAll('Unable to clean up: Bulk Detonator Mini Expansion', 'Red')
+        printToAll('\nMission in progress detected, cleanup mission before disabling expansion\n', 'Red')
+        return
+    end
+    printToAll('Cleaning up: Bulk Detonator Mini Expansion', 'Yellow')
+
     Global.Call('setBulkDetonatorExpansionToggle',false)
 
 

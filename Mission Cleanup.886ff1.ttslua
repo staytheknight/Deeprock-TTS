@@ -641,3 +641,22 @@ function Cleanup()
     -- Puts the cleanup button back
     cleanupButton()
 end
+
+-- Boolean check if any player figures are in the cleanup zone
+function CheckForPlayersInCleanupZone()
+    local zone = Global.call('getCleanupZone')
+    local objectsInZone = zone.getObjects()
+
+    local playerInZone = false
+    for _, object in ipairs(objectsInZone) do
+        if (object.getName() == "Engineer")
+        or (object.getName() == "Driller")
+        or (object.getName() == "Gunner")
+        or (object.getName() == "Scout")
+        then
+            playerInZone = true
+        end
+    end
+
+    return playerInZone
+end
