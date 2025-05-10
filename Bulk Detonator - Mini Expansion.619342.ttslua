@@ -15,6 +15,12 @@ local GUIDs =
     bulkDetonatorSwarmCard = '004e7b'
 }
 
+local XpacBags =
+{
+    expansionBox = getObjectFromGUID(GUIDs.expansionBox),
+    bulkDetonatorMiniBag = getObjectFromGUID(GUIDs.bulkDetonatorMiniBag)
+}
+
 function onLoad()
     self.clearButtons()
 
@@ -121,4 +127,44 @@ function DisableExpansion()
     self.clearButtons()
     ShowEnableExpansionButton()
     Global.Call('setBulkDetonatorExpansionToggle',false)
+
+
+    -- // Expansion Cleanup //
+    local objects = getAllObjects()
+    -- instead of long if else statements use dictionary or more sophisticated table.find
+
+    for _, object in ipairs(objects) do
+        if object.getGUID() == GUIDs.bulkDetonatorMini then
+            XpacBags.bulkDetonatorMiniBag.putObject(object)
+
+        -- Checks the decks to see if there are any cards from the xpac in those decks
+        -- NOTE: may need to check bags too?
+        elseif object.type == "Deck" then
+            deckPosition = object.getPosition()
+            for _, containedObject in ipairs(object.getObjects()) do
+                -- have to take the object out of the deck to be able to read
+                -- it's info
+                obj = object.takeObject({smooth = false})
+                if (obj.getGUID() == GUIDs.bulkDetonatorInfoCard)
+                or (obj.getGUID() == GUIDs.bulkDetonatorSwarmCard)
+                then
+                    XpacBags.expansionBox.putObject(obj)
+                else
+                    -- if the object in the deck is not in part of the expansion
+                    -- put it back where it was (note: this will shuffle the decks around)
+                    obj.setPosition(deckPosition)
+                end
+            end
+
+        end
+    end
+
+    for _, object in ipairs(objects) do
+        if (object.getGUID() == GUIDs.bulkDetonatorMiniBag)
+        or (object.getGUID() == GUIDs.bulkDetonatorInfoCard)
+        or (object.getGUID() == GUIDs.bulkDetonatorSwarmCard)
+        then
+            XpacBags.expansionBox.putObject(object)
+        end
+    end
 end
