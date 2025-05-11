@@ -142,6 +142,7 @@ function ConfirmCleanupButton()
 end
 
 function EnableExpansion()
+    DisableExpansion()
     self.clearButtons()
     ShowDisableExpansionButton()
 
@@ -150,7 +151,7 @@ function EnableExpansion()
         printToAll('Mission in progress detected, cleanup mission before enabling expansion\n', 'Red')
         return
     end
-    DisableExpansion()
+
     printToAll('Setting up: Bulk Detonator Mini Expansion', 'Yellow')
 
     Global.Call('setBulkDetonatorExpansionToggle',true)

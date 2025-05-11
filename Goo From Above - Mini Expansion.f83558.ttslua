@@ -61,8 +61,8 @@ function ShowEnableExpansionButton()
             click_function='ConfirmSetupButton',
             function_owner=self,
             label="Enable\n Expansion",
-            position={0.0,4.0,0.0},
-            rotation={0.0,-90.0,90.0},
+            position={0.0,0.0,20.0},
+            rotation={0.0,0.0,0.0},
             width=1000,
             height=350,
             font_size=150,
@@ -162,6 +162,7 @@ function ConfirmCleanupButton()
 end
 
 function EnableExpansion()
+    DisableExpansion()
     self.clearButtons()
     ShowDisableExpansionButton()
 
@@ -170,7 +171,7 @@ function EnableExpansion()
         printToAll('Mission in progress detected, cleanup mission before enabling expansion\n', 'Red')
         return
     end
-    DisableExpansion()
+
     printToAll('Setting up: Goo From Above Mini Expansion', 'Yellow')
 
     Global.Call('setGooFromAboveExpansionToggle',true)
