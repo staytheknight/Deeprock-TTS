@@ -53,6 +53,46 @@ function onLoad()
     end
 end
 
+function ShowEnableExpansionButton()
+    self.clearButtons()
+
+    self.createButton(
+        {
+            click_function='ConfirmSetupButton',
+            function_owner=self,
+            label="Enable\n Expansion",
+            position={0.0,4.0,0.0},
+            rotation={0.0,-90.0,90.0},
+            width=1000,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Green',
+            tooltip='Enable Goo From Above - Mini Expansion'
+        }
+    )
+end
+
+function ShowDisableExpansionButton()
+    self.clearButtons()
+
+    self.createButton(
+        {
+            click_function='ConfirmCleanupButton',
+            function_owner=self,
+            label="Disable\n Expansion",
+            position={0.0,4.0,0.0},
+            rotation={0.0,-90.0,90.0},
+            width=1000,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Red',
+            tooltip='Disable Goo From Above - Mini Expansion'
+        }
+    )
+end
+
 function ConfirmSetupButton()
     self.createButton(
         {
