@@ -150,6 +150,7 @@ function EnableExpansion()
         printToAll('Mission in progress detected, cleanup mission before enabling expansion\n', 'Red')
         return
     end
+    DisableExpansion()
     printToAll('Setting up: Bulk Detonator Mini Expansion', 'Yellow')
 
     Global.Call('setBulkDetonatorExpansionToggle',true)
@@ -167,7 +168,7 @@ function EnableExpansion()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Bulk Detonator info card, it's not in the expansion box")
+        print("Warning: Unable to set up Bulk Detonator info card, it's not in the expansion box", 'Red')
     end
 
     params={
@@ -183,7 +184,7 @@ function EnableExpansion()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Bulk Detonator bag, it's not in the expansion box")
+        print("Warning: Unable to set up Bulk Detonator bag, it's not in the expansion box", 'Red')
     end
 
     params={
@@ -199,7 +200,7 @@ function EnableExpansion()
             --callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Bulk Detonator swarm card, it's not in the expansion box")
+        print("Warning: Unable to set up Bulk Detonator swarm card, it's not in the expansion box", 'Red')
     end
 end
 
@@ -247,6 +248,8 @@ function DisableExpansion()
         end
     end
 
+    -- second pass once everything is properly put back in bags
+    objects = getAllObjects()
     for _, object in ipairs(objects) do
         if (object.getGUID() == GUIDs.bulkDetonatorMiniBag)
         or (object.getGUID() == GUIDs.bulkDetonatorInfoCard)

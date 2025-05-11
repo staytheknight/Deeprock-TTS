@@ -1,4 +1,5 @@
 local bulkDetonatorExpansionToggle = false
+local gooFromAboveExpansionToggle = false
 
 function onLoad(script_state)
     -- Boards
@@ -414,6 +415,7 @@ function onLoad(script_state)
     -- Loading the save state
     local state = JSON.decode(script_state)
     bulkDetonatorExpansionToggle = state.expansionToggles.bulkDetonatorExpansionToggle
+    gooFromAboveExpansionToggle = state.expansionToggles.gooFromAboveExpansionToggle
     return JSON.encode(state)
 end
 
@@ -422,7 +424,8 @@ function onSave()
     {
         expansionToggles =
         {
-            bulkDetonatorExpansionToggle = bulkDetonatorExpansionToggle
+            bulkDetonatorExpansionToggle = bulkDetonatorExpansionToggle,
+            gooFromAboveExpansionToggle = gooFromAboveExpansionToggle
         }
     }
     return JSON.encode(state);
@@ -1138,4 +1141,12 @@ end
 
 function setBulkDetonatorExpansionToggle(toggle)
     bulkDetonatorExpansionToggle = toggle
+end
+
+function getGooFromAboveExpansionToggle()
+    return gooFromAboveExpansionToggle
+end
+
+function setGooFromAboveExpansionToggle(toggle)
+    gooFromAboveExpansionToggle = toggle
 end
