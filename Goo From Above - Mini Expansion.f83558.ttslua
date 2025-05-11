@@ -182,7 +182,7 @@ function EnableExpansion()
         ID = GUIDs.gooBomberBag,
     }
     if Global.call('isInBag',params) then
-        expansionBox.takeObject({
+        params.bag.takeObject({
             position = locations.gooBomberBag.loc,
             rotation = locations.gooBomberBag.rot,
             guid = params.ID,
@@ -199,7 +199,7 @@ function EnableExpansion()
         ID = GUIDs.gooBag,
     }
     if Global.call('isInBag',params) then
-        expansionBox.takeObject({
+        params.bag.takeObject({
             position = locations.gooBagLoc,
             guid = params.ID,
             -- Lock tiles afer spawn
@@ -215,7 +215,7 @@ function EnableExpansion()
         ID = GUIDs.gooBomberInfoCard,
     }
     if Global.call('isInBag',params) then
-        expansionBox.takeObject({
+        params.bag.takeObject({
             position = locations.gooBomberInfoCard.loc,
             rotation = locations.gooBomberInfoCard.rot,
             guid = params.ID,
@@ -232,7 +232,7 @@ function EnableExpansion()
         ID = GUIDs.menaceBag,
     }
     if Global.call('isInBag',params) then
-        expansionBox.takeObject({
+        params.bag.takeObject({
             position = locations.menaceBag.loc,
             rotation = locations.menaceBag.rot,
             guid = params.ID,
@@ -249,7 +249,7 @@ function EnableExpansion()
         ID = GUIDs.combinedInfoCard,
     }
     if Global.call('isInBag',params) then
-        expansionBox.takeObject({
+        params.bag.takeObject({
             position = locations.combinedInfoCard.loc,
             rotation = locations.combinedInfoCard.rot,
             guid = params.ID,
@@ -266,7 +266,7 @@ function EnableExpansion()
         ID = GUIDs.menaceInfoCard,
     }
     if Global.call('isInBag',params) then
-        expansionBox.takeObject({
+        params.bag.takeObject({
             position = locations.menaceInfoCard.loc,
             rotation = locations.menaceInfoCard.rot,
             guid = params.ID,
@@ -283,9 +283,9 @@ function EnableExpansion()
         ID = GUIDs.swarmCard_HideAndSeek,
     }
     if Global.call('isInBag',params) then
-        expansionBox.takeObject({
-            position = Global.call('getSwarmDeckZone').getLocation(),
-            rotation = Global.call('getSwarmDeckZone').getRotation(),
+        params.bag.takeObject({
+            position = Global.call('getSwarmDeckZone').getPosition(),
+            rotation = {0.0, 90.0, 180.0},
             guid = params.ID,
             -- Lock tiles afer spawn
             --callback="afterSpawnLock", callback_owner=Global
@@ -300,9 +300,9 @@ function EnableExpansion()
         ID = GUIDs.swarmCard_MenacingGoo,
     }
     if Global.call('isInBag',params) then
-        expansionBox.takeObject({
-            position = Global.call('getSwarmDeckZone').getLocation(),
-            rotation = Global.call('getSwarmDeckZone').getRotation(),
+        params.bag.takeObject({
+            position = Global.call('getSwarmDeckZone').getPosition(),
+            rotation = {0.0, 90.0, 180.0},
             guid = params.ID,
             -- Lock tiles afer spawn
             --callback="afterSpawnLock", callback_owner=Global
@@ -317,9 +317,9 @@ function EnableExpansion()
         ID = GUIDs.eventCard_GooFromAbove,
     }
     if Global.call('isInBag',params) then
-        expansionBox.takeObject({
-            position = Global.call('getEventDeckZone').getLocation(),
-            rotation = Global.call('getEventDeckZone').getRotation(),
+        params.bag.takeObject({
+            position = Global.call('getEventDeckZone').getPosition(),
+            rotation = {0.0, 90.0, 180.0},
             guid = params.ID,
             -- Lock tiles afer spawn
             --callback="afterSpawnLock", callback_owner=Global
@@ -334,9 +334,9 @@ function EnableExpansion()
         ID = GUIDs.eventCard_WhatAMenace,
     }
     if Global.call('isInBag',params) then
-        expansionBox.takeObject({
-            position = Global.call('getEventDeckZone').getLocation(),
-            rotation = Global.call('getEventDeckZone').getRotation(),
+        params.bag.takeObject({
+            position = Global.call('getEventDeckZone').getPosition(),
+            rotation = {0.0, 90.0, 180.0},
             guid = params.ID,
             -- Lock tiles afer spawn
             --callback="afterSpawnLock", callback_owner=Global
