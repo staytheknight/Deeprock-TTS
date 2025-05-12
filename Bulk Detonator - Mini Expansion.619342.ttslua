@@ -142,9 +142,12 @@ function ConfirmCleanupButton()
 end
 
 function EnableExpansion()
-    DisableExpansion()
     self.clearButtons()
-    ShowDisableExpansionButton()
+
+    Wait.time(function()
+        ShowDisableExpansionButton()
+    end,2)
+
 
     if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
         printToAll('Unable to set up: Bulk Detonator Mini Expansion', 'Red')
@@ -207,7 +210,10 @@ end
 
 function DisableExpansion()
     self.clearButtons()
-    ShowEnableExpansionButton()
+
+    Wait.time(function()
+        ShowEnableExpansionButton()
+    end,2)
 
     if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
         printToAll('Unable to clean up: Bulk Detonator Mini Expansion', 'Red')
@@ -245,18 +251,21 @@ function DisableExpansion()
                     obj.setPosition(deckPosition)
                 end
             end
-
         end
     end
 
-    -- second pass once everything is properly put back in bags
-    objects = getAllObjects()
-    for _, object in ipairs(objects) do
-        if (object.getGUID() == GUIDs.bulkDetonatorMiniBag)
-        or (object.getGUID() == GUIDs.bulkDetonatorInfoCard)
-        or (object.getGUID() == GUIDs.bulkDetonatorSwarmCard)
-        then
-            XpacBags.expansionBox.putObject(object)
+    Wait.time(function()
+        -- second pass once everything is properly put back in bags
+        objects = getAllObjects()
+        for _, object in ipairs(objects) do
+            if (object.getGUID() == GUIDs.bulkDetonatorMiniBag)
+            or (object.getGUID() == GUIDs.bulkDetonatorInfoCard)
+            or (object.getGUID() == GUIDs.bulkDetonatorSwarmCard)
+            then
+                XpacBags.expansionBox.putObject(object)
+            end
         end
-    end
+    end,2) -- wait two seconds before running the cleanup
+
+
 end

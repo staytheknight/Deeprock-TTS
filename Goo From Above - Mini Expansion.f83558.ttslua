@@ -162,9 +162,11 @@ function ConfirmCleanupButton()
 end
 
 function EnableExpansion()
-    DisableExpansion()
     self.clearButtons()
-    ShowDisableExpansionButton()
+    
+    Wait.time(function()
+        ShowDisableExpansionButton()
+    end,2)
 
     if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
         printToAll('Unable to set up: Goo From Above Mini Expansion', 'Red')
@@ -348,7 +350,10 @@ end
 
 function DisableExpansion()
     self.clearButtons()
-    ShowEnableExpansionButton()
+
+    Wait.time(function()
+        ShowEnableExpansionButton()
+    end,2)
 
     if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
         printToAll('Unable to clean up: Goo From Above Mini Expansion', 'Red')
@@ -399,21 +404,23 @@ function DisableExpansion()
         end
     end
 
-    -- second pass once everything is properly put back in bags
-    objects = getAllObjects()
-    for _, object in ipairs(objects) do
-        if (object.getGUID() == GUIDs.gooBomberBag)
-        or (object.getGUID() == GUIDs.gooBag)
-        or (object.getGUID() == GUIDs.menaceBag)
-        or (object.getGUID() == GUIDs.gooBomberInfoCard)
-        or (object.getGUID() == GUIDs.menaceInfoCard)
-        or (object.getGUID() == GUIDs.combinedInfoCard)
-        or (object.getGUID() == GUIDs.swarmCard_HideAndSeek)
-        or (object.getGUID() == GUIDs.swarmCard_MenacingGoo)
-        or (object.getGUID() == GUIDs.eventCard_GooFromAbove)
-        or (object.getGUID() == GUIDs.eventCard_WhatAMenace)
-        then
-            getObjectFromGUID(GUIDs.expansionBox).putObject(object)
+    Wait.time(function()
+        -- second pass once everything is properly put back in bags
+        objects = getAllObjects()
+        for _, object in ipairs(objects) do
+            if (object.getGUID() == GUIDs.gooBomberBag)
+            or (object.getGUID() == GUIDs.gooBag)
+            or (object.getGUID() == GUIDs.menaceBag)
+            or (object.getGUID() == GUIDs.gooBomberInfoCard)
+            or (object.getGUID() == GUIDs.menaceInfoCard)
+            or (object.getGUID() == GUIDs.combinedInfoCard)
+            or (object.getGUID() == GUIDs.swarmCard_HideAndSeek)
+            or (object.getGUID() == GUIDs.swarmCard_MenacingGoo)
+            or (object.getGUID() == GUIDs.eventCard_GooFromAbove)
+            or (object.getGUID() == GUIDs.eventCard_WhatAMenace)
+            then
+                getObjectFromGUID(GUIDs.expansionBox).putObject(object)
+            end
         end
-    end
+    end, 2)
 end
