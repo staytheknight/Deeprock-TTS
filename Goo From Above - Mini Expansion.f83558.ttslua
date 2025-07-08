@@ -163,7 +163,7 @@ end
 
 function EnableExpansion()
     self.clearButtons()
-    
+
     Wait.time(function()
         ShowDisableExpansionButton()
     end,2)
@@ -192,7 +192,7 @@ function EnableExpansion()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Goo Bomber Bag, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Goo Bomber Bag, it's not in the expansion box", 'Red')
     end
 
     -- Goo Bag
@@ -208,7 +208,7 @@ function EnableExpansion()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Goo Bag, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Goo Bag, it's not in the expansion box", 'Red')
     end
 
     -- Goo Bomber Info Card
@@ -225,7 +225,7 @@ function EnableExpansion()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Goo Bomber Info Card, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Goo Bomber Info Card, it's not in the expansion box", 'Red')
     end
 
     -- Menace Bag
@@ -242,7 +242,7 @@ function EnableExpansion()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Menace Bag, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Menace Bag, it's not in the expansion box", 'Red')
     end
 
     -- Combined Info Card
@@ -259,7 +259,7 @@ function EnableExpansion()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Goo From Above Info Card, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Goo From Above Info Card, it's not in the expansion box", 'Red')
     end
 
     -- Combined Info Card
@@ -276,7 +276,7 @@ function EnableExpansion()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Menace Info Card, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Menace Info Card, it's not in the expansion box", 'Red')
     end
 
     -- Swarm Card: 'Hide and Seek'
@@ -293,7 +293,7 @@ function EnableExpansion()
             --callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up 'Hide and Seek' swarm card, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up 'Hide and Seek' swarm card, it's not in the expansion box", 'Red')
     end
 
     -- Swarm Card: 'Menacing Goo'
@@ -310,7 +310,7 @@ function EnableExpansion()
             --callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up 'Menacing Goo' swarm card, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up 'Menacing Goo' swarm card, it's not in the expansion box", 'Red')
     end
 
     -- Event Card: 'Goo From Above'
@@ -327,7 +327,7 @@ function EnableExpansion()
             --callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up 'Goo From Above' event card, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up 'Goo From Above' event card, it's not in the expansion box", 'Red')
     end
 
     -- Event Card: 'What a Menace'
@@ -344,7 +344,7 @@ function EnableExpansion()
             --callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up 'What a Menace' event card, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up 'What a Menace' event card, it's not in the expansion box", 'Red')
     end
 end
 

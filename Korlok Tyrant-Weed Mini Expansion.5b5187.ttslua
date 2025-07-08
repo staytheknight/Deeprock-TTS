@@ -287,9 +287,11 @@ function EnableExpansion()
     }
 
     if Global.call('isInBag',params) then
-        takenObj = params.bag.takeObject({
+        params.bag.takeObject({
             guid = params.ID,
-            position = Global.Call('getHiddenCaveBag').getPosition()
+            callback_function = function(takenObj)
+                Global.Call('getHiddenCaveBag').putObject(takenObj)
+            end
         })
     else
         printToAll("Warning: Unable to set up Korlok hidden cave segment, it's not in the expansion box", 'Red')
@@ -339,9 +341,9 @@ function DisableExpansion()
 
         if objGUID == GUIDs.heartClamMini then
             XpacBags.heartClamBag.putObject(object)
-        elseif Global.Call('TableContains',sproutParams) then
+        elseif Global.Call('TableContains', sproutParams) then
             XpacBags.sproutBag.putObject(object)
-        elseif Global.Call('TableContains',healingPodParam) then
+        elseif Global.Call('TableContains', healingPodParam) then
             XpacBags.healingPodBag.putObject(object)
 
         elseif object.type == "Deck" then
@@ -377,7 +379,9 @@ function DisableExpansion()
     if not caveSegmentWasCleanedUp then
         Global.Call('getHiddenCaveBag').takeObject({
             guid=GUIDs.hiddenCaveSegment,
-            position = XpacBags.expansionBox.getPosition()
+            callback_function = function(takenObj)
+                XpacBags.expansionBox.putObject(takenObj)
+            end
         })
     end
 
