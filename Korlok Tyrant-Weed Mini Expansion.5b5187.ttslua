@@ -34,3 +34,123 @@ local XpacBags =
     sproutBag = getObjectFromGUID(GUIDs.sproutBag),
     healingPodBag = getObjectFromGUID(GUIDs.healingPodBag),
 }
+
+function onLoad()
+    self.clearButtons()
+
+    if Global.call('getKorlokExpansionToggle') then
+        ShowDisableExpansionButton()
+    else
+        ShowEnableExpansionButton()
+    end
+
+    expansionBox = getObjectFromGUID(GUIDs.expansionBox)
+end
+
+function ShowEnableExpansionButton()
+    self.clearButtons()
+
+    self.createButton(
+        {
+            click_function='ConfirmSetupButton',
+            function_owner=self,
+            label="Enable\n Expansion",
+            position={0.0,4.0,0.0},
+            rotation={0.0,-90.0,90.0},
+            width=1000,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Green',
+            tooltip='Enable Korlok Tyrant-Weed - Mini Expansion'
+        }
+    )
+end
+
+function ShowDisableExpansionButton()
+    self.clearButtons()
+
+    self.createButton(
+        {
+            click_function='ConfirmCleanupButton',
+            function_owner=self,
+            label="Disable\n Expansion",
+            position={0.0,4.0,0.0},
+            rotation={0.0,-90.0,90.0},
+            width=1000,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Red',
+            tooltip='Disable Korlok Tyrant-Weed - Mini Expansion'
+        }
+    )
+end
+
+function ConfirmSetupButton()
+    self.createButton(
+        {
+            click_function='EnableExpansion',
+            function_owner=self,
+            label="Yes",
+            position={0.0,3.0,0.5},
+            rotation={0.0,-90.0,90.0},
+            width=500,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Green',
+            tooltip='Yes - Continue Setup'
+        }
+    )
+
+    self.createButton(
+        {
+            click_function='ShowEnableExpansionButton',
+            function_owner=self,
+            label="No",
+            position={0.0,3.0,-0.5},
+            rotation={0.0,-90.0,90.0},
+            width=500,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Red',
+            tooltip='No - Cancel Setup'
+        }
+    )
+end
+
+function ConfirmCleanupButton()
+    self.createButton(
+        {
+            click_function='DisableExpansion',
+            function_owner=self,
+            label="Yes",
+            position={0.0,3.0,0.5},
+            rotation={0.0,-90.0,90.0},
+            width=500,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Green',
+            tooltip='Yes - Continue Cleanup'
+        }
+    )
+
+    self.createButton(
+        {
+            click_function='ShowDisableExpansionButton',
+            function_owner=self,
+            label="No",
+            position={0.0,3.0,-0.5},
+            rotation={0.0,-90.0,90.0},
+            width=500,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Red',
+            tooltip='No - Cancel Cleanup'
+        }
+    )
+end
