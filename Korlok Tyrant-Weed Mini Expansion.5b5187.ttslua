@@ -8,7 +8,7 @@ local locations =
     SproutLoc = {46.19, 0.97, 17.35},
     SproutRot = {0.00, 150.00, 0.00},
     SproutInfoCardLoc = {45.77, 0.98, 14.53},
-    SproutInfoCardRot = = {0.00, 180.00, 0.00},
+    SproutInfoCardRot = {0.00, 180.00, 0.00},
 
     HealingPodLoc = {49.49, 0.97, 17.35},
     HealingPodRot = {0.00, 150.00, 0.00},
@@ -29,7 +29,7 @@ local GUIDs =
     sproutInfoCard = 'c63531',
 
     healingPodBag = 'ade8ab',
-    healingPodMinis = {'e79649','68118b'}
+    healingPodMinis = {'e79649','68118b'},
     healingPodInfoCard = '553b44',
 
     hiddenCaveSegment = '26792c'
@@ -286,7 +286,7 @@ function EnableExpansion()
         ID = GUIDs.hiddenCaveSegment,
     }
     if Global.call('isInBag',params) then
-        Global.Call('getHiddenCaveBag').putObject(params.bag.takeObject(guid = params.ID))
+        Global.Call('getHiddenCaveBag').putObject(params.bag.takeObject({guid = params.ID}))
     else
         print("Warning: Unable to set up Korlok hidden cave segment, it's not in the expansion box", 'Red')
     end
@@ -323,21 +323,21 @@ function DisableExpansion()
         -- Put minis into bags
         sproutParams =
         {
-            table = GUIDs.sproutMinis
+            table = GUIDs.sproutMinis,
             value = objGUID
         }
 
         healingPodParams =
         {
-            table = GUIDs.healingPodMinis
+            table = GUIDs.healingPodMinis,
             value = objGUID
         }
 
         if objGUID == GUIDs.heartClamMini then
             XpacBags.heartClamBag.putObject(object)
-        elseif Global.Call('TableContains',sproutParams)
+        elseif Global.Call('TableContains',sproutParams) then
             XpacBags.sproutBag.putObject(object)
-        elseif Global.Call('TableContains',healingPodParam)
+        elseif Global.Call('TableContains',healingPodParam) then
             XpacBags.healingPodBag.putObject(object)
 
         elseif object.type == "Deck" then
@@ -370,7 +370,7 @@ function DisableExpansion()
 
     -- If the hidden cave segment was not cleaned up, find it in the cave segment bag
     if not caveSegmentWasCleanedUp then
-        XpacBags.expansionBox.putObject(Global.Call('getHiddenCaveBag').takeObject(guid=GUIDs.hiddenCaveSegment))
+        XpacBags.expansionBox.putObject(Global.Call('getHiddenCaveBag').takeObject({guid=GUIDs.hiddenCaveSegment}))
     end
 
     Wait.time(function()
