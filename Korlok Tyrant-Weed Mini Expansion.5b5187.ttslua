@@ -1,0 +1,17 @@
+local locations =
+{
+    HeartClamLoc = {42.89, 0.97, 17.35},
+    HeartClamRot = {0.00, 150.00, 0.00},
+    HeartClamInfoCardLoc = {42.53, 0.98, 14.56},
+    HeartClamInfoCardRot = {0.00, 180.00, 0.00},
+
+    SproutLoc = {46.19, 0.97, 17.35},
+    SproutRot = {0.00, 150.00, 0.00},
+    SproutInfoCardLoc = {45.77, 0.98, 14.53},
+    SproutInfoCardRot = = {0.00, 180.00, 0.00},
+
+    HealingPodLoc = {49.49, 0.97, 17.35},
+    HealingPodRot = {0.00, 150.00, 0.00},
+    HealingPodInfoCard = {49.01, 0.98, 14.58},
+    HealingPodInfoCardRot = {0.00, 180.00, 0.00}
+}
