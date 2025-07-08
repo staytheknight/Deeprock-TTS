@@ -19,12 +19,20 @@ local locations =
 local GUIDs =
 {
     expansionBox = '5b5187',
+
     heartClamBag = '6b2359',
     heartClamMini = '72f13b',
+    heartClamInfoCard = '20304c',
+
     sproutBag = '5b120d',
     sproutMinis = {'3d6c16','e9453a'},
+    sproutInfoCard = 'c63531',
+
     healingPodBag = 'ade8ab',
     healingPodMinis = {'e79649','68118b'}
+    healingPodInfoCard = '553b44',
+
+    hiddenCaveSegment = '26792c'
 }
 
 local XpacBags =
@@ -153,4 +161,230 @@ function ConfirmCleanupButton()
             tooltip='No - Cancel Cleanup'
         }
     )
+end
+
+function EnableExpansion()
+    self.clearButtons()
+
+    Wait.time(function()
+        ShowDisableExpansionButton()
+    end,2)
+
+    -- Checks if there are players minis in the cleanup zone (on a mission)
+    if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
+        printToAll('Unable to set up: Korlok Tyrant-Weed Mini Expansion', 'Red')
+        printToAll('Mission in progress detected, cleanup mission before enabling expansion\n', 'Red')
+        return
+    end
+
+    printToAll('Setting up: Korlok Tyrant-Weed Mini Expansion', 'Yellow')
+
+    Global.Call('setKorlokExpansionToggle',true)
+
+
+    -- Info Card setups
+    params={
+        bag = expansionBox,
+        ID = GUIDs.heartClamInfoCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.HeartClamInfoCardLoc,
+            rotation = locations.HeartClamInfoCardRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print("Warning: Unable to set up Korlok Tyrant-Weed Heart Clam info card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.sproutInfoCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.SproutInfoCardLoc,
+            rotation = locations.SproutInfoCardRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print("Warning: Unable to set up Korlok Tyrant-Weed Sprout info card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.healingPodInfoCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.HealingPodInfoCard,
+            rotation = locations.HealingPodInfoCardRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print("Warning: Unable to set up Korlok Tyrant-Weed Healing Pod info card, it's not in the expansion box", 'Red')
+    end
+
+    -- Bag Setups
+    params={
+        bag = expansionBox,
+        ID = GUIDs.heartClamBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.HeartClamLoc,
+            rotation = locations.HeartClamRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print("Warning: Unable to set up Korlok Tyrant-Weed Heart Clam bag, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.sproutBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.SproutLoc,
+            rotation = locations.SproutRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print("Warning: Unable to set up Korlok Tyrant-Weed Healing Sprout bag, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.healingPodBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.HealingPodLoc,
+            rotation = locations.HealingPodRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print("Warning: Unable to set up Korlok Tyrant-Weed Healing Pod bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Hidden cave segment setup
+    params={
+        bag = expansionBox,
+        ID = GUIDs.hiddenCaveSegment,
+    }
+    if Global.call('isInBag',params) then
+        Global.Call('getHiddenCaveBag').putObject(params.bag.takeObject(guid = params.ID))
+    else
+        print("Warning: Unable to set up Korlok hidden cave segment, it's not in the expansion box", 'Red')
+    end
+end
+
+function DisableExpansion()
+    self.clearButtons()
+
+    Wait.time(function()
+        ShowEnableExpansionButton()
+    end,2)
+
+    -- Checking to see if player minis are on the board (in the middle of a mission)
+    if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
+        printToAll('Unable to clean up: Korlok Tyrant-Weed Mini Expansion', 'Red')
+        printToAll('\nMission in progress detected, cleanup mission before disabling expansion\n', 'Red')
+        return
+    end
+
+    printToAll('Cleaning up: Korlok Tyrant-Weed Mini Expansion', 'Yellow')
+
+    Global.Call('setKorlokExpansionToggle',false)
+
+    -- // Expansion Cleanup //
+    local objects = getAllObjects()
+    -- instead of long if else statements use dictionary or more sophisticated table.find
+
+    caveSegmentWasCleanedUp = false
+
+    for _, object in ipairs(objects) do
+
+        objGUID = object.GetGUID()
+
+        -- Put minis into bags
+        sproutParams =
+        {
+            table = GUIDs.sproutMinis
+            value = objGUID
+        }
+
+        healingPodParams =
+        {
+            table = GUIDs.healingPodMinis
+            value = objGUID
+        }
+
+        if objGUID == GUIDs.heartClamMini then
+            XpacBags.heartClamBag.putObject(object)
+        elseif Global.Call('TableContains',sproutParams)
+            XpacBags.sproutBag.putObject(object)
+        elseif Global.Call('TableContains',healingPodParam)
+            XpacBags.healingPodBag.putObject(object)
+
+        elseif object.type == "Deck" then
+            deckPosition = object.getPosition()
+            for _, containedObject in ipairs(object.getObjects()) do
+                -- have to take the object out of the deck to be able to read
+                -- it's info
+                obj = object.takeObject({smooth = false})
+                if (obj.getGUID() == GUIDs.heartClamInfoCard)
+                or (obj.getGUID() == GUIDs.sproutInfoCard)
+                or (obj.getGUID() == GUIDs.healingPodInfoCard)
+                then
+                    XpacBags.expansionBox.putObject(obj)
+                else
+                    -- if the object in the deck is not in part of the expansion
+                    -- put it back where it was (note: this will shuffle the decks around)
+                    obj.setPosition(deckPosition)
+                end
+            end
+        elseif objGUID == guids.hiddenCaveSegment then
+            XpacBags.expansionBox.putObject(object)
+        elseif objGUID == guids.heartClamInfoCard then
+            XpacBags.expansionBox.putObject(object)
+        elseif objGUID == guids.sproutInfoCard then
+            XpacBags.expansionBox.putObject(object)
+        elseif objGUID == guids.healingPodInfoCard then
+            XpacBags.expansionBox.putObject(object)
+        end
+    end
+
+    -- If the hidden cave segment was not cleaned up, find it in the cave segment bag
+    if not caveSegmentWasCleanedUp then
+        XpacBags.expansionBox.putObject(Global.Call('getHiddenCaveBag').takeObject(guid=GUIDs.hiddenCaveSegment))
+    end
+
+    Wait.time(function()
+        -- second pass once everything is properly put back in bags
+        -- to put the mini bags away
+        objects = getAllObjects()
+        for _, object in ipairs(objects) do
+            if (object.getGUID() == GUIDs.heartClamBag)
+            or (object.getGUID() == GUIDs.sproutBag)
+            or (object.getGUID() == GUIDs.healingPodBag)
+            then
+                XpacBags.expansionBox.putObject(object)
+            end
+        end
+    end,2) -- wait two seconds before running the cleanup
+
 end

@@ -148,7 +148,7 @@ function EnableExpansion()
         ShowDisableExpansionButton()
     end,2)
 
-
+    -- Checks if there are players minis in the cleanup zone (on a mission)
     if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
         printToAll('Unable to set up: Bulk Detonator Mini Expansion', 'Red')
         printToAll('Mission in progress detected, cleanup mission before enabling expansion\n', 'Red')
@@ -266,6 +266,5 @@ function DisableExpansion()
             end
         end
     end,2) -- wait two seconds before running the cleanup
-
 
 end

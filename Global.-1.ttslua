@@ -435,6 +435,15 @@ function onSave()
     return JSON.encode(state);
 end
 
+function TableContains(params)
+    for i = 1,#params.table do
+        if (params.table[i] == params.value) then
+            return true
+        end
+    end
+    return false
+end
+
 -- Monte Carlo randomizer from https://9to5answer.com/generating-uniform-random-numbers-in-lua
 local A1, A2 = 727595, 798405  -- 5^17=D20*A1+A2
 local D20, D40 = 1048576, 1099511627776  -- 2^20, 2^40
