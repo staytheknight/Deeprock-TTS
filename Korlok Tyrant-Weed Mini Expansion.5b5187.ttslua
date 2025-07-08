@@ -15,3 +15,22 @@ local locations =
     HealingPodInfoCard = {49.01, 0.98, 14.58},
     HealingPodInfoCardRot = {0.00, 180.00, 0.00}
 }
+
+local GUIDs =
+{
+    expansionBox = '5b5187',
+    heartClamBag = '6b2359',
+    heartClamMini = '72f13b',
+    sproutBag = '5b120d',
+    sproutMinis = {'3d6c16','e9453a'},
+    healingPodBag = 'ade8ab',
+    healingPodMinis = {'e79649','68118b'}
+}
+
+local XpacBags =
+{
+    expansionBox = getObjectFromGUID(GUIDs.expansionBox),
+    heartClamBag = getObjectFromGUID(GUIDs.heartClamBag),
+    sproutBag = getObjectFromGUID(GUIDs.sproutBag),
+    healingPodBag = getObjectFromGUID(GUIDs.healingPodBag),
+}
