@@ -1,5 +1,6 @@
 local bulkDetonatorExpansionToggle = false
 local gooFromAboveExpansionToggle = false
+local korlokExpansionToggle = false
 
 function onLoad(script_state)
     -- Boards
@@ -416,6 +417,8 @@ function onLoad(script_state)
     local state = JSON.decode(script_state)
     bulkDetonatorExpansionToggle = state.expansionToggles.bulkDetonatorExpansionToggle
     gooFromAboveExpansionToggle = state.expansionToggles.gooFromAboveExpansionToggle
+    korlokExpansionToggle = state.expansionToggles.korlokExpansionToggle
+
     return JSON.encode(state)
 end
 
@@ -425,7 +428,8 @@ function onSave()
         expansionToggles =
         {
             bulkDetonatorExpansionToggle = bulkDetonatorExpansionToggle,
-            gooFromAboveExpansionToggle = gooFromAboveExpansionToggle
+            gooFromAboveExpansionToggle = gooFromAboveExpansionToggle,
+            korlokExpansionToggle = korlokExpansionToggle
         }
     }
     return JSON.encode(state);
@@ -1149,4 +1153,12 @@ end
 
 function setGooFromAboveExpansionToggle(toggle)
     gooFromAboveExpansionToggle = toggle
+end
+
+function getKorlokExpansionToggle()
+    return korlokExpansionToggle
+end
+
+function setKorlokExpansionToggle(toggle)
+    korlokExpansionToggle = toggle
 end
