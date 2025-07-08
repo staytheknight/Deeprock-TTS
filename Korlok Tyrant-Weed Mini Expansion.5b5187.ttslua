@@ -196,7 +196,7 @@ function EnableExpansion()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Korlok Tyrant-Weed Heart Clam info card, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Korlok Tyrant-Weed Heart Clam info card, it's not in the expansion box", 'Red')
     end
 
     params={
@@ -212,7 +212,7 @@ function EnableExpansion()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Korlok Tyrant-Weed Sprout info card, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Korlok Tyrant-Weed Sprout info card, it's not in the expansion box", 'Red')
     end
 
     params={
@@ -228,7 +228,7 @@ function EnableExpansion()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Korlok Tyrant-Weed Healing Pod info card, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Korlok Tyrant-Weed Healing Pod info card, it's not in the expansion box", 'Red')
     end
 
     -- Bag Setups
@@ -245,7 +245,7 @@ function EnableExpansion()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Korlok Tyrant-Weed Heart Clam bag, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Korlok Tyrant-Weed Heart Clam bag, it's not in the expansion box", 'Red')
     end
 
     params={
@@ -261,7 +261,7 @@ function EnableExpansion()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Korlok Tyrant-Weed Healing Sprout bag, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Korlok Tyrant-Weed Healing Sprout bag, it's not in the expansion box", 'Red')
     end
 
     params={
@@ -277,7 +277,7 @@ function EnableExpansion()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Korlok Tyrant-Weed Healing Pod bag, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Korlok Tyrant-Weed Healing Pod bag, it's not in the expansion box", 'Red')
     end
 
     -- Hidden cave segment setup
@@ -285,10 +285,14 @@ function EnableExpansion()
         bag = expansionBox,
         ID = GUIDs.hiddenCaveSegment,
     }
+
     if Global.call('isInBag',params) then
-        Global.Call('getHiddenCaveBag').putObject(params.bag.takeObject({guid = params.ID}))
+        takenObj = params.bag.takeObject({
+            guid = params.ID,
+            position = Global.Call('getHiddenCaveBag').getPosition()
+        })
     else
-        print("Warning: Unable to set up Korlok hidden cave segment, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Korlok hidden cave segment, it's not in the expansion box", 'Red')
     end
 end
 
@@ -357,20 +361,24 @@ function DisableExpansion()
                     obj.setPosition(deckPosition)
                 end
             end
-        elseif objGUID == guids.hiddenCaveSegment then
+
+        elseif objGUID == GUIDs.hiddenCaveSegment then
             XpacBags.expansionBox.putObject(object)
-        elseif objGUID == guids.heartClamInfoCard then
+        elseif objGUID == GUIDs.heartClamInfoCard then
             XpacBags.expansionBox.putObject(object)
-        elseif objGUID == guids.sproutInfoCard then
+        elseif objGUID == GUIDs.sproutInfoCard then
             XpacBags.expansionBox.putObject(object)
-        elseif objGUID == guids.healingPodInfoCard then
+        elseif objGUID == GUIDs.healingPodInfoCard then
             XpacBags.expansionBox.putObject(object)
         end
     end
 
     -- If the hidden cave segment was not cleaned up, find it in the cave segment bag
     if not caveSegmentWasCleanedUp then
-        XpacBags.expansionBox.putObject(Global.Call('getHiddenCaveBag').takeObject({guid=GUIDs.hiddenCaveSegment}))
+        Global.Call('getHiddenCaveBag').takeObject({
+            guid=GUIDs.hiddenCaveSegment,
+            position = XpacBags.expansionBox.getPosition()
+        })
     end
 
     Wait.time(function()
@@ -386,5 +394,4 @@ function DisableExpansion()
             end
         end
     end,2) -- wait two seconds before running the cleanup
-
 end
