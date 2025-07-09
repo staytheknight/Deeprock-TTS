@@ -290,3 +290,180 @@ function ConfirmCleanupButton()
         }
     )
 end
+
+function EnableExpansion()
+    self.clearButtons()
+
+    Wait.time(function()
+        ShowDisableExpansionButton()
+    end,2)
+
+    -- Checks if there are players minis in the cleanup zone (on a mission)
+    if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
+        printToAll('Unable to set up: Biome Expansion', 'Red')
+        printToAll('Mission in progress detected, cleanup mission before enabling expansion\n', 'Red')
+        return
+    end
+
+    printToAll('Setting up: Biome Expansion', 'Yellow')
+
+    Global.Call('setKorlokExpansionToggle',true)
+
+    -- Rulebook setup
+    params={
+        bag = rulebook,
+        ID = GUIDs.heartClamInfoCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.rulebookLoc,
+            rotation = locations.rulebookRot,
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up Biome Rulebook, it's not in the expansion box", 'Red')
+    end
+
+    -- Biome Cave Bag Setup
+    params={
+        bag = expansionBox,
+        ID = GUIDs.biomeCaveBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.biomeCaveBagLoc,
+            rotation = locations.biomeCaveBagRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Biome Cave Bag, it's not in the expansion box", 'Red')
+    end
+
+    --Token Setup
+    params={
+        bag = expansionBox,
+        ID = GUIDs.frozenTokenBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.frozenTokenBagLoc,
+            rotation = locations.frozenTokenBagRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Frozen Token Bag, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.glyphidEggTokenBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.glyphidEggTokenBagLoc,
+            rotation = locations.glyphidEggTokenBagRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Glyphid Cocoon Bag, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.fungusBogTokenBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.fungusBogTokenBagLoc,
+            rotation = locations.fungusBogTokenBagRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Poison Spore Fungus Bag, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.muleTokenBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.muleTokenBagLoc,
+            rotation = locations.muleTokenBagRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Mini Mule Bag, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.muleLegTokenBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.muleLegTokenBagLoc,
+            rotation = locations.muleLegTokenBagRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Mini Mule Leg Bag, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.neurotoxinGrenadeToken,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.neurotoxinGrenadeTokenLoc,
+            rotation = locations.neurotoxinGrenadeTokenRot,
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up Neurotoxin Grenade Token, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.dreadHealthTracker,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.dreadHealthTrackerLoc,
+            rotation = locations.dreadHealthTrackerRot,
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up Dreadnought Health Tracker, it's not in the expansion box", 'Red')
+    end
+
+    for i=1, 6 do
+        params={
+            bag = expansionBox,
+            ID = GUIDs.acidSludgeTokens[i],
+        }
+        if Global.call('isInBag',params) then
+            params.bag.takeObject({
+                position = locations.acidSludgeTokenLoc[i],
+                rotation = locations.acidSludgeTokenRot,
+                guid = params.ID,
+            })
+        else
+            printToAll("Warning: Unable to set up Acid Sludge Token, it's not in the expansion box", 'Red')
+        end
+    end
+
+end
