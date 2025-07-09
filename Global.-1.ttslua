@@ -433,8 +433,8 @@ function onSave()
         {
             bulkDetonatorExpansionToggle = bulkDetonatorExpansionToggle,
             gooFromAboveExpansionToggle = gooFromAboveExpansionToggle,
-            korlokExpansionToggle = korlokExpansionToggle
-            biomeExpansionToggle = biomeExpansionToggle
+            korlokExpansionToggle = korlokExpansionToggle,
+            biomeExpansionToggle = biomeExpansionToggle,
             spaceRigExpansionToggle = spaceRigExpansionToggle
         }
     }
