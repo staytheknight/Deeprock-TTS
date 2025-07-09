@@ -135,7 +135,7 @@ local GUIDs =
     biomeSwarmCard1 = '560409',
     biomeSwarmCard2 = '3eeda2',
     biomeSwarmCard3 = '2d2117',
-    biomeSwarmCard3 = 'e51a2e',
+    biomeSwarmCard4 = 'e51a2e',
 
     -- Primary Weapon Alts
     biomePrimaryAltGunner = '5a7277',
@@ -312,7 +312,7 @@ function EnableExpansion()
     -- Rulebook setup
     params={
         bag = rulebook,
-        ID = GUIDs.heartClamInfoCard,
+        ID = GUIDs.rulebook,
     }
     if Global.call('isInBag',params) then
         params.bag.takeObject({
@@ -450,6 +450,8 @@ function EnableExpansion()
         printToAll("Warning: Unable to set up Dreadnought Health Tracker, it's not in the expansion box", 'Red')
     end
 
+
+    -- Sludge Tokens
     for i=1, 6 do
         params={
             bag = expansionBox,
@@ -464,6 +466,599 @@ function EnableExpansion()
         else
             printToAll("Warning: Unable to set up Acid Sludge Token, it's not in the expansion box", 'Red')
         end
+    end
+
+    -- Secondary Weapon Cards
+    params={
+        bag = expansionBox,
+        ID = GUIDs.secondaryLokICard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getSecondariesDeckZone').GetPosition(),
+            rotation = {0.0, 180.0, 0.0},
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up LOK-I Smart Rifle Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.secondaryBoltsharkCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getSecondariesDeckZone').GetPosition(),
+            rotation = {0.0, 180.0, 0.0},
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up Nishanka Boltshark X-60 Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.secondaryBoltgunCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getSecondariesDeckZone').GetPosition(),
+            rotation = {0.0, 180.0, 0.0},
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up Armskore Bolt Gun Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.secondaryWaveCookerCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getSecondariesDeckZone').GetPosition(),
+            rotation = {0.0, 180.0, 0.0},
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up Colette Wave Cooker Card, it's not in the expansion box", 'Red')
+    end
+
+    -- Throwables
+    params={
+        bag = expansionBox,
+        ID = GUIDs.neurotoxinGrenadeCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getThrowablesDeckZone').GetPosition(),
+            rotation = {0.0, 180.0, 180.0},
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up Neurotoxin Grenade Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.boomrangCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getThrowablesDeckZone').GetPosition(),
+            rotation = {0.0, 180.0, 180.0},
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up Voltaic Stun Sweeper Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.pheremoneCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getThrowablesDeckZone').GetPosition(),
+            rotation = {0.0, 180.0, 180.0},
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up Pheromone Canister Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.ripperCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getThrowablesDeckZone').GetPosition(),
+            rotation = {0.0, 180.0, 180.0},
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up Springloaded Ripper Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.shredderCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getThrowablesDeckZone').GetPosition(),
+            rotation = {0.0, 180.0, 180.0},
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up Shredder Swarm Grenade Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.leadbursterCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getThrowablesDeckZone').GetPosition(),
+            rotation = {0.0, 180.0, 180.0},
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up Tactical Leadburster Card, it's not in the expansion box", 'Red')
+    end
+
+    -- Rock & Stone Cards
+    params={
+        bag = expansionBox,
+        ID = GUIDs.biomeRockAndStoneCard1,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getRockAndStoneDeckZone').GetPosition(),
+            rotation = {0.0, 180.0, 180.0},
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up 'I actually think we're gonna make it' Rock & Stone Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.biomeRockAndStoneCard2,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getRockAndStoneDeckZone').GetPosition(),
+            rotation = {0.0, 180.0, 180.0},
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up 'Lights Up!' Rock & Stone Card, it's not in the expansion box", 'Red')
+    end
+
+    -- Biome Swarm Cards
+    params={
+        bag = expansionBox,
+        ID = GUIDs.biomeSwarmCard1,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getSwarmDeckZone').GetPosition(),
+            rotation = {0.0, 180.0, 180.0},
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up 'Get out of the way!' Swarm Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.biomeSwarmCard2,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getSwarmDeckZone').GetPosition(),
+            rotation = {0.0, 180.0, 180.0},
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up 'Don't get caught up!' Swarm Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.biomeSwarmCard3,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getSwarmDeckZone').GetPosition(),
+            rotation = {0.0, 180.0, 180.0},
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up 'Rolling Creep' Swarm Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.biomeSwarmCard4,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getSwarmDeckZone').GetPosition(),
+            rotation = {0.0, 180.0, 180.0},
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up 'It's going to hit us!' Swarm Card, it's not in the expansion box", 'Red')
+    end
+
+    -- Primary Weapon Alts
+    params={
+        bag = expansionBox,
+        ID = GUIDs.biomePrimaryAltGunner,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.primaryAltGunnerLoc,
+            rotation = locations.primaryAltGunnerRot,
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up 'Hurricane' Guided Rocket System alternate gunner primary token, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.biomePrimaryAltScout,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.primaryAltScoutLoc,
+            rotation = locations.primaryAltScoutRot,
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up Drak-25 Plasma Carabine alternate scout primary token, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.biomePrimaryAltDriller,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.primaryAltDrillerLoc,
+            rotation = locations.primaryAltDrillerRot,
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up Corrosive Sludge Pump alternate driller primary token, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.biomePrimaryAltEngi,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.primaryAltEngiLoc,
+            rotation = locations.primaryAltEngiRot,
+            guid = params.ID,
+        })
+    else
+        printToAll("Warning: Unable to set up Shard Diffractor alternate engineer primary token, it's not in the expansion box", 'Red')
+    end
+
+    -- Glyphid Info Cards
+    params={
+        bag = expansionBox,
+        ID = GUIDs.infoCardHatchling,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.infoCardHatchlingLoc,
+            rotation = locations.infoCardRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Naedocyte Hatchling Info Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.infoCardBreeder,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.infoCardBreederLoc,
+            rotation = locations.infoCardRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Naedocyte Breeder Info Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.infoCardShellback,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.infoCardShellbackLoc,
+            rotation = locations.infoCardRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Q'Ronar Shellback Info Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.infoCardRammer,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.infoCardRammerLoc,
+            rotation = locations.infoCardRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Rammer Info Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.infoCardStingtail,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.infoCardStingtailLoc,
+            rotation = locations.infoCardRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Stingtail Info Card, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.infoCardDread,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.infoCardDreadLoc,
+            rotation = locations.infoCardRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Dreadnought Info Card, it's not in the expansion box", 'Red')
+    end
+
+    -- Glyphid Info Snippets
+    params={
+        bag = expansionBox,
+        ID = GUIDs.glyphidSnippet1,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.glyphidSnippetLoc1,
+            rotation = locations.glyphidSnippetRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Biome Glyphids Info PDF 1, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.glyphidSnippet2,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.glyphidSnippetLoc2,
+            rotation = locations.glyphidSnippetRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Biome Glyphids Info PDF 2, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.glyphidSnippetDread,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.glyphidSnippetDreadLoc,
+            rotation = locations.glyphidSnippetRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Dreadnought Info PDF, it's not in the expansion box", 'Red')
+    end
+
+    -- Glyphid Mini Bags
+    params={
+        bag = expansionBox,
+        ID = GUIDs.hatchingBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.hatchlingBagLoc,
+            rotation = locations.hatchingBagRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Naedocyte Hatchling Bag, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.breederBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.breederBagLoc,
+            rotation = locations.breederBagRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Naedocyte Breeder Bag, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.shellbackBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.shellbackBagLoc,
+            rotation = locations.shellbackBagRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Q'Ronar Shellback Bag, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.rammerBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.rammerBagLoc,
+            rotation = locations.rammerBagRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Rammer Bag, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.stingtailBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.stingtailBagLoc,
+            rotation = locations.stingtailBagRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Stingtail Bag, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.dreadBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.dreadBagLoc,
+            rotation = locations.dreadBagRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Dreadnought Bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Prop Bags
+    params={
+        bag = expansionBox,
+        ID = GUIDs.explodingPlantBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.explodingPlantBagLoc,
+            rotation = locations.explodingPlantBagRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Exploding Plant Bag, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.geyserBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.geyserBagLoc,
+            rotation = locations.geyserBagRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Lava Geyser Bag, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.cryoBulbBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.cryoBulbBagLoc,
+            rotation = locations.cryoBulbBagRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Cryo Bulb Bag, it's not in the expansion box", 'Red')
+    end
+
+    params={
+        bag = expansionBox,
+        ID = GUIDs.glowingPillarBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.glowingPillarBagLoc,
+            rotation = locations.glowingPillarBagRot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Glowing Pillar Bag, it's not in the expansion box", 'Red')
     end
 
 end
