@@ -1061,26 +1061,27 @@ function EnableExpansion()
         printToAll("Warning: Unable to set up Glowing Pillar Bag, it's not in the expansion box", 'Red')
     end
 
-    for _, object in ipairs(expansionBox.getObjects()) do
-        if object.type == "Deck" then
-            for _, containedObject in ipairs(object.getObject()) do
-                if (containedObject.getGMNotes() == "dreadCard") then
-                    params={
-                        bag = expansionBox,
-                        ID = object.getGUID(),
-                    }
-                    if Global.call('isInBag',params) then
-                        params.bag.takeObject({
-                            position = Global.call('getDreadDeckZone').GetPosition(),
-                            rotation = {0.0, 180.0, 180.0},
-                            guid = params.ID,
-                        })
+
+    indexCount = #expansionBox.getObjects()
+    obj = expansionBox.TakeObject({
+        index = indexCount-1,
+        callback_function = function(obj)
+            obj.lock()
+            if obj.type == "Deck" then
+                -- looks for the deck containing dread cards
+                for _, containedObject in ipairs(obj.getObjects()) do
+                    if (containedObject.gm_notes) then
+                        obj.setLock(false)
+                        obj.setRotation({0.0, 180.0, 180.0})
+                        obj.setPosition(Global.Call('getDreadDeckZone').GetPosition())
+                        break
                     else
-                        printToAll("Warning: Unable to set up Dreadnought Cards, it's not in the expansion box", 'Red')
+                        -- if it's not the right deck put it back in the box
+                        expansionBox.putObject(obj)
                     end
                 end
             end
         end
-    end
+    })
 
 end
