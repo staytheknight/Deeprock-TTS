@@ -1131,7 +1131,7 @@ function DisableExpansion()
             objGUID == GUIDs.biomeCaveMagic or
             objGUID == GUIDs.biomeCaveCocoon then
                 Global.call('getBiomeCaveBag').putObject(object)
-            end
+                
         elseif object.getGMNotes() == "Frozen" then -- put frozen token in frozen token bag
             Global.call('getFrozenBag').putObject(object)
         elseif object.getGMNotes() == "pSpore" then -- put spore token in spore token bag
