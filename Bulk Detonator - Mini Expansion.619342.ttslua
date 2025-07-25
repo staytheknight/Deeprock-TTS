@@ -172,7 +172,7 @@ function EnableExpansion()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Bulk Detonator info card, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Bulk Detonator info card, it's not in the expansion box", 'Red')
     end
 
     params={
@@ -188,7 +188,7 @@ function EnableExpansion()
             callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Bulk Detonator bag, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Bulk Detonator bag, it's not in the expansion box", 'Red')
     end
 
     params={
@@ -204,7 +204,7 @@ function EnableExpansion()
             --callback="afterSpawnLock", callback_owner=Global
         })
     else
-        print("Warning: Unable to set up Bulk Detonator swarm card, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Bulk Detonator swarm card, it's not in the expansion box", 'Red')
     end
 end
 

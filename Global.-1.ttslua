@@ -1,6 +1,8 @@
 local bulkDetonatorExpansionToggle = false
 local gooFromAboveExpansionToggle = false
 local korlokExpansionToggle = false
+local biomeExpansionToggle = false
+local spaceRigExpansionToggle = false
 
 function onLoad(script_state)
     -- Boards
@@ -418,6 +420,8 @@ function onLoad(script_state)
     bulkDetonatorExpansionToggle = state.expansionToggles.bulkDetonatorExpansionToggle
     gooFromAboveExpansionToggle = state.expansionToggles.gooFromAboveExpansionToggle
     korlokExpansionToggle = state.expansionToggles.korlokExpansionToggle
+    biomeExpansionToggle = state.expansionToggles.biomeExpansionToggle
+    spaceRigExpansionToggle = state.spaceRigExpansionToggle
 
     return JSON.encode(state)
 end
@@ -429,7 +433,9 @@ function onSave()
         {
             bulkDetonatorExpansionToggle = bulkDetonatorExpansionToggle,
             gooFromAboveExpansionToggle = gooFromAboveExpansionToggle,
-            korlokExpansionToggle = korlokExpansionToggle
+            korlokExpansionToggle = korlokExpansionToggle,
+            biomeExpansionToggle = biomeExpansionToggle,
+            spaceRigExpansionToggle = spaceRigExpansionToggle
         }
     }
     return JSON.encode(state);
@@ -1170,4 +1176,20 @@ end
 
 function setKorlokExpansionToggle(toggle)
     korlokExpansionToggle = toggle
+end
+
+function getBiomeExpansionToggle()
+    return biomeExpansionToggle
+end
+
+function setBiomeExpansionToggle(toggle)
+    biomeExpansionToggle = toggle
+end
+
+function getSpaceRigExpansionToggle()
+    return spaceRigExpansionToggle
+end
+
+function setSpaceRigExpansionToggle(toggle)
+    spaceRigExpansionToggle = toggle
 end
