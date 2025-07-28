@@ -1,0 +1,426 @@
+local locations =
+{
+    gooBomberBag =
+    {
+        loc = {6.60, 0.97, 17.35},
+        rot = {0.00, 149.98, 0.00}
+    },
+    gooBomberInfoCard =
+    {
+        loc = {6.61, 0.98, 14.56},
+        rot = {0.00, 180.00, 0.00}
+    },
+    gooBagLoc = {5.50, 0.97, 17.35},
+    menaceBag =
+    {
+        loc = {9.90, 0.97, 17.35},
+        rot = {0.00, 209.94, 0.00}
+    },
+    menaceInfoCard =
+    {
+        loc = {9.88, 0.98, 14.56},
+        rot = {0.00, 180.00, 0.00}
+    },
+    combinedInfoCard =
+    {
+        loc = {7.42, 1.01, 23.21},
+        rot = {0.59, 180.03, 0.00}
+    }
+}
+
+local GUIDs =
+{
+    expansionBox = 'f83558',
+    gooBomberBag = '35b987',
+    gooBag = 'f4fe09',
+    menaceBag = '88f9cc',
+    gooBomberInfoCard = '4f3c85',
+    menaceInfoCard = '99b24c',
+    combinedInfoCard = '0525c7',
+    swarmCard_HideAndSeek = 'bcf8c0',
+    swarmCard_MenacingGoo = '0a6401',
+    eventCard_GooFromAbove = 'b16267',
+    eventCard_WhatAMenace = 'bcaab6'
+}
+
+function onLoad()
+    self.clearButtons()
+
+    if Global.call('getGooFromAboveExpansionToggle') then
+        ShowDisableExpansionButton()
+    else
+        ShowEnableExpansionButton()
+    end
+end
+
+function ShowEnableExpansionButton()
+    self.clearButtons()
+
+    self.createButton(
+        {
+            click_function='ConfirmSetupButton',
+            function_owner=self,
+            label="Enable\n Expansion",
+            position={0.0,0.0,-7.0},
+            width=1000,
+            height=350,
+            font_size=150,
+            scale={2,2,2},
+            font_color='White',
+            color='Green',
+            tooltip='Enable Goo From Above - Mini Expansion'
+        }
+    )
+end
+
+function ShowDisableExpansionButton()
+    self.clearButtons()
+
+    self.createButton(
+        {
+            click_function='ConfirmCleanupButton',
+            function_owner=self,
+            label="Disable\n Expansion",
+            position={0.0,0.0,-7.0},
+            scale={2,2,2},
+            width=1000,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Red',
+            tooltip='Disable Goo From Above - Mini Expansion'
+        }
+    )
+end
+
+function ConfirmSetupButton()
+    self.createButton(
+        {
+            click_function='EnableExpansion',
+            function_owner=self,
+            label="Yes",
+            position={-1.0,0.0,-5.0},
+            scale={2,2,2},
+            width=500,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Green',
+            tooltip='Yes - Continue Setup'
+        }
+    )
+
+    self.createButton(
+        {
+            click_function='ShowEnableExpansionButton',
+            function_owner=self,
+            label="No",
+            position={1.0,0.0,-5.0},
+            scale={2,2,2},
+            width=500,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Red',
+            tooltip='No - Cancel Setup'
+        }
+    )
+end
+
+function ConfirmCleanupButton()
+    self.createButton(
+        {
+            click_function='DisableExpansion',
+            function_owner=self,
+            label="Yes",
+            position={-1.0,0.0,-5.0},
+            scale={2,2,2},
+            width=500,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Green',
+            tooltip='Yes - Continue Cleanup'
+        }
+    )
+
+    self.createButton(
+        {
+            click_function='ShowDisableExpansionButton',
+            function_owner=self,
+            label="No",
+            position={1.0,0.0,-5.0},
+            scale={2,2,2},
+            width=500,
+            height=350,
+            font_size=150,
+            font_color='White',
+            color='Red',
+            tooltip='No - Cancel Cleanup'
+        }
+    )
+end
+
+function EnableExpansion()
+    self.clearButtons()
+
+    Wait.time(function()
+        ShowDisableExpansionButton()
+    end,2)
+
+    if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
+        printToAll('Unable to set up: Goo From Above Mini Expansion', 'Red')
+        printToAll('Mission in progress detected, cleanup mission before enabling expansion\n', 'Red')
+        return
+    end
+
+    printToAll('Setting up: Goo From Above Mini Expansion', 'Yellow')
+
+    Global.Call('setGooFromAboveExpansionToggle',true)
+
+    -- Goo Bomber Bag
+    params={
+        bag = getObjectFromGUID(GUIDs.expansionBox),
+        ID = GUIDs.gooBomberBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.gooBomberBag.loc,
+            rotation = locations.gooBomberBag.rot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Goo Bomber Bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Goo Bag
+    params={
+        bag = getObjectFromGUID(GUIDs.expansionBox),
+        ID = GUIDs.gooBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.gooBagLoc,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Goo Bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Goo Bomber Info Card
+    params={
+        bag = getObjectFromGUID(GUIDs.expansionBox),
+        ID = GUIDs.gooBomberInfoCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.gooBomberInfoCard.loc,
+            rotation = locations.gooBomberInfoCard.rot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Goo Bomber Info Card, it's not in the expansion box", 'Red')
+    end
+
+    -- Menace Bag
+    params={
+        bag = getObjectFromGUID(GUIDs.expansionBox),
+        ID = GUIDs.menaceBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.menaceBag.loc,
+            rotation = locations.menaceBag.rot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Menace Bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Combined Info Card
+    params={
+        bag = getObjectFromGUID(GUIDs.expansionBox),
+        ID = GUIDs.combinedInfoCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.combinedInfoCard.loc,
+            rotation = locations.combinedInfoCard.rot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Goo From Above Info Card, it's not in the expansion box", 'Red')
+    end
+
+    -- Combined Info Card
+    params={
+        bag = getObjectFromGUID(GUIDs.expansionBox),
+        ID = GUIDs.menaceInfoCard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.menaceInfoCard.loc,
+            rotation = locations.menaceInfoCard.rot,
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up Menace Info Card, it's not in the expansion box", 'Red')
+    end
+
+    -- Swarm Card: 'Hide and Seek'
+    params={
+        bag = getObjectFromGUID(GUIDs.expansionBox),
+        ID = GUIDs.swarmCard_HideAndSeek,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getSwarmDeckZone').getPosition(),
+            rotation = {0.0, 90.0, 180.0},
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            --callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up 'Hide and Seek' swarm card, it's not in the expansion box", 'Red')
+    end
+
+    -- Swarm Card: 'Menacing Goo'
+    params={
+        bag = getObjectFromGUID(GUIDs.expansionBox),
+        ID = GUIDs.swarmCard_MenacingGoo,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getSwarmDeckZone').getPosition(),
+            rotation = {0.0, 90.0, 180.0},
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            --callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up 'Menacing Goo' swarm card, it's not in the expansion box", 'Red')
+    end
+
+    -- Event Card: 'Goo From Above'
+    params={
+        bag = getObjectFromGUID(GUIDs.expansionBox),
+        ID = GUIDs.eventCard_GooFromAbove,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getEventDeckZone').getPosition(),
+            rotation = {0.0, 90.0, 180.0},
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            --callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up 'Goo From Above' event card, it's not in the expansion box", 'Red')
+    end
+
+    -- Event Card: 'What a Menace'
+    params={
+        bag = getObjectFromGUID(GUIDs.expansionBox),
+        ID = GUIDs.eventCard_WhatAMenace,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getEventDeckZone').getPosition(),
+            rotation = {0.0, 90.0, 180.0},
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            --callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        printToAll("Warning: Unable to set up 'What a Menace' event card, it's not in the expansion box", 'Red')
+    end
+end
+
+function DisableExpansion()
+    self.clearButtons()
+
+    Wait.time(function()
+        ShowEnableExpansionButton()
+    end,2)
+
+    if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
+        printToAll('Unable to clean up: Goo From Above Mini Expansion', 'Red')
+        printToAll('\nMission in progress detected, cleanup mission before disabling expansion\n', 'Red')
+        return
+    end
+    printToAll('Cleaning up: Goo From Above Mini Expansion', 'Yellow')
+
+    Global.Call('setGooFromAboveExpansionToggle',false)
+
+
+    -- // Expansion Cleanup //
+    local objects = getAllObjects()
+    -- instead of long if else statements use dictionary or more sophisticated table.find
+
+    -- pre-cleanup, puts objects in bags before putting those bags in the proper place
+    for _, object in ipairs(objects) do
+        if object.getGMNotes() == "gBomber" then
+            getObjectFromGUID(GUIDs.gooBomberBag).putObject(object)
+        elseif object.getGMNotes() == "goo" then
+            getObjectFromGUID(GUIDs.gooBag).putObject(object)
+        elseif object.getGMNotes() == "menace" then
+            getObjectFromGUID(GUIDs.menaceBag).putObject(object)
+
+        -- Checks the decks to see if there are any cards from the xpac in those decks
+        -- NOTE: may need to check bags too?
+        elseif object.type == "Deck" then
+            deckPosition = object.getPosition()
+            for _, containedObject in ipairs(object.getObjects()) do
+                -- have to take the object out of the deck to be able to read
+                -- it's info
+                obj = object.takeObject({smooth = false})
+                if (obj.getGUID() == GUIDs.gooBomberInfoCard)
+                or (obj.getGUID() == GUIDs.menaceInfoCard)
+                or (obj.getGUID() == GUIDs.swarmCard_HideAndSeek)
+                or (obj.getGUID() == GUIDs.swarmCard_MenacingGoo)
+                or (obj.getGUID() == GUIDs.eventCard_GooFromAbove)
+                or (obj.getGUID() == GUIDs.eventCard_WhatAMenace)
+                then
+                    getObjectFromGUID(GUIDs.expansionBox).putObject(obj)
+                else
+                    -- if the object in the deck is not in part of the expansion
+                    -- put it back where it was (note: this will shuffle the decks around)
+                    obj.setPosition(deckPosition)
+                end
+            end
+
+        end
+    end
+
+    Wait.time(function()
+        -- second pass once everything is properly put back in bags
+        objects = getAllObjects()
+        for _, object in ipairs(objects) do
+            if (object.getGUID() == GUIDs.gooBomberBag)
+            or (object.getGUID() == GUIDs.gooBag)
+            or (object.getGUID() == GUIDs.menaceBag)
+            or (object.getGUID() == GUIDs.gooBomberInfoCard)
+            or (object.getGUID() == GUIDs.menaceInfoCard)
+            or (object.getGUID() == GUIDs.combinedInfoCard)
+            or (object.getGUID() == GUIDs.swarmCard_HideAndSeek)
+            or (object.getGUID() == GUIDs.swarmCard_MenacingGoo)
+            or (object.getGUID() == GUIDs.eventCard_GooFromAbove)
+            or (object.getGUID() == GUIDs.eventCard_WhatAMenace)
+            then
+                getObjectFromGUID(GUIDs.expansionBox).putObject(object)
+            end
+        end
+    end, 2)
+end

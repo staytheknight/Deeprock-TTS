@@ -1,0 +1,1195 @@
+local bulkDetonatorExpansionToggle = false
+local gooFromAboveExpansionToggle = false
+local korlokExpansionToggle = false
+local biomeExpansionToggle = false
+local spaceRigExpansionToggle = false
+
+function onLoad(script_state)
+    -- Boards
+    engineerBoard_GUID = 'da9ffc'
+    engineerBoard = getObjectFromGUID(engineerBoard_GUID)
+    drillerBoard_GUID = 'e367fd'
+    drillerBoard = getObjectFromGUID(drillerBoard_GUID)
+    gunnerBoard_GUID = '6ae199'
+    gunnerBoard = getObjectFromGUID(gunnerBoard_GUID)
+    scoutBoard_GUID = 'bf536f'
+    scoutBoard = getObjectFromGUID(scoutBoard_GUID)
+
+    missionBook_GUID = '7b94b7'
+    missionBook = getObjectFromGUID(missionBook_GUID)
+
+    -- split in two as the mission spreads are on each page
+    -- need to show two pages to show the whole mission
+    missionBookB1_GUID = '06f4ab'
+    missionBookB1 = getObjectFromGUID(missionBookB1_GUID)
+    missionBookB2_GUID = 'd2455f'
+    missionBookB2 = getObjectFromGUID(missionBookB2_GUID)
+    missionBookSR1_GUID = '38d501'
+    missionBookSR1 = getObjectFromGUID(missionBookSR1_GUID)
+    missionBookSR2_GUID = '72cff6'
+    missionBookSR2 = getObjectFromGUID(missionBookSR2_GUID)
+
+    -- Card Deck Zones
+    throwablesDeckZone_GUID = '2fedef'
+    throwablesDeckZone = getObjectFromGUID(throwablesDeckZone_GUID)
+    secondariesDeckZone_GUID = '66f9bd'
+    secondariesDeckZone = getObjectFromGUID(secondariesDeckZone_GUID)
+    resupplyDeckZone_GUID = 'd5f672'
+    resupplyDeckZone = getObjectFromGUID(resupplyDeckZone_GUID)
+    rockAndStoneDeckZone_GUID = '319de7'
+    rockAndStoneDeckZone = getObjectFromGUID(rockAndStoneDeckZone_GUID)
+    swarmDeckZone_GUID = '4455f1'
+    swarmDeckZone = getObjectFromGUID(swarmDeckZone_GUID)
+    eventDeckZone_GUID = '346b36'
+    eventDeckZone = getObjectFromGUID(eventDeckZone_GUID)
+    oHeartDeckZone_GUID = '97cfde'
+    oHeartDeckZone = getObjectFromGUID(oHeartDeckZone_GUID)
+    dreadDeckZone_GUID = '247612'
+    dreadDeckZone = getObjectFromGUID(dreadDeckZone_GUID)
+
+    -- Cave Segments
+    dropPod_GUID = 'b78594'
+    dropPod = getObjectFromGUID(dropPod_GUID)
+    caveSeg1_GUID = '02fcd8' -- L Shape
+    caveSeg1 = getObjectFromGUID(caveSeg1_GUID) -- L Shape
+    caveSeg2_GUID = '06437b' -- Increment Shape
+    caveSeg2 = getObjectFromGUID(caveSeg2_GUID) -- Increment Shape
+    caveSeg3_GUID = 'c279fd' -- Blob Shape
+    caveSeg3 = getObjectFromGUID(caveSeg3_GUID) -- Blob Shape
+    caveSeg4_GUID = '8898d9' -- Big Shape
+    caveSeg4 = getObjectFromGUID(caveSeg4_GUID) -- Big Shape
+
+    -- Biome cave Segments
+    bogSegBig_GUID = 'c647a9'
+    bogSegBig = getObjectFromGUID(bogSegBig_GUID)
+    bogSegSeq_GUID = '9fcc36'
+    bogSegSeq = getObjectFromGUID(bogSegSeq_GUID)
+    bogSegLong_GUID = '8005d9'
+    bogSegLong = getObjectFromGUID(bogSegLong_GUID)
+    bogSegSmall_GUID = 'c91a14'
+    bogSegSmall = getObjectFromGUID(bogSegSmall_GUID)
+    iceSegMed_GUID = '0438f7'
+    iceSegMed = getObjectFromGUID(iceSegMed_GUID)
+    iceSegLong_GUID = '571c73'
+    iceSegLong = getObjectFromGUID(iceSegLong_GUID)
+    iceSegL_GUID = 'd460dd'
+    iceSegL = getObjectFromGUID(iceSegL_GUID)
+
+    hexPit2_GUID = '3799b9' -- 2 Hex Pit
+    hexPit2 = getObjectFromGUID(hexPit2_GUID) -- 2 Hex Pit
+    hexPit3_GUID = '574cc3'
+    hexPit3 = getObjectFromGUID(hexPit3_GUID) -- 3 Hex Pit (Extractor on back)
+    hexPit4_GUID = '38def5'
+    hexPit4 = getObjectFromGUID(hexPit4_GUID) -- 4 Hex Pit
+    hexPit5_GUID = '008e96' -- 5 Hex Pit
+    hexPit5 = getObjectFromGUID(hexPit5_GUID) -- 5 Hex Pit
+
+    dreadCocoonHex_GUID = '3c82c8'
+    dreadCocoonHex = getObjectFromGUID(dreadCocoonHex_GUID)
+    magicHoleHex_GUID = '7f914b'
+    magicHoleHex = getObjectFromGUID(magicHoleHex_GUID)
+
+    mRefinery_GUID = '1d5b9a'
+    mRefinery = getObjectFromGUID(mRefinery_GUID)
+    pumpjackBag_GUID = '845be5'
+    pumpjackBag = getObjectFromGUID(pumpjackBag_GUID)
+    sPipeBag_GUID = '8d3753'
+    sPipeBag = getObjectFromGUID(sPipeBag_GUID)
+    cPipeBag_GUID = 'a52a6d'
+    cPipeBag = getObjectFromGUID(cPipeBag_GUID)
+    drilldozer_GUID = '8887ac'
+    drilldozer = getObjectFromGUID(drilldozer_GUID)
+    beamersBag_GUID = '3d4ec3'
+    beamersBag = getObjectFromGUID(beamersBag_GUID)
+    cHeartstone_GUID = '64c2ff'
+    cHeartstone = getObjectFromGUID(cHeartstone_GUID)
+    oHeartstone_GUID = 'd84756'
+    oHearstone = getObjectFromGUID(oHeartstone_GUID)
+    hearstoneGem_GUID = 'c0ab17'
+    hearstoneGem = getObjectFromGUID(hearstoneGem_GUID)
+
+    caveEntrance1_GUID = 'a81d4f'
+    caveEntrance1 = getObjectFromGUID(caveEntrance1_GUID)
+    caveEntrance2_GUID = '14348e'
+    caveEntrance2 = getObjectFromGUID(caveEntrance2_GUID)
+
+    -- Bags
+    caveBag_GUID = 'b147e9'
+    caveBag = getObjectFromGUID(caveBag_GUID)
+    biomeCaveBag_GUID = 'b17808'
+    biomeCaveBag = getObjectFromGUID(biomeCaveBag_GUID)
+    hiddenCaveBag_GUID = '26ac93'
+    hiddenCaveBag = getObjectFromGUID(hiddenCaveBag_GUID)
+    miniHiddenCaveBag_GUID = '3cff09'
+    miniHiddenCaveBag = getObjectFromGUID(miniHiddenCaveBag_GUID)
+
+    salagmiteModelBag_GUID = 'c275d1'
+    stalagmiteModelBag = getObjectFromGUID(salagmiteModelBag_GUID)
+    explodingPlantsBag_GUID = '10bb36'
+    explodingPlantsBag = getObjectFromGUID(explodingPlantsBag_GUID)
+    cryoBulbBag_GUID = 'a94e55'
+    cryoBulbBag = getObjectFromGUID(cryoBulbBag_GUID)
+    glowingCrystalBag_GUID = '351d41'
+    glowingCrystalBag = getObjectFromGUID(glowingCrystalBag_GUID)
+    geyserBag_GUID = '1feb7d'
+    geyserBag = getObjectFromGUID(geyserBag_GUID)
+    glyphidCocoonBag_GUID = '6d901c'
+    glyphidCocoonBag = getObjectFromGUID(glyphidCocoonBag_GUID)
+    poisonSporeBag_GUID = '31336f'
+    poisonSporeBag = getObjectFromGUID(poisonSporeBag_GUID)
+
+    weaponUpgradeBag_GUID = '1523e1'
+    weaponUpgradeBag = getObjectFromGUID(weaponUpgradeBag_GUID)
+
+    exclamationTilesBag_GUID = '1b7054'
+    exclamationTilesBag = getObjectFromGUID(exclamationTilesBag_GUID)
+
+        -- Glyphid bags
+        gruntBag_GUID = 'a9ba4b'
+        gruntBag = getObjectFromGUID(gruntBag_GUID)
+        exploderBag_GUID = '5b6095'
+        exploderBag = getObjectFromGUID(exploderBag_GUID)
+        webspitterBag_GUID = '818d0c'
+        webspitterBag = getObjectFromGUID(webspitterBag_GUID)
+        broodNexusBag_GUID = 'e3c1d5'
+        broodNexusBag = getObjectFromGUID(broodNexusBag_GUID)
+        slasherBag_GUID = '69343e'
+        slasherBag = getObjectFromGUID(slasherBag_GUID)
+        spitballerBag_GUID = 'a2d8e9'
+        spitballerBag = getObjectFromGUID(spitballerBag_GUID)
+        wardenBag_GUID = '26f0f1'
+        wardenBag = getObjectFromGUID(wardenBag_GUID)
+        macteraBag_GUID = '163634'
+        macteraBag = getObjectFromGUID(macteraBag_GUID)
+        praetorianBag_GUID = '582c76'
+        praetorianBag = getObjectFromGUID(praetorianBag_GUID)
+        opressorBag_GUID = 'd0a1fc'
+        opressorBag = getObjectFromGUID(opressorBag_GUID)
+
+        -- Goo From Above Glyphids
+        gooBomberBag_GUID = '35b987'
+        gooBomberBag = getObjectFromGUID(gooBomberBag_GUID)
+        menaceBag_GUID = '88f9cc'
+        menaceBag = getObjectFromGUID(menaceBag_GUID)
+        gooBag_GUID = 'f4fe09'
+        gooBag = getObjectFromGUID(gooBag_GUID)
+
+        -- Biome Expansion Glyphids
+        naedocyteHatchlingsBag_GUID = '5b74ba'
+        naedocyteHatchlingsBag = getObjectFromGUID(naedocyteHatchlingsBag_GUID)
+        naedocyteBreederBag_GUID = '79d59b'
+        naedocyteBreederBag = getObjectFromGUID(naedocyteBreederBag_GUID)
+        qronarShellbackBag_GUID = '28e956'
+        qronarShellbackBag = getObjectFromGUID(qronarShellbackBag_GUID)
+        rammersBag_GUID = '5874bd'
+        rammerBag = getObjectFromGUID(rammersBag_GUID)
+        stingtailBag_GUID = '664a84'
+        stingtailBag = getObjectFromGUID(stingtailBag_GUID)
+        dreadnoughtBag_GUID = 'a15ee2'
+        dreadnoughtBag = getObjectFromGUID(dreadnoughtBag_GUID)
+
+        -- Bulk Glyphid
+        bulkBag_GUID = '8caff9'
+        bulkBag = getObjectFromGUID(bulkBag_GUID)
+
+        -- Korlok Tyrant Weed
+        kHeartBag_GUID = '6b2359'
+        kHeartBag = getObjectFromGUID(kHeartBag_GUID)
+        kSproutBag_GUID = '5b120d'
+        kSproutBag = getObjectFromGUID(kSproutBag_GUID)
+        kHealingBag_GUID = 'ade8ab'
+        kHealingBag = getObjectFromGUID(kHealingBag_GUID)
+
+        -- Exploration Bags
+        explorationBag_GUID = 'c0a72f'
+        explorationBag = getObjectFromGUID(explorationBag_GUID)
+        barleyBulbBag_GUID = '36575a'
+        barleyBulbBag = getObjectFromGUID(barleyBulbBag_GUID)
+        eggBag_GUID = '0a0d2b'
+        eggBag = getObjectFromGUID(eggBag_GUID)
+        lootBugBag_GUID = '167441'
+        lootBugBag = getObjectFromGUID(lootBugBag_GUID)
+        fossilBag_GUID = '5f0412'
+        fossilBag = getObjectFromGUID(fossilBag_GUID)
+        redSugarBag_GUID = 'c9bca2'
+        redSugarBag = getObjectFromGUID(redSugarBag_GUID)
+        apocaBloomBag_GUID = '7e5edf'
+        apocaBloomBag = getObjectFromGUID(apocaBloomBag_GUID)
+
+        miniMuleBag_GUID = '2b80fe'
+        miniMuleBag = getObjectFromGUID(miniMuleBag_GUID)
+        muleLegBag_GUID = '9ec2da'
+        muleLegBag = getObjectFromGUID(muleLegBag_GUID)
+
+        miniExploreTokenBag_GUID = '1f2255'
+        miniExploreTokenBag = getObjectFromGUID(miniExploreTokenBag_GUID)
+        abandonedGearBag_GUID = '9455c7'
+        abandonedGearBag = getObjectFromGUID(abandonedGearBag_GUID)
+        goldLootBugBag_GUID = '3ebf97'
+        goldLootBugBag = getObjectFromGUID(goldLootBugBag_GUID)
+        maltStarBag_GUID = '6ff8d3'
+        maltStarBag = getObjectFromGUID(maltStarBag_GUID)
+        yeastConesBag_GUID = 'e22bb0'
+        yeastConesBag = getObjectFromGUID(yeastConesBag_GUID)
+
+        -- Mineral bags
+        mineralBag_GUID = '3f422e'
+        mineralBag = getObjectFromGUID(mineralBag_GUID)
+        nitraBag_GUID = '6095c4'
+        nitraBag = getObjectFromGUID(nitraBag_GUID)
+        morkiteBag_GUID = '58dc2b'
+        morkiteBag = getObjectFromGUID(morkiteBag_GUID)
+        goldBag_GUID = '3e9882'
+        goldBag = getObjectFromGUID(goldBag_GUID)
+        aquardBag_GUID = '3e6db3'
+        aquardBag = getObjectFromGUID(aquardBag_GUID)
+
+    -- Misc tiles
+    drone1_GUID = '2c1fae'
+    drone2_GUID = '204549'
+
+    frozenBag_GUID = 'a7d977'
+    frozenBag = getObjectFromGUID(frozenBag_GUID)
+    webbedBag_GUID = '375e77'
+    webbedBag = getObjectFromGUID(webbedBag_GUID)
+    stunnedBag_GUID = '4fa902'
+    stunnedBag = getObjectFromGUID(stunnedBag_GUID)
+
+    -- Missions
+    mission1_GUID = 'f156f4'
+    mission1 = getObjectFromGUID(mission1_GUID)
+    mission2_GUID = '5a4b06'
+    mission2 = getObjectFromGUID(mission2_GUID)
+    mission3_GUID = 'c20188'
+    mission3 = getObjectFromGUID(mission3_GUID)
+    mission4_GUID = 'b16ee6'
+    mission4 = getObjectFromGUID(mission4_GUID)
+    mission5_GUID = '227375'
+    mission5 = getObjectFromGUID(mission5_GUID)
+    mission6_GUID = 'ac2352'
+    mission6 = getObjectFromGUID(mission6_GUID)
+    mission7_GUID = '37a0da'
+    mission7 = getObjectFromGUID(mission7_GUID)
+    mission8_GUID = 'e4cac0'
+    mission8 = getObjectFromGUID(mission8_GUID)
+    mission9_GUID = '53a03c'
+    mission9 = getObjectFromGUID(mission9_GUID)
+    mission10_GUID = '61fc53'
+    mission10 = getObjectFromGUID(mission10_GUID)
+    mission11_GUID = '0afc68'
+    mission11 = getObjectFromGUID(mission11_GUID)
+    mission12_GUID = '1f2cad'
+    mission12 = getObjectFromGUID(mission12_GUID)
+    mission13_GUID = '6e50fd'
+    mission13 = getObjectFromGUID(mission13_GUID)
+    mission14_GUID = '03217b'
+    mission14 = getObjectFromGUID(mission14_GUID)
+    missionEssen_GUID = 'fca575'
+    missionEssen = getObjectFromGUID(missionEssen_GUID)
+
+    missionB1_GUID = '6c6c75'
+    missionB1 = getObjectFromGUID(missionB1_GUID)
+    missionB2_GUID = '4a39b7'
+    missionB2 = getObjectFromGUID(missionB2_GUID)
+    missionB3_GUID = '6efdef'
+    missionB3 = getObjectFromGUID(missionB3_GUID)
+    missionB4_GUID = 'be276a'
+    missionB4 = getObjectFromGUID(missionB4_GUID)
+    missionB5_GUID = 'daf000'
+    missionB5 = getObjectFromGUID(missionB5_GUID)
+    missionB6_GUID = 'c090ef'
+    missionB6 = getObjectFromGUID(missionB6_GUID)
+    missionB7_GUID = '566064'
+    missionB7 = getObjectFromGUID(missionB7_GUID)
+    missionB8_GUID = '6c7782'
+    missionB8 = getObjectFromGUID(missionB8_GUID)
+    missionB9_GUID = '5a99a7'
+    missionB9 = getObjectFromGUID(missionB9_GUID)
+    missionB10_GUID = '9a3de5'
+    missionB10 = getObjectFromGUID(missionB10_GUID)
+    missionB11_GUID = '2f4877'
+    missionB11 = getObjectFromGUID(missionB11_GUID)
+    missionB12_GUID = '88e086'
+    missionB12 = getObjectFromGUID(missionB12_GUID)
+    missionB13_GUID = '5d17e6'
+    missionB13 = getObjectFromGUID(missionB13_GUID)
+    missionB14_GUID = 'f73680'
+    missionB14 = getObjectFromGUID(missionB14_GUID)
+    missionB15_GUID = '746669'
+    missionB15 = getObjectFromGUID(missionB15_GUID)
+    missionB16_GUID = '42ad11'
+    missionB16 = getObjectFromGUID(missionB16_GUID)
+    missionB17_GUID = 'eecb30'
+    missionB17 = getObjectFromGUID(missionB17_GUID)
+    missionB18_GUID = '27884c'
+    missionB18 = getObjectFromGUID(missionB18_GUID)
+
+    missionSR1_GUID = '58b819'
+    missionSR1 = getObjectFromGUID(missionSR1_GUID)
+    missionSR2_GUID = 'ec0446'
+    missionSR2 = getObjectFromGUID(missionSR2_GUID)
+    missionSR3_GUID = '5fa281'
+    missionSR3 = getObjectFromGUID(missionSR3_GUID)
+    missionSR4_GUID = '2f8724'
+    missionSR4 = getObjectFromGUID(missionSR4_GUID)
+    missionSR5_GUID = 'f0eb8f'
+    missionSR5 = getObjectFromGUID(missionSR5_GUID)
+    missionSR6_GUID = 'a38291'
+    missionSR6 = getObjectFromGUID(missionSR6_GUID)
+    missionSR7_GUID = '637f51'
+    missionSR7 = getObjectFromGUID(missionSR7_GUID)
+    missionSR8_GUID = '6027a8'
+    missionSR8 = getObjectFromGUID(missionSR8_GUID)
+    missionSR9_GUID = '6123a1'
+    missionSR9 = getObjectFromGUID(missionSR9_GUID)
+    missionSR10_GUID = '36284e'
+    missionSR10 = getObjectFromGUID(missionSR10_GUID)
+    missionSR11_GUID = '512b4e'
+    missionSR11 = getObjectFromGUID(missionSR11_GUID)
+    missionSR12_GUID = '666d8e'
+    missionSR12 = getObjectFromGUID(missionSR12_GUID)
+
+    --hideMissionTokens()
+
+    missionDictionary = {
+        ["1"] = mission1,
+        ["2"] = mission2,
+        ["3"] = mission3,
+        ["4"] = mission4,
+        ["5"] = mission5,
+        ["6"] = mission6,
+        ["7"] = mission7,
+        ["8"] = mission8,
+        ["9"] = mission9,
+        ["10"] = mission10,
+        ["11"] = mission11,
+        ["12"] = mission12,
+        ["13"] = mission13,
+        ["14"] = mission14,
+        ["E"] = missionEssen,
+        ["B1"] = missionB1,
+        ["B2"] = missionB2,
+        ["B3"] = missionB3,
+        ["B4"] = missionB4,
+        ["B5"] = missionB5,
+        ["B6"] = missionB6,
+        ["B7"] = missionB7,
+        ["B8"] = missionB8,
+        ["B9"] = missionB9,
+        ["B10"] = missionB10,
+        ["B11"] = missionB11,
+        ["B12"] = missionB12,
+        ["B13"] = missionB13,
+        ["B14"] = missionB14,
+        ["B15"] = missionB15,
+        ["B16"] = missionB16,
+        ["B17"] = missionB17,
+        ["B18"] = missionB18,
+        ["SR1"] = missionSR1,
+        ["SR2"] = missionSR2,
+        ["SR3"] = missionSR3,
+        ["SR4"] = missionSR4,
+        ["SR5"] = missionSR5,
+        ["SR6"] = missionSR6,
+        ["SR7"] = missionSR7,
+        ["SR8"] = missionSR8,
+        ["SR9"] = missionSR9,
+        ["SR10"] = missionSR10,
+        ["SR11"] = missionSR11,
+        ["SR12"] = missionSR12
+    }
+
+    missionCleanup_GUID = '886ff1'
+    missionCleanup = getObjectFromGUID(missionCleanup_GUID)
+
+    cleanupZone_GUID = '41b22f'
+    cleanupZone = getObjectFromGUID(cleanupZone_GUID)
+
+    -- Runs the monte carlo randomizer a certain number of times
+    -- this is to truley randomize it, as it starts with the same numbers
+    -- each time you start the simulation
+    math.randomseed(os.clock())
+    r = math.random(1,50)
+    for i=1, r do
+        monteCarloRand()
+    end
+
+
+    -- Loading the save state
+    local state = JSON.decode(script_state)
+    bulkDetonatorExpansionToggle = state.expansionToggles.bulkDetonatorExpansionToggle
+    gooFromAboveExpansionToggle = state.expansionToggles.gooFromAboveExpansionToggle
+    korlokExpansionToggle = state.expansionToggles.korlokExpansionToggle
+    biomeExpansionToggle = state.expansionToggles.biomeExpansionToggle
+    spaceRigExpansionToggle = state.spaceRigExpansionToggle
+
+    return JSON.encode(state)
+end
+
+function onSave()
+    local state =
+    {
+        expansionToggles =
+        {
+            bulkDetonatorExpansionToggle = bulkDetonatorExpansionToggle,
+            gooFromAboveExpansionToggle = gooFromAboveExpansionToggle,
+            korlokExpansionToggle = korlokExpansionToggle,
+            biomeExpansionToggle = biomeExpansionToggle,
+            spaceRigExpansionToggle = spaceRigExpansionToggle
+        }
+    }
+    return JSON.encode(state);
+end
+
+function TableContains(params)
+    for i = 1,#params.table do
+        if (params.table[i] == params.value) then
+            return true
+        end
+    end
+    return false
+end
+
+-- Monte Carlo randomizer from https://9to5answer.com/generating-uniform-random-numbers-in-lua
+local A1, A2 = 727595, 798405  -- 5^17=D20*A1+A2
+local D20, D40 = 1048576, 1099511627776  -- 2^20, 2^40
+local X1, X2 = 0,1
+function monteCarloRand()
+    local U = X2*A2
+    local V = (X1*A2 + X2*A1) % D20
+    V = (V*D20 + U) % D40
+    X1 = math.floor(V/D20)
+    X2 = V - X1*D20
+    return V/D40    -- returns a float [0,1]
+end
+
+-- params are the floor and ceiling of the float ranges returned
+-- by the monte carlo randomizer
+-- this then takes those results and returns them as an integer
+function randInt(params)
+    r = monteCarloRand()
+    -- if the float is not in the desired range, search again
+    while r < params.floor or r >= params.ceiling do
+        r = monteCarloRand()
+    end
+    randomIndex = (math.floor(r*10))
+
+    return randomIndex
+end
+
+--///// UI /////
+
+-- Toggles for UI elements
+previouslyOpenedPanel = "missionSelectBase"
+
+missionPanels = {"missionSelectBase","missionSelectBiome","missionSelectSR"}
+missionTypeImages = {
+    ["missionSelectBase"] = {'baseMissionBanner',"Banner_BaseMissions","Banner_BaseMissions_desaturated"},
+    ["missionSelectBiome"] = {'biomeMissionBanner',"Banner_BiomeMissions","Banner_BiomeMissions_desaturated"},
+    ["missionSelectSR"] = {'spaceRigMissionBanner',"Banner_SpaceRigMissions","Banner_SpaceRigMissions_desaturated"}
+}
+
+-- Gets passed a panel, if it's a mission panel return true
+function isMissionPanel(panel)
+    for i=1, #missionPanels do
+        if (panel == missionPanels[i]) then
+            return true
+        end
+    end
+    return false
+end
+
+-- sets the previously opened panel (to make show panel remember)
+function setPreviouslyOpenedPanel(player, panel)
+    --[[
+    -- Only records the mission select panels
+    if (isMissionPanel(panel)) then
+        previouslyOpenedPanel = panel
+    end
+    ]]
+
+    previouslyOpenedPanel = panel
+end
+
+-- Parser for the panels string passed
+function getOpenClosePanels(panels)
+    i = string.find(panels," ")
+    length = string.len(panels)
+    closePanel = string.sub(panels,0,i-1)
+    openPanel = string.sub(panels,i+1,length)
+    p = {closePanel, openPanel}
+
+    return p
+end
+
+--- THIS IS A DUPLICATE OF missionTypeClick - but a lot of stuff uses it - so don't delete
+-- gets one string parameter containing two strings separated by a space
+-- the first string is the panel that should be closed
+-- the second string is the panel that should be opened
+function closePanelOpenBasePanel(player,panels)
+    p = getOpenClosePanels(panels)
+
+    UI.setAttribute(previouslyOpenedPanel, "active", false)
+    UI.setAttribute(p[1], "active", false)
+    UI.setAttribute(p[2], "active", true)
+    setPreviouslyOpenedPanel(player, p[2])
+    UI.setAttribute("missionTypeButtons_ID", "active", true)
+end
+
+-- This is called by the cleanup button - DO NOT DELETE
+function showMissionSelectButton()
+    UI.setAttribute("setup", "active", true)
+end
+
+-- closes the active panel and shows the mission setup button
+function closeActivePanel(player, panel)
+    UI.setAttribute("missionTypeButtons_ID", "active", false)
+    UI.setAttribute(panel, "active", false)
+    showMissionSelectButton()
+end
+
+function closePanelSetupMission(player, panels)
+    p = getOpenClosePanels(panels)
+
+    UI.setAttribute(p[1], "active", false)
+    setupMission(p[2])
+end
+
+-- Click function for the 'Mission Setup' browse button
+function missionBrowseClick()
+    -- hides the button
+    UI.setAttribute("setup", "active", false)
+    -- opens the previously opened panel
+    UI.setAttribute(previouslyOpenedPanel, "active", true)
+
+    -- If the previously opened panel is a mission panel, then show the
+    -- mission type buttons
+    if (isMissionPanel(previouslyOpenedPanel)) then
+        UI.setAttribute("missionTypeButtons_ID", "active", true)
+        swapMissionTypeImage(previouslyOpenedPanel)
+    else
+        UI.setAttribute("missionTypeButtons_ID", "active", false)
+    end
+end
+
+-- click function for switching mission type panels (base, biome ect..)
+function missionTypeClick(player, panels)
+    p = getOpenClosePanels(panels)
+
+    UI.setAttribute(previouslyOpenedPanel, "active", false)
+    UI.setAttribute(p[1], "active", false)
+    UI.setAttribute(p[2], "active", true)
+    setPreviouslyOpenedPanel(player, p[2])
+    swapMissionTypeImage(p[2])
+    UI.setAttribute("missionTypeButtons_ID", "active", true)
+end
+
+-- switches the active banner to be saturated
+function swapMissionTypeImage(panel)
+    -- sets all banners to desaturated
+    for k, v in pairs(missionTypeImages) do
+        UI.setAttribute(v[1], "image", v[3])
+    end
+
+    -- saturate the active banner
+    UI.setAttribute(missionTypeImages[panel][1], "image", missionTypeImages[panel][2])
+end
+
+function missionDetailClick(player, panels)
+    p = getOpenClosePanels(panels)
+
+    UI.setAttribute(previouslyOpenedPanel, "active", false)
+    UI.setAttribute(p[1], "active", false)
+    UI.setAttribute(p[2], "active", true)
+    setPreviouslyOpenedPanel(player, p[2])
+    UI.setAttribute("missionTypeButtons_ID", "active", false)
+end
+
+-- ///// Space Rig Explore //////
+
+-- Takes all the tiles from the individual space rig explore tokens
+-- and puts them in the shuffle bag
+function fillSRExploreBag()
+    for i=1, 2 do
+        if not isBagEmpty(abandonedGearBag) then
+            miniExploreTokenBag.putObject(abandonedGearBag.takeObject())
+        else
+            print("Warning: Unable to fill space rig explore token shuffle,abandoned gear bag is empty")
+        end
+    end
+
+    for i=1, 2 do
+        if not isBagEmpty(goldLootBugBag) then
+            miniExploreTokenBag.putObject(goldLootBugBag.takeObject())
+        else
+            print("Warning: Unable to fill space rig explore token shuffle, gold loot bug bag is empty")
+        end
+    end
+
+    for i=1, 2 do
+        if not isBagEmpty(maltStarBag) then
+            miniExploreTokenBag.putObject(maltStarBag.takeObject())
+        else
+            print("Warning: Unable to fill space rig explore token shuffle, malt star bag is empty")
+        end
+    end
+
+    for i=1, 2 do
+        if not isBagEmpty(yeastConesBag) then
+            miniExploreTokenBag.putObject(yeastConesBag.takeObject())
+        else
+            print("Warning: Unable to fill space rig explore token shuffle, yeast cone bag is empty")
+        end
+    end
+
+    miniExploreTokenBag.shuffle()
+end
+
+
+function Setup()
+    ShuffleDeckZones()
+end
+
+-- Shuffles anything that's in the deck zones
+function ShuffleDeckZones()
+    zones = {'getThrowablesDeckZone','getSecondariesDeckZone','getResupplyDeckZone',
+    'getRockAndStoneDeckZone','getSwarmDeckZone','getEventDeckZone',
+    'getOHeartDeckZone','getDreadDeckZone'}
+
+    for i=1, 8 do
+        local zone = Global.call(zones[i])
+        local objectsInZone = zone.getObjects()
+
+        for _, object in ipairs(objectsInZone) do
+            object.shuffle()
+        end
+    end
+end
+
+-- checks if a bag / container is empty
+function isBagEmpty(bag)
+    counter = 0
+    for _, containedObjects in ipairs(bag.getObjects()) do
+        counter = counter + 1
+    end
+
+    -- if the bag is empty
+    if counter==0 then
+        return true
+    else
+        return false
+    end
+end
+
+-- checks if an object is in the bag
+function isInBag(params)
+    for _, containedObject in ipairs(params.bag.getObjects()) do
+        if containedObject.guid == params.ID then
+            return true
+        end
+    end
+    return false
+end
+
+function afterSpawnLock(spawnedObject)
+    -- Locks tiles after they spawn
+    spawnedObject.lock()
+end
+
+-- Shrinks mission tokens so they are not accessible
+-- These objects store the scripts for the mission setups and should not be deleted
+function hideMissionTokens()
+    for _, k in pairs(missionDictionary) do
+        k.setScale{0.0,0.0,0.0}
+    end
+
+    --for i=1, 45 do
+    --    missionName[i].setScale{0.0,0.0,0.0}
+    --end
+
+end
+
+
+--  setupMission(mission#) ect ...
+function setupMission(mission)
+    missionDictionary[mission].call('setup')
+    Setup()
+end
+
+
+-- Object getters
+function getMissionBook()
+    return missionBook
+end
+
+function getMissionBookB1()
+    return missionBookB1
+end
+
+function getMissionBookB2()
+    return missionBookB2
+end
+
+function getMissionBookSR1()
+    return missionBookSR1
+end
+
+function getMissionBookSR2()
+    return missionBookSR2
+end
+
+-- Zone getters
+function getCleanupZone()
+    return cleanupZone
+end
+
+function getThrowablesDeckZone()
+    return throwablesDeckZone
+end
+
+function getSecondariesDeckZone()
+    return secondariesDeckZone
+end
+
+function getResupplyDeckZone()
+    return resupplyDeckZone
+end
+
+function getRockAndStoneDeckZone()
+    return rockAndStoneDeckZone
+end
+
+function getSwarmDeckZone()
+    return swarmDeckZone
+end
+
+function getEventDeckZone()
+    return eventDeckZone
+end
+
+function getOHeartDeckZone()
+    return oHeartDeckZone
+end
+
+function getDreadDeckZone()
+    return dreadDeckZone
+end
+
+
+-- Bag Getters
+function getCaveBag()
+    return caveBag
+end
+
+function getBiomeCaveBag()
+    return biomeCaveBag
+end
+
+function getHiddenCaveBag()
+    return hiddenCaveBag
+end
+
+function getMiniHiddenCaveBag()
+    return miniHiddenCaveBag
+end
+
+function getStalagmiteModelBag()
+    return stalagmiteModelBag
+end
+
+function getExplodingPlantsBag()
+    return explodingPlantsBag
+end
+
+function getCryoBulbBag()
+    return cryoBulbBag
+end
+
+function getGlowingCrystalBag()
+    return glowingCrystalBag
+end
+
+function getGeyserBag()
+    return geyserBag
+end
+
+function getGlyphidCocoonBag()
+    return glyphidCocoonBag
+end
+
+function getPoisonSporeBag()
+    return poisonSporeBag
+end
+
+function getWeaponUpgradeBag()
+    return weaponUpgradeBag
+end
+
+-- Glyphid Bags
+function getGruntBag()
+    return gruntBag
+end
+
+function getExploderBag()
+    return exploderBag
+end
+
+function getWebSpitterBag()
+    return webspitterBag
+end
+
+function getbroodNexusBag()
+    return broodNexusBag
+end
+
+function getSlasherBag()
+    return slasherBag
+end
+
+function getSpitballerBag()
+    return spitballerBag
+end
+
+function getWardenBag()
+    return wardenBag
+end
+
+function getMacteraBag()
+    return macteraBag
+end
+
+function getPraetorianBag()
+    return praetorianBag
+end
+
+function getOpressorBag()
+    return opressorBag
+end
+
+-- Goo from Above Glyphids
+function getGooBomberBag()
+    return gooBomberBag
+end
+
+function getMenaceBag()
+    return menaceBag
+end
+
+function getGooBag()
+    return gooBag
+end
+
+-- Biome Glyphids
+function getNaedoHatchlingBag()
+    return naedocyteHatchlingsBag
+end
+
+function getNaedoBreederBag()
+    return naedocyteBreederBag
+end
+
+function getQShellbackBag()
+    return qronarShellbackBag
+end
+
+function getRammersBag()
+    return rammerBag
+end
+
+function getStingtailBag()
+    return stingtailBag
+end
+
+function getDreadBag()
+    return dreadnoughtBag
+end
+
+-- Bulk Glyphid
+function getBulkBag()
+    return bulkBag
+end
+
+-- Korlok Tyrant Weed
+function getKHeartBag()
+    return kHeartBag
+end
+
+function getKSproutBag()
+    return kSproutBag
+end
+
+function getKHealingBag()
+    return kHealingBag
+end
+
+-- Exploration Bag
+function getExplorationBag()
+    return explorationBag
+end
+
+function getHiddenCaveBag()
+    return hiddenCaveBag
+end
+
+function getLootBugBag()
+    return lootBugBag
+end
+
+function getApocaBloomBag()
+    return apocaBloomBag
+end
+
+function getFossilBag()
+    return fossilBag
+end
+
+function getRedSugarBag()
+    return redSugarBag
+end
+
+function getBarleyBulbBag()
+    return barleyBulbBag
+end
+
+function getEggBag()
+    return eggBag
+end
+
+function getMiniMuleBag()
+    return miniMuleBag
+end
+
+function getMuleLegBag()
+    return muleLegBag
+end
+
+-- Mini hidden explore Tokens
+
+function getMiniExploreTokenBag()
+    return miniExploreTokenBag
+end
+
+function getAbandonedGearBag()
+    return abandonedGearBag
+end
+
+function getGoldLootBugBag()
+    return goldLootBugBag
+end
+
+function getMaltStarBag()
+    return maltStarBag
+end
+
+function getYeastConesBag()
+    return yeastConesBag
+end
+
+-- Mineral Bag
+function getMineralBag()
+    return mineralBag
+end
+
+function getNitraBag()
+    return nitraBag
+end
+
+function getGoldBag()
+    return goldBag
+end
+
+function getMorkiteBag()
+    return morkiteBag
+end
+
+function getAquardBag()
+    return aquardBag
+end
+
+function getExclamationTilesBag()
+    return exclamationTilesBag
+end
+
+function getFrozenBag()
+    return frozenBag
+end
+
+function getWebbedBag()
+    return webbedBag
+end
+
+function getStunnedBag()
+    return stunnedBag
+end
+
+-- GUID getters
+function getDropPodGUID()
+    return dropPod_GUID
+end
+
+function getCaveSeg1GUID()
+    return caveSeg1_GUID
+end
+
+function getCaveSeg2GUID()
+    return caveSeg2_GUID
+end
+
+function getCaveSeg3GUID()
+    return caveSeg3_GUID
+end
+
+function getCaveSeg4GUID()
+    return caveSeg4_GUID
+end
+
+function getHexPit2GUID()
+    return hexPit2_GUID
+end
+
+function getHexPit3GUID()
+    return hexPit3_GUID
+end
+
+function getHexPit4GUID()
+    return hexPit4_GUID
+end
+
+function getHexPit5GUID()
+    return hexPit5_GUID
+end
+
+function getBogSegBig_GUID()
+    return bogSegBig_GUID
+end
+
+function getBogSegSeq_GUID()
+    return bogSegSeq_GUID
+end
+
+function getBogSegLong_GUID()
+    return bogSegLong_GUID
+end
+
+function getBogSegSmall_GUID()
+    return bogSegSmall_GUID
+end
+
+function getIceSegMed_GUID()
+    return iceSegMed_GUID
+end
+
+function getIceSegLong_GUID()
+    return iceSegLong_GUID
+end
+
+function getIceSegL_GUID()
+    return iceSegL_GUID
+end
+
+function getDreadCocoonHex_GUID()
+    return dreadCocoonHex_GUID
+end
+
+function getMagicHoleHex_GUID()
+    return magicHoleHex_GUID
+end
+
+function getCaveEntrance1GUID()
+    return caveEntrance1_GUID
+end
+
+function getCaveEntrance2GUID()
+    return caveEntrance2_GUID
+end
+
+function getDrone1GUID()
+    return drone1_GUID
+end
+
+function getDrone2GUID()
+    return drone2_GUID
+end
+
+-- Space Rig component getters
+
+function getRefinery()
+    return mRefinery
+end
+
+function getPumpjackBag()
+    return pumpjackBag
+end
+
+function getSPipeBag()
+    return sPipeBag
+end
+
+function getCPipeBag()
+    return cPipeBag
+end
+
+function getDrilldozer()
+    return drilldozer
+end
+
+function getBreamersBag()
+    return beamersBag
+end
+
+function getCHeartstone()
+    return cHeartstone
+end
+
+function getOHearstone()
+    return oHearstone
+end
+
+function getHearstoneGem()
+    return hearstoneGem
+end
+
+function getMissionCleanupScript()
+    return missionCleanup
+end
+
+-- Expansion Toggles
+function getBulkDetonatorExpansionToggle()
+    return bulkDetonatorExpansionToggle
+end
+
+function setBulkDetonatorExpansionToggle(toggle)
+    bulkDetonatorExpansionToggle = toggle
+end
+
+function getGooFromAboveExpansionToggle()
+    return gooFromAboveExpansionToggle
+end
+
+function setGooFromAboveExpansionToggle(toggle)
+    gooFromAboveExpansionToggle = toggle
+end
+
+function getKorlokExpansionToggle()
+    return korlokExpansionToggle
+end
+
+function setKorlokExpansionToggle(toggle)
+    korlokExpansionToggle = toggle
+end
+
+function getBiomeExpansionToggle()
+    return biomeExpansionToggle
+end
+
+function setBiomeExpansionToggle(toggle)
+    biomeExpansionToggle = toggle
+end
+
+function getSpaceRigExpansionToggle()
+    return spaceRigExpansionToggle
+end
+
+function setSpaceRigExpansionToggle(toggle)
+    spaceRigExpansionToggle = toggle
+end

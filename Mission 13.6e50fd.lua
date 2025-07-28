@@ -1,0 +1,298 @@
+mission13Positions = {
+    stalagmites = {{-2.75, 2.25, 1.15},{3.85, 2.25, -2.66}},
+    grunts = {{0.00, 1.6, 0.20},{0.56, 1.6, -0.76}},
+    spitballer = {{2.20, 1.6, 0.20}},
+    lootbugs = {{-0.55, 2.0, 4.96},{-1.10, 2.0, 4.01},{0.00, 2.0, 4.01}},
+    explorationTiles = {{-3.85, 2.0, 3.06},{1.10, 2.0, 0.20},{0.55, 2.0, -2.66},{3.30, 2.0, -3.61}},
+    --,{-4.40, 2.0, -2.34},{4.40, 2.0, 3.38} -- some kept in bag for hidden cave code to work
+    minerals = {{-3.85, 1.20, 4.96},{-4.40, 1.20, 4.01},{-4.95, 1.20, 3.06},
+    {-6.05, 1.20, -0.75},{-6.60, 1.20, -1.71},{-6.05, 1.20, -4.56},{-4.95, 1.20, -4.56},
+    {4.95, 1.20, 1.15},{6.05, 1.20, 1.15},{4.95, 1.20, -2.66},{5.50, 1.20, -3.61}},
+    hiddenCaveLoc1 = {{-4.40, 1.08, -1.71},{-3.85, 1.08, -2.66},{-4.95, 1.08, -2.66}},
+    hiddenCaveRot1 = {{0.00, 179.98, 0.00},{0.00, 300.14, 0.00},{0.00, 60.01, 0.00}},
+    hiddenCaveLoc2 = {{4.40, 1.08, 4.01},{4.95, 1.08, 3.06},{3.85, 1.08, 3.06}},
+    hiddenCaveRot2 = {{0.00, 179.97, 0.00},{0.00, 299.92, 0.00},{0.00, 60.03, 0.00}}
+}
+
+function setup()
+    print("Launching Mission 13: Bug Sanctuary\nGood Luck Miners!\n")
+
+    local caveBag = Global.call('getCaveBag') -- need to call global function to get proper object ID
+
+    params={
+        bag = caveBag,
+        ID = Global.call('getDropPodGUID'),
+    }
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = {0.55, 1.23, -4.56},
+            rotation = {0.00, 120.02, 180.00},
+            guid = Global.call('getDropPodGUID'),
+            -- Lock tiles afer spawn
+            --callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print('Warning: Unable to setup Drop Pod, object is not in cave bag')
+    end
+
+    params={
+        bag = caveBag,
+        ID = Global.call('getCaveSeg1GUID'),
+    }
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = {-2.20, 1.10, 4.01},
+            rotation = {0.00, 300.01, 0.00},
+            guid = Global.call('getCaveSeg1GUID'), -- (L Segment)
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print('Warning: Unable to setup cave, cave tiles are not in the cave bag')
+    end
+
+    params={
+        bag = caveBag,
+        ID = Global.call('getCaveSeg3GUID'),
+    }
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = {1.10, 1.08, -1.71},
+            rotation = {0.00, 59.99, 0.00},
+            guid = Global.call('getCaveSeg3GUID'), -- (Blob Segment)
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print('Warning: Unable to setup cave, cave tiles are not in the cave bag')
+    end
+
+    params={
+        bag = caveBag,
+        ID = Global.call('getHexPit4GUID'),
+    }
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = {-2.20, 1.22, 4.01},
+            rotation = {0.00, 299.95, 0.00},
+            guid = Global.call('getHexPit4GUID'),
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print('Warning: Unable to setup pits, pit tiles are not in the cave bag')
+    end
+
+    params={
+        bag = caveBag,
+        ID = Global.call('getHexPit5GUID'),
+    }
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = {2.20, 1.40, -1.71},
+            rotation = {0.00, 60.01, 180.00},
+            guid = Global.call('getHexPit5GUID'),
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print('Warning: Unable to setup pits, pit tiles are not in the cave bag')
+    end
+
+    params={
+        bag = caveBag,
+        ID = Global.call('getCaveEntrance1GUID'),
+    }
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = {0.00, 1.29, -1.70},
+            rotation = {0.0, 0.0, 0.0},
+            guid = Global.call('getCaveEntrance1GUID'),
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print('Warning: Unable to setup cave exit 1, it is not in the cave bag')
+    end
+
+    params={
+        bag = caveBag,
+        ID = Global.call('getCaveEntrance2GUID'),
+    }
+    if Global.call('isInBag',params) then
+        caveBag.takeObject({
+            position = {0.55, 1.29, 1.15},
+            rotation = {0.0,0.0,0.0},
+            guid = Global.call('getCaveEntrance2GUID'),
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
+        })
+    else
+        print('Warning: Unable to setup cave exit 2, it is not in the cave bag')
+    end
+
+    -- Hidden cave segments
+    local hiddenCaveBag = Global.call('getHiddenCaveBag') -- need to call global function to get proper object ID
+    hiddenCaveBag.shuffle()
+
+    params = {floor = 0.1, ceiling = 0.4,}
+    randomIndex = Global.call('randInt',params)
+
+    if not Global.call('isBagEmpty',hiddenCaveBag) then
+        hiddenCaveBag.takeObject({
+            position = mission13Positions.hiddenCaveLoc1[randomIndex],
+            rotation = mission13Positions.hiddenCaveRot1[randomIndex]
+        })
+    else
+        print("Warning: Unable to setup hidden cave segment, bag is empty")
+    end
+
+    params = {floor = 0.1, ceiling = 0.4,}
+    randomIndex = Global.call('randInt',params)
+
+    if not Global.call('isBagEmpty',hiddenCaveBag) then
+        hiddenCaveBag.takeObject({
+            position = mission13Positions.hiddenCaveLoc2[randomIndex],
+            rotation = mission13Positions.hiddenCaveRot2[randomIndex]
+        })
+    else
+        print("Warning: Unable to setup hidden cave segment, bag is empty")
+    end
+
+
+    -- need to call global function to get proper object ID
+    local stalagmiteModelBag = Global.call('getStalagmiteModelBag')
+
+    for i=1, 2 do
+        stalagmiteModelBag.takeObject({
+            position = mission13Positions.stalagmites[i],
+            -- rotation = -- ADD RANDOM
+        })
+    end
+
+
+    local gruntBag = Global.call('getGruntBag')
+    local spitballerBag = Global.call('getSpitballerBag')
+
+    for i=1, 2 do
+        if not Global.call('isBagEmpty',gruntBag) then
+            gruntBag.takeObject({
+                position = mission13Positions.grunts[i],
+                rotation = {0.00, 210.0, 0.00}
+            })
+        else
+            print("Warning: Unable to setup grunts, the grunt bag is empty")
+            break
+        end
+    end
+
+    if not Global.call('isBagEmpty',gruntBag) then
+        spitballerBag.takeObject({
+            position = mission13Positions.spitballer[1],
+            rotation =  {0.00, 210.0, 0.00}
+        })
+    else
+        print("Warning: Unable to setup spitball infector, the spitall infector bag is empty")
+    end
+
+
+    -- Exploration Tokens
+    local explorationBag = Global.call('getExplorationBag') -- need to call global function to get proper object ID
+    local lootBugBag = Global.call('getLootBugBag')
+    local barleyBulbBag = Global.call('getBarleyBulbBag')
+    local redSugarBag = Global.call('getRedSugarBag')
+    local apocaBloomBag = Global.call('getApocaBloomBag')
+
+    if not Global.call('isBagEmpty',redSugarBag) then
+        explorationBag.putObject(redSugarBag.takeObject())
+    else
+        print("Warning: Unable to set up exploration tokens, red sugar bag is empty")
+    end
+
+    if not Global.call('isBagEmpty',barleyBulbBag) then
+        explorationBag.putObject(barleyBulbBag.takeObject())
+    else
+        print("Warning: Unable to set up exploration tokens, barley bulb bag is empty")
+    end
+
+    for i=1, 4 do
+        if not Global.call('isBagEmpty',apocaBloomBag) then
+            explorationBag.putObject(apocaBloomBag.takeObject())
+        else
+            print("Warning: Unable to set up exploration tokens, apoca bloom bag is empty")
+            break
+        end
+    end
+
+    -- Shuffling Exploration Tiles
+    explorationBag.shuffle()
+
+    -- Placing Exploration Tiles
+    -- originally 6, some kept in bag for hidden cave code to work
+    for i=1, 4 do
+        if not Global.call('isBagEmpty',explorationBag) then
+            explorationBag.takeObject({
+                position = mission13Positions.explorationTiles[i],
+                rotation = {0.0, 0.0, 180.0}
+            })
+        else
+            print("Warning: Unable to setup exploration tokens, the bag is empty")
+            break
+        end
+    end
+
+    -- Face up lootbugs -- mission specific setup
+    for i=1, 3 do
+        if not Global.call('isBagEmpty',lootBugBag) then
+            lootBugBag.takeObject({
+                position = mission13Positions.lootbugs[i],
+                rotation = {0.0, 300.0, 0.0}
+            })
+        else
+            print("Warning: Unable to set up mission specific loot bugs, loot bug bag is empty")
+        end
+    end
+
+    -- Mineral Placement
+    local mineralBag = Global.call('getMineralBag')
+    local nitraBag = Global.call('getNitraBag')
+    local morkiteBag = Global.call('getMorkiteBag')
+
+    -- Generating Mineral Bag
+    for i=1, 3 do
+        if not Global.call('isBagEmpty',nitraBag) then
+            mineralBag.putObject(nitraBag.takeObject())
+        else
+            print("Warning: Unable to set up minerals, the nitra bag is empty")
+            break
+        end
+    end
+
+    for i=1, 8 do
+        if not Global.call('isBagEmpty',morkiteBag) then
+            mineralBag.putObject(morkiteBag.takeObject())
+        else
+            print("Warning: Unable to set up minerals, the morkite bag is empty")
+            break
+        end
+    end
+
+    -- Shuffling Minerals
+    mineralBag.shuffle()
+
+    -- Placing Minerals
+    for i=1, 11 do
+        if not Global.call('isBagEmpty',mineralBag) then
+            mineralBag.takeObject({
+                position = mission13Positions.minerals[i]
+            })
+        else
+            print("Warning: Unable to set up minerals, the bag is empty")
+        end
+    end
+
+    local missionBook = Global.call('getMissionBook')
+    missionBook.Book.setPage(14)
+
+
+end
