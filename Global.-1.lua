@@ -404,7 +404,8 @@ function onLoad(script_state)
 
     cleanupZone_GUID = '41b22f'
     cleanupZone = getObjectFromGUID(cleanupZone_GUID)
-
+
+
     -- Runs the monte carlo randomizer a certain number of times
     -- this is to truley randomize it, as it starts with the same numbers
     -- each time you start the simulation
@@ -683,6 +684,9 @@ end
 
 -- checks if an object is in the bag
 function isInBag(params)
+    if (params.bag == nil or params.ID == nil) then
+        return false
+    end
     for _, containedObject in ipairs(params.bag.getObjects()) do
         if containedObject.guid == params.ID then
             return true

@@ -168,7 +168,10 @@ local GUIDs =
     explodingPlantBag = '10bb36',
     geyserBag = '1feb7d',
     cryoBulbBag = 'a94e55',
-    glowingPillarBag = '351d41'
+    glowingPillarBag = '351d41',
+
+    -- Dreadnought Cards
+    dreadNoughtCards = {'a20560','86d6b5','692528','e5421b','c037da','4d6efa','405641','805640'}
 }
 
 function onLoad()
@@ -307,22 +310,7 @@ function EnableExpansion()
 
     printToAll('Setting up: Biome Expansion', 'Yellow')
 
-    Global.Call('setKorlokExpansionToggle',true)
-
-    -- Rulebook setup
-    params={
-        bag = rulebook,
-        ID = GUIDs.rulebook,
-    }
-    if Global.call('isInBag',params) then
-        params.bag.takeObject({
-            position = locations.rulebookLoc,
-            rotation = locations.rulebookRot,
-            guid = params.ID,
-        })
-    else
-        printToAll("Warning: Unable to set up Biome Rulebook, it's not in the expansion box", 'Red')
-    end
+    Global.Call('setBiomeExpansionToggle',true)
 
     -- Biome Cave Bag Setup
     params={
@@ -1062,29 +1050,43 @@ function EnableExpansion()
     end
 
 
-    indexCount = #expansionBox.getObjects()
+    -- Iterate through everything else in the box, 
+    -- This is for things that can't be referenced by GUIDs such as decks and PDFs
+    index = #expansionBox.getObjects()
+    for i = 1, index do
+        obj = expansionBox.TakeObject()
 
-    if indexCount > 0 then
-        obj = expansionBox.TakeObject({
-            index = indexCount-1,
-            callback_function = function(obj)
-                obj.lock()
-                if obj.type == "Deck" then
-                    -- looks for the deck containing dread cards
-                    for _, containedObject in ipairs(obj.getObjects()) do
-                        if (containedObject.gm_notes == "dreadCard") then
-                            obj.setLock(false)
-                            obj.setRotation({0.0, 180.0, 180.0})
-                            obj.setPosition(Global.Call('getDreadDeckZone').GetPosition())
-                            break
-                        else
-                            -- if it's not the right deck put it back in the box
-                            expansionBox.putObject(obj)
-                        end
-                    end
+        obj.lock()
+        
+        dCardParams = {table = GUIDs.dreadNoughtCards, value = obj.getGUID()}
+        if obj.type == "Deck" then
+            -- looks for the deck containing dread cards
+            for _, containedObject in ipairs(obj.getObjects()) do
+                if (containedObject.gm_notes == "dreadCard") then
+                    obj.setLock(false)
+                    obj.setRotation({0.0, 180.0, 180.0})
+                    obj.setPosition(Global.Call('getDreadDeckZone').GetPosition())
+                    break
+                else
+                    -- if it's not the right deck put it back in the box
+                    expansionBox.putObject(obj)
                 end
             end
-        })
+        elseif Global.Call('TableContains', dCardParams) then
+            obj.setPosition(Global.Call('getDreadDeckZone').GetPosition())
+            obj.setRotation({0.0, 180.0, 180.0})
+            obj.setLock(false)         
+            
+        elseif obj.getGMNotes() == "dreadCard" then
+            obj.setPosition(Global.Call('getDreadDeckZone').GetPosition())
+            obj.setRotation({0.0, 180.0, 180.0})
+            obj.setLock(false)      
+
+        elseif obj.getGUID() == GUIDs.rulebook then
+            obj.setLock(false)
+            obj.setRotation(locations.rulebookRot)
+            obj.setPosition(locations.rulebookLoc)
+        end
     end
 
 end
