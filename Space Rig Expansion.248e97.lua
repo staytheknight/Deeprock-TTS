@@ -27,6 +27,14 @@ local locations =
     spaceRigBoardLoc = {-43.44, 1.07, 1.15},
     spaceRigBoardRot = {0.00, 180.0, 0.00},
 
+    trackerCube1Loc = {-48.17, 1.41, -2.41},
+    trackerCube1Rot = {0.00, 0.0, 180.00},
+    trackerCube2Loc = {-42.81, 1.51, 0.53},
+    trackerCube2Rot = {0.00, 0.0, 180.00},
+
+    memorialStatueLoc = {-46.87, 1.16, 0.89},
+    memorialStatueRot = {0.00, 209.98, 0.00},
+
     challengeDeckLoc = {-46.00, 2.0, 3.84},
     challengeDeckRot = {0.00, 180.00, 180.00},
 
@@ -85,4 +93,84 @@ local locations =
 
     miniHiddenCavesBagLoc = {16.50, 0.95, 0.20},
     miniHiddenCavesBagRot = {0.00, 60.00, 0.00},
+}
+
+local GUIDs =
+{
+    rulebook = '768854',
+    rulebookAid1 = 'c931f7',
+    rulebookAid2 = '249ea6',
+    rulebookAid3 = 'b49b2f',
+    rulebookAid4 = '19b926',
+    rulebookAid5 = '2d0564',
+    rulebookAid6 = '596fb7',
+    rulebookAid7 = '2f31fd',
+    rulebookAid8 = '945a76',
+    rulebookAid9 = '17cd74',
+    rulebookAid10 = 'd4ff36',
+
+    oxygenTokens = {'9ba832','d75777','7b5043','23f2a0'},
+
+    upgradeBoardGunner = '8a4b95',
+    upgradeBoardScout = '89eadd',
+    upgradeBoardDriller = '1f888c',
+    upgradeBoardEngineer = 'fd11cf',
+
+    spaceRigBoard = '6f0b82',
+    memorialStatue = '52fc48',
+    trackerCube1 = '290dc9',
+    trackerCube2 = '833ce7',
+
+    stickerExterminators = 'b1d92f',
+    stickerSuperProtector = '1e1671',
+    stickerUpClose = 'e9b53e',
+    stickerBreathtaking = '4db170',
+    stickerHardboiled = 'c6226c',
+    stickerHoarders = '3398c9',
+    stickerRoughnecks = 'f3c70c',
+    stickerVeteranDwarves = '7ed6db',
+
+    missionModRedBag = '5ed9dd',
+    missionModYellowBag = 'b1377f',
+
+    upgradesHUDBag = 'f1904b',
+    upgradesArmourBag = '30b4e1',
+    upgradesPickaxeBag = '074163',
+
+    pickupShuffleBag = '1f2255',
+    pickupAbandonedGearBag = '9455c7',
+    pickupGoldBugBag = '3ebf97',
+    pickupMaltSaltBag = '6ff8d3',
+    pickupYeastBag = 'e22bb0',
+
+    pumpjackBag = '845be5',
+    pipeStraightBag = '8d3753',
+    pipeCurvedBag = 'a52a6d',
+
+    drilldozer = '8887ac',
+    drilldozerToken = 'cdd78c',
+
+    refinery = '1d5b9a',
+
+    beamerBag = '3d4ec3',
+    heartstoneClosed = '64c2ff',
+    hearstoneOpen = 'd84756',
+    hearstoneGem = 'c0ab17',
+
+    miniHiddenCaveBag = '3cff09',
+
+    cards = 
+    {
+        secondaries =
+        {
+            scopedSubata = '92a6b2',
+            stubbyExplosive = '8251b1',
+        },
+
+        rockAndStone = 
+        {
+            betterEquipment = 'ffb477',
+            bottomsUp = '41302c',
+        }
+    }
 }
