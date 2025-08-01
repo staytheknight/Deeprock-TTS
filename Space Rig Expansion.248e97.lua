@@ -174,3 +174,142 @@ local GUIDs =
         }
     }
 }
+
+function onLoad()
+    self.clearButtons()
+
+    if Global.call('getSpaceRigExpansionToggle') then
+        ShowDisableExpansionButton()
+    else
+        ShowEnableExpansionButton()
+    end
+
+    expansionBox = getObjectFromGUID(GUIDs.expansionBox)
+end
+
+function ShowEnableExpansionButton()
+    self.clearButtons()
+
+    self.createButton(
+        {
+            click_function='ConfirmSetupButton',
+            function_owner=self,
+            label="Enable\n Expansion",
+            position={0.0,1.0,-5.0},
+            rotation={0.0,0.0, 0.0},
+            width=1100*1.5,
+            height=360*1.5,
+            font_size=150*1.5,
+            font_color='White',
+            color='Green',
+            tooltip='Enable Space Rig Expansion'
+        }
+    )
+end
+
+function ShowDisableExpansionButton()
+    self.clearButtons()
+
+    self.createButton(
+        {
+            click_function='ConfirmCleanupButton',
+            function_owner=self,
+            label="Disable\n Expansion",
+            position={0.0,1.0,-5.0},
+            rotation={0.0,0.0, 0.0},
+            width=1100*1.5,
+            height=360*1.5,
+            font_size=150*1.5,
+            font_color='White',
+            color='Red',
+            tooltip='Disable Space Rig Expansion'
+        }
+    )
+end
+
+function ConfirmSetupButton()
+    self.createButton(
+        {
+            click_function='EnableExpansion',
+            function_owner=self,
+            label="Yes",
+            position={-1.0,1.0,-3.7},
+            rotation={0.0,0.0, 0.0},
+            width=500*1.5,
+            height=350*1.5,
+            font_size=150*1.5,
+            font_color='White',
+            color='Green',
+            tooltip='Yes - Continue Setup'
+        }
+    )
+
+    self.createButton(
+        {
+            click_function='ShowEnableExpansionButton',
+            function_owner=self,
+            label="No",
+            position={1.0,1.0,-3.7},
+            rotation={0.0,0.0, 0.0},
+            width=500*1.5,
+            height=350*1.5,
+            font_size=150*1.5,
+            font_color='White',
+            color='Red',
+            tooltip='No - Cancel Setup'
+        }
+    )
+end
+
+function ConfirmCleanupButton()
+    self.createButton(
+        {
+            click_function='DisableExpansion',
+            function_owner=self,
+            label="Yes",
+            position={-1.0,1.0,-3.7},
+            rotation={0.0,0.0, 0.0},
+            width=500*1.5,
+            height=350*1.5,
+            font_size=150*1.5,
+            font_color='White',
+            color='Green',
+            tooltip='Yes - Continue Cleanup'
+        }
+    )
+
+    self.createButton(
+        {
+            click_function='ShowDisableExpansionButton',
+            function_owner=self,
+            label="No",
+            position={1.0,1.0,-3.7},
+            rotation={0.0,0.0, 0.0},
+            width=500*1.5,
+            height=350*1.5,
+            font_size=150*1.5,
+            font_color='White',
+            color='Red',
+            tooltip='No - Cancel Cleanup'
+        }
+    )
+end
+
+function EnableExpansion()
+    self.clearButtons()
+
+    Wait.time(function()
+        ShowDisableExpansionButton()
+    end,2)
+
+    -- Checks if there are players minis in the cleanup zone (on a mission)
+    if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
+        printToAll('Unable to set up: Space Rig Expansion', 'Red')
+        printToAll('Mission in progress detected, cleanup mission before enabling expansion\n', 'Red')
+        return
+    end
+
+    printToAll('Setting up: Space Rig Expansion', 'Yellow')
+
+    Global.Call('setSpaceRigExpansionToggle',true)
+end
