@@ -3,20 +3,30 @@ local locations =
     rulebookLoc = {-54.06, 0.97, -50.58},
     rulebookRot = {0.00, 180.0, 0.00},
 
-    rulebookAid1Loc = {-60.28, 0.97, 23.94},
-    rulebookAid2Loc = {-54.59, 0.97, 23.97},
-    rulebookAid3Loc = {-48.94, 0.97, 24.06},
-    rulebookAid4Loc = {-43.15, 0.97, 24.02},
-    rulebookAid5Loc = {-37.46, 0.97, 24.02},
-    rulebookAid6Loc = {-60.26, 0.97, 15.76},
-    rulebookAid7Loc = {-54.62, 0.97, 15.84},
-    rulebookAid8Loc = {-48.98, 0.97, 15.84},
-    rulebookAid9Loc = {-43.27, 0.97, 15.85},
-    rulebookAid10Loc = {-37.56, 0.97, 15.82},
+    rulebookAids = 
+    {
+        rulebookAid1Loc = {-60.28, 0.97, 23.94},
+        rulebookAid2Loc = {-54.59, 0.97, 23.97},
+        rulebookAid3Loc = {-48.94, 0.97, 24.06},
+        rulebookAid4Loc = {-43.15, 0.97, 24.02},
+        rulebookAid5Loc = {-37.46, 0.97, 24.02},
+        rulebookAid6Loc = {-60.26, 0.97, 15.76},
+        rulebookAid7Loc = {-54.62, 0.97, 15.84},
+        rulebookAid8Loc = {-48.98, 0.97, 15.84},
+        rulebookAid9Loc = {-43.27, 0.97, 15.85},
+        rulebookAid10Loc = {-37.56, 0.97, 15.82}
+    },
     rulebookAidRot = {0.00, 180.03, 0.00},
 
     oxygenTokenLoc = {{-22.25, 1.04, -21.33},{-6.02, 1.04, -21.42},{10.40, 1.04, -21.34},{24.88, 1.04, -21.61}},
     oxygenTokenRot = {0.00, 180.0, 0.0},
+    oxygenCubesBagLoc = {11.55, 0.97, 6.87},
+    oxygenCubesBagRot = {0.00, 0.00, 0.00},
+
+    oxygenCubeLocs = {{-22.23, 1.28, -21.01},{-22.24, 1.28, -21.40},{-22.23, 1.28, -21.77},{-22.24, 1.28, -22.17},
+                    {-6.00, 1.28, -21.10},{-6.01, 1.28, -21.48},{-6.01, 1.28, -21.86},{-6.01, 1.28, -22.26},
+                    {10.43, 1.28, -21.02},{10.41, 1.28, -21.41},{10.42, 1.28, -21.78},{10.41, 1.28, -22.18},
+                    {24.90, 1.28, -21.29},{24.89, 1.28, -21.68},{24.90, 1.28, -22.05},{24.89, 1.28, -22.45}},
 
     upgradeBoardGunnerLoc = {-24.20, 1.12, -17.71},
     upgradeBoardScoutLoc = {-8.76, 1.07, -17.69},
@@ -98,18 +108,23 @@ local locations =
 local GUIDs =
 {
     rulebook = '768854',
-    rulebookAid1 = 'c931f7',
-    rulebookAid2 = '249ea6',
-    rulebookAid3 = 'b49b2f',
-    rulebookAid4 = '19b926',
-    rulebookAid5 = '2d0564',
-    rulebookAid6 = '596fb7',
-    rulebookAid7 = '2f31fd',
-    rulebookAid8 = '945a76',
-    rulebookAid9 = '17cd74',
-    rulebookAid10 = 'd4ff36',
+
+    rulebookAids = 
+    {
+        rulebookAid1 = 'c931f7',
+        rulebookAid2 = '249ea6',
+        rulebookAid3 = 'b49b2f',
+        rulebookAid4 = '19b926',
+        rulebookAid5 = '2d0564',
+        rulebookAid6 = '596fb7',
+        rulebookAid7 = '2f31fd',
+        rulebookAid8 = '945a76',
+        rulebookAid9 = '17cd74',
+        rulebookAid10 = 'd4ff36'
+    },
 
     oxygenTokens = {'9ba832','d75777','7b5043','23f2a0'},
+    oxygenCubesBag = 'd0b7aa',
 
     upgradeBoardGunner = '8a4b95',
     upgradeBoardScout = '89eadd',
@@ -312,4 +327,74 @@ function EnableExpansion()
     printToAll('Setting up: Space Rig Expansion', 'Yellow')
 
     Global.Call('setSpaceRigExpansionToggle',true)
+
+    -- Rulebook setup
+    params={
+        bag = expansionBox,
+        ID = GUIDs.rulebook,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.rulebookLoc,
+            rotation = locations.rulebookRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Space Rig Rulebook, it's not in the expansion box", 'Red')
+    end
+
+    -- Rulebook aids
+    for i = 1, #locations.rulebookAids do
+        params={
+            bag = expansionBox,
+            ID = GUIDs.locations.rulebookAids[i],
+        }
+        if Global.call('isInBag',params) then
+            params.bag.takeObject({
+                position = locations.rulebookAids[i],
+                rotation = locations.rulebookAidRot,
+                guid = params.ID
+            })
+        else
+            printToAll("Warning: Unable to set up Space Rig Rulebook Aids, it's not in the expansion box", 'Red')
+        end
+    end
+
+    -- Oxygen token setup
+    for i = 1, 4 do
+        params={
+            bag = expansionBox,
+            ID = GUIDs.locations.oxygenTokens,
+        }
+        if Global.call('isInBag',params) then
+            params.bag.takeObject({
+                position = locations.oxygenTokenLoc[i],
+                rotation = locations.oxygenTokenRot,
+                guid = params.ID
+            })
+        else
+            printToAll("Warning: Unable to set up Oxygen Tokens, it's not in the expansion box", 'Red')
+        end
+    end
+
+    -- Oxygen Cubes Bag
+    params={
+        bag = expansionBox,
+        ID = GUIDs.oxygenCubesBag,
+    }
+    if Global.call('isInBag',params) then
+        oxygenBag = params.bag.takeObject({
+            position = locations.oxygenCubesBagLoc,
+            rotation = locations.oxygenCubesBagRot,
+            guid = params.ID
+        })
+
+        for i = 1, 16 do
+            oxygenBag.takeObject({
+                position = locations.oxygenCubeLocs[i]
+            })
+        end
+    else
+        printToAll("Warning: Unable to set up Oxygen Cube Bag, it's not in the expansion box", 'Red')
+    end
 end
