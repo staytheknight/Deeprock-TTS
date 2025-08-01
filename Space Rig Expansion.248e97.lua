@@ -397,4 +397,68 @@ function EnableExpansion()
     else
         printToAll("Warning: Unable to set up Oxygen Cube Bag, it's not in the expansion box", 'Red')
     end
+
+    -- Upgrade Boards - Gunner
+        params={
+        bag = expansionBox,
+        ID = GUIDs.upgradeBoardGunner,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.upgradeBoardGunnerLoc,
+            rotation = locations.upgradeBoardRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Gunner Upgrade Board, it's not in the expansion box", 'Red')
+    end
+
+    -- Upgrade Boards - Scout
+    params={
+        bag = expansionBox,
+        ID = GUIDs.upgradeBoardScout,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.upgradeBoardScoutLoc,
+            rotation = locations.upgradeBoardRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Scout Upgrade Board, it's not in the expansion box", 'Red')
+    end
+
+    -- Upgrade Boards - Driller
+    params={
+        bag = expansionBox,
+        ID = GUIDs.upgradeBoardDriller,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.upgradeBoardDrillerLoc,
+            rotation = locations.upgradeBoardRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Driller Upgrade Board, it's not in the expansion box", 'Red')
+    end
+
+    -- Upgrade Boards - Engineer
+    params={
+        bag = expansionBox,
+        ID = GUIDs.upgradeBoardEngineer,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.upgradeBoardEngineerLoc,
+            rotation = locations.upgradeBoardRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Engineer Upgrade Board, it's not in the expansion box", 'Red')
+    end
+
+
+
+
 end
