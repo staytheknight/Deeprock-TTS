@@ -51,14 +51,17 @@ local locations =
     beerDeckLoc = {-38.03, 2.0, 3.50},
     beerDeckRot = {0.00, 180.0, 180.00}, 
 
-    stickerExterminators = {-54.99, 1.04, 4.01},
-    stickerSuperProtector = {-53.89, 1.05, 4.01},
-    stickerUpClose = {-52.79, 1.04, 4.01},
-    stickerBreathtaking = {-51.69, 1.04, 4.01},
-    stickerHardboiled = {-55.54, 1.05, 3.06},
-    stickerHoarders = {-54.44, 1.05, 3.06},
-    stickerRoughnecks = {-53.34, 1.05, 3.06},
-    stickerVeteranDwarves = {-52.24, 1.04, 3.06},
+    stickerLocs =
+    {
+        stickerExterminators = {-54.99, 1.04, 4.01},
+        stickerSuperProtector = {-53.89, 1.05, 4.01},
+        stickerUpClose = {-52.79, 1.04, 4.01},
+        stickerBreathtaking = {-51.69, 1.04, 4.01},
+        stickerHardboiled = {-55.54, 1.05, 3.06},
+        stickerHoarders = {-54.44, 1.05, 3.06},
+        stickerRoughnecks = {-53.34, 1.05, 3.06},
+        stickerVeteranDwarves = {-52.24, 1.04, 3.06}
+    },
     stickerRot = {0.0, 180.0, 0.0}, 
 
     missionModRedLoc = {-34.65, 0.97, 1.15},
@@ -96,10 +99,10 @@ local locations =
     beamerBagLoc = {-19.25, 0.96, 1.15},
     beamerBagRot = {0.00, 90.00, 0.00},
 
-    heartstoneLoc = {-21.45, 0.97, 1.15},
-    heartstoneRot = {0.00, 239.96, 0.00},
-    heartstoneGemLoc = {-21.41, 1.37, 1.28},
-    hearstoneGemRot = {50.92, 83.33, 192.57},
+    hearthstoneLoc = {-21.45, 0.97, 1.15},
+    hearthstoneRot = {0.00, 239.96, 0.00},
+    hearthstoneGemLoc = {-21.41, 1.37, 1.28},
+    hearthstoneGemRot = {50.92, 83.33, 192.57},
 
     miniHiddenCavesBagLoc = {16.50, 0.95, 0.20},
     miniHiddenCavesBagRot = {0.00, 60.00, 0.00},
@@ -136,14 +139,17 @@ local GUIDs =
     trackerCube1 = '290dc9',
     trackerCube2 = '833ce7',
 
-    stickerExterminators = 'b1d92f',
-    stickerSuperProtector = '1e1671',
-    stickerUpClose = 'e9b53e',
-    stickerBreathtaking = '4db170',
-    stickerHardboiled = 'c6226c',
-    stickerHoarders = '3398c9',
-    stickerRoughnecks = 'f3c70c',
-    stickerVeteranDwarves = '7ed6db',
+    stickers =
+    {
+        stickerExterminators = 'b1d92f',
+        stickerSuperProtector = '1e1671',
+        stickerUpClose = 'e9b53e',
+        stickerBreathtaking = '4db170',
+        stickerHardboiled = 'c6226c',
+        stickerHoarders = '3398c9',
+        stickerRoughnecks = 'f3c70c',
+        stickerVeteranDwarves = '7ed6db'
+    },
 
     missionModRedBag = '5ed9dd',
     missionModYellowBag = 'b1377f',
@@ -458,7 +464,445 @@ function EnableExpansion()
         printToAll("Warning: Unable to set up Engineer Upgrade Board, it's not in the expansion box", 'Red')
     end
 
+    -- Space Rig Board
+    params={
+        bag = expansionBox,
+        ID = GUIDs.spaceRigBoard,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.spaceRigBoardLoc,
+            rotation = locations.spaceRigBoardRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Space Rig Board, it's not in the expansion box", 'Red')
+    end
+
+    -- Tracker cube 1 -- bigger cube
+    params={
+        bag = expansionBox,
+        ID = GUIDs.trackerCube1,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.trackerCube1Loc,
+            rotation = locations.trackerCube1Rot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Space Rig Board mission number cube, it's not in the expansion box", 'Red')
+    end
+
+    -- Tracker cube 2 -- smaller cube
+    params={
+        bag = expansionBox,
+        ID = GUIDs.trackerCube2,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.trackerCube2Loc,
+            rotation = locations.trackerCube2Rot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Space Rig Board Progression cube, it's not in the expansion box", 'Red')
+    end
+
+    -- Memorial statue
+    params={
+        bag = expansionBox,
+        ID = GUIDs.memorialStatue,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.memorialStatueLoc,
+            rotation = locations.memorialStatueRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Memorial Statue, it's not in the expansion box", 'Red')
+    end
+
+    -- Secondary card: subata
+    params={
+        bag = expansionBox,
+        ID = GUIDs.cards.secondaries.scopedSubata,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getSecondariesDeckZone').getPosition(),
+            rotation = {0.00, 180.00, 0.00},
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Secondaries Card: Scoped Subata, it's not in the expansion box", 'Red')
+    end
+
+    -- Secondary card: stubby
+    params={
+        bag = expansionBox,
+        ID = GUIDs.cards.secondaries.stubbyExplosive,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getSecondariesDeckZone').getPosition(),
+            rotation = {0.00, 180.00, 0.00},
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Secondaries Card: Explosive Stubby, it's not in the expansion box", 'Red')
+    end
+
+    -- R&S card: better equipment
+    params={
+        bag = expansionBox,
+        ID = GUIDs.cards.rockAndStone.betterEquipment,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getRockAndStoneDeckZone').getPosition(),
+            rotation = {0.0, 90.0, 180.0},
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Secondaries Card: Scoped Subata, it's not in the expansion box", 'Red')
+    end
+
+    -- R&S card: bottom's up
+    params={
+        bag = expansionBox,
+        ID = GUIDs.cards.rockAndStone.bottomsUp,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = Global.call('getRockAndStoneDeckZone').getPosition(),
+            rotation = {0.0, 90.0, 180.0},
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Secondaries Card: Explosive Stubby, it's not in the expansion box", 'Red')
+    end
+
+    -- Mission modifiers: Anomalies Box (Yellow)
+    params={
+        bag = expansionBox,
+        ID = GUIDs.missionModYellowBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.missionModYellowLoc,
+            rotation = locations.missionModYellowRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Mission Modifier Anomalies bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Mission Modifiers: Warnings Box (Red)
+    params={
+        bag = expansionBox,
+        ID = GUIDs.missionModRedBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.missionModRedLoc,
+            rotation = locations.missionModRedRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Mission Modifiers Warnings bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Upgrades: Hud Bag
+    params={
+        bag = expansionBox,
+        ID = GUIDs.upgradesHUDBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.upgradesHUDBagLoc,
+            rotation = locations.upgradesRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Mission Modifiers Warnings bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Upgrades: Armour bag
+    params={
+        bag = expansionBox,
+        ID = GUIDs.upgradesArmourBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.upgradesArmourBagLoc,
+            rotation = locations.upgradesRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Mission Modifiers Warnings bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Upgrades: Pickaxe Bag
+    params={
+        bag = expansionBox,
+        ID = GUIDs.upgradesPickaxeBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.upgradesPickaxeBagLoc,
+            rotation = locations.upgradesRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Mission Modifiers Warnings bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Pickups: Shuffle Bag
+    params={
+        bag = expansionBox,
+        ID = GUIDs.pickupShuffleBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.pickupShuffleBagLoc,
+            rotation = locations.pickupRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Pickups shuffle bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Pickups: Abandoned Gear Bag
+    params={
+        bag = expansionBox,
+        ID = GUIDs.pickupAbandonedGearBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.pickupAbandonedGearBagLoc,
+            rotation = locations.pickupRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Abandoned Gear bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Pickups: Gold Loot Bug Bag
+    params={
+        bag = expansionBox,
+        ID = GUIDs.pickupGoldBugBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.pickupGoldBugBagLoc,
+            rotation = locations.pickupRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Gold loot bug bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Pickups: Malt Salt Bag
+    params={
+        bag = expansionBox,
+        ID = GUIDs.pickupMaltSaltBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.pickupMaltSaltBagLoc,
+            rotation = locations.pickupRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Malt Salt bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Pickups: Yeast bulb Bag
+    params={
+        bag = expansionBox,
+        ID = GUIDs.pickupYeastBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.pickupYeastBagLoc,
+            rotation = locations.pickupRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Yeast Bulb bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Pump Jack Bag
+    params={
+        bag = expansionBox,
+        ID = GUIDs.pumpjackBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.pumpjackBagLoc,
+            rotation = locations.pumpjackBagRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Pumpjack bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Straight pipe bag
+    params={
+        bag = expansionBox,
+        ID = GUIDs.pipeStraightBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.pipeStraightBagLoc,
+            rotation = locations.pipeStraightBagRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Straight pipe bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Curved pipe bag
+    params={
+        bag = expansionBox,
+        ID = GUIDs.pipeCurvedBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.pipeCurvedBagLoc,
+            rotation = locations.pipeCurvedBagRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Curved pipe bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Drilldozer
+    params={
+        bag = expansionBox,
+        ID = GUIDs.drilldozer,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.drilldozerLoc,
+            rotation = locations.drilldozerRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Drilldozer mini, it's not in the expansion box", 'Red')
+    end
+
+    -- Drilldozer Token
+    params={
+        bag = expansionBox,
+        ID = GUIDs.drilldozerToken,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.drilldozerTokenLoc,
+            rotation = locations.drilldozerTokenRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Drilldozer token, it's not in the expansion box", 'Red')
+    end
+
+    -- Refinery
+    params={
+        bag = expansionBox,
+        ID = GUIDs.refinery,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.refineryLoc,
+            rotation = locations.refineryRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Oil Refinery, it's not in the expansion box", 'Red')
+    end
+
+    -- Beamers Bag
+    params={
+        bag = expansionBox,
+        ID = GUIDs.beamerBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.beamerBagLoc,
+            rotation = locations.beamerBagRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Ommoran Beamer Bag, it's not in the expansion box", 'Red')
+    end
+
+    -- Hearstone
+    params={
+        bag = expansionBox,
+        ID = GUIDs.heartstoneClosed,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.hearthstoneLoc,
+            rotation = locations.hearthstoneRot,
+            guid = params.ID
+        })
+    else -- if closed hearstone mini no found, find the open version
+        params={
+            bag = expansionBox,
+            ID = GUIDs.hearstoneOpen,
+        }
+        if Global.call('isInBag',params) then
+            params.bag.takeObject({
+                position = locations.hearthstoneLoc,
+                rotation = locations.hearthstoneRot,
+                guid = params.ID
+            })
+        else
+            printToAll("Warning: Unable to set up Ommoran Hearthstone Mini, it's not in the expansion box", 'Red')
+        end
+    end
+
+    -- Heartstone Gem
+    params={
+        bag = expansionBox,
+        ID = GUIDs.hearstoneGem,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.hearthstoneGemLoc,
+            rotation = locations.hearthstoneGemRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Ommoran Hearthstone Gem, it's not in the expansion box", 'Red')
+    end
+
+    -- Mini hidden cave segement gem
+    params={
+        bag = expansionBox,
+        ID = GUIDs.miniHiddenCaveBag,
+    }
+    if Global.call('isInBag',params) then
+        params.bag.takeObject({
+            position = locations.miniHiddenCavesBagLoc,
+            rotation = locations.miniHiddenCavesBagRot,
+            guid = params.ID
+        })
+    else
+        printToAll("Warning: Unable to set up Mini hidden cave segments bag, it's not in the expansion box", 'Red')
+    end
 
 
+    -- TODO:
+    -- Stickers
 
+    -- Challenge cards - gmnotes: challengeCard
+    -- Beer cards - gmnotes: beedCard
+    -- omeran cards
+
+    -- Mission cards
 end

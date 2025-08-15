@@ -506,6 +506,12 @@ function Cleanup()
                 elseif containedObject.gm_notes == "dreadCard" then
                     object.setPosition({33.55, 1.03, 14.49})
                     object.setRotation({0.00, 180.00, 180.00})
+                elseif containedObject.gm_notes == "challengeCard" then
+                    object.setPosition({-46.00, 2.25, 3.84})
+                    object.setRotation({0.00, 180.00, 180.00})
+                elseif containedObject.gm_notes == "beerCard" then
+                    object.setPosition({-38.03, 1.23, 3.50})
+                    object.setRotation({0.00, 180.00, 180.00})                
                 end
             end
 
