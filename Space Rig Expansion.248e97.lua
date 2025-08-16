@@ -108,6 +108,18 @@ local locations =
     miniHiddenCavesBagRot = {0.00, 60.00, 0.00},
 }
 
+local stickerNames = 
+{
+    stickerExterminators = 'Exterminators',
+    stickerSuperProtector = 'Super Protectors',
+    stickerUpClose = 'Up Close',
+    stickerBreathtaking = 'Breathtaking',
+    stickerHardboiled = 'Hardboiled',
+    stickerHoarders = 'Hoarders',
+    stickerRoughnecks = 'Roughnecks',
+    stickerVeteranDwarves = 'Veteran Dwarves'
+}
+
 local GUIDs =
 {
     rulebook = '768854',
@@ -531,7 +543,7 @@ function EnableExpansion()
     }
     if Global.call('isInBag',params) then
         params.bag.takeObject({
-            position = Global.call('getSecondariesDeckZone').getPosition(),
+            position = Global.call('getSecondariesDeckZone').GetPosition(),
             rotation = {0.00, 180.00, 0.00},
             guid = params.ID
         })
@@ -546,7 +558,7 @@ function EnableExpansion()
     }
     if Global.call('isInBag',params) then
         params.bag.takeObject({
-            position = Global.call('getSecondariesDeckZone').getPosition(),
+            position = Global.call('getSecondariesDeckZone').GetPosition(),
             rotation = {0.00, 180.00, 0.00},
             guid = params.ID
         })
@@ -561,7 +573,7 @@ function EnableExpansion()
     }
     if Global.call('isInBag',params) then
         params.bag.takeObject({
-            position = Global.call('getRockAndStoneDeckZone').getPosition(),
+            position = Global.call('getRockAndStoneDeckZone').GetPosition(),
             rotation = {0.0, 90.0, 180.0},
             guid = params.ID
         })
@@ -576,7 +588,7 @@ function EnableExpansion()
     }
     if Global.call('isInBag',params) then
         params.bag.takeObject({
-            position = Global.call('getRockAndStoneDeckZone').getPosition(),
+            position = Global.call('getRockAndStoneDeckZone').GetPosition(),
             rotation = {0.0, 90.0, 180.0},
             guid = params.ID
         })
@@ -896,13 +908,66 @@ function EnableExpansion()
         printToAll("Warning: Unable to set up Mini hidden cave segments bag, it's not in the expansion box", 'Red')
     end
 
-
-    -- TODO:
     -- Stickers
+    for i = 1, 8 do
+        params={
+            bag = expansionBox,
+            ID = GUIDs.stickers[i],
+        }
+        if Global.call('isInBag',params) then
+            params.bag.takeObject({
+                position = locations.stickerLocs[i],
+                rotation = locations.stickerRot,
+                guid = params.ID
+            })
+        else
+            printToAll("Warning: Unable to set up " + stickerNames[i] + " sticker, it's not in the expansion box", 'Red')
+        end
+    end
 
-    -- Challenge cards - gmnotes: challengeCard
-    -- Beer cards - gmnotes: beedCard
-    -- omeran cards
+    -- Iterate through everything else in the box, 
+    -- This is for things that can't be referenced by GUIDs such as decks and PDFs
+    index = #expansionBox.getObjects()
+    for i = 1, index do
+        obj = expansionBox.TakeObject()
 
+        obj.lock()
+
+        if obj.type == "Deck" then
+            for _, containedObject in ipairs(obj.getObjects()) do
+                if (containedObject.gm_notes == "challengeCard") then
+                    obj.setLock(false)
+                    obj.setRotation({0.0, 180.0, 180.0})
+                    object.setPosition({-46.00, 2.25, 3.84})
+                elseif (containedObject.gm_notes == "beerCard") then
+                    obj.setLock(false)
+                    obj.setRotation({0.0, 180.0, 180.0})
+                    object.setPosition({-38.03, 1.23, 3.50})
+                elseif (containedObject.gm_notes == "oHeartCard") then
+                    obj.setLock(false)
+                    obj.setRotation({0.0, 180.0, 180.0})
+                    obj.setPosition(Global.call('getOHeartDeckZone').GetPosition())
+                end
+            end
+        elseif obj.getGMNotes() == "challengeCard" then
+            obj.setLock(false)
+            obj.setRotation({0.0, 180.0, 180.0})
+            object.setPosition({-46.00, 2.25, 3.84})
+        elseif obj.getGMNotes() == "beerCard" then
+            obj.setLock(false)
+            obj.setRotation({0.0, 180.0, 180.0})
+            object.setPosition({-38.03, 1.23, 3.50})
+        elseif obj.getGMNotes() == "oHeartCard" then
+            obj.setLock(false)
+            obj.setRotation({0.0, 180.0, 180.0})
+            obj.setPosition(Global.call('getOHeartDeckZone').GetPosition())
+        end
+    end
+
+    -- TODO:    
     -- Mission cards
+end
+
+function DisableExpansion()
+    
 end
