@@ -425,7 +425,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.upgradeBoardGunnerLoc,
             rotation = locations.upgradeBoardRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Gunner Upgrade Board, it's not in the expansion box", 'Red')
@@ -440,7 +442,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.upgradeBoardScoutLoc,
             rotation = locations.upgradeBoardRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Scout Upgrade Board, it's not in the expansion box", 'Red')
@@ -455,7 +459,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.upgradeBoardDrillerLoc,
             rotation = locations.upgradeBoardRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Driller Upgrade Board, it's not in the expansion box", 'Red')
@@ -470,7 +476,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.upgradeBoardEngineerLoc,
             rotation = locations.upgradeBoardRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Engineer Upgrade Board, it's not in the expansion box", 'Red')
@@ -485,7 +493,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.spaceRigBoardLoc,
             rotation = locations.spaceRigBoardRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Space Rig Board, it's not in the expansion box", 'Red')
@@ -605,7 +615,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.missionModYellowLoc,
             rotation = locations.missionModYellowRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Mission Modifier Anomalies bag, it's not in the expansion box", 'Red')
@@ -620,7 +632,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.missionModRedLoc,
             rotation = locations.missionModRedRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Mission Modifiers Warnings bag, it's not in the expansion box", 'Red')
@@ -635,7 +649,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.upgradesHUDBagLoc,
             rotation = locations.upgradesRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Mission Modifiers Warnings bag, it's not in the expansion box", 'Red')
@@ -650,7 +666,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.upgradesArmourBagLoc,
             rotation = locations.upgradesRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Mission Modifiers Warnings bag, it's not in the expansion box", 'Red')
@@ -665,7 +683,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.upgradesPickaxeBagLoc,
             rotation = locations.upgradesRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Mission Modifiers Warnings bag, it's not in the expansion box", 'Red')
@@ -680,7 +700,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.pickupShuffleBagLoc,
             rotation = locations.pickupRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Pickups shuffle bag, it's not in the expansion box", 'Red')
@@ -695,7 +717,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.pickupAbandonedGearBagLoc,
             rotation = locations.pickupRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Abandoned Gear bag, it's not in the expansion box", 'Red')
@@ -710,7 +734,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.pickupGoldBugBagLoc,
             rotation = locations.pickupRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Gold loot bug bag, it's not in the expansion box", 'Red')
@@ -725,7 +751,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.pickupMaltSaltBagLoc,
             rotation = locations.pickupRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Malt Salt bag, it's not in the expansion box", 'Red')
@@ -740,10 +768,12 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.pickupYeastBagLoc,
             rotation = locations.pickupRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
-        printToAll("Warning: Unable to set up Yeast Bulb bag, it's not in the expansion box", 'Red')
+        printToAll("Warning: Unable to set up Yeast Cone bag, it's not in the expansion box", 'Red')
     end
 
     -- Pump Jack Bag
@@ -755,7 +785,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.pumpjackBagLoc,
             rotation = locations.pumpjackBagRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Pumpjack bag, it's not in the expansion box", 'Red')
@@ -770,7 +802,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.pipeStraightBagLoc,
             rotation = locations.pipeStraightBagRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Straight pipe bag, it's not in the expansion box", 'Red')
@@ -785,7 +819,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.pipeCurvedBagLoc,
             rotation = locations.pipeCurvedBagRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Curved pipe bag, it's not in the expansion box", 'Red')
@@ -845,7 +881,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.beamerBagLoc,
             rotation = locations.beamerBagRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Ommoran Beamer Bag, it's not in the expansion box", 'Red')
@@ -893,7 +931,7 @@ function EnableExpansion()
         printToAll("Warning: Unable to set up Ommoran Hearthstone Gem, it's not in the expansion box", 'Red')
     end
 
-    -- Mini hidden cave segement gem
+    -- Mini hidden cave segment gem
     params={
         bag = expansionBox,
         ID = GUIDs.miniHiddenCaveBag,
@@ -902,7 +940,9 @@ function EnableExpansion()
         params.bag.takeObject({
             position = locations.miniHiddenCavesBagLoc,
             rotation = locations.miniHiddenCavesBagRot,
-            guid = params.ID
+            guid = params.ID,
+            -- Lock tiles afer spawn
+            callback="afterSpawnLock", callback_owner=Global
         })
     else
         printToAll("Warning: Unable to set up Mini hidden cave segments bag, it's not in the expansion box", 'Red')
@@ -969,5 +1009,168 @@ function EnableExpansion()
 end
 
 function DisableExpansion()
-    
+    self.clearButtons()
+
+    Wait.time(function()
+        ShowEnableExpansionButton()
+    end,2)
+
+    -- Checking to see if player minis are on the board (in the middle of a mission)
+    if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
+        printToAll('Unable to clean up: Space Rig Expansion', 'Red')
+        printToAll('\nMission in progress detected, cleanup mission before disabling expansion\n', 'Red')
+        return
+    end
+
+    printToAll('Cleaning up: Space Rig Expansion', 'Yellow')
+
+    Global.Call('setSpaceRigExpansionToggle',false)
+
+    -- // Expansion Cleanup //
+    local objects = getAllObjects()
+    -- instead of long if else statements use dictionary or more sophisticated table.find
+
+    for _, object in ipairs(objects) do
+        objGUID = object.GetGUID()
+
+        rulebookAidParams = {table = GUIDs.rulebookAids, value = objGUID}
+        oxygenTokenParams = {table = GUIDs.oxygenTokens, value = objGUID}
+        stickersParams = {table = GUIDs.stickers, value = objGUID}
+        secondariesCardsParams = {table = GUIDs.cards.secondaries, value = objGUID}
+        rockAndStoneCardsParams = {table = GUIDs.cards.rockAndStone, value = objGUID}
+
+        if objGUID == GUIDs.rulebook then
+            expansionBox.putObject(object)
+        elseif Global.Call('TableContains', rulebookAidParams) then
+            expansionBox.putObject(object)
+        elseif Global.Call('TableContains', oxygenTokenParams) then
+            expansionBox.putObject(object)
+        elseif Global.Call('TableContains', secondariesCardsParams) then
+            expansionBox.putObject(object)
+        elseif Global.Call('TableContains', rockAndStoneCardsParams) then
+            expansionBox.putObject(object)
+
+        elseif objGUID == GUIDs.oxygenCubesBag then
+            expansionBox.putObject(object)
+
+        elseif objGUID == GUIDs.upgradeBoardGunner then
+            expansionBox.putObject(object)
+        elseif objGUID == GUIDs.upgradeBoardScout then
+            expansionBox.putObject(object)
+        elseif objGUID == GUIDs.upgradeBoardDriller then
+            expansionBox.putObject(object)
+        elseif objGUID == GUIDs.upgradeBoardEngineer then
+            expansionBox.putObject(object)
+
+        elseif objGUID == GUIDs.spaceRigBoard then
+            expansionBox.putObject(object)
+        elseif objGUID == GUIDs.memorialStatue then
+            expansionBox.putObject(object)
+        elseif objGUID == GUIDs.trackerCube1 then
+            expansionBox.putObject(object)
+        elseif objGUID == GUIDs.trackerCube2 then
+            expansionBox.putObject(object)
+
+        elseif Global.Call('TableContains', stickersParams) then
+            expansionBox.putObject(object)
+
+        elseif object.getGMNotes() == 'warning' then
+            getObjectFromGUID(missionModRedBag).putObject(object)
+        elseif object.getGMNotes() == 'anomalie' then
+            getObjectFromGUID(missionModYellowBag).putObject(object)
+
+        elseif object.getGMNotes() == 'upgradeH' then
+            getObjectFromGUID(upgradesHUDBag).putObject(object)
+        elseif object.getGMNotes() == 'upgradeA' then
+            getObjectFromGUID(upgradesArmourBag).putObject(object)
+        elseif object.getGMNotes() == 'upgradeP' then
+            getObjectFromGUID(upgradesPickaxeBag).putObject(object)
+
+        elseif object.getGMNotes() == 'abandonedGear' then
+            getObjectFromGUID(pickupAbandonedGearBag).putObject(object)
+        elseif object.getGMNotes() == 'gLootbug' then
+            getObjectFromGUID(pickupGoldBugBag).putObject(object)
+        elseif object.getGMNotes() == 'yeastCone' then
+            getObjectFromGUID(pickupMaltSaltBag).putObject(object)
+        elseif object.getGMNotes() == 'maltStar' then
+            getObjectFromGUID(pickupYeastBag).putObject(object)
+
+        elseif object.getGMNotes() == 'pJack' then
+            getObjectFromGUID(pumpjackBag).putObject(object)
+        elseif object.getGMNotes() == 'sPipe' then
+            getObjectFromGUID(pipeStraightBag).putObject(object)
+        elseif object.getGMNotes() == 'cPipe' then
+            getObjectFromGUID(pipeCurvedBag).putObject(object)
+
+        elseif objGUID == GUIDs.drilldozer then
+            expansionBox.putObject(object)
+        elseif objGUID == GUIDs.drilldozerToken then
+            expansionBox.putObject(object)
+        elseif objGUID == GUIDs.refinery then
+            expansionBox.putObject(object)
+
+        elseif objGUID == GUIDs.heartstoneClosed then
+            expansionBox.putObject(object)
+        elseif objGUID == GUIDs.hearstoneOpen then
+            expansionBox.putObject(object)
+        elseif objGUID == GUIDs.hearstoneGem then
+            expansionBox.putObject(object)
+
+        elseif object.getGMNotes() == 'beamer' then
+            getObjectFromGUID(beamerBag).putObject(object)
+
+        elseif object.getGMNotes() == 'miniHiddenCave' then
+            getObjectFromGUID(miniHiddenCaveBag).putObject(object)
+
+
+        -- Searching decks for cards
+        elseif object.type == "Deck" then
+            deckPosition = object.getPosition()
+            for _, containedObject in ipairs(object.getObjects()) do
+                -- have to take the object out of the deck to be able to read
+                -- it's info
+                obj = object.takeObject({smooth = false})
+                if (obj.getGUID() == GUIDs.cards.secondaries.scopedSubata)
+                or (obj.getGUID() == GUIDs.cards.secondaries.stubbyExplosive)
+                or (obj.getGUID() == GUIDs.cards.rockAndStone.betterEquipment)
+                or (obj.getGUID() == GUIDs.cards.rockAndStone.bottomsUp)
+                or (obj.getGMNotes() == "oHeartCard")
+                or (obj.getGMNotes() == "beerCard")
+                or (obj.getGMNotes() == "challengeCard")
+                then
+                    expansionBox.putObject(obj)
+                else
+                    -- if the object in the deck is not in part of the expansion
+                    -- put it back where it was (note: this will shuffle the decks around)
+                    obj.setPosition(deckPosition)
+                end
+            end
+        end
+    end
+
+    -- Wait a few seconds for objects to be placed into bags and then
+    -- clean up the bags
+    Wait.time(function()
+        objects = getAllObjects()
+        for _, object in ipairs(objects) do
+            if (object.getGUID() == GUIDs.missionModRedBag)
+            or (object.getGUID() == GUIDs.missionModYellowBag)
+            or (object.getGUID() == GUIDs.upgradesHUDBag)
+            or (object.getGUID() == GUIDs.upgradesArmourBag)
+            or (object.getGUID() == GUIDs.upgradesPickaxeBag)
+            or (object.getGUID() == GUIDs.pickupShuffleBag)
+            or (object.getGUID() == GUIDs.pickupAbandonedGearBag)
+            or (object.getGUID() == GUIDs.pickupGoldBugBag)
+            or (object.getGUID() == GUIDs.pickupMaltSaltBag)
+            or (object.getGUID() == GUIDs.pickupYeastBag)
+            or (object.getGUID() == GUIDs.pumpjackBag)
+            or (object.getGUID() == GUIDs.pipeStraightBag)
+            or (object.getGUID() == GUIDs.pipeCurvedBag)
+            or (object.getGUID() == GUIDs.beamerBag)
+            or (object.getGUID() == GUIDs.miniHiddenCaveBag)
+            then
+                expansionBox.putObject(object)
+            end
+        end
+    end, 2)
 end
