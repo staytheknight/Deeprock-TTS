@@ -1048,6 +1048,8 @@ function EnableExpansion()
         printToAll("Warning: Unable to set up all Ommeran Heart cards, they're not in the expansion box", 'Red')
     end
 
+    Global.call('SpaceRigXpacIDs')
+
     -- TODO:    
     -- Mission cards
 end

@@ -206,6 +206,8 @@ function EnableExpansion()
     else
         printToAll("Warning: Unable to set up Bulk Detonator swarm card, it's not in the expansion box", 'Red')
     end
+
+    Global.call('BulkDetonatorXpacIDs')
 end
 
 function DisableExpansion()

@@ -346,6 +346,8 @@ function EnableExpansion()
     else
         printToAll("Warning: Unable to set up 'What a Menace' event card, it's not in the expansion box", 'Red')
     end
+
+    Global.call('GooFromAboveXpacIDs')
 end
 
 function DisableExpansion()

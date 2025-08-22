@@ -296,6 +296,8 @@ function EnableExpansion()
     else
         printToAll("Warning: Unable to set up Korlok hidden cave segment, it's not in the expansion box", 'Red')
     end
+
+    Global.call('KorlokXpacIDs')
 end
 
 function DisableExpansion()

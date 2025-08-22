@@ -1089,6 +1089,7 @@ function EnableExpansion()
         end
     end
 
+    Global.call('BiomeXpacIDs')
 end
 
 function DisableExpansion()

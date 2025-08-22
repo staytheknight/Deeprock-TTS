@@ -1,5 +1,6 @@
 function onLoad()
     cleanupButton()
+    GetterCalls()
 end
 
 function GetterCalls()
@@ -19,6 +20,7 @@ function GetterCalls()
 
     explorationBag = Global.call('getExplorationBag')
     mineralShuffleBag = Global.call('getMineralBag')
+    spaceRigExploreBag = Global.call('getMiniExploreTokenBag')
 
     exclaimTilesBag = Global.call('getExclamationTilesBag')
     frozenBag = Global.call('getFrozenBag')
@@ -158,6 +160,8 @@ end
 -- where the objects travel time to the cleanup zone would take too long and the cleanup
 -- algorithm would happen before the objects hit the table
 function emptyExploreBags()
+    GetterCalls()
+
     while not Global.call('isBagEmpty',explorationBag)
     do
         explorationBag.takeObject({
@@ -175,9 +179,11 @@ function emptyExploreBags()
         })
     end
 
+    
     -- check if the space rig expansion is enabled to prevent an infinite loop
     if Global.Call('getSpaceRigExpansionToggle') then
-        while not Global.call('isBagEmpty',Global.call('getMiniExploreTokenBag'))
+        spaceRigExploreBag = Global.call('getMiniExploreTokenBag')
+        while not Global.call('isBagEmpty',spaceRigExploreBag)
         do
             spaceRigExploreBag.takeObject({
                 position = {1.10, 3.20, -1.71},
@@ -190,9 +196,7 @@ function emptyExploreBags()
     Wait.frames(Cleanup, 30)
 end
 
-function Cleanup()
-    GetterCalls()
-    
+function Cleanup()  
     print("Performing Cleanup\n")
 
     self.clearButtons()

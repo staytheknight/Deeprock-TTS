@@ -18,17 +18,6 @@ function onLoad(script_state)
     missionBook_GUID = '7b94b7'
     missionBook = getObjectFromGUID(missionBook_GUID)
 
-    -- split in two as the mission spreads are on each page
-    -- need to show two pages to show the whole mission
-    missionBookB1_GUID = '06f4ab'
-    missionBookB1 = getObjectFromGUID(missionBookB1_GUID)
-    missionBookB2_GUID = 'd2455f'
-    missionBookB2 = getObjectFromGUID(missionBookB2_GUID)
-    missionBookSR1_GUID = '38d501'
-    missionBookSR1 = getObjectFromGUID(missionBookSR1_GUID)
-    missionBookSR2_GUID = '72cff6'
-    missionBookSR2 = getObjectFromGUID(missionBookSR2_GUID)
-
     -- Card Deck Zones
     throwablesDeckZone_GUID = '2fedef'
     throwablesDeckZone = getObjectFromGUID(throwablesDeckZone_GUID)
@@ -42,10 +31,7 @@ function onLoad(script_state)
     swarmDeckZone = getObjectFromGUID(swarmDeckZone_GUID)
     eventDeckZone_GUID = '346b36'
     eventDeckZone = getObjectFromGUID(eventDeckZone_GUID)
-    oHeartDeckZone_GUID = '97cfde'
-    oHeartDeckZone = getObjectFromGUID(oHeartDeckZone_GUID)
-    dreadDeckZone_GUID = '247612'
-    dreadDeckZone = getObjectFromGUID(dreadDeckZone_GUID)
+
 
     -- Cave Segments
     dropPod_GUID = 'b78594'
@@ -58,23 +44,6 @@ function onLoad(script_state)
     caveSeg3 = getObjectFromGUID(caveSeg3_GUID) -- Blob Shape
     caveSeg4_GUID = '8898d9' -- Big Shape
     caveSeg4 = getObjectFromGUID(caveSeg4_GUID) -- Big Shape
-
-    -- Biome cave Segments
-    bogSegBig_GUID = 'c647a9'
-    bogSegBig = getObjectFromGUID(bogSegBig_GUID)
-    bogSegSeq_GUID = '9fcc36'
-    bogSegSeq = getObjectFromGUID(bogSegSeq_GUID)
-    bogSegLong_GUID = '8005d9'
-    bogSegLong = getObjectFromGUID(bogSegLong_GUID)
-    bogSegSmall_GUID = 'c91a14'
-    bogSegSmall = getObjectFromGUID(bogSegSmall_GUID)
-    iceSegMed_GUID = '0438f7'
-    iceSegMed = getObjectFromGUID(iceSegMed_GUID)
-    iceSegLong_GUID = '571c73'
-    iceSegLong = getObjectFromGUID(iceSegLong_GUID)
-    iceSegL_GUID = 'd460dd'
-    iceSegL = getObjectFromGUID(iceSegL_GUID)
-
     hexPit2_GUID = '3799b9' -- 2 Hex Pit
     hexPit2 = getObjectFromGUID(hexPit2_GUID) -- 2 Hex Pit
     hexPit3_GUID = '574cc3'
@@ -84,30 +53,6 @@ function onLoad(script_state)
     hexPit5_GUID = '008e96' -- 5 Hex Pit
     hexPit5 = getObjectFromGUID(hexPit5_GUID) -- 5 Hex Pit
 
-    dreadCocoonHex_GUID = '3c82c8'
-    dreadCocoonHex = getObjectFromGUID(dreadCocoonHex_GUID)
-    magicHoleHex_GUID = '7f914b'
-    magicHoleHex = getObjectFromGUID(magicHoleHex_GUID)
-
-    mRefinery_GUID = '1d5b9a'
-    mRefinery = getObjectFromGUID(mRefinery_GUID)
-    pumpjackBag_GUID = '845be5'
-    pumpjackBag = getObjectFromGUID(pumpjackBag_GUID)
-    sPipeBag_GUID = '8d3753'
-    sPipeBag = getObjectFromGUID(sPipeBag_GUID)
-    cPipeBag_GUID = 'a52a6d'
-    cPipeBag = getObjectFromGUID(cPipeBag_GUID)
-    drilldozer_GUID = '8887ac'
-    drilldozer = getObjectFromGUID(drilldozer_GUID)
-    beamersBag_GUID = '3d4ec3'
-    beamersBag = getObjectFromGUID(beamersBag_GUID)
-    cHeartstone_GUID = '64c2ff'
-    cHeartstone = getObjectFromGUID(cHeartstone_GUID)
-    oHeartstone_GUID = 'd84756'
-    oHearstone = getObjectFromGUID(oHeartstone_GUID)
-    hearstoneGem_GUID = 'c0ab17'
-    hearstoneGem = getObjectFromGUID(hearstoneGem_GUID)
-
     caveEntrance1_GUID = 'a81d4f'
     caveEntrance1 = getObjectFromGUID(caveEntrance1_GUID)
     caveEntrance2_GUID = '14348e'
@@ -116,27 +61,12 @@ function onLoad(script_state)
     -- Bags
     caveBag_GUID = 'b147e9'
     caveBag = getObjectFromGUID(caveBag_GUID)
-    biomeCaveBag_GUID = 'b17808'
-    biomeCaveBag = getObjectFromGUID(biomeCaveBag_GUID)
+
     hiddenCaveBag_GUID = '26ac93'
     hiddenCaveBag = getObjectFromGUID(hiddenCaveBag_GUID)
-    miniHiddenCaveBag_GUID = '3cff09'
-    miniHiddenCaveBag = getObjectFromGUID(miniHiddenCaveBag_GUID)
 
     salagmiteModelBag_GUID = 'c275d1'
     stalagmiteModelBag = getObjectFromGUID(salagmiteModelBag_GUID)
-    explodingPlantsBag_GUID = '10bb36'
-    explodingPlantsBag = getObjectFromGUID(explodingPlantsBag_GUID)
-    cryoBulbBag_GUID = 'a94e55'
-    cryoBulbBag = getObjectFromGUID(cryoBulbBag_GUID)
-    glowingCrystalBag_GUID = '351d41'
-    glowingCrystalBag = getObjectFromGUID(glowingCrystalBag_GUID)
-    geyserBag_GUID = '1feb7d'
-    geyserBag = getObjectFromGUID(geyserBag_GUID)
-    glyphidCocoonBag_GUID = '6d901c'
-    glyphidCocoonBag = getObjectFromGUID(glyphidCocoonBag_GUID)
-    poisonSporeBag_GUID = '31336f'
-    poisonSporeBag = getObjectFromGUID(poisonSporeBag_GUID)
 
     weaponUpgradeBag_GUID = '1523e1'
     weaponUpgradeBag = getObjectFromGUID(weaponUpgradeBag_GUID)
@@ -166,39 +96,6 @@ function onLoad(script_state)
         opressorBag_GUID = 'd0a1fc'
         opressorBag = getObjectFromGUID(opressorBag_GUID)
 
-        -- Goo From Above Glyphids
-        gooBomberBag_GUID = '35b987'
-        gooBomberBag = getObjectFromGUID(gooBomberBag_GUID)
-        menaceBag_GUID = '88f9cc'
-        menaceBag = getObjectFromGUID(menaceBag_GUID)
-        gooBag_GUID = 'f4fe09'
-        gooBag = getObjectFromGUID(gooBag_GUID)
-
-        -- Biome Expansion Glyphids
-        naedocyteHatchlingsBag_GUID = '5b74ba'
-        naedocyteHatchlingsBag = getObjectFromGUID(naedocyteHatchlingsBag_GUID)
-        naedocyteBreederBag_GUID = '79d59b'
-        naedocyteBreederBag = getObjectFromGUID(naedocyteBreederBag_GUID)
-        qronarShellbackBag_GUID = '28e956'
-        qronarShellbackBag = getObjectFromGUID(qronarShellbackBag_GUID)
-        rammersBag_GUID = '5874bd'
-        rammerBag = getObjectFromGUID(rammersBag_GUID)
-        stingtailBag_GUID = '664a84'
-        stingtailBag = getObjectFromGUID(stingtailBag_GUID)
-        dreadnoughtBag_GUID = 'a15ee2'
-        dreadnoughtBag = getObjectFromGUID(dreadnoughtBag_GUID)
-
-        -- Bulk Glyphid
-        bulkBag_GUID = '8caff9'
-        bulkBag = getObjectFromGUID(bulkBag_GUID)
-
-        -- Korlok Tyrant Weed
-        kHeartBag_GUID = '6b2359'
-        kHeartBag = getObjectFromGUID(kHeartBag_GUID)
-        kSproutBag_GUID = '5b120d'
-        kSproutBag = getObjectFromGUID(kSproutBag_GUID)
-        kHealingBag_GUID = 'ade8ab'
-        kHealingBag = getObjectFromGUID(kHealingBag_GUID)
 
         -- Exploration Bags
         explorationBag_GUID = 'c0a72f'
@@ -216,22 +113,6 @@ function onLoad(script_state)
         apocaBloomBag_GUID = '7e5edf'
         apocaBloomBag = getObjectFromGUID(apocaBloomBag_GUID)
 
-        miniMuleBag_GUID = '2b80fe'
-        miniMuleBag = getObjectFromGUID(miniMuleBag_GUID)
-        muleLegBag_GUID = '9ec2da'
-        muleLegBag = getObjectFromGUID(muleLegBag_GUID)
-
-        miniExploreTokenBag_GUID = '1f2255'
-        miniExploreTokenBag = getObjectFromGUID(miniExploreTokenBag_GUID)
-        abandonedGearBag_GUID = '9455c7'
-        abandonedGearBag = getObjectFromGUID(abandonedGearBag_GUID)
-        goldLootBugBag_GUID = '3ebf97'
-        goldLootBugBag = getObjectFromGUID(goldLootBugBag_GUID)
-        maltStarBag_GUID = '6ff8d3'
-        maltStarBag = getObjectFromGUID(maltStarBag_GUID)
-        yeastConesBag_GUID = 'e22bb0'
-        yeastConesBag = getObjectFromGUID(yeastConesBag_GUID)
-
         -- Mineral bags
         mineralBag_GUID = '3f422e'
         mineralBag = getObjectFromGUID(mineralBag_GUID)
@@ -243,6 +124,12 @@ function onLoad(script_state)
         goldBag = getObjectFromGUID(goldBag_GUID)
         aquardBag_GUID = '3e6db3'
         aquardBag = getObjectFromGUID(aquardBag_GUID)
+
+        GooFromAboveXpacIDs()
+        BulkDetonatorXpacIDs()
+        KorlokXpacIDs()
+        BiomeXpacIDs()
+        SpaceRigXpacIDs()
 
     -- Misc tiles
     drone1_GUID = '2c1fae'
@@ -425,6 +312,143 @@ function onLoad(script_state)
     spaceRigExpansionToggle = state.spaceRigExpansionToggle
 
     return JSON.encode(state)
+end
+
+function GooFromAboveXpacIDs()
+    -- Goo From Above Glyphids
+    gooBomberBag_GUID = '35b987'
+    gooBomberBag = getObjectFromGUID(gooBomberBag_GUID)
+    menaceBag_GUID = '88f9cc'
+    menaceBag = getObjectFromGUID(menaceBag_GUID)
+    gooBag_GUID = 'f4fe09'
+    gooBag = getObjectFromGUID(gooBag_GUID)
+end
+
+function BulkDetonatorXpacIDs()
+    -- Bulk Glyphid
+    bulkBag_GUID = '8caff9'
+    bulkBag = getObjectFromGUID(bulkBag_GUID)
+end
+
+function KorlokXpacIDs()
+    -- Korlok Tyrant Weed
+    kHeartBag_GUID = '6b2359'
+    kHeartBag = getObjectFromGUID(kHeartBag_GUID)
+    kSproutBag_GUID = '5b120d'
+    kSproutBag = getObjectFromGUID(kSproutBag_GUID)
+    kHealingBag_GUID = 'ade8ab'
+    kHealingBag = getObjectFromGUID(kHealingBag_GUID)
+end
+
+function BiomeXpacIDs()
+    -- split in two as the mission spreads are on each page
+    -- need to show two pages to show the whole mission
+    missionBookB1_GUID = '06f4ab'
+    missionBookB1 = getObjectFromGUID(missionBookB1_GUID)
+    missionBookB2_GUID = 'd2455f'
+    missionBookB2 = getObjectFromGUID(missionBookB2_GUID)
+
+    dreadDeckZone_GUID = '247612'
+    dreadDeckZone = getObjectFromGUID(dreadDeckZone_GUID)
+
+    -- Biome cave Segments
+    bogSegBig_GUID = 'c647a9'
+    bogSegBig = getObjectFromGUID(bogSegBig_GUID)
+    bogSegSeq_GUID = '9fcc36'
+    bogSegSeq = getObjectFromGUID(bogSegSeq_GUID)
+    bogSegLong_GUID = '8005d9'
+    bogSegLong = getObjectFromGUID(bogSegLong_GUID)
+    bogSegSmall_GUID = 'c91a14'
+    bogSegSmall = getObjectFromGUID(bogSegSmall_GUID)
+    iceSegMed_GUID = '0438f7'
+    iceSegMed = getObjectFromGUID(iceSegMed_GUID)
+    iceSegLong_GUID = '571c73'
+    iceSegLong = getObjectFromGUID(iceSegLong_GUID)
+    iceSegL_GUID = 'd460dd'
+    iceSegL = getObjectFromGUID(iceSegL_GUID)
+
+    dreadCocoonHex_GUID = '3c82c8'
+    dreadCocoonHex = getObjectFromGUID(dreadCocoonHex_GUID)
+    magicHoleHex_GUID = '7f914b'
+    magicHoleHex = getObjectFromGUID(magicHoleHex_GUID)
+
+    biomeCaveBag_GUID = 'b17808'
+    biomeCaveBag = getObjectFromGUID(biomeCaveBag_GUID)
+
+    explodingPlantsBag_GUID = '10bb36'
+    explodingPlantsBag = getObjectFromGUID(explodingPlantsBag_GUID)
+    cryoBulbBag_GUID = 'a94e55'
+    cryoBulbBag = getObjectFromGUID(cryoBulbBag_GUID)
+    glowingCrystalBag_GUID = '351d41'
+    glowingCrystalBag = getObjectFromGUID(glowingCrystalBag_GUID)
+    geyserBag_GUID = '1feb7d'
+    geyserBag = getObjectFromGUID(geyserBag_GUID)
+    glyphidCocoonBag_GUID = '6d901c'
+    glyphidCocoonBag = getObjectFromGUID(glyphidCocoonBag_GUID)
+    poisonSporeBag_GUID = '31336f'
+    poisonSporeBag = getObjectFromGUID(poisonSporeBag_GUID)
+
+    -- Biome Expansion Glyphids
+    naedocyteHatchlingsBag_GUID = '5b74ba'
+    naedocyteHatchlingsBag = getObjectFromGUID(naedocyteHatchlingsBag_GUID)
+    naedocyteBreederBag_GUID = '79d59b'
+    naedocyteBreederBag = getObjectFromGUID(naedocyteBreederBag_GUID)
+    qronarShellbackBag_GUID = '28e956'
+    qronarShellbackBag = getObjectFromGUID(qronarShellbackBag_GUID)
+    rammersBag_GUID = '5874bd'
+    rammerBag = getObjectFromGUID(rammersBag_GUID)
+    stingtailBag_GUID = '664a84'
+    stingtailBag = getObjectFromGUID(stingtailBag_GUID)
+    dreadnoughtBag_GUID = 'a15ee2'
+    dreadnoughtBag = getObjectFromGUID(dreadnoughtBag_GUID)
+
+    miniMuleBag_GUID = '2b80fe'
+    miniMuleBag = getObjectFromGUID(miniMuleBag_GUID)
+    muleLegBag_GUID = '9ec2da'
+    muleLegBag = getObjectFromGUID(muleLegBag_GUID)
+end
+
+function SpaceRigXpacIDs()
+    missionBookSR1_GUID = '38d501'
+    missionBookSR1 = getObjectFromGUID(missionBookSR1_GUID)
+    missionBookSR2_GUID = '72cff6'
+    missionBookSR2 = getObjectFromGUID(missionBookSR2_GUID)
+
+    miniExploreTokenBag_GUID = '1f2255'
+    miniExploreTokenBag = getObjectFromGUID(miniExploreTokenBag_GUID)
+    abandonedGearBag_GUID = '9455c7'
+    abandonedGearBag = getObjectFromGUID(abandonedGearBag_GUID)
+    goldLootBugBag_GUID = '3ebf97'
+    goldLootBugBag = getObjectFromGUID(goldLootBugBag_GUID)
+    maltStarBag_GUID = '6ff8d3'
+    maltStarBag = getObjectFromGUID(maltStarBag_GUID)
+    yeastConesBag_GUID = 'e22bb0'
+    yeastConesBag = getObjectFromGUID(yeastConesBag_GUID)
+
+    oHeartDeckZone_GUID = '97cfde'
+    oHeartDeckZone = getObjectFromGUID(oHeartDeckZone_GUID)
+    
+    mRefinery_GUID = '1d5b9a'
+    mRefinery = getObjectFromGUID(mRefinery_GUID)
+    pumpjackBag_GUID = '845be5'
+    pumpjackBag = getObjectFromGUID(pumpjackBag_GUID)
+    sPipeBag_GUID = '8d3753'
+    sPipeBag = getObjectFromGUID(sPipeBag_GUID)
+    cPipeBag_GUID = 'a52a6d'
+    cPipeBag = getObjectFromGUID(cPipeBag_GUID)
+    drilldozer_GUID = '8887ac'
+    drilldozer = getObjectFromGUID(drilldozer_GUID)
+    beamersBag_GUID = '3d4ec3'
+    beamersBag = getObjectFromGUID(beamersBag_GUID)
+    cHeartstone_GUID = '64c2ff'
+    cHeartstone = getObjectFromGUID(cHeartstone_GUID)
+    oHeartstone_GUID = 'd84756'
+    oHearstone = getObjectFromGUID(oHeartstone_GUID)
+    hearstoneGem_GUID = 'c0ab17'
+    hearstoneGem = getObjectFromGUID(hearstoneGem_GUID)
+
+    miniHiddenCaveBag_GUID = '3cff09'
+    miniHiddenCaveBag = getObjectFromGUID(miniHiddenCaveBag_GUID)
 end
 
 function onSave()
@@ -970,6 +994,8 @@ end
 -- Mini hidden explore Tokens
 
 function getMiniExploreTokenBag()
+    miniExploreTokenBag_GUID = '1f2255'
+    miniExploreTokenBag = getObjectFromGUID(miniExploreTokenBag_GUID)
     return miniExploreTokenBag
 end
 
@@ -1164,6 +1190,10 @@ end
 
 function setBulkDetonatorExpansionToggle(toggle)
     bulkDetonatorExpansionToggle = toggle
+
+    if (toggle == true) then
+        BulkDetonatorXpacIDs()
+    end
 end
 
 function getGooFromAboveExpansionToggle()
@@ -1172,6 +1202,10 @@ end
 
 function setGooFromAboveExpansionToggle(toggle)
     gooFromAboveExpansionToggle = toggle
+
+    if (toggle == true) then
+        GooFromAboveXpacIDs()
+    end
 end
 
 function getKorlokExpansionToggle()
@@ -1180,6 +1214,10 @@ end
 
 function setKorlokExpansionToggle(toggle)
     korlokExpansionToggle = toggle
+
+    if (toggle == true) then
+        KorlokXpacIDs()
+    end
 end
 
 function getBiomeExpansionToggle()
@@ -1188,6 +1226,10 @@ end
 
 function setBiomeExpansionToggle(toggle)
     biomeExpansionToggle = toggle
+
+    if (toggle == true) then
+        BiomeXpacIDs()
+    end
 end
 
 function getSpaceRigExpansionToggle()
@@ -1196,4 +1238,8 @@ end
 
 function setSpaceRigExpansionToggle(toggle)
     spaceRigExpansionToggle = toggle
+
+    if (toggle == true) then
+        SpaceRigXpacIDs()
+    end
 end
