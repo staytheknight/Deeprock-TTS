@@ -1,5 +1,8 @@
-function GetterCalls()
+function onLoad()
     cleanupButton()
+end
+
+function GetterCalls()
     swarmBlock_GUID = '60a4ea'
     swarmBlock = getObjectFromGUID(swarmBlock_GUID)
     swarmEndScriptBox_GUID = '54c7e7'
