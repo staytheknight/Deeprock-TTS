@@ -110,18 +110,20 @@ local locations =
 
 local stickerNames = 
 {
-    stickerExterminators = 'Exterminators',
-    stickerSuperProtector = 'Super Protectors',
-    stickerUpClose = 'Up Close',
-    stickerBreathtaking = 'Breathtaking',
-    stickerHardboiled = 'Hardboiled',
-    stickerHoarders = 'Hoarders',
-    stickerRoughnecks = 'Roughnecks',
-    stickerVeteranDwarves = 'Veteran Dwarves'
+    'Exterminators',
+    'Super Protectors',
+    'Up Close',
+    'Breathtaking',
+    'Hardboiled',
+    'Hoarders',
+    'Roughnecks',
+    'Veteran Dwarves'
 }
 
 local GUIDs =
 {
+    expansionBox = '248e97',
+
     rulebook = '768854',
 
     rulebookAids = 
@@ -362,10 +364,11 @@ function EnableExpansion()
     end
 
     -- Rulebook aids
-    for i = 1, #locations.rulebookAids do
+    -- Ideally I wanted to do #GUIDs.rulebookAids but it was not working - gives 0 count
+    for i = 1, 10 do
         params={
             bag = expansionBox,
-            ID = GUIDs.locations.rulebookAids[i],
+            ID = GUIDs.rulebookAids[i],
         }
         if Global.call('isInBag',params) then
             params.bag.takeObject({
@@ -382,7 +385,7 @@ function EnableExpansion()
     for i = 1, 4 do
         params={
             bag = expansionBox,
-            ID = GUIDs.locations.oxygenTokens,
+            ID = GUIDs.oxygenTokens,
         }
         if Global.call('isInBag',params) then
             params.bag.takeObject({
@@ -960,10 +963,17 @@ function EnableExpansion()
                 rotation = locations.stickerRot,
                 guid = params.ID
             })
-        else
-            printToAll("Warning: Unable to set up " + stickerNames[i] + " sticker, it's not in the expansion box", 'Red')
+        else            
+            printToAll(string.format("Warning: Unable to set up %s sticker, it's not in the expansion box", stickerNames[i]), 'Red')
         end
     end
+
+    challengeCardsQuantity = 12
+    beerCardsQuantity = 8
+    oHeartCardsQuantity = 7
+    challengeCardsCount = 0
+    beerCardsCount = 0
+    oHeartCardsCount = 0
 
     -- Iterate through everything else in the box, 
     -- This is for things that can't be referenced by GUIDs such as decks and PDFs
@@ -974,34 +984,56 @@ function EnableExpansion()
         obj.lock()
 
         if obj.type == "Deck" then
+            deckCount = #obj.getObjects()
             for _, containedObject in ipairs(obj.getObjects()) do
                 if (containedObject.gm_notes == "challengeCard") then
                     obj.setLock(false)
                     obj.setRotation({0.0, 180.0, 180.0})
-                    object.setPosition({-46.00, 2.25, 3.84})
+                    obj.setPosition({-46.00, 2.25, 3.84})
+                    challengeCardsCount = deckCount + challengeCardsCount
+                    break
                 elseif (containedObject.gm_notes == "beerCard") then
                     obj.setLock(false)
                     obj.setRotation({0.0, 180.0, 180.0})
-                    object.setPosition({-38.03, 1.23, 3.50})
+                    obj.setPosition({-38.03, 1.23, 3.50})
+                    beerCardsCount = deckCount + beerCardsCount
+                    break
                 elseif (containedObject.gm_notes == "oHeartCard") then
                     obj.setLock(false)
                     obj.setRotation({0.0, 180.0, 180.0})
                     obj.setPosition(Global.call('getOHeartDeckZone').GetPosition())
+                    oHeartCardsCount = deckCount + oHeartCardsCount
+                    break
                 end
             end
         elseif obj.getGMNotes() == "challengeCard" then
             obj.setLock(false)
             obj.setRotation({0.0, 180.0, 180.0})
-            object.setPosition({-46.00, 2.25, 3.84})
+            obj.setPosition({-46.00, 2.25, 3.84})
+            challengeCardsCount = challengeCardsCount + 1
         elseif obj.getGMNotes() == "beerCard" then
             obj.setLock(false)
             obj.setRotation({0.0, 180.0, 180.0})
-            object.setPosition({-38.03, 1.23, 3.50})
+            obj.setPosition({-38.03, 1.23, 3.50})
+            beerCardsCount = beerCardsCount + 1
         elseif obj.getGMNotes() == "oHeartCard" then
             obj.setLock(false)
             obj.setRotation({0.0, 180.0, 180.0})
             obj.setPosition(Global.call('getOHeartDeckZone').GetPosition())
+            oHeartCardsCount = oHeartCardsCount + 1
         end
+    end
+
+    if (challengeCardsCount < challengeCardsQuantity) then
+        printToAll("Warning: Unable to set up all challenge cards, they're not in the expansion box", 'Red')
+    end
+
+    if (beerCardsCount < beerCardsCount) then
+        printToAll("Warning: Unable to set up beer cards, they're not in the expansion box", 'Red')
+    end
+
+    if (oHeartCardsCount < oHeartCardsQuantity) then
+        printToAll("Warning: Unable to set up all Ommeran Heart cards, they're not in the expansion box", 'Red')
     end
 
     -- TODO:    
