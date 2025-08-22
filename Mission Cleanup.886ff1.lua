@@ -165,21 +165,24 @@ function emptyExploreBags()
         })
     end
 
-    while not Global.call('isBagEmpty',spaceRigExploreBag)
-    do
-        spaceRigExploreBag.takeObject({
-            position = {1.10, 3.20, -1.71},
-            rotation = {0.0,0.0,180.0},
-            smooth = false
-        })
-    end
-
     while not Global.call('isBagEmpty',mineralShuffleBag)
     do
         mineralShuffleBag.takeObject({
             position = {2.10, 3.20, -1.71},
             smooth = false
         })
+    end
+
+    -- check if the space rig expansion is enabled to prevent an infinite loop
+    if Global.Call('getSpaceRigExpansionToggle') then
+        while not Global.call('isBagEmpty',spaceRigExploreBag)
+        do
+            spaceRigExploreBag.takeObject({
+                position = {1.10, 3.20, -1.71},
+                rotation = {0.0,0.0,180.0},
+                smooth = false
+            })
+        end
     end
 
     Wait.frames(Cleanup, 30)
