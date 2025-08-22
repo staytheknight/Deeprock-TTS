@@ -5,16 +5,16 @@ local locations =
 
     rulebookAids = 
     {
-        rulebookAid1Loc = {-60.28, 0.97, 23.94},
-        rulebookAid2Loc = {-54.59, 0.97, 23.97},
-        rulebookAid3Loc = {-48.94, 0.97, 24.06},
-        rulebookAid4Loc = {-43.15, 0.97, 24.02},
-        rulebookAid5Loc = {-37.46, 0.97, 24.02},
-        rulebookAid6Loc = {-60.26, 0.97, 15.76},
-        rulebookAid7Loc = {-54.62, 0.97, 15.84},
-        rulebookAid8Loc = {-48.98, 0.97, 15.84},
-        rulebookAid9Loc = {-43.27, 0.97, 15.85},
-        rulebookAid10Loc = {-37.56, 0.97, 15.82}
+        {-60.28, 0.97, 23.94},
+        {-54.59, 0.97, 23.97},
+        {-48.94, 0.97, 24.06},
+        {-43.15, 0.97, 24.02},
+        {-37.46, 0.97, 24.02},
+        {-60.26, 0.97, 15.76},
+        {-54.62, 0.97, 15.84},
+        {-48.98, 0.97, 15.84},
+        {-43.27, 0.97, 15.85},
+        {-37.56, 0.97, 15.82}
     },
     rulebookAidRot = {0.00, 180.03, 0.00},
 
@@ -53,14 +53,14 @@ local locations =
 
     stickerLocs =
     {
-        stickerExterminators = {-54.99, 1.04, 4.01},
-        stickerSuperProtector = {-53.89, 1.05, 4.01},
-        stickerUpClose = {-52.79, 1.04, 4.01},
-        stickerBreathtaking = {-51.69, 1.04, 4.01},
-        stickerHardboiled = {-55.54, 1.05, 3.06},
-        stickerHoarders = {-54.44, 1.05, 3.06},
-        stickerRoughnecks = {-53.34, 1.05, 3.06},
-        stickerVeteranDwarves = {-52.24, 1.04, 3.06}
+        {-54.99, 1.04, 4.01}, -- stickerExterminators
+        {-53.89, 1.05, 4.01}, -- stickerSuperProtector
+        {-52.79, 1.04, 4.01}, -- stickerUpClose
+        {-51.69, 1.04, 4.01}, -- stickerBreathtaking
+        {-55.54, 1.05, 3.06}, -- stickerHardboiled
+        {-54.44, 1.05, 3.06}, -- stickerHoarders
+        {-53.34, 1.05, 3.06}, -- stickerRoughnecks
+        {-52.24, 1.04, 3.06} -- stickerVeteranDwarves
     },
     stickerRot = {0.0, 180.0, 0.0}, 
 
@@ -71,7 +71,7 @@ local locations =
 
     upgradesHUDBagLoc = {-54.44, 0.97, 1.15},
     upgradesArmourBagLoc = {-53.34, 0.97, 1.15},
-    upgradesPickaxeBagLoc = {0.00, 0.87, 0.00},
+    upgradesPickaxeBagLoc = {-52.24, 0.97, 1.15},
     upgradesRot = {0.00, 180.00, 0.00},
 
     pickupShuffleBagLoc = {12.10, 0.97, -7.42},
@@ -106,6 +106,15 @@ local locations =
 
     miniHiddenCavesBagLoc = {16.50, 0.95, 0.20},
     miniHiddenCavesBagRot = {0.00, 60.00, 0.00},
+
+    redCubeLocs =
+    {
+        {-22.20, 1.29, -1.37},
+        {-21.67, 1.29, -1.36},
+        {-21.14, 1.29, -1.36},
+        {-20.62, 1.29, -1.36},
+        {-20.09, 1.29, -1.36}
+    }
 }
 
 local stickerNames = 
@@ -126,19 +135,8 @@ local GUIDs =
 
     rulebook = '768854',
 
-    rulebookAids = 
-    {
-        rulebookAid1 = 'c931f7',
-        rulebookAid2 = '249ea6',
-        rulebookAid3 = 'b49b2f',
-        rulebookAid4 = '19b926',
-        rulebookAid5 = '2d0564',
-        rulebookAid6 = '596fb7',
-        rulebookAid7 = '2f31fd',
-        rulebookAid8 = '945a76',
-        rulebookAid9 = '17cd74',
-        rulebookAid10 = 'd4ff36'
-    },
+    rulebookAids = {'c931f7', '249ea6', 'b49b2f', '19b926', '2d0564', '596fb7', '2f31fd',
+        '945a76', '17cd74', 'd4ff36'},
 
     oxygenTokens = {'9ba832','d75777','7b5043','23f2a0'},
     oxygenCubesBag = 'd0b7aa',
@@ -155,14 +153,14 @@ local GUIDs =
 
     stickers =
     {
-        stickerExterminators = 'b1d92f',
-        stickerSuperProtector = '1e1671',
-        stickerUpClose = 'e9b53e',
-        stickerBreathtaking = '4db170',
-        stickerHardboiled = 'c6226c',
-        stickerHoarders = '3398c9',
-        stickerRoughnecks = 'f3c70c',
-        stickerVeteranDwarves = '7ed6db'
+        'b1d92f', -- stickerExterminators
+        '1e1671', -- stickerSuperProtector
+        'e9b53e', -- stickerUpClose
+        '4db170', -- stickerBreathtaking
+        'c6226c', -- stickerHardboiled
+        '3398c9', -- stickerHoarders
+        'f3c70c', -- stickerRoughnecks
+        '7ed6db' -- stickerVeteranDwarves
     },
 
     missionModRedBag = '5ed9dd',
@@ -198,14 +196,14 @@ local GUIDs =
     {
         secondaries =
         {
-            scopedSubata = '92a6b2',
-            stubbyExplosive = '8251b1',
+            '92a6b2', -- scopedSubata
+            '8251b1', -- stubbyExplosive
         },
 
         rockAndStone = 
         {
-            betterEquipment = 'ffb477',
-            bottomsUp = '41302c',
+            'ffb477', -- betterEquipment
+            '41302c', -- bottomsUp
         }
     }
 }
@@ -552,7 +550,7 @@ function EnableExpansion()
     -- Secondary card: subata
     params={
         bag = expansionBox,
-        ID = GUIDs.cards.secondaries.scopedSubata,
+        ID = GUIDs.cards.secondaries[1],
     }
     if Global.call('isInBag',params) then
         params.bag.takeObject({
@@ -567,7 +565,7 @@ function EnableExpansion()
     -- Secondary card: stubby
     params={
         bag = expansionBox,
-        ID = GUIDs.cards.secondaries.stubbyExplosive,
+        ID = GUIDs.cards.secondaries[2],
     }
     if Global.call('isInBag',params) then
         params.bag.takeObject({
@@ -582,7 +580,7 @@ function EnableExpansion()
     -- R&S card: better equipment
     params={
         bag = expansionBox,
-        ID = GUIDs.cards.rockAndStone.betterEquipment,
+        ID = GUIDs.cards.rockAndStone[1],
     }
     if Global.call('isInBag',params) then
         params.bag.takeObject({
@@ -597,7 +595,7 @@ function EnableExpansion()
     -- R&S card: bottom's up
     params={
         bag = expansionBox,
-        ID = GUIDs.cards.rockAndStone.bottomsUp,
+        ID = GUIDs.cards.rockAndStone[2],
     }
     if Global.call('isInBag',params) then
         params.bag.takeObject({
@@ -968,6 +966,17 @@ function EnableExpansion()
         end
     end
 
+    -- Place red cubes on the drilldozer token
+    RedCubeBag_GUID = '38e127'
+    RedCubeBag = getObjectFromGUID(RedCubeBag_GUID)
+    for i=1, 5 do
+        RedCubeBag.takeObject(
+            {
+                position = locations.redCubeLocs[i]
+            }
+        )
+    end
+
     challengeCardsQuantity = 12
     beerCardsQuantity = 8
     oHeartCardsQuantity = 7
@@ -1177,6 +1186,15 @@ function DisableExpansion()
                     obj.setPosition(deckPosition)
                 end
             end
+        end
+    end
+
+    -- Destroy red cubes on top of drilldozer token
+    dozeCubeZone_GUID = 'c16b97'
+    dozerCubeZone = getObjectFromGUID(dozeCubeZone_GUID)
+    for _, containedObject in ipairs(dozerCubeZone.getObjects()) do
+        if (containedObject.getGMNotes() == 'rCube') then
+            destroyObject(containedObject)
         end
     end
 
