@@ -138,7 +138,7 @@ local GUIDs =
     rulebookAids = {'c931f7', '249ea6', 'b49b2f', '19b926', '2d0564', '596fb7', '2f31fd',
         '945a76', '17cd74', 'd4ff36'},
 
-    oxygenTokens = {'9ba832','d75777','7b5043','23f2a0'},
+    oxygenTokens = {'9ba832','fca59c','d1b82b','32fdff'},
     oxygenCubesBag = 'd0b7aa',
 
     upgradeBoardGunner = '8a4b95',
@@ -372,7 +372,8 @@ function EnableExpansion()
             params.bag.takeObject({
                 position = locations.rulebookAids[i],
                 rotation = locations.rulebookAidRot,
-                guid = params.ID
+                guid = params.ID,
+                callback="afterSpawnLock", callback_owner=Global
             })
         else
             printToAll("Warning: Unable to set up Space Rig Rulebook Aids, it's not in the expansion box", 'Red')
@@ -383,13 +384,14 @@ function EnableExpansion()
     for i = 1, 4 do
         params={
             bag = expansionBox,
-            ID = GUIDs.oxygenTokens,
+            ID = GUIDs.oxygenTokens[i],
         }
         if Global.call('isInBag',params) then
             params.bag.takeObject({
                 position = locations.oxygenTokenLoc[i],
                 rotation = locations.oxygenTokenRot,
-                guid = params.ID
+                guid = params.ID,
+                callback="afterSpawnLock", callback_owner=Global
             })
         else
             printToAll("Warning: Unable to set up Oxygen Tokens, it's not in the expansion box", 'Red')
@@ -405,7 +407,8 @@ function EnableExpansion()
         oxygenBag = params.bag.takeObject({
             position = locations.oxygenCubesBagLoc,
             rotation = locations.oxygenCubesBagRot,
-            guid = params.ID
+            guid = params.ID,
+            callback="afterSpawnLock", callback_owner=Global
         })
 
         for i = 1, 16 do
@@ -1163,6 +1166,8 @@ function DisableExpansion()
         elseif object.getGMNotes() == 'miniHiddenCave' then
             getObjectFromGUID(miniHiddenCaveBag).putObject(object)
 
+        elseif object.getGMNotes() == "oCube" then
+            destroyObject(object)
 
         -- Searching decks for cards
         elseif object.type == "Deck" then
@@ -1171,10 +1176,10 @@ function DisableExpansion()
                 -- have to take the object out of the deck to be able to read
                 -- it's info
                 obj = object.takeObject({smooth = false})
-                if (obj.getGUID() == GUIDs.cards.secondaries.scopedSubata)
-                or (obj.getGUID() == GUIDs.cards.secondaries.stubbyExplosive)
-                or (obj.getGUID() == GUIDs.cards.rockAndStone.betterEquipment)
-                or (obj.getGUID() == GUIDs.cards.rockAndStone.bottomsUp)
+                if (obj.getGUID() == GUIDs.cards.secondaries[1])
+                or (obj.getGUID() == GUIDs.cards.secondaries[2])
+                or (obj.getGUID() == GUIDs.cards.rockAndStone[1])
+                or (obj.getGUID() == GUIDs.cards.rockAndStone[2])
                 or (obj.getGMNotes() == "oHeartCard")
                 or (obj.getGMNotes() == "beerCard")
                 or (obj.getGMNotes() == "challengeCard")

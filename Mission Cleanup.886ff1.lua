@@ -1,4 +1,4 @@
-function onLoad()
+function GetterCalls()
     cleanupButton()
     swarmBlock_GUID = '60a4ea'
     swarmBlock = getObjectFromGUID(swarmBlock_GUID)
@@ -15,7 +15,6 @@ function onLoad()
     missionBoard = getObjectFromGUID(missionBoard_GUID)
 
     explorationBag = Global.call('getExplorationBag')
-    spaceRigExploreBag = Global.call('getMiniExploreTokenBag')
     mineralShuffleBag = Global.call('getMineralBag')
 
     exclaimTilesBag = Global.call('getExclamationTilesBag')
@@ -175,7 +174,7 @@ function emptyExploreBags()
 
     -- check if the space rig expansion is enabled to prevent an infinite loop
     if Global.Call('getSpaceRigExpansionToggle') then
-        while not Global.call('isBagEmpty',spaceRigExploreBag)
+        while not Global.call('isBagEmpty',Global.call('getMiniExploreTokenBag'))
         do
             spaceRigExploreBag.takeObject({
                 position = {1.10, 3.20, -1.71},
@@ -189,6 +188,8 @@ function emptyExploreBags()
 end
 
 function Cleanup()
+    GetterCalls()
+    
     print("Performing Cleanup\n")
 
     self.clearButtons()
