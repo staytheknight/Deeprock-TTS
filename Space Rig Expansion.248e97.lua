@@ -114,7 +114,16 @@ local locations =
         {-21.14, 1.29, -1.36},
         {-20.62, 1.29, -1.36},
         {-20.09, 1.29, -1.36}
-    }
+    },
+
+    missionCards = 
+    {
+        baseMissionCardsLoc = {-45.19, 1.06, -5.57},
+        biomeMissionCardsLoc = {-42.65, 1.08, -5.55},
+        srMissionCardsLoc = {-40.14, 1.05, -5.54},
+        essenMissionCardLoc = {-45.25, 0.98, -8.87}
+    },
+    missionCardsRot = {0.0, 180.0, 0.0}
 }
 
 local stickerNames = 
@@ -205,7 +214,9 @@ local GUIDs =
             'ffb477', -- betterEquipment
             '41302c', -- bottomsUp
         }
-    }
+    },
+
+    biomeMissionCardsZone = '13e317'
 }
 
 function onLoad()
@@ -1048,10 +1059,66 @@ function EnableExpansion()
         printToAll("Warning: Unable to set up all Ommeran Heart cards, they're not in the expansion box", 'Red')
     end
 
+    SetUpMissionCards()
+
     Global.call('SpaceRigXpacIDs')
 
-    -- TODO:    
-    -- Mission cards
+end
+
+function SetUpMissionCards()
+    cardsToPutBackList = nil
+
+    index = #expansionBox.getObjects()
+    for i = 1, index do
+        obj = expansionBox.TakeObject()
+
+        obj.lock()
+
+        if obj.type == "Deck" then
+            deckCount = #obj.getObjects()
+            for _, containedObject in ipairs(obj.getObjects()) do
+                if (containedObject.gm_notes == "baseMissionCard") then
+                    obj.setLock(false)
+                    obj.setRotation({0.0, 180.0, 0.0})
+                    obj.setPosition(locations.missionCards.baseMissionCardsLoc)
+                    break
+                elseif (containedObject.gm_notes == "srMissionCard") then
+                    obj.setLock(false)
+                    obj.setRotation({0.0, 180.0, 0.0})
+                    obj.setPosition(locations.missionCards.biomeMissionCardsLoc)
+                    break
+                elseif (containedObject.gm_notes == "biomeMissionCard") then
+                    obj.setLock(false)
+                    obj.setRotation({0.0, 180.0, 0.0})
+                    obj.setPosition(locations.missionCards.srMissionCardsLoc)
+                    break
+                end
+            end
+        end
+
+        if (obj.gm_notes == "baseMissionCard") then
+            obj.setLock(false)
+            obj.setRotation({0.0, 180.0, 0.0})
+            obj.setPosition(locations.missionCards.baseMissionCardsLoc)
+        elseif (obj.gm_notes == "srMissionCard") then
+            obj.setLock(false)
+            obj.setRotation({0.0, 180.0, 0.0})
+            obj.setPosition(locations.missionCards.biomeMissionCardsLoc)
+        elseif (obj.gm_notes == "biomeMissionCard") then
+            obj.setLock(false)
+            obj.setRotation({0.0, 180.0, 0.0})
+            obj.setPosition(locations.missionCards.srMissionCardsLoc)
+        elseif (obj.gm_notes == "essenMissionCard") then
+            obj.setLock(false)
+            obj.setRotation({0.0, 180.0, 0.0})
+            obj.setPosition(locations.missionCards.srMissionCardsLoc)
+        end
+    end
+
+    -- If the biome expansion isn't toggle, put those mission cards away
+    if (Global.call('getBiomeExpansionToggle') == false) then
+        expansionBox.putObject(getObjectFromGUID(GUIDs.biomeMissionCardsZone).getObjects())
+    end    
 end
 
 function DisableExpansion()
@@ -1185,6 +1252,8 @@ function DisableExpansion()
                 or (obj.getGMNotes() == "oHeartCard")
                 or (obj.getGMNotes() == "beerCard")
                 or (obj.getGMNotes() == "challengeCard")
+                or (obj.getGMNotes() == "srMissionCard")
+                or (obj.getGMNotes() == "biomeMissionCard")
                 then
                     expansionBox.putObject(obj)
                 else
@@ -1193,6 +1262,28 @@ function DisableExpansion()
                     obj.setPosition(deckPosition)
                 end
             end
+
+        -- searching for individual cards (not in decks)
+        elseif ob.get.getGUID() == GUIDs.cards.secondaries[1] then
+            expansionBox.putObject(object)
+        elseif ob.get.getGUID() == GUIDs.cards.secondaries[2] then
+            expansionBox.putObject(object)
+        elseif ob.get.getGUID() == GUIDs.cards.rockAndStone[1] then
+            expansionBox.putObject(object)
+        elseif ob.get.getGUID() == GUIDs.cards.rockAndStone[2] then
+            expansionBox.putObject(object)
+        elseif obj.getGMNotes() == "oHeartCard" then
+            expansionBox.putObject(object)
+        elseif obj.getGMNotes() == "beerCard" then
+            expansionBox.putObject(object)    
+        elseif obj.getGMNotes() == "challengeCard" then
+            expansionBox.putObject(object)    
+        elseif obj.getGMNotes() == "srMissionCard" then
+            expansionBox.putObject(object)    
+        elseif obj.getGMNotes() == "biomeMissionCard" then
+            expansionBox.putObject(object)    
+        elseif obj.getGMNotes() == "essenMissionCard" then
+            expansionBox.putObject(object)       
         end
     end
 

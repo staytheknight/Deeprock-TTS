@@ -1089,6 +1089,11 @@ function EnableExpansion()
         end
     end
 
+    -- If the space rig expansion is enabled, set up the biome mission cards too
+    if (Global.call('getSpaceRigExpansionToggle') == true) then
+        Global.call('getSRExpansionBox').call('SetUpMissionCards')
+    end
+
     Global.call('BiomeXpacIDs')
 end
 
@@ -1235,6 +1240,9 @@ function DisableExpansion()
                 or (obj.getGMNotes() == "dreadCard")
                 then
                     expansionBox.putObject(obj)
+                elseif (obj.getGMNotes() == "biomeMissionCard") then
+                    -- cleanup the space rig mission cards for the biome expansion if they are set up
+                    Global.call('getSRExpansionBox').putObject(obj)
                 else
                     -- if the object in the deck is not in part of the expansion
                     -- put it back where it was (note: this will shuffle the decks around)

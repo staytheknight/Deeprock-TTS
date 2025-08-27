@@ -142,6 +142,10 @@ function onLoad(script_state)
     stunnedBag_GUID = '4fa902'
     stunnedBag = getObjectFromGUID(stunnedBag_GUID)
 
+    -- Expansion Boxes
+    srExpansionBox_GUID = '248e97'
+    srExpansionBox = getObjectFromGUID(srExpansionBox_GUID)
+
     -- Missions
     mission1_GUID = 'f156f4'
     mission1 = getObjectFromGUID(mission1_GUID)
@@ -1181,6 +1185,11 @@ end
 
 function getMissionCleanupScript()
     return missionCleanup
+end
+
+-- Expansion Boxes
+function getSRExpansionBox()
+    return srExpansionBox
 end
 
 -- Expansion Toggles
