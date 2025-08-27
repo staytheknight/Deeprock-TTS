@@ -164,18 +164,17 @@ function ConfirmCleanupButton()
 end
 
 function EnableExpansion()
+    if Global.call('getMissionActive') then
+        printToAll('Unable to set up: Korlok Tyrant-Weed Mini Expansion', 'Red')
+        printToAll('\nMission in progress detected, cleanup mission before enabling expansion\n', 'Red')
+        return
+    end
+
     self.clearButtons()
 
     Wait.time(function()
         ShowDisableExpansionButton()
     end,2)
-
-    -- Checks if there are players minis in the cleanup zone (on a mission)
-    if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
-        printToAll('Unable to set up: Korlok Tyrant-Weed Mini Expansion', 'Red')
-        printToAll('Mission in progress detected, cleanup mission before enabling expansion\n', 'Red')
-        return
-    end
 
     printToAll('Setting up: Korlok Tyrant-Weed Mini Expansion', 'Yellow')
 
@@ -301,18 +300,19 @@ function EnableExpansion()
 end
 
 function DisableExpansion()
+    -- Checking to see if player minis are on the board (in the middle of a mission)
+    --if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
+    if Global.call('getMissionActive') then
+        printToAll('Unable to clean up: Korlok Tyrant-Weed Mini Expansion', 'Red')
+        printToAll('\nMission in progress detected, cleanup mission before disabling expansion\n', 'Red')
+        return
+    end
+
     self.clearButtons()
 
     Wait.time(function()
         ShowEnableExpansionButton()
     end,2)
-
-    -- Checking to see if player minis are on the board (in the middle of a mission)
-    if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
-        printToAll('Unable to clean up: Korlok Tyrant-Weed Mini Expansion', 'Red')
-        printToAll('\nMission in progress detected, cleanup mission before disabling expansion\n', 'Red')
-        return
-    end
 
     printToAll('Cleaning up: Korlok Tyrant-Weed Mini Expansion', 'Yellow')
 

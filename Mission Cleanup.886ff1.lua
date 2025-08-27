@@ -657,6 +657,8 @@ function Cleanup()
 
     -- Puts the cleanup button back
     cleanupButton()
+
+    Global.call('setMissionActive', false)
 end
 
 -- Boolean check if any player figures are in the cleanup zone

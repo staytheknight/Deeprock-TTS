@@ -4,6 +4,9 @@ local korlokExpansionToggle = false
 local biomeExpansionToggle = false
 local spaceRigExpansionToggle = false
 
+local missionActive = false
+local previouslyOpenedPanel = "missionSelectBase"
+
 function onLoad(script_state)
     -- Boards
     engineerBoard_GUID = 'da9ffc'
@@ -143,6 +146,9 @@ function onLoad(script_state)
     stunnedBag = getObjectFromGUID(stunnedBag_GUID)
 
     -- Expansion Boxes
+    biomeExpansionBox_GUID = '0f101a'
+    biomeExpansionBox = getObjectFromGUID(biomeExpansionBox_GUID)
+
     srExpansionBox_GUID = '248e97'
     srExpansionBox = getObjectFromGUID(srExpansionBox_GUID)
 
@@ -306,15 +312,86 @@ function onLoad(script_state)
         monteCarloRand()
     end
 
-
     -- Loading the save state
     local state = JSON.decode(script_state)
-    bulkDetonatorExpansionToggle = state.expansionToggles.bulkDetonatorExpansionToggle
-    gooFromAboveExpansionToggle = state.expansionToggles.gooFromAboveExpansionToggle
-    korlokExpansionToggle = state.expansionToggles.korlokExpansionToggle
-    biomeExpansionToggle = state.expansionToggles.biomeExpansionToggle
-    spaceRigExpansionToggle = state.spaceRigExpansionToggle
+    -- checks if the state is nil
+    if state.expansionToggles.bulkDetonatorExpansionToggle == nil then
+        -- if it's nill try to grab the GUIDs of the expansion objects
+        BulkDetonatorXpacIDs()
+        -- look at one of the expansion objects and see if it's valid
+        if bulkBag == nil then
+            -- if it's not valid then the expansion isn't loaded
+            bulkDetonatorExpansionToggle = false
+        else
+            -- if it is valid then the expansion is loaded
+            bulkDetonatorExpansionToggle = true
+        end
+    else
+        -- otherwise grab the state if it's not nil
+        bulkDetonatorExpansionToggle = state.expansionToggles.bulkDetonatorExpansionToggle
+    end
 
+    if state.expansionToggles.gooFromAboveExpansionToggle == nil then
+        GooFromAboveXpacIDs()
+        if gooBomberBag == nil then
+            gooFromAboveExpansionToggle = false
+        else 
+            gooFromAboveExpansionToggle = true
+        end
+    else
+        gooFromAboveExpansionToggle = state.expansionToggles.gooFromAboveExpansionToggle
+    end
+
+    if state.expansionToggles.korlokExpansionToggle == nil then
+        KorlokXpacIDs()
+        if kHeartBag == nil then
+            korlokExpansionToggle = false
+        else
+            korlokExpansionToggle = true
+        end
+    else
+        korlokExpansionToggle = state.expansionToggles.korlokExpansionToggle
+    end
+
+    if state.expansionToggles.biomeExpansionToggle == nil then
+        BiomeXpacIDs()
+        if explodingPlantsBag == nil then
+            biomeExpansionToggle = false
+        else
+            biomeExpansionToggle = true
+        end
+    else
+        biomeExpansionToggle = state.expansionToggles.biomeExpansionToggle
+    end
+    
+    if state.expansionToggles.spaceRigExpansionToggle == nil then
+        SpaceRigXpacIDs()
+        if miniExploreTokenBag == nil then
+            spaceRigExpansionToggle = false
+        else
+            spaceRigExpansionToggle = true
+        end
+    else
+        spaceRigExpansionToggle = state.expansionToggles.spaceRigExpansionToggle
+    end
+
+    if state.missionActive == nil then
+        if missionCleanup.call('CheckForPlayersInCleanupZone') then
+            missionActive = true
+        else
+            missionActive = false
+        end
+    else
+        missionActive = state.missionActive
+    end
+
+    if state.previouslyOpenedPanel == nil then
+        previouslyOpenedPanel = "missionSelectBase"
+    else
+        previouslyOpenedPanel = state.previouslyOpenedPanel
+    end
+   
+    
     return JSON.encode(state)
 end
 
@@ -455,6 +532,7 @@ function SpaceRigXpacIDs()
     miniHiddenCaveBag = getObjectFromGUID(miniHiddenCaveBag_GUID)
 end
 
+
 function onSave()
     local state =
     {
@@ -465,8 +543,12 @@ function onSave()
             korlokExpansionToggle = korlokExpansionToggle,
             biomeExpansionToggle = biomeExpansionToggle,
             spaceRigExpansionToggle = spaceRigExpansionToggle
-        }
+        },
+
+        missionActive = missionActive,
+        previouslyOpenedPanel = previouslyOpenedPanel
     }
+
     return JSON.encode(state);
 end
 
@@ -509,8 +591,6 @@ end
 --///// UI /////
 
 -- Toggles for UI elements
-previouslyOpenedPanel = "missionSelectBase"
-
 missionPanels = {"missionSelectBase","missionSelectBiome","missionSelectSR"}
 missionTypeImages = {
     ["missionSelectBase"] = {'baseMissionBanner',"Banner_BaseMissions","Banner_BaseMissions_desaturated"},
@@ -581,13 +661,18 @@ function closePanelSetupMission(player, panels)
     p = getOpenClosePanels(panels)
 
     UI.setAttribute(p[1], "active", false)
-    setupMission(p[2])
+    if (missionActive == false) then
+        setupMission(p[2])
+    else
+        printToAll("Unable to setup mission \nCleanup current mission first", "Red")
+    end
+    
 end
 
 -- Click function for the 'Mission Setup' browse button
 function missionBrowseClick()
     -- hides the button
-    UI.setAttribute("setup", "active", false)
+    --UI.setAttribute("setup", "active", false)
     -- opens the previously opened panel
     UI.setAttribute(previouslyOpenedPanel, "active", true)
 
@@ -677,6 +762,7 @@ end
 
 function Setup()
     ShuffleDeckZones()
+    setMissionActive(true)
 end
 
 -- Shuffles anything that's in the deck zones
@@ -744,7 +830,28 @@ end
 
 --  setupMission(mission#) ect ...
 function setupMission(mission)
-    missionDictionary[mission].call('setup')
+    -- Checks to see if the mission string contains 'SR' and if the space rig expansion 
+    -- is not enabled - enable it, wait a bit and then set up the mission
+    if ((not(string.find(mission,"SR") == nil)) and (getSpaceRigExpansionToggle() == false)) then
+        getSRExpansionBox().call('EnableExpansion')
+
+        Wait.time(function()
+            missionDictionary[mission].call('setup')
+        end, 4)
+
+    -- Checks to see if the mission string contains 'B' and if the biome expansion
+    -- is not enabled - enable it, wait a bit and then set up the mission
+    elseif ((not(string.find(mission,"B") == nil)) and (getBiomeExpansionToggle() == false)) then
+        getBiomeExpansionBox().call('EnableExpansion')
+
+        Wait.time(function()
+            missionDictionary[mission].call('setup')
+        end, 4)
+
+    else
+        missionDictionary[mission].call('setup')
+    end    
+
     Setup()
 end
 
@@ -1188,6 +1295,10 @@ function getMissionCleanupScript()
 end
 
 -- Expansion Boxes
+function getBiomeExpansionBox()
+    return biomeExpansionBox
+end
+
 function getSRExpansionBox()
     return srExpansionBox
 end
@@ -1251,4 +1362,13 @@ function setSpaceRigExpansionToggle(toggle)
     if (toggle == true) then
         SpaceRigXpacIDs()
     end
+end
+
+-- Mission toggle
+function getMissionActive()
+    return missionActive
+end
+
+function setMissionActive(toggle)
+    missionActive = toggle
 end

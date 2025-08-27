@@ -340,18 +340,17 @@ function ConfirmCleanupButton()
 end
 
 function EnableExpansion()
+    if Global.call('getMissionActive') then
+        printToAll('Unable to set up: Space Rig Expansion', 'Red')
+        printToAll('\nMission in progress detected, cleanup mission before enabling expansion\n', 'Red')
+        return
+    end
+
     self.clearButtons()
 
     Wait.time(function()
         ShowDisableExpansionButton()
     end,2)
-
-    -- Checks if there are players minis in the cleanup zone (on a mission)
-    if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
-        printToAll('Unable to set up: Space Rig Expansion', 'Red')
-        printToAll('Mission in progress detected, cleanup mission before enabling expansion\n', 'Red')
-        return
-    end
 
     printToAll('Setting up: Space Rig Expansion', 'Yellow')
 
@@ -1124,6 +1123,8 @@ function SetUpMissionCards()
         end
     end
 
+    Global.call('SpaceRigXpacIDs')
+
     Wait.time(function()
         -- If the biome expansion isn't toggled, put those mission cards away
         if (Global.call('getBiomeExpansionToggle') == false) then
@@ -1134,22 +1135,23 @@ function SetUpMissionCards()
                 end            
             end        
         end
-    end, 1)
+    end, 1)    
 end
 
 function DisableExpansion()
+    -- Checking to see if player minis are on the board (in the middle of a mission)
+    --if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
+    if Global.call('getMissionActive') then
+        printToAll('Unable to clean up: Space Rig Expansion', 'Red')
+        printToAll('\nMission in progress detected, cleanup mission before disabling expansion\n', 'Red')
+        return
+    end
+
     self.clearButtons()
 
     Wait.time(function()
         ShowEnableExpansionButton()
     end,2)
-
-    -- Checking to see if player minis are on the board (in the middle of a mission)
-    if (Global.Call('getMissionCleanupScript').Call('CheckForPlayersInCleanupZone')) then
-        printToAll('Unable to clean up: Space Rig Expansion', 'Red')
-        printToAll('\nMission in progress detected, cleanup mission before disabling expansion\n', 'Red')
-        return
-    end
 
     printToAll('Cleaning up: Space Rig Expansion', 'Yellow')
 
