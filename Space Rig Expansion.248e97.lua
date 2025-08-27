@@ -1124,15 +1124,17 @@ function SetUpMissionCards()
         end
     end
 
-    -- If the biome expansion isn't toggle, put those mission cards away
-    if (Global.call('getBiomeExpansionToggle') == false) then
-        local objects = getObjectFromGUID(GUIDs.biomeMissionCardsZone).getObjects()
-        for _, object in ipairs(objects) do
-            if (object.type == 'Deck' or object.type == 'Card') then
-                expansionBox.putObject(object)
-            end            
-        end        
-    end    
+    Wait.time(function()
+        -- If the biome expansion isn't toggled, put those mission cards away
+        if (Global.call('getBiomeExpansionToggle') == false) then
+            local objects = getObjectFromGUID(GUIDs.biomeMissionCardsZone).getObjects()
+            for _, object in ipairs(objects) do
+                if (object.type == 'Deck' or object.type == 'Card') then
+                    expansionBox.putObject(object)
+                end            
+            end        
+        end
+    end, 1)
 end
 
 function DisableExpansion()
