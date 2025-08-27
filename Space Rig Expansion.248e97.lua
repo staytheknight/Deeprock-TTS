@@ -118,10 +118,10 @@ local locations =
 
     missionCards = 
     {
-        baseMissionCardsLoc = {-45.19, 1.06, -5.57},
-        biomeMissionCardsLoc = {-42.65, 1.08, -5.55},
-        srMissionCardsLoc = {-40.14, 1.05, -5.54},
-        essenMissionCardLoc = {-45.25, 0.98, -8.87}
+        baseMissionCardsLoc = {-61.32, 1.06, -1.73},
+        biomeMissionCardsLoc = {-55.64, 1.05, -1.82},
+        srMissionCardsLoc = {-58.46, 1.08, -1.75},
+        essenMissionCardLoc = {-61.35, 0.98, -5.20}
     },
     missionCardsRot = {0.0, 180.0, 0.0}
 }
@@ -516,30 +516,30 @@ function EnableExpansion()
         printToAll("Warning: Unable to set up Space Rig Board, it's not in the expansion box", 'Red')
     end
 
-    -- Tracker cube 1 -- bigger cube
+    -- Tracker cube 2 -- bigger cube
     params={
         bag = expansionBox,
         ID = GUIDs.trackerCube1,
     }
     if Global.call('isInBag',params) then
         params.bag.takeObject({
-            position = locations.trackerCube1Loc,
-            rotation = locations.trackerCube1Rot,
+            position = locations.trackerCube2Loc,
+            rotation = locations.trackerCube2Rot,
             guid = params.ID
         })
     else
         printToAll("Warning: Unable to set up Space Rig Board mission number cube, it's not in the expansion box", 'Red')
     end
 
-    -- Tracker cube 2 -- smaller cube
+    -- Tracker cube 1 -- smaller cube
     params={
         bag = expansionBox,
         ID = GUIDs.trackerCube2,
     }
     if Global.call('isInBag',params) then
         params.bag.takeObject({
-            position = locations.trackerCube2Loc,
-            rotation = locations.trackerCube2Rot,
+            position = locations.trackerCube1Loc,
+            rotation = locations.trackerCube1Rot,
             guid = params.ID
         })
     else
@@ -998,6 +998,8 @@ function EnableExpansion()
     beerCardsCount = 0
     oHeartCardsCount = 0
 
+    cardsToPutBack = nil
+
     -- Iterate through everything else in the box, 
     -- This is for things that can't be referenced by GUIDs such as decks and PDFs
     index = #expansionBox.getObjects()
@@ -1044,6 +1046,8 @@ function EnableExpansion()
             obj.setRotation({0.0, 180.0, 180.0})
             obj.setPosition(Global.call('getOHeartDeckZone').GetPosition())
             oHeartCardsCount = oHeartCardsCount + 1
+        else
+            cardsToPutBack = {next = cardsToPutBack, value = obj}
         end
     end
 
@@ -1057,6 +1061,12 @@ function EnableExpansion()
 
     if (oHeartCardsCount < oHeartCardsQuantity) then
         printToAll("Warning: Unable to set up all Ommeran Heart cards, they're not in the expansion box", 'Red')
+    end
+
+    local l = cardsToPutBack
+    while l do
+        expansionBox.putObject(l.value)
+        l = l.next
     end
 
     SetUpMissionCards()
@@ -1075,7 +1085,6 @@ function SetUpMissionCards()
         obj.lock()
 
         if obj.type == "Deck" then
-            deckCount = #obj.getObjects()
             for _, containedObject in ipairs(obj.getObjects()) do
                 if (containedObject.gm_notes == "baseMissionCard") then
                     obj.setLock(false)
@@ -1096,28 +1105,33 @@ function SetUpMissionCards()
             end
         end
 
-        if (obj.gm_notes == "baseMissionCard") then
+        if (obj.getGMNotes() == "baseMissionCard") then
             obj.setLock(false)
             obj.setRotation({0.0, 180.0, 0.0})
             obj.setPosition(locations.missionCards.baseMissionCardsLoc)
-        elseif (obj.gm_notes == "srMissionCard") then
+        elseif (obj.getGMNotes() == "srMissionCard") then
             obj.setLock(false)
             obj.setRotation({0.0, 180.0, 0.0})
             obj.setPosition(locations.missionCards.biomeMissionCardsLoc)
-        elseif (obj.gm_notes == "biomeMissionCard") then
+        elseif (obj.getGMNotes() == "biomeMissionCard") then
             obj.setLock(false)
             obj.setRotation({0.0, 180.0, 0.0})
             obj.setPosition(locations.missionCards.srMissionCardsLoc)
-        elseif (obj.gm_notes == "essenMissionCard") then
+        elseif (obj.getGMNotes() == "essenMissionCard") then
             obj.setLock(false)
             obj.setRotation({0.0, 180.0, 0.0})
-            obj.setPosition(locations.missionCards.srMissionCardsLoc)
+            obj.setPosition(locations.missionCards.essenMissionCardLoc)
         end
     end
 
     -- If the biome expansion isn't toggle, put those mission cards away
     if (Global.call('getBiomeExpansionToggle') == false) then
-        expansionBox.putObject(getObjectFromGUID(GUIDs.biomeMissionCardsZone).getObjects())
+        local objects = getObjectFromGUID(GUIDs.biomeMissionCardsZone).getObjects()
+        for _, object in ipairs(objects) do
+            if (object.type == 'Deck' or object.type == 'Card') then
+                expansionBox.putObject(object)
+            end            
+        end        
     end    
 end
 
@@ -1238,6 +1252,31 @@ function DisableExpansion()
         elseif object.getGMNotes() == "oCube" then
             destroyObject(object)
 
+        
+        -- searching for individual cards (not in decks)
+        elseif object.getGUID() == GUIDs.cards.secondaries[1] then
+            expansionBox.putObject(object)
+        elseif object.getGUID() == GUIDs.cards.secondaries[2] then
+            expansionBox.putObject(object)
+        elseif object.getGUID() == GUIDs.cards.rockAndStone[1] then
+            expansionBox.putObject(object)
+        elseif object.getGUID() == GUIDs.cards.rockAndStone[2] then
+            expansionBox.putObject(object)
+        elseif object.getGMNotes() == "oHeartCard" then
+            expansionBox.putObject(object)
+        elseif object.getGMNotes() == "beerCard" then
+            expansionBox.putObject(object)    
+        elseif object.getGMNotes() == "challengeCard" then
+            expansionBox.putObject(object)    
+        elseif object.getGMNotes() == "srMissionCard" then
+            expansionBox.putObject(object)    
+        elseif object.getGMNotes() == "biomeMissionCard" then
+            expansionBox.putObject(object)    
+        elseif object.getGMNotes() == "essenMissionCard" then
+            expansionBox.putObject(object)
+        elseif object.getGMNotes() == "baseMissionCard" then
+            expansionBox.putObject(object)           
+
         -- Searching decks for cards
         elseif object.type == "Deck" then
             deckPosition = object.getPosition()
@@ -1254,6 +1293,7 @@ function DisableExpansion()
                 or (obj.getGMNotes() == "challengeCard")
                 or (obj.getGMNotes() == "srMissionCard")
                 or (obj.getGMNotes() == "biomeMissionCard")
+                or (obj.getGMNotes() == "baseMissionCard")
                 then
                     expansionBox.putObject(obj)
                 else
@@ -1262,28 +1302,6 @@ function DisableExpansion()
                     obj.setPosition(deckPosition)
                 end
             end
-
-        -- searching for individual cards (not in decks)
-        elseif ob.get.getGUID() == GUIDs.cards.secondaries[1] then
-            expansionBox.putObject(object)
-        elseif ob.get.getGUID() == GUIDs.cards.secondaries[2] then
-            expansionBox.putObject(object)
-        elseif ob.get.getGUID() == GUIDs.cards.rockAndStone[1] then
-            expansionBox.putObject(object)
-        elseif ob.get.getGUID() == GUIDs.cards.rockAndStone[2] then
-            expansionBox.putObject(object)
-        elseif obj.getGMNotes() == "oHeartCard" then
-            expansionBox.putObject(object)
-        elseif obj.getGMNotes() == "beerCard" then
-            expansionBox.putObject(object)    
-        elseif obj.getGMNotes() == "challengeCard" then
-            expansionBox.putObject(object)    
-        elseif obj.getGMNotes() == "srMissionCard" then
-            expansionBox.putObject(object)    
-        elseif obj.getGMNotes() == "biomeMissionCard" then
-            expansionBox.putObject(object)    
-        elseif obj.getGMNotes() == "essenMissionCard" then
-            expansionBox.putObject(object)       
         end
     end
 
