@@ -118,13 +118,13 @@ function setup()
 
     params={
         bag = caveBag,
-        ID = Global.call('getHexPit4GUID'),
+        ID = Global.call('getHexPit2GUID'),
     }
     if Global.call('isInBag',params) then
         caveBag.takeObject({
             position = {-1.65, 1.25, -2.66},
-            rotation = {0.05, 300.00, 0.06},
-            guid = Global.call('getHexPit4GUID'),
+            rotation = {0.06, 179.98, 359.96},
+            guid = Global.call('getHexPit2GUID'),
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
         })

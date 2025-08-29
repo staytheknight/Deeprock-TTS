@@ -313,6 +313,9 @@ function setup()
         end
     end
 
+    -- Fills and shuffles the Space rig exploration tile bag
+    Global.call('fillSRExploreBag')
+
     -- Generating Mineral Bag
     local mineralBag = Global.call('getMineralBag')
 

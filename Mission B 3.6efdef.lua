@@ -88,25 +88,9 @@ function setup()
     }
     if Global.call('isInBag',params) then
         caveBag.takeObject({
-            position = {-2.20, 1.25, 0.20},
+            position = {-4.95, 1.24, -0.75},
             rotation = {0.08, 240.01, 0.06},
-            guid = Global.call('getHexPit4GUID'), -- 5 Hex Pit
-            -- Lock tiles afer spawn
-            callback="afterSpawnLock", callback_owner=Global
-        })
-    else
-        print('Warning: Unable to setup pits, pit tiles are not in the cave bag')
-    end
-
-    params={
-        bag = caveBag,
-        ID = Global.call('getHexPit3GUID'),
-    }
-    if Global.call('isInBag',params) then
-        caveBag.takeObject({
-            position = {-4.40, 1.31, 0.20},
-            rotation = {7.27, 299.97, 359.94},
-            guid = Global.call('getHexPit3GUID'),
+            guid = Global.call('getHexPit4GUID'),
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
         })
@@ -120,8 +104,8 @@ function setup()
     }
     if Global.call('isInBag',params) then
         caveBag.takeObject({
-            position = {-3.85, 1.25, 1.15},
-            rotation = {0.03, 119.99, 359.92},
+            position = {-1.64, 1.25, -0.76},
+            rotation = {0.13, 179.89, 359.82},
             guid = Global.call('getHexPit2GUID'),
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
@@ -132,13 +116,13 @@ function setup()
 
     params={
         bag = caveBag,
-        ID = Global.call('getHexPit5GUID'),
+        ID = Global.call('getHexPit3GUID'),
     }
     if Global.call('isInBag',params) then
         caveBag.takeObject({
-            position = {-5.50, 1.39, -1.71},
-            rotation = {0.01, 120.01, 179.92},
-            guid = Global.call('getHexPit5GUID'), -- 5 Hex Pit
+            position = {-4.36, 1.25, 0.21},
+            rotation = {0.09, 300.40, 0.20},
+            guid = Global.call('getHexPit3GUID'), 
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global
         })
@@ -184,7 +168,7 @@ function setup()
     }
     if Global.call('isInBag',params) then
         caveBag.takeObject({
-            position = {-4.95, 1.39, -2.66},
+            position = {-4.95, 1.24, -2.66},
             rotation = {0.0,0.0,0.0},
             guid = Global.call('getCaveEntrance2GUID'),
             -- Lock tiles afer spawn
