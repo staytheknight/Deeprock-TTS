@@ -1905,6 +1905,7 @@ all here in global - enjoy the mess!-->
     raycastTarget="true"
     width="130"
     height="50"
+    scale="1.3"
     color="rgba(1,1,1,0)"
     allowDragging="true"
     padding="5 5 5 5"

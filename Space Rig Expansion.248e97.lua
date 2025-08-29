@@ -696,7 +696,7 @@ function EnableExpansion()
     if Global.call('isInBag',params) then
         params.bag.takeObject({
             position = locations.upgradesPickaxeBagLoc,
-            rotation = locations.upgradesRot,
+            rotation = {0.0,0.0,0.0},
             guid = params.ID,
             -- Lock tiles afer spawn
             callback="afterSpawnLock", callback_owner=Global

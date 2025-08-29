@@ -7,9 +7,6 @@ local locations =
     biomeCaveBagRot = {0.0, 60.0, 0.0},
 
     -- tokens
-    frozenTokenBagLoc = {0.00, 0.87, 0.00},
-    frozenTokenBagRot = {0.0, 180.0, 0.0},
-
     glyphidEggTokenBagLoc = {-12.65, 1.25, -4.56},
     glyphidEggTokenBagRot = {0.00, 180.00, 180.00},
     fungusBogTokenBagLoc = {-12.65, 0.97, -6.47},
@@ -98,8 +95,6 @@ local GUIDs =
     biomeCaveCocoon = '3c82c8',
 
     -- tokens
-    frozenTokenBag = 'a7d977',
-
     glyphidEggTokenBag = '6d901c',
     fungusBogTokenBag = '31336f',
 
@@ -329,22 +324,6 @@ function EnableExpansion()
     end
 
     --Token Setup
-    params={
-        bag = expansionBox,
-        ID = GUIDs.frozenTokenBag,
-    }
-    if Global.call('isInBag',params) then
-        params.bag.takeObject({
-            position = locations.frozenTokenBagLoc,
-            rotation = locations.frozenTokenBagRot,
-            guid = params.ID,
-            -- Lock tiles afer spawn
-            callback="afterSpawnLock", callback_owner=Global
-        })
-    else
-        printToAll("Warning: Unable to set up Frozen Token Bag, it's not in the expansion box", 'Red')
-    end
-
     params={
         bag = expansionBox,
         ID = GUIDs.glyphidEggTokenBag,
@@ -1145,8 +1124,6 @@ function DisableExpansion()
             objGUID == GUIDs.biomeCaveCocoon) then
                 Global.call('getBiomeCaveBag').putObject(object)
 
-        elseif object.getGMNotes() == "Frozen" then -- put frozen token in frozen token bag
-            Global.call('getFrozenBag').putObject(object)
         elseif object.getGMNotes() == "pSpore" then -- put spore token in spore token bag
             Global.call('getPoisonSporeBag').putObject(object)
         elseif object.getGMNotes() == "mMule" then
@@ -1300,7 +1277,6 @@ function DisableExpansion()
         objects = getAllObjects()
         for _, object in ipairs(objects) do
             if (object.getGUID() == GUIDs.biomeCaveBag)
-            or (object.getGUID() == GUIDs.frozenTokenBag)
             or (object.getGUID() == GUIDs.fungusBogTokenBag)
             or (object.getGUID() == GUIDs.glyphidEggTokenBag)
             or (object.getGUID() == GUIDs.muleTokenBag)

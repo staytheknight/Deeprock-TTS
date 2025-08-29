@@ -1,0 +1,125 @@
+-- 1 Webspitter
+-- 1 Stalagmite
+-- 1 Exploration Tile
+-- 1 Weapon Upgrade Tile
+
+spawnLocations={
+    -- These locations are relative to the spawn point
+    webspitterLoc=Vector{1.1,1.0,1.9},
+    stalagLoc=Vector{0.55,1.0,0.95},
+    explorationTileLoc=Vector{0.0,0.0,0.0},
+    weaponUpgradeLoc=Vector{-0.55,1.0,0.95}
+}
+
+function onLoad()
+    self.createButton(
+        {click_function='Reveal', function_owner=self, label='Reveal',
+        position={0.0 , 0.2 , 0.3}, rotation={0.0, 0.0, 0.0}, width=500, height=100, font_size=200,
+        scale={1.0,1.0,1.0}, color={0.0, 0.0, 0.0, 0.0}, font_color={252.8,245.0,0.0, 255.0},
+        tooltip='Flip & Populate Cave Segment'}
+    )
+end
+
+function Reveal()
+    self.flip()
+    Wait.time(selfLock, 3)
+    local webspitterBag = Global.call('getWebSpitterBag')
+    local gruntBag = Global.call('getGruntBag')
+    local stalagBag = Global.call('getStalagmiteModelBag')
+    local explorationBag = Global.call('getExplorationBag')
+    local weaponUpgradeBag = Global.call('getWeaponUpgradeBag')
+
+    local bagEmpty
+
+    bagEmpty = Global.call('isBagEmpty',webspitterBag)
+    -- if the bag is not empty then
+    if bagEmpty == false then
+        webspitterBag.takeObject({
+            position = self.getPosition() + rotatePos(spawnLocations.webspitterLoc),
+        })
+    else
+        print('Warning: Unable to spawn Webspitter, bag is empty, replacing with Grunt')
+        bagEmpty = Global.call('isBagEmpty',gruntBag)
+        -- if the bag is not empty then
+        if bagEmpty == false then
+            gruntBag.takeObject({position = self.getPosition() + rotatePos(spawnLocations.webspitterLoc)})
+        else
+            print('Warning: Unable to spawn Grunt, bag empty')
+        end
+    end
+
+    stalagBag.takeObject({position = self.getPosition() + rotatePos(spawnLocations.stalagLoc)})
+
+    -- Boolean if it's doing a refinery mission
+    refineryMission = false
+
+    -- Checks all objects in the play zone to see if the refinery is in play
+    -- if it is in play then set the mission type of refineryMission to true
+    local zone = Global.call('getCleanupZone')
+    local objectsInZone = zone.getObjects()
+    for _, object in ipairs(objectsInZone) do
+        if object.getGMNotes() == "refinery" then
+            refineryMission = true;
+        end
+    end
+
+    -- If the current mission is a refinery mission, set the explorationBag
+    -- to be the pumpjack bag instead - pumpjacks will be placed instead of exploration tokens
+    if refineryMission then
+        explorationBag = Global.call('getPumpjackBag')
+        -- Pumpjack
+        bagEmpty = Global.call('isBagEmpty',explorationBag)
+        -- if the bag is not empty then
+        if bagEmpty == false then
+            position = rotatePos(spawnLocations.explorationTileLoc)
+            explorationBag.takeObject({
+                position = self.getPosition() + position - Vector{0.0,1.0,0.0},
+                rotation = self.getRotation() + Vector{0.0,0.0,0.0},
+                callback="afterSpawnLock", callback_owner=Global
+            })
+        else
+            print('Warning: Unable to place pumpjack, the bag is empty')
+        end
+    else
+        -- Exploration Token
+        bagEmpty = Global.call('isBagEmpty',explorationBag)
+        -- if the bag is not empty then
+        if bagEmpty == false then
+            position = rotatePos(spawnLocations.explorationTileLoc)
+            explorationBag.takeObject({
+                position = self.getPosition() + position,
+                rotation = self.getRotation() + Vector{0.0,0.0,180.0}
+            })
+        else
+            print('Warning: No more exploration tokens available to be placed in cave segment')
+        end
+    end
+
+    -- Weapon Upgrade Token
+    bagEmpty = Global.call('isBagEmpty',weaponUpgradeBag)
+    -- if the bag is not empty then
+    if bagEmpty == false then
+        position = rotatePos(spawnLocations.weaponUpgradeLoc)
+        weaponUpgradeBag.takeObject({
+            position = self.getPosition() + position,
+            rotation = Vector{0.0,0.0,180.0}
+        })
+    else
+        print('Warning: No more weapon upgrade tokens available to be placed in cave segment')
+    end
+end
+
+
+function rotatePos(pos)
+    local posX,posY,posZ = pos:get()
+    local rot = self.getRotation()
+    local rotX,rotY,rotZ = rot:get()
+    rotatedPos = Vector{math.cos(math.rad(rotY))*posX + math.sin(math.rad(rotY))*posZ,
+                  1.1,
+                  -math.sin(math.rad(rotY))*posX + math.cos(math.rad(rotY))*posZ}
+    return rotatedPos
+end
+
+function selfLock()
+    self.lock()
+end

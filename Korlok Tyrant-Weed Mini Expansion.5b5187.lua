@@ -286,15 +286,17 @@ function EnableExpansion()
     }
 
     if Global.call('isInBag',params) then
-        params.bag.takeObject({
-            guid = params.ID,
-            callback_function = function(takenObj)
-                Global.Call('getHiddenCaveBag').putObject(takenObj)
-            end
+        hiddenCave = params.bag.takeObject({
+            rotation = {0.0,0.0,0.0},
+            guid = params.ID
         })
     else
         printToAll("Warning: Unable to set up Korlok hidden cave segment, it's not in the expansion box", 'Red')
     end
+
+    Global.Call('getHiddenCaveBag').putObject(hiddenCave)
+
+    Global.Call('getHiddenCaveBag').shuffle()
 
     Global.call('KorlokXpacIDs')
 end
